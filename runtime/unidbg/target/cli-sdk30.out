@@ -1,0 +1,950 @@
+Find native function Java_com_adjust_sdk_sig_NativeLibHelper_nSign => RX@0x400a95ac[libsigner.so]0xa95ac
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("environment") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("environment") => "sandbox") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("sandbox") was called from RX@0x4008bcd0[libsigner.so]0x8bcd0
+JNIEnv->GetStringUtfChars("sandbox") was called from RX@0x4008bc7c[libsigner.so]0x8bc7c
+JNIEnv->ReleaseStringUTFChars("sandbox") was called from RX@0x4008bd48[libsigner.so]0x8bd48
+JNIEnv->GetMethodID(android/content/Context.getPackageName()Ljava/lang/String;) => 0xf6590850 was called from RX@0x40090104[libsigner.so]0x90104
+JNIEnv->CallObjectMethod(android.content.Context@a1153bc, getPackageName() => "com.adjust.fixture") was called from RX@0x40090438[libsigner.so]0x90438
+JNIEnv->GetMethodID(android/content/Context.getPackageManager()Landroid/content/pm/PackageManager;) => 0x3acc78f0 was called from RX@0x4009121c[libsigner.so]0x9121c
+JNIEnv->CallObjectMethod(android.content.Context@a1153bc, getPackageManager() => android.content.pm.PackageManager@1f2586d6) was called from RX@0x400912c4[libsigner.so]0x912c4
+JNIEnv->GetMethodID(android/content/pm/PackageManager.getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;) => 0x3bca8377 was called from RX@0x40097784[libsigner.so]0x97784
+JNIEnv->CallObjectMethod(android.content.pm.PackageManager@1f2586d6, getPackageInfo("com.adjust.fixture", 0x8000000) => android.content.pm.PackageInfo@3fc2959f) was called from RX@0x40097658[libsigner.so]0x97658
+JNIEnv->GetFieldID(android/content/pm/PackageInfo.signingInfo Landroid/content/pm/SigningInfo;) => 0x2d606188 was called from RX@0x400963f4[libsigner.so]0x963f4
+JNIEnv->GetObjectField(android.content.pm.PackageInfo@3fc2959f, signingInfo Landroid/content/pm/SigningInfo; => android.content.pm.SigningInfo@139982de) was called from RX@0x40096488[libsigner.so]0x96488
+JNIEnv->GetMethodID(android/content/pm/SigningInfo.hasMultipleSigners()Z) => 0xdb4191b2 was called from RX@0x400a0f84[libsigner.so]0xa0f84
+JNIEnv->CallBooleanMethod(android.content.pm.SigningInfo@139982de, hasMultipleSigners() => false) was called from RX@0x400a0dbc[libsigner.so]0xa0dbc
+JNIEnv->GetMethodID(android/content/pm/SigningInfo.getSigningCertificateHistory()[Landroid/content/pm/Signature;) => 0x95dfa6b9 was called from RX@0x400a04b0[libsigner.so]0xa04b0
+JNIEnv->CallObjectMethod(android.content.pm.SigningInfo@139982de, getSigningCertificateHistory() => [android.content.pm.Signature@217ed35e]) was called from RX@0x400a059c[libsigner.so]0xa059c
+JNIEnv->GetObjectArrayElement([android.content.pm.Signature@217ed35e], 0) => android.content.pm.Signature@217ed35e was called from RX@0x4001e298[libsigner.so]0x1e298
+JNIEnv->GetMethodID(android/content/pm/Signature.toByteArray()[B) => 0x6a3e2031 was called from RX@0x4009eefc[libsigner.so]0x9eefc
+JNIEnv->CallObjectMethod(android.content.pm.Signature@217ed35e, toByteArray() => [B@0x61646a7573742d7369676e61747572652d666978747572652d6365727469666963617465) was called from RX@0x4009e908[libsigner.so]0x9e908
+JNIEnv->FindClass(java/security/MessageDigest) was called from RX@0x4008c3f4[libsigner.so]0x8c3f4
+JNIEnv->GetStaticMethodID(java/security/MessageDigest.getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;) => 0x5c20796 was called from RX@0x4008c214[libsigner.so]0x8c214
+JNIEnv->NewStringUTF("SHA1") was called from RX@0x4008cad4[libsigner.so]0x8cad4
+JNIEnv->CallStaticObjectMethod(class java/security/MessageDigest, getInstance("SHA1") => java.security.MessageDigest@74e52ef6) was called from RX@0x4008cda8[libsigner.so]0x8cda8
+JNIEnv->GetMethodID(java/security/MessageDigest.update([B)V) => 0x7d1a6599 was called from RX@0x4008d3b8[libsigner.so]0x8d3b8
+JNIEnv->CallVoidMethod(java.security.MessageDigest@74e52ef6, update([B@0x61646a7573742d7369676e61747572652d666978747572652d6365727469666963617465)) was called from RX@0x4008d7c8[libsigner.so]0x8d7c8
+JNIEnv->GetMethodID(java/security/MessageDigest.digest()[B) => 0x6ccd1d46 was called from RX@0x4008e2a4[libsigner.so]0x8e2a4
+JNIEnv->CallObjectMethod(java.security.MessageDigest@74e52ef6, digest() => [B@0x981bd94063a5bdfb85c41c9ba2c8df8593a84123) was called from RX@0x4008dffc[libsigner.so]0x8dffc
+JNIEnv->GetArrayLength([B@0x981bd94063a5bdfb85c41c9ba2c8df8593a84123 => 20) was called from RX@0x400709fc[libsigner.so]0x709fc
+JNIEnv->GetByteArrayElements(false) => [B@0x981bd94063a5bdfb85c41c9ba2c8df8593a84123 was called from RX@0x40070d40[libsigner.so]0x70d40
+JNIEnv->FindClass(android/content/Context) was called from RX@0x40093528[libsigner.so]0x93528
+JNIEnv->GetMethodID(android/content/Context.getSystemService(Ljava/lang/String;)Ljava/lang/Object;) => 0x545bcf2d was called from RX@0x400930f8[libsigner.so]0x930f8
+JNIEnv->GetStaticFieldID(android/content/Context.SENSOR_SERVICELjava/lang/String;) => 0xc2fd32a was called from RX@0x400932cc[libsigner.so]0x932cc
+JNIEnv->GetStaticObjectField(class android/content/Context, SENSOR_SERVICE Ljava/lang/String; => "sensor") was called from RX@0x40092934[libsigner.so]0x92934
+JNIEnv->CallObjectMethod(android.content.Context@a1153bc, getSystemService("sensor") => android.hardware.SensorManager@15de0b3c) was called from RX@0x40092764[libsigner.so]0x92764
+JNIEnv->GetMethodID(android/hardware/SensorManager.getSensorList(I)Ljava/util/List;) => 0xcbe7ed08 was called from RX@0x4009d090[libsigner.so]0x9d090
+JNIEnv->CallObjectMethod(android.hardware.SensorManager@15de0b3c, getSensorList(0xffffffff) => java.util.ArrayList@489115ef) was called from RX@0x4009ccac[libsigner.so]0x9ccac
+JNIEnv->GetMethodID(java/util/ArrayList.size()I) => 0x7c07529f was called from RX@0x40085dac[libsigner.so]0x85dac
+JNIEnv->CallIntMethod(java.util.ArrayList@489115ef, size() => 0x0) was called from RX@0x400857fc[libsigner.so]0x857fc
+JNIEnv->FindClass(android/content/res/Resources) was called from RX@0x40098238[libsigner.so]0x98238
+JNIEnv->GetStaticMethodID(android/content/res/Resources.getSystem()Landroid/content/res/Resources;) => 0x9b6c6e52 was called from RX@0x400985f0[libsigner.so]0x985f0
+JNIEnv->CallStaticObjectMethod(class android/content/res/Resources, getSystem() => android.content.res.Resources@3857f613) was called from RX@0x400984c0[libsigner.so]0x984c0
+JNIEnv->GetMethodID(android/content/res/Resources.getDisplayMetrics()Landroid/util/DisplayMetrics;) => 0xe38a1df2 was called from RX@0x40099df0[libsigner.so]0x99df0
+JNIEnv->CallObjectMethod(android.content.res.Resources@3857f613, getDisplayMetrics() => android.util.DisplayMetrics@198b6731) was called from RX@0x400999f0[libsigner.so]0x999f0
+JNIEnv->GetFieldID(android/util/DisplayMetrics.widthPixels I) => 0x6be4c703 was called from RX@0x4008f338[libsigner.so]0x8f338
+JNIEnv->GetIntField(android.util.DisplayMetrics@198b6731, widthPixels => 0x438) was called from RX@0x4008f0a4[libsigner.so]0x8f0a4
+JNIEnv->GetFieldID(android/util/DisplayMetrics.heightPixels I) => 0x6cb02cc2 was called from RX@0x4008f338[libsigner.so]0x8f338
+JNIEnv->GetIntField(android.util.DisplayMetrics@198b6731, heightPixels => 0x780) was called from RX@0x4008f0a4[libsigner.so]0x8f0a4
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("client_sdk") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("client_sdk") => "android5.4.1") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("android5.4.1") was called from RX@0x4008bcd0[libsigner.so]0x8bcd0
+JNIEnv->GetStringUtfChars("android5.4.1") was called from RX@0x4008bc7c[libsigner.so]0x8bc7c
+JNIEnv->ReleaseStringUTFChars("android5.4.1") was called from RX@0x4008bd48[libsigner.so]0x8bd48
+JNIEnv->FindClass(java/lang/Thread) was called from RX@0x400a5420[libsigner.so]0xa5420
+JNIEnv->GetStaticMethodID(java/lang/Thread.currentThread()Ljava/lang/Thread;) => 0xb11dab06 was called from RX@0x400a5218[libsigner.so]0xa5218
+JNIEnv->CallStaticObjectMethod(class java/lang/Thread, currentThread() => java.lang.Thread@3bf7ca37) was called from RX@0x400a44c4[libsigner.so]0xa44c4
+JNIEnv->GetMethodID(java/lang/Thread.getStackTrace()[Ljava/lang/StackTraceElement;) => 0xb5a73646 was called from RX@0x400a37a8[libsigner.so]0xa37a8
+JNIEnv->FindClass(java/lang/StackTraceElement) was called from RX@0x400a469c[libsigner.so]0xa469c
+JNIEnv->GetMethodID(java/lang/StackTraceElement.getClassName()Ljava/lang/String;) => 0x24f40ed4 was called from RX@0x400a4470[libsigner.so]0xa4470
+JNIEnv->GetMethodID(java/lang/StackTraceElement.getMethodName()Ljava/lang/String;) => 0x88b83731 was called from RX@0x400a49dc[libsigner.so]0xa49dc
+JNIEnv->CallObjectMethod(java.lang.Thread@3bf7ca37, getStackTrace() => [java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd]) was called from RX@0x400a463c[libsigner.so]0xa463c
+JNIEnv->GetArrayLength([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd] => 25) was called from RX@0x400a4ef8[libsigner.so]0xa4ef8
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 0) => java.lang.StackTraceElement@4d1c00d0 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@4d1c00d0, getClassName() => "java.lang.Thread") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("java.lang.Thread") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("java.lang.Thread") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@4d1c00d0, getMethodName() => "getStackTrace") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("getStackTrace") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("getStackTrace") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("java.lang.Thread") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("getStackTrace") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 1) => java.lang.StackTraceElement@4b2bac3f was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@4b2bac3f, getClassName() => "com.adjust.research.AndroidRuntimeJni") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.adjust.research.AndroidRuntimeJni") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.adjust.research.AndroidRuntimeJni") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@4b2bac3f, getMethodName() => "handleObjectCall") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("handleObjectCall") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("handleObjectCall") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.adjust.research.AndroidRuntimeJni") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("handleObjectCall") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 2) => java.lang.StackTraceElement@4e08711f was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@4e08711f, getClassName() => "com.adjust.research.AndroidRuntimeJni") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.adjust.research.AndroidRuntimeJni") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.adjust.research.AndroidRuntimeJni") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@4e08711f, getMethodName() => "callObjectMethod") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("callObjectMethod") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("callObjectMethod") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.adjust.research.AndroidRuntimeJni") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("callObjectMethod") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 3) => java.lang.StackTraceElement@bcec361 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@bcec361, getClassName() => "com.github.unidbg.linux.android.dvm.AbstractJni") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.linux.android.dvm.AbstractJni") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.linux.android.dvm.AbstractJni") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@bcec361, getMethodName() => "callObjectMethod") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("callObjectMethod") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("callObjectMethod") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.linux.android.dvm.AbstractJni") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("callObjectMethod") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 4) => java.lang.StackTraceElement@26794848 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@26794848, getClassName() => "com.github.unidbg.linux.android.dvm.DvmMethod") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.linux.android.dvm.DvmMethod") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.linux.android.dvm.DvmMethod") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@26794848, getMethodName() => "callObjectMethod") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("callObjectMethod") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("callObjectMethod") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.linux.android.dvm.DvmMethod") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("callObjectMethod") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 5) => java.lang.StackTraceElement@302552ec was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@302552ec, getClassName() => "com.github.unidbg.linux.android.dvm.DalvikVM64$31") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.linux.android.dvm.DalvikVM64$31") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.linux.android.dvm.DalvikVM64$31") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@302552ec, getMethodName() => "handle") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("handle") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("handle") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.linux.android.dvm.DalvikVM64$31") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("handle") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 6) => java.lang.StackTraceElement@3d285d7e was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@3d285d7e, getClassName() => "com.github.unidbg.linux.ARM64SyscallHandler") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.linux.ARM64SyscallHandler") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.linux.ARM64SyscallHandler") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@3d285d7e, getMethodName() => "hook") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("hook") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("hook") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.linux.ARM64SyscallHandler") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("hook") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 7) => java.lang.StackTraceElement@40005471 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@40005471, getClassName() => "com.github.unidbg.arm.backend.Unicorn2Backend$11") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.arm.backend.Unicorn2Backend$11") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.arm.backend.Unicorn2Backend$11") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@40005471, getMethodName() => "hook") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("hook") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("hook") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.arm.backend.Unicorn2Backend$11") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("hook") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 8) => java.lang.StackTraceElement@2cd76f31 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@2cd76f31, getClassName() => "com.github.unidbg.arm.backend.unicorn.Unicorn$NewHook") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.arm.backend.unicorn.Unicorn$NewHook") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.arm.backend.unicorn.Unicorn$NewHook") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@2cd76f31, getMethodName() => "onInterrupt") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("onInterrupt") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("onInterrupt") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.arm.backend.unicorn.Unicorn$NewHook") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("onInterrupt") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 9) => java.lang.StackTraceElement@367ffa75 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@367ffa75, getClassName() => "com.github.unidbg.arm.backend.unicorn.Unicorn") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.arm.backend.unicorn.Unicorn") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.arm.backend.unicorn.Unicorn") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@367ffa75, getMethodName() => "emu_start") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("emu_start") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("emu_start") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.arm.backend.unicorn.Unicorn") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("emu_start") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 10) => java.lang.StackTraceElement@49438269 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@49438269, getClassName() => "com.github.unidbg.arm.backend.unicorn.Unicorn") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.arm.backend.unicorn.Unicorn") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.arm.backend.unicorn.Unicorn") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@49438269, getMethodName() => "emu_start") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("emu_start") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("emu_start") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.arm.backend.unicorn.Unicorn") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("emu_start") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 11) => java.lang.StackTraceElement@ba2f4ec was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@ba2f4ec, getClassName() => "com.github.unidbg.arm.backend.Unicorn2Backend") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.arm.backend.Unicorn2Backend") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.arm.backend.Unicorn2Backend") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@ba2f4ec, getMethodName() => "emu_start") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("emu_start") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("emu_start") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.arm.backend.Unicorn2Backend") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("emu_start") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 12) => java.lang.StackTraceElement@1c1bbc4e was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@1c1bbc4e, getClassName() => "com.github.unidbg.AbstractEmulator") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.AbstractEmulator") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.AbstractEmulator") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@1c1bbc4e, getMethodName() => "emulate") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("emulate") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("emulate") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.AbstractEmulator") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("emulate") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 13) => java.lang.StackTraceElement@55fe41ea was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@55fe41ea, getClassName() => "com.github.unidbg.thread.Function64") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.thread.Function64") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.thread.Function64") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@55fe41ea, getMethodName() => "run") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("run") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("run") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.thread.Function64") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("run") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 14) => java.lang.StackTraceElement@fbd1f6 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@fbd1f6, getClassName() => "com.github.unidbg.thread.MainTask") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.thread.MainTask") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.thread.MainTask") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@fbd1f6, getMethodName() => "dispatch") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("dispatch") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("dispatch") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.thread.MainTask") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("dispatch") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 15) => java.lang.StackTraceElement@1ce24091 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@1ce24091, getClassName() => "com.github.unidbg.thread.UniThreadDispatcher") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.thread.UniThreadDispatcher") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.thread.UniThreadDispatcher") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@1ce24091, getMethodName() => "run") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("run") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("run") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.thread.UniThreadDispatcher") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("run") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 16) => java.lang.StackTraceElement@5dda768f was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@5dda768f, getClassName() => "com.github.unidbg.thread.UniThreadDispatcher") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.thread.UniThreadDispatcher") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.thread.UniThreadDispatcher") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@5dda768f, getMethodName() => "runMainForResult") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("runMainForResult") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("runMainForResult") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.thread.UniThreadDispatcher") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("runMainForResult") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 17) => java.lang.StackTraceElement@7a8c8dcf was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@7a8c8dcf, getClassName() => "com.github.unidbg.AbstractEmulator") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.AbstractEmulator") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.AbstractEmulator") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@7a8c8dcf, getMethodName() => "runMainForResult") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("runMainForResult") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("runMainForResult") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.AbstractEmulator") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("runMainForResult") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 18) => java.lang.StackTraceElement@24269709 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@24269709, getClassName() => "com.github.unidbg.arm.AbstractARM64Emulator") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.arm.AbstractARM64Emulator") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.arm.AbstractARM64Emulator") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@24269709, getMethodName() => "eFunc") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("eFunc") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("eFunc") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.arm.AbstractARM64Emulator") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("eFunc") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@4d1c00d0, java.lang.StackTraceElement@4b2bac3f, java.lang.StackTraceElement@4e08711f, java.lang.StackTraceElement@bcec361, java.lang.StackTraceElement@26794848, java.lang.StackTraceElement@302552ec, java.lang.StackTraceElement@3d285d7e, java.lang.StackTraceElement@40005471, java.lang.StackTraceElement@2cd76f31, java.lang.StackTraceElement@367ffa75, java.lang.StackTraceElement@49438269, java.lang.StackTraceElement@ba2f4ec, java.lang.StackTraceElement@1c1bbc4e, java.lang.StackTraceElement@55fe41ea, java.lang.StackTraceElement@fbd1f6, java.lang.StackTraceElement@1ce24091, java.lang.StackTraceElement@5dda768f, java.lang.StackTraceElement@7a8c8dcf, java.lang.StackTraceElement@24269709, java.lang.StackTraceElement@2aceadd4, java.lang.StackTraceElement@24aed80c, java.lang.StackTraceElement@3a52dba3, java.lang.StackTraceElement@2a5c8d3f, java.lang.StackTraceElement@752325ad, java.lang.StackTraceElement@279fedbd], 19) => java.lang.StackTraceElement@2aceadd4 was called from RX@0x400a54d0[libsigner.so]0xa54d0
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@2aceadd4, getClassName() => "com.github.unidbg.Module") was called from RX@0x400a532c[libsigner.so]0xa532c
+JNIEnv->GetStringUTFLength("com.github.unidbg.Module") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.github.unidbg.Module") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@2aceadd4, getMethodName() => "emulateFunction") was called from RX@0x400a4518[libsigner.so]0xa4518
+JNIEnv->GetStringUTFLength("emulateFunction") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("emulateFunction") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.github.unidbg.Module") was called from RX@0x400a50b8[libsigner.so]0xa50b8
+JNIEnv->ReleaseStringUTFChars("emulateFunction") was called from RX@0x400a4884[libsigner.so]0xa4884
+JNIEnv->FindClass(java/security/KeyStore) was called from RX@0x40081f6c[libsigner.so]0x81f6c
+JNIEnv->GetStaticMethodID(java/security/KeyStore.getInstance(Ljava/lang/String;)Ljava/security/KeyStore;) => 0x84aaea18 was called from RX@0x40081c88[libsigner.so]0x81c88
+JNIEnv->NewStringUTF("AndroidKeyStore") was called from RX@0x40081ed8[libsigner.so]0x81ed8
+JNIEnv->CallStaticObjectMethod(class java/security/KeyStore, getInstance("AndroidKeyStore") => java.security.KeyStore@7dc0f706) was called from RX@0x40081448[libsigner.so]0x81448
+JNIEnv->GetMethodID(java/security/KeyStore.load(Ljava/security/KeyStore$LoadStoreParameter;)V) => 0x5499ce39 was called from RX@0x40082950[libsigner.so]0x82950
+JNIEnv->CallVoidMethod(java.security.KeyStore@7dc0f706, load(null)) was called from RX@0x400827f8[libsigner.so]0x827f8
+JNIEnv->GetMethodID(java/security/KeyStore.getKey(Ljava/lang/String;[C)Ljava/security/Key;) => 0x594e481d was called from RX@0x40084874[libsigner.so]0x84874
+JNIEnv->NewStringUTF("key2") was called from RX@0x40084788[libsigner.so]0x84788
+JNIEnv->CallObjectMethod(java.security.KeyStore@7dc0f706, getKey("key2", null) => java.security.Key@43c1b556) was called from RX@0x40084614[libsigner.so]0x84614
+JNIEnv->GetMethodID(java/util/Map.toString()Ljava/lang/String;) => 0x4e92be64 was called from RX@0x40077e38[libsigner.so]0x77e38
+JNIEnv->CallObjectMethod(java.util.Map@55141def, toString() => "{environment=sandbox, app_token=test_token, event_token=event_123, activity_kind=event, client_sdk=android5.4.1}") was called from RX@0x40077ed4[libsigner.so]0x77ed4
+JNIEnv->GetMethodID(java/lang/String.getBytes()[B) => 0x8b04c6b3 was called from RX@0x40078b3c[libsigner.so]0x78b3c
+JNIEnv->CallObjectMethod("{environment=sandbox, app_token=test_token, event_token=event_123, activity_kind=event, client_sdk=android5.4.1}", getBytes() => [B@22fcf7ab) was called from RX@0x40078a74[libsigner.so]0x78a74
+JNIEnv->FindClass(javax/crypto/Mac) was called from RX@0x400878e8[libsigner.so]0x878e8
+JNIEnv->GetStaticMethodID(javax/crypto/Mac.getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;) => 0xcb3c802c was called from RX@0x40087814[libsigner.so]0x87814
+JNIEnv->NewStringUTF("HmacSHA256") was called from RX@0x40087350[libsigner.so]0x87350
+JNIEnv->CallStaticObjectMethod(class javax/crypto/Mac, getInstance("HmacSHA256") => javax.crypto.Mac@4988d8b8) was called from RX@0x40087784[libsigner.so]0x87784
+JNIEnv->GetMethodID(javax/crypto/Mac.init(Ljava/security/Key;)V) => 0x4dc2978a was called from RX@0x400883fc[libsigner.so]0x883fc
+JNIEnv->CallVoidMethod(javax.crypto.Mac@4988d8b8, init(java.security.Key@43c1b556)) was called from RX@0x40088170[libsigner.so]0x88170
+JNIEnv->GetMethodID(javax/crypto/Mac.update([B)V) => 0xb5fb4bc8 was called from RX@0x40088a18[libsigner.so]0x88a18
+JNIEnv->CallVoidMethod(javax.crypto.Mac@4988d8b8, update([B@22fcf7ab)) was called from RX@0x40088b50[libsigner.so]0x88b50
+JNIEnv->GetMethodID(javax/crypto/Mac.doFinal()[B) => 0x7cf45228 was called from RX@0x400898a8[libsigner.so]0x898a8
+JNIEnv->CallObjectMethod(javax.crypto.Mac@4988d8b8, doFinal() => [B@0x0153a16ace52f2ecdc9f8376e8d4964f65cc820a79bb487a32f6bb0b6a425f36) was called from RX@0x40089900[libsigner.so]0x89900
+JNIEnv->GetArrayLength([B@0x0153a16ace52f2ecdc9f8376e8d4964f65cc820a79bb487a32f6bb0b6a425f36 => 32) was called from RX@0x400704f0[libsigner.so]0x704f0
+JNIEnv->GetByteArrayRegion([B@0x0153a16ace52f2ecdc9f8376e8d4964f65cc820a79bb487a32f6bb0b6a425f36, 0, 32, RW@0x40476040) was called from RX@0x40070648[libsigner.so]0x70648
+JNIEnv->GetArrayLength([B@0x0153a16ace52f2ecdc9f8376e8d4964f65cc820a79bb487a32f6bb0b6a425f36 => 32) was called from RX@0x400704f0[libsigner.so]0x704f0
+JNIEnv->GetByteArrayRegion([B@0x0153a16ace52f2ecdc9f8376e8d4964f65cc820a79bb487a32f6bb0b6a425f36, 0, 32, RW@0x40476060) was called from RX@0x40070648[libsigner.so]0x70648
+JNIEnv->GetMethodID(android/content/Context.getPackageName()Ljava/lang/String;) => 0xf6590850 was called from RX@0x40090104[libsigner.so]0x90104
+JNIEnv->CallObjectMethod(android.content.Context@a1153bc, getPackageName() => "com.adjust.fixture") was called from RX@0x40090438[libsigner.so]0x90438
+JNIEnv->GetStringUTFLength("com.adjust.fixture") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("com.adjust.fixture") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("com.adjust.fixture") was called from RX@0x4007079c[libsigner.so]0x7079c
+JNIEnv->NewStringUTF("com.adjust.fixture") was called from RX@0x4001b304[libsigner.so]0x1b304
+JNIEnv->GetMethodID(android/content/Context.getPackageManager()Landroid/content/pm/PackageManager;) => 0x3acc78f0 was called from RX@0x4009121c[libsigner.so]0x9121c
+JNIEnv->CallObjectMethod(android.content.Context@a1153bc, getPackageManager() => android.content.pm.PackageManager@66d18979) was called from RX@0x400912c4[libsigner.so]0x912c4
+JNIEnv->GetMethodID(android/content/pm/PackageManager.getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;) => 0xa0bf5ae3 was called from RX@0x40096d58[libsigner.so]0x96d58
+JNIEnv->CallObjectMethod(android.content.pm.PackageManager@66d18979, getApplicationInfo("com.adjust.fixture", 0x0) => android.content.pm.ApplicationInfo@bccb269) was called from RX@0x40096ecc[libsigner.so]0x96ecc
+JNIEnv->GetFieldID(android/content/pm/ApplicationInfo.publicSourceDir Ljava/lang/String;) => 0x99206b6e was called from RX@0x4008f9bc[libsigner.so]0x8f9bc
+JNIEnv->GetObjectField(android.content.pm.ApplicationInfo@bccb269, publicSourceDir Ljava/lang/String; => "/data/app/com.adjust.fixture/base.apk") was called from RX@0x4008fd28[libsigner.so]0x8fd28
+JNIEnv->GetStringUTFLength("/data/app/com.adjust.fixture/base.apk") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("/data/app/com.adjust.fixture/base.apk") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("/data/app/com.adjust.fixture/base.apk") was called from RX@0x4007079c[libsigner.so]0x7079c
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ad_impressions_count") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ad_impressions_count") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ad_revenue_network") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ad_revenue_network") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ad_revenue_placement") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ad_revenue_placement") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ad_revenue_unit") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ad_revenue_unit") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("adgroup") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("adgroup") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("android_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("android_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("android_uuid") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("android_uuid") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("api_level") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("api_level") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("app_secret") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("app_secret") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("app_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("app_token") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("app_token") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("app_token") => "test_token") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("test_token") was called from RX@0x4006dd80[libsigner.so]0x6dd80
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("app_version") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("app_version") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("app_version_short") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("app_version_short") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("att_status") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("att_status") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("bundle_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("bundle_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("callback_params") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("callback_params") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("campaign") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("campaign") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("click_time") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("click_time") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("click_time_server") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("click_time_server") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("country") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("country") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("created_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("created_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("creative") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("creative") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("currency") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("currency") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("deduplication_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("deduplication_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("default_tracker") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("default_tracker") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("details") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("details") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("device_known") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("device_known") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("device_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("device_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("device_type") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("device_type") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("environment") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("environment") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("environment") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("environment") => "sandbox") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("sandbox") was called from RX@0x4006dd80[libsigner.so]0x6dd80
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("event_callback_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("event_callback_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("event_count") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("event_count") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("event_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("event_token") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("event_token") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("event_token") => "event_123") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("event_123") was called from RX@0x4006dd80[libsigner.so]0x6dd80
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("external_device_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("external_device_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("fb_anon_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("fb_anon_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("fb_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("fb_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ff_app_set_id_disabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ff_app_set_id_disabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ff_att_disabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ff_att_disabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ff_idfv_disabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ff_idfv_disabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ff_odm_enabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ff_odm_enabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("fire_adid") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("fire_adid") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("fire_tracking_enabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("fire_tracking_enabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("found_location") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("found_location") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("google_play_instant") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("google_play_instant") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("gps_adid") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("gps_adid") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("gps_adid_src") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("gps_adid_src") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("granular_third_party_sharing_options") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("granular_third_party_sharing_options") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("hardware_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("hardware_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("idfa") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("idfa") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("idfv") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("idfv") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("initiated_by") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("initiated_by") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("initiating_package_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("initiating_package_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("install_begin_time") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("install_begin_time") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("install_begin_time_server") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("install_begin_time_server") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("install_version") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("install_version") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("installed_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("installed_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("last_skan_update") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("last_skan_update") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("mcc") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("mcc") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("measurement") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("measurement") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("mnc") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("mnc") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("needs_cost") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("needs_cost") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("odm_info") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("odm_info") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("order_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("order_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("originating_package_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("originating_package_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("os_build") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("os_build") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("os_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("os_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("os_version") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("os_version") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("package_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("package_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("params") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("params") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("partner_params") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("partner_params") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("partner_sharing_settings") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("partner_sharing_settings") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("payload") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("payload") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("primary_dedupe_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("primary_dedupe_token") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("purchase_time") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("purchase_time") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("push_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("push_token") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("referrer") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("referrer") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("referrer_api") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("referrer_api") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("reftag") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("reftag") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("revenue") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("revenue") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("sales_region") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("sales_region") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("secondary_dedupe_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("secondary_dedupe_token") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->NewStringUTF("1300000") was called from RX@0x4000afc0[libsigner.so]0xafc0
+JNIEnv->GetStringUTFLength("1300000") was called from RX@0x4006dd80[libsigner.so]0x6dd80
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("seq") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("seq") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("session_count") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("session_count") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("session_length") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("session_length") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("sharing") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("sharing") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("skadn_registered_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("skadn_registered_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("source") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("source") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("started_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("started_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("store_app_id_from_client") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("store_app_id_from_client") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("store_name_from_client") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("store_name_from_client") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("store_name_from_system") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("store_name_from_system") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("subsession_count") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("subsession_count") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("time_spent") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("time_spent") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("tracker") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("tracker") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("tracking_enabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("tracking_enabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("updated_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("updated_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("activity_kind") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("activity_kind") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("activity_kind") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("activity_kind") => "event") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("event") was called from RX@0x4006dd80[libsigner.so]0x6dd80
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("client_sdk") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("client_sdk") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("client_sdk") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("client_sdk") => "android5.4.1") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("android5.4.1") was called from RX@0x4006dd80[libsigner.so]0x6dd80
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ad_impressions_count") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ad_impressions_count") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ad_revenue_network") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ad_revenue_network") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ad_revenue_placement") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ad_revenue_placement") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ad_revenue_unit") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ad_revenue_unit") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("adgroup") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("adgroup") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("android_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("android_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("android_uuid") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("android_uuid") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("api_level") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("api_level") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("app_secret") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("app_secret") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("app_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("app_token") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("app_token") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("app_token") => "test_token") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("test_token") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("test_token") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("test_token") was called from RX@0x4007079c[libsigner.so]0x7079c
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("app_version") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("app_version") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("app_version_short") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("app_version_short") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("att_status") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("att_status") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("bundle_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("bundle_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("callback_params") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("callback_params") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("campaign") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("campaign") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("click_time") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("click_time") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("click_time_server") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("click_time_server") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("country") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("country") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("created_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("created_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("creative") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("creative") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("currency") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("currency") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("deduplication_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("deduplication_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("default_tracker") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("default_tracker") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("details") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("details") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("device_known") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("device_known") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("device_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("device_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("device_type") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("device_type") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("environment") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("environment") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("environment") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("environment") => "sandbox") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("sandbox") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("sandbox") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("sandbox") was called from RX@0x4007079c[libsigner.so]0x7079c
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("event_callback_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("event_callback_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("event_count") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("event_count") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("event_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("event_token") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("event_token") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("event_token") => "event_123") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("event_123") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("event_123") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("event_123") was called from RX@0x4007079c[libsigner.so]0x7079c
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("external_device_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("external_device_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("fb_anon_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("fb_anon_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("fb_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("fb_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ff_app_set_id_disabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ff_app_set_id_disabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ff_att_disabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ff_att_disabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ff_idfv_disabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ff_idfv_disabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("ff_odm_enabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("ff_odm_enabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("fire_adid") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("fire_adid") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("fire_tracking_enabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("fire_tracking_enabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("found_location") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("found_location") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("google_play_instant") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("google_play_instant") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("gps_adid") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("gps_adid") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("gps_adid_src") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("gps_adid_src") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("granular_third_party_sharing_options") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("granular_third_party_sharing_options") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("hardware_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("hardware_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("idfa") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("idfa") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("idfv") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("idfv") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("initiated_by") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("initiated_by") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("initiating_package_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("initiating_package_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("install_begin_time") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("install_begin_time") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("install_begin_time_server") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("install_begin_time_server") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("install_version") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("install_version") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("installed_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("installed_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("last_skan_update") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("last_skan_update") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("mcc") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("mcc") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("measurement") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("measurement") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("mnc") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("mnc") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("needs_cost") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("needs_cost") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("odm_info") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("odm_info") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("order_id") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("order_id") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("originating_package_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("originating_package_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("os_build") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("os_build") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("os_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("os_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("os_version") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("os_version") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("package_name") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("package_name") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("params") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("params") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("partner_params") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("partner_params") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("partner_sharing_settings") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("partner_sharing_settings") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("payload") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("payload") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("primary_dedupe_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("primary_dedupe_token") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("purchase_time") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("purchase_time") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("push_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("push_token") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("referrer") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("referrer") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("referrer_api") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("referrer_api") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("reftag") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("reftag") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("revenue") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("revenue") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("sales_region") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("sales_region") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("secondary_dedupe_token") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("secondary_dedupe_token") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->NewStringUTF("1300000") was called from RX@0x4000afc0[libsigner.so]0xafc0
+JNIEnv->GetStringUTFLength("1300000") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("1300000") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("1300000") was called from RX@0x4007079c[libsigner.so]0x7079c
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("seq") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("seq") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("session_count") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("session_count") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("session_length") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("session_length") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("sharing") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("sharing") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("skadn_registered_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("skadn_registered_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("source") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("source") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("started_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("started_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("store_app_id_from_client") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("store_app_id_from_client") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("store_name_from_client") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("store_name_from_client") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("store_name_from_system") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("store_name_from_system") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("subsession_count") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("subsession_count") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("time_spent") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("time_spent") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("tracker") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("tracker") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("tracking_enabled") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("tracking_enabled") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("updated_at") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("updated_at") => false) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("activity_kind") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("activity_kind") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("activity_kind") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("activity_kind") => "event") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("event") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("event") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("event") was called from RX@0x4007079c[libsigner.so]0x7079c
+JNIEnv->GetMethodID(java/util/Map.containsKey(Ljava/lang/Object;)Z) => 0x896bb202 was called from RX@0x40089fe0[libsigner.so]0x89fe0
+JNIEnv->NewStringUTF("client_sdk") was called from RX@0x4008a334[libsigner.so]0x8a334
+JNIEnv->CallBooleanMethod(java.util.Map@55141def, containsKey("client_sdk") => true) was called from RX@0x4008a390[libsigner.so]0x8a390
+JNIEnv->GetMethodID(java/util/Map.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x7f03ab0a was called from RX@0x4008ac78[libsigner.so]0x8ac78
+JNIEnv->NewStringUTF("client_sdk") was called from RX@0x4008aa18[libsigner.so]0x8aa18
+JNIEnv->CallObjectMethod(java.util.Map@55141def, get("client_sdk") => "android5.4.1") was called from RX@0x4008b0fc[libsigner.so]0x8b0fc
+JNIEnv->GetStringUTFLength("android5.4.1") was called from RX@0x4006e4b4[libsigner.so]0x6e4b4
+JNIEnv->GetStringUtfChars("android5.4.1") was called from RX@0x4006e460[libsigner.so]0x6e460
+JNIEnv->ReleaseStringUTFChars("android5.4.1") was called from RX@0x4007079c[libsigner.so]0x7079c
+JNIEnv->NewByteArray(304) was called from RX@0x40070e10[libsigner.so]0x70e10
+JNIEnv->SetByteArrayRegion([B@33990a0c, 0, 304, RW@0x40449000) was called from RX@0x40071228[libsigner.so]0x71228
+JNIEnv->GetMethodID(java/util/Map.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;) => 0x6fb34d67 was called from RX@0x4007670c[libsigner.so]0x7670c
+JNIEnv->NewStringUTF("headers_id") was called from RX@0x400768b8[libsigner.so]0x768b8
+JNIEnv->NewStringUTF("8") was called from RX@0x4007661c[libsigner.so]0x7661c
+JNIEnv->CallObjectMethod(java.util.Map@55141def, put("headers_id", "8") => null) was called from RX@0x4007636c[libsigner.so]0x7636c
+JNIEnv->GetMethodID(java/util/Map.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;) => 0x6fb34d67 was called from RX@0x4007670c[libsigner.so]0x7670c
+JNIEnv->NewStringUTF("adj_signing_id") was called from RX@0x400768b8[libsigner.so]0x768b8
+JNIEnv->NewStringUTF("1300000") was called from RX@0x4007661c[libsigner.so]0x7661c
+JNIEnv->CallObjectMethod(java.util.Map@55141def, put("adj_signing_id", "1300000") => null) was called from RX@0x4007636c[libsigner.so]0x7636c
+JNIEnv->GetMethodID(java/util/Map.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;) => 0x6fb34d67 was called from RX@0x4007670c[libsigner.so]0x7670c
+JNIEnv->NewStringUTF("native_version") was called from RX@0x400768b8[libsigner.so]0x768b8
+JNIEnv->NewStringUTF("3.62.0") was called from RX@0x4007661c[libsigner.so]0x7661c
+JNIEnv->CallObjectMethod(java.util.Map@55141def, put("native_version", "3.62.0") => null) was called from RX@0x4007636c[libsigner.so]0x7636c
+JNIEnv->GetMethodID(java/util/Map.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;) => 0x6fb34d67 was called from RX@0x4007670c[libsigner.so]0x7670c
+JNIEnv->NewStringUTF("algorithm") was called from RX@0x400768b8[libsigner.so]0x768b8
+JNIEnv->NewStringUTF("adj7") was called from RX@0x4007661c[libsigner.so]0x7661c
+JNIEnv->CallObjectMethod(java.util.Map@55141def, put("algorithm", "adj7") => null) was called from RX@0x4007636c[libsigner.so]0x7636c
+signature_length=304
+signature_hex=3E869810253037C07929D21F2166847C8DB8F90EAA5379B06B778D5CCB5C61C42E135AB6EEE3C6C0EA8959CCA808943A39687A7BA3F833497464B983C3EEFEB9EFBA256A20FEE679E0B565D0F318D0B83229911C64C00354FD3627A7E11E650649BBEAFD60F2A5A9813891E6A5A049C01B13E3DB3B9196908FAC961ED0521C1B204D32394287E4B787EE730C19DB9E141E3FAB0A132A32A20611007EEC594ADA669AEEF2660D1B9AEA4257CCCDFB6102BDB6A97444E6A8A885ABD7A1BE9A90D9D0C160D12A2B13AB27EE032C4FC108292FEFE39FCAC33F4D9B03C18DC323739C80942810A544FC5C30289763770ED1DD10983822620B907F08FB72981F5EFA669FED7D2640ACB9E2FD6005C25F676CFFB5718965BAEF05ABE5DE7CCE09E7901219F8AAFDEE542105087A59F1BE6D8804
+signature_base64=PoaYECUwN8B5KdIfIWaEfI24+Q6qU3mwa3eNXMtcYcQuE1q27uPGwOqJWcyoCJQ6OWh6e6P4M0l0ZLmDw+7+ue+6JWog/uZ54LVl0PMY0LgyKZEcZMADVP02J6fhHmUGSbvq/WDypamBOJHmpaBJwBsT49s7kZaQj6yWHtBSHBsgTTI5Qofkt4fucwwZ254UHj+rChMqMqIGEQB+7FlK2maa7vJmDRua6kJXzM37YQK9tql0ROaoqIWr16G+mpDZ0MFg0SorE6sn7gMsT8EIKS/v45/Kwz9NmwPBjcMjc5yAlCgQpUT8XDAol2N3DtHdEJg4ImILkH8I+3KYH176Zp/tfSZArLni/WAFwl9nbP+1cYlluu8Fq+XefM4J55ASGfiq/e5UIQUIelnxvm2IBA==
+native_headers_id=8
+native_adj_signing_id=1300000
+native_native_version=3.62.0
+native_algorithm=adj7

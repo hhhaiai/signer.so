@@ -1,0 +1,64 @@
+Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume：可见完整调用路径
+1.1上游
+Java/Kotlin层com.adjust.sdk.sig.NativeLibHelper.nOnResume(...)
+→ JNI按导出符号绑定
+→ Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume（导出地址0x0a894c）
+1.2 下游
+这个入口是一个无条件跳转：
+Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume( 0x0a894c )
+→ b 0x0b0a48（直接跳到0x0b0a48的共享实现）
+在0x0b0a48这个实现里，可以看到非常清晰的“恢复→建立定时器→设置定时器”链：
+sub_0x0b0a48
+→ bl 0x0e38f8（清零/初始化的内部封装；调用了三次，分别对不同的栈结构体）
+→ bl 0x0b0d08（先调用一次内部实例程，后面会把它作为回调）
+→ bl timer_create@plt
+→bl timer_settime@plt
+而关键点是：被调用timer_create的sigevent地方是回调地址：
+在前面timer_create，代码把0x0b0d08写进sigevent.sigev_notify_function（用adr x8, 0xb0d08然后存入结构体），同时还把sigev_notify设置成2（通常是SIGEV_THREAD）。这意味着后续计时器即将到时会在新线程里执行回调。
+1.3 “完整路径”串起来（含回调触发）
+所以从“调用路径”的角度，nOnResume的完整链条是：
+JavanOnResume()
+→ Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume( 0x0a894c )
+→尾部跳转 sub_0x0b0a48
+→ sub_0x0e38f8（多次）
+→ sub_0x0b0d08（一次）
+→ timer_create@plt（注册回调sub_0x0b0d08）
+→ timer_settime@plt（启动/设置定时器）
+→ （运行时：timer 前）OS/机制线程触发
+→ sub_0x0b0d08（作为 SIGEV_THREAD 回调被再次执行）
+而sub_0x0b0d08内部还可以继续展开（它是一个大函数），其中可以明确的直接调用包含：
+memset@plt
+read@plt/close@plt
+fgets@plt
+realloc@plt/calloc@plt
+一些以及内部函数：sub_0x112730、sub_0xf351c、sub_0xf3c60、sub_0xe0fd8、sub_0xe238c、sub_0xe1068、sub_0xe43f0等（这些是剥离了库里的内部地址函数）
+2) Java_com_adjust_sdk_sig_NativeLibHelper_nSign：可见完整调用路径
+2.1上游
+Java/Kotlin com.adjust.sdk.sig.NativeLibHelper.nSign(...)
+→ JNI 导出符号绑定
+→ Java_com_adjust_sdk_sig_NativeLibHelper_nSign（导出地址0x0a95ac，大小 3476 字节）
+2.2 下游（调用者：nSign 函数内部所有“直接 bl”）
+在0x0a95ac〜0x0aa340的范围内，nSign直接调用点（bl）我可以完整上市（这是“可验证”的硬证据）：
+bl sub_0x112730（出现多次：0xa9810、0xa9b2c、0xa9e30、0xa9f2c …）
+bl clock_gettime@plt（0xa998c、0xaa2b4）
+bl sub_0x0e2ed0（0xa9a34）
+bl sub_0x102050（0xaa054、0xaa0b0）
+bl sub_0x0b0a48（0xaa198） ←注意：nSign 会显式调用同一套“resume/timer”共享实现
+bl sub_0x08b510（0xaa23c） ← 看起来像核心计算/签名步骤之一（地址函数）
+bl sub_0x0a8dec（0xaa2a0） ← 内部辅助例程
+bl __stack_chk_fail@plt（异常路径）
+nSign的可见主干：
+
+JavanSign(...)
+→ Java_com_adjust_sdk_sig_NativeLibHelper_nSign( 0x0a95ac )
+→ sub_0x112730（扫描探测/校验类内部函数） → （
+计时clock_gettime@plt）
+→ （返回sub_0x0e2ed0内部处理/解码/校验类函数）
+→ （ 0/1 的检查类函数，被调用两次） → （共享的timer/resume实现；与 nOnResume 占用）→ （核心步骤之一）→ （辅助步骤）→ （再次取时）→ return（或异常分支）sub_0x102050
+sub_0x0b0a48
+sub_0x08b510
+sub_0x0a8dec
+clock_gettime@plt
+__stack_chk_fail
+
+

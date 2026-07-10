@@ -1,0 +1,554 @@
+{
+  "records": [
+    {
+      "arm64_guard": {
+        "atomic_word_rva": "0x11fa58",
+        "evidence": "decompiler-data-flow",
+        "initialized_byte_rva": "0x11fa65",
+        "once_gate_function_rva": "0x212730"
+      },
+      "encoding": "utf-8+nul",
+      "evidence": "verified",
+      "id": "environment_key",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "7378607f6479787b73786216",
+          "decoded_hex": "656e7669726f6e6d656e7400",
+          "file_offset": "0x116730",
+          "rva": "0x11e730",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x16"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "dcd7cfd0cbd6d7d4dcd7cdb9",
+          "decoded_hex": "656e7669726f6e6d656e7400",
+          "file_offset": "0x1046d3",
+          "rva": "0x10c6d3",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0xb9"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "171c041b001d1c1f171c0672",
+          "decoded_hex": "656e7669726f6e6d656e7400",
+          "file_offset": "0x110f70",
+          "rva": "0x118f70",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0x72"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "616a726d766b6a69616a7004",
+          "decoded_hex": "656e7669726f6e6d656e7400",
+          "file_offset": "0x107fe0",
+          "rva": "0x10ffe0",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0x4"
+        }
+      ],
+      "plaintext": "environment",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "verified",
+      "id": "sandbox_value",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "06141b11171a0d75",
+          "decoded_hex": "73616e64626f7800",
+          "file_offset": "0x116740",
+          "rva": "0x11e740",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x75"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "beaca3a9afa2b5cd",
+          "decoded_hex": "73616e64626f7800",
+          "file_offset": "0x1046df",
+          "rva": "0x10c6df",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0xcd"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "e3f1fef4f2ffe890",
+          "decoded_hex": "73616e64626f7800",
+          "file_offset": "0x110f80",
+          "rva": "0x118f80",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0x90"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "c8dad5dfd9d4c3bb",
+          "decoded_hex": "73616e64626f7800",
+          "file_offset": "0x107ff0",
+          "rva": "0x10fff0",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0xbb"
+        }
+      ],
+      "plaintext": "sandbox",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "verified",
+      "id": "sign_begin_log",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "4379777e797e7730717c7c3064787530607162717d756475626330727577797e10",
+          "decoded_hex": "5369676e696e6720616c6c2074686520706172616d657465727320626567696e00",
+          "file_offset": "0x116750",
+          "rva": "0x11e750",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x10"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "0a303e3730373e79383535792d313c7929382b38343c2d3c2b2a793b3c3e303759",
+          "decoded_hex": "5369676e696e6720616c6c2074686520706172616d657465727320626567696e00",
+          "file_offset": "0x1046f0",
+          "rva": "0x10c6f0",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0x59"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "dfe5ebe2e5e2ebacede0e0acf8e4e9acfcedfeede1e9f8e9feffaceee9ebe5e28c",
+          "decoded_hex": "5369676e696e6720616c6c2074686520706172616d657465727320626567696e00",
+          "file_offset": "0x110f90",
+          "rva": "0x118f90",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0x8c"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "7d4749404740490e4f42420e5a464b0e5e4f5c4f434b5a4b5c5d0e4c4b4947402e",
+          "decoded_hex": "5369676e696e6720616c6c2074686520706172616d657465727320626567696e00",
+          "file_offset": "0x108000",
+          "rva": "0x110000",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0x2e"
+        }
+      ],
+      "plaintext": "Signing all the parameters begin",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "verified",
+      "id": "sign_end_log",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "6f555b5255525b1c5d50501c4854591c4c5d4e5d515948594e4f1c5952581c1c3c",
+          "decoded_hex": "5369676e696e6720616c6c2074686520706172616d657465727320656e64202000",
+          "file_offset": "0x116780",
+          "rva": "0x11e780",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x3c"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "5d6769606760692e6f62622e7a666b2e7e6f7c6f636b7a6b7c7d2e6b606a2e2e0e",
+          "decoded_hex": "5369676e696e6720616c6c2074686520706172616d657465727320656e64202000",
+          "file_offset": "0x104720",
+          "rva": "0x10c720",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0xe"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "9aa0aea7a0a7aee9a8a5a5e9bda1ace9b9a8bba8a4acbdacbbbae9aca7ade9e9c9",
+          "decoded_hex": "5369676e696e6720616c6c2074686520706172616d657465727320656e64202000",
+          "file_offset": "0x110fc0",
+          "rva": "0x118fc0",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0xc9"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "f7cdc3cacdcac384c5c8c884d0ccc184d4c5d6c5c9c1d0c1d6d784c1cac08484a4",
+          "decoded_hex": "5369676e696e6720616c6c2074686520706172616d657465727320656e64202000",
+          "file_offset": "0x108030",
+          "rva": "0x110030",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0xa4"
+        }
+      ],
+      "plaintext": "Signing all the parameters end  ",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "corroborated",
+      "id": "map_get_descriptor",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "5d391f1403145a19141b125a3a171f1016014e5c391f1403145a19141b125a3a171f1016014e75",
+          "decoded_hex": "284c6a6176612f6c616e672f4f626a6563743b294c6a6176612f6c616e672f4f626a6563743b00",
+          "file_offset": "0x115a20",
+          "rva": "0x11da20",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x75"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "5b3f191205125c1f121d145c3c1119161007485a3f191205125c1f121d145c3c11191610074873",
+          "decoded_hex": "284c6a6176612f6c616e672f4f626a6563743b294c6a6176612f6c616e672f4f626a6563743b00",
+          "file_offset": "0x103a60",
+          "rva": "0x10ba60",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0x73"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "0460464d5a4d03404d424b03634e46494f58170560464d5a4d03404d424b03634e46494f58172c",
+          "decoded_hex": "284c6a6176612f6c616e672f4f626a6563743b294c6a6176612f6c616e672f4f626a6563743b00",
+          "file_offset": "0x110260",
+          "rva": "0x118260",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0x2c"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "7c183e3522357b38353a337b1b363e3137206f7d183e3522357b38353a337b1b363e3137206f54",
+          "decoded_hex": "284c6a6176612f6c616e672f4f626a6563743b294c6a6176612f6c616e672f4f626a6563743b00",
+          "file_offset": "0x1072d0",
+          "rva": "0x10f2d0",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0x54"
+        }
+      ],
+      "plaintext": "(Ljava/lang/Object;)Ljava/lang/Object;",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "corroborated",
+      "id": "tracer_pid_label",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "230516141205271e134d77",
+          "decoded_hex": "5472616365725069643a00",
+          "file_offset": "0x116808",
+          "rva": "0x11e808",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x77"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "a08695979186a49d90cef4",
+          "decoded_hex": "5472616365725069643a00",
+          "file_offset": "0x104798",
+          "rva": "0x10c798",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0xf4"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "6a4c5f5d5b4c6e575a043e",
+          "decoded_hex": "5472616365725069643a00",
+          "file_offset": "0x111038",
+          "rva": "0x119038",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0x3e"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "a38596949285a79e93cdf7",
+          "decoded_hex": "5472616365725069643a00",
+          "file_offset": "0x1080a8",
+          "rva": "0x1100a8",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0xf7"
+        }
+      ],
+      "plaintext": "TracerPid:",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "corroborated",
+      "id": "proc_status_format",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "a1fefce1eda1abeaa1fdfaeffafbfd8e",
+          "decoded_hex": "2f70726f632f25642f73746174757300",
+          "file_offset": "0x116820",
+          "rva": "0x11e820",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x8e"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "83dcdec3cf8389c883dfd8cdd8d9dfac",
+          "decoded_hex": "2f70726f632f25642f73746174757300",
+          "file_offset": "0x1047b0",
+          "rva": "0x10c7b0",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0xac"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "bfe0e2fff3bfb5f4bfe3e4f1e4e5e390",
+          "decoded_hex": "2f70726f632f25642f73746174757300",
+          "file_offset": "0x111050",
+          "rva": "0x119050",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0x90"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "a9f6f4e9e5a9a3e2a9f5f2e7f2f3f586",
+          "decoded_hex": "2f70726f632f25642f73746174757300",
+          "file_offset": "0x1080c0",
+          "rva": "0x1100c0",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0x86"
+        }
+      ],
+      "plaintext": "/proc/%d/status",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "corroborated",
+      "id": "map_get_name",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "f0f2e397",
+          "decoded_hex": "67657400",
+          "file_offset": "0x115f2c",
+          "rva": "0x11df2c",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x97"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "55574632",
+          "decoded_hex": "67657400",
+          "file_offset": "0x103f36",
+          "rva": "0x10bf36",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0x32"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "838190e4",
+          "decoded_hex": "67657400",
+          "file_offset": "0x11076c",
+          "rva": "0x11876c",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0xe4"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "edeffe8a",
+          "decoded_hex": "67657400",
+          "file_offset": "0x1077dc",
+          "rva": "0x10f7dc",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0x8a"
+        }
+      ],
+      "plaintext": "get",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "corroborated",
+      "id": "timestamp_format",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "a4d8aca4ecaca4e5d5a4c9bba4ccbba4d281",
+          "decoded_hex": "25592d256d2d25645425483a254d3a255300",
+          "file_offset": "0x116f30",
+          "rva": "0x11ef30",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x81"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "81fd8981c98981c0f081ec9e81e99e81f7a4",
+          "decoded_hex": "25592d256d2d25645425483a254d3a255300",
+          "file_offset": "0x104e10",
+          "rva": "0x10ce10",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0xa4"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "a3dfaba3ebaba3e2d2a3cebca3cbbca3d586",
+          "decoded_hex": "25592d256d2d25645425483a254d3a255300",
+          "file_offset": "0x1116d0",
+          "rva": "0x1196d0",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0x86"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "96ea9e96de9e96d7e796fb8996fe8996e0b3",
+          "decoded_hex": "25592d256d2d25645425483a254d3a255300",
+          "file_offset": "0x1087c0",
+          "rva": "0x1107c0",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0xb3"
+        }
+      ],
+      "plaintext": "%Y-%m-%dT%H:%M:%S",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "corroborated",
+      "id": "timezone_format",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "38671d",
+          "decoded_hex": "257a00",
+          "file_offset": "0x116f44",
+          "rva": "0x11ef44",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x1d"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "065923",
+          "decoded_hex": "257a00",
+          "file_offset": "0x104e22",
+          "rva": "0x10ce22",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0x23"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "6a354f",
+          "decoded_hex": "257a00",
+          "file_offset": "0x1116e2",
+          "rva": "0x1196e2",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0x4f"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "79265c",
+          "decoded_hex": "257a00",
+          "file_offset": "0x1087d2",
+          "rva": "0x1107d2",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0x5c"
+        }
+      ],
+      "plaintext": "%z",
+      "transform": "uniform-byte-xor"
+    },
+    {
+      "encoding": "utf-8+nul",
+      "evidence": "corroborated",
+      "id": "timestamp_log_format",
+      "observations": [
+        {
+          "abi": "arm64-v8a",
+          "ciphertext_hex": "55034a5055035e554043142a550370",
+          "decoded_hex": "25733a2025732e253033645a257300",
+          "file_offset": "0x116f48",
+          "rva": "0x11ef48",
+          "sample_sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736",
+          "verified_against_sample": true,
+          "xor_key": "0x70"
+        },
+        {
+          "abi": "armeabi-v7a",
+          "ciphertext_hex": "bee8a1bbbee8b5beaba8ffc1bee89b",
+          "decoded_hex": "25733a2025732e253033645a257300",
+          "file_offset": "0x104e25",
+          "rva": "0x10ce25",
+          "sample_sha256": "ab68f112fffdb090015cef48ff123e34f4dc7819cbdf0f913dc19e331ac1484d",
+          "verified_against_sample": true,
+          "xor_key": "0x9b"
+        },
+        {
+          "abi": "x86",
+          "ciphertext_hex": "d086cfd5d086dbd0c5c691afd086f5",
+          "decoded_hex": "25733a2025732e253033645a257300",
+          "file_offset": "0x1116e8",
+          "rva": "0x1196e8",
+          "sample_sha256": "a33c2cf24bcd6d3f9666aac0d4dcf5d84f37f44738310f1ab2c2c614dc9ae6db",
+          "verified_against_sample": true,
+          "xor_key": "0xf5"
+        },
+        {
+          "abi": "x86_64",
+          "ciphertext_hex": "0e58110b0e58050e1b184f710e582b",
+          "decoded_hex": "25733a2025732e253033645a257300",
+          "file_offset": "0x1087d8",
+          "rva": "0x1107d8",
+          "sample_sha256": "b00272e389cc33ecc7255adfb918871bb01cc34f6701877258c4f32ae011fb5c",
+          "verified_against_sample": true,
+          "xor_key": "0x2b"
+        }
+      ],
+      "plaintext": "%s: %s.%03dZ%s",
+      "transform": "uniform-byte-xor"
+    }
+  ],
+  "sample": {
+    "abi_count": 4,
+    "artifact": "com.adjust.signature:adjust-android-signature:3.62.0"
+  },
+  "schema": "libsigner.xor-strings/v1"
+}

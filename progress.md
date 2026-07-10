@@ -1,0 +1,41 @@
+# libsigner.so 分析进度
+
+## 2026-07-10
+
+- 启动独立逆向分析流程。
+- 建立 `task_plan.md`、`findings.md`、`progress.md`，约束原始样本只读并保留可重放证据。
+- 当前阶段：样本保全与资产盘点。
+- 新增交付目标：unidbg Java harness、QBDI/等价 PC 插桩调用方案，以及与移动端一致性的测试向量。
+- 新增交付目标：创建 Android SO 深度逆向 Skill，直接安装到 Codex 和 Claude Code。
+- 完成首轮资产盘点：确认四 ABI `libsigner.so`、现有 unidbg 工程、JNI 文本与辅助分析材料；记录当前逆向工具可用性。
+- 并行启动三条只读分析：跨 ABI ELF/加固地图、`nSign` 深挖、Skill 无指导基线评估。
+- 核实静态 JNI 绑定、`nSign` 四业务参数、`nOnResume` 幂等 timer 初始化，以及现有 unidbg 草稿的关键错误；开始以二进制证据替换此前推测。
+- 在本地 Maven 仓库发现 43 MB 的 `ad_unidbg-1.0-SNAPSHOT.jar`，将其作为现有 PC harness 的可执行证据进行审计与复用评估。
+- 反编译并运行旧 harness：确认 `nSign(Context,Object,byte[],int):byte[]` 精确签名；复现其因缺失 `Context.getPackageName()` stub 而输出为空的失败，建立修复基线。
+- 解密 `nSign` 的关键字符串并识别 sandbox 专用耗时日志；在 Maven Central 定位官方 Adjust Signature AAR，准备做版本/源码对照。
+- 完成官方版本矩阵：当前四 ABI 样本全部精确命中 Adjust Signature `3.62.0`；获取其 `classes.jar` 作为 Java 调用方的确定性证据。
+- 恢复完整 Java 前置链：参数 Map → `Map.toString()` UTF-8 → AndroidKeyStore `key2` 的 HMAC-SHA256 → native `nSign`；确定本地复现所需的 key/HMAC 边界。
+- 阶段 1 完成，进入 ELF/JNI/加固结构映射与可执行 harness 设计。
+- 写入已锁定的 runtime/逆向/Skill 设计和测试驱动实施计划；因工作区非 Git 仓库，设计文档已保存但无法按通用流程提交 commit。
+- Task 1 完成：样本身份和 Java Map/HMAC 边界共 2 个测试通过；Task 2 已先写 JNI/请求对象失败测试。
+- Task 2 完成：Context/Map bridge 与请求注入测试通过；Task 3 已先写真实模块导出与非空 native 返回测试。
+- 恢复会话并核对当前派生产物：unidbg 已经从完整 JNI 路径返回真实非空 304 字节，写入 `headers_id=8`、`adj_signing_id=1300000`、`native_version=3.62.0`、`algorithm=adj7`，并保存 32-event `libsigner.trace/v1` trace。
+- 动态纠正早期静态命名：ARM64 `0x8b510` 是 `Map.get("environment")` 路径；受保护签名程序入口为 ARM64 `0xb6c50` / x86_64 `0x9dcf0`，属于 32 位栈式 VM program/orchestrator。
+- VM context allocator 与主要 handler 已跨 ABI 映射；固定 VM 零输入回归测试通过，输出长度 304、SHA-256 `d43a36f81b41cebd016c03e7e7e075e4df5741f46efc33380eabc2182272f1e2`。
+- 两次完整 JNI 的 9-Blob 捕获已完成：blob 2/3/6/7/8/9 稳定，blob 1/4/5 变化，最终 304 字节签名随之变化；正在生成可审计的 live 输入差分文档。
+- `runtime/qbdi` 已具备 schema/stub/environment checker；真实 QBDI 插桩分支仍需 Android/Linux 兼容 loader/进程，不能在当前 macOS 上冒充已验证。
+- Android SO 逆向 Skill 已同步安装到 `~/.codex/skills/android-so-reversing` 与 `~/.claude/skills/android-so-reversing`；Codex 隔离 forward-test 已完成，Claude CLI 因未登录只能做文件/脚本级验证。
+- 用户再次明确核心验收是纯 PC 本地运行、不依赖安卓真机；收尾工作已据此调整：unidbg 内置 synthetic package/certificate/`key2`/Android API fixture 为默认主路径，设备 oracle 只保留为可选精确复刻能力。
+- 新增并验证 `recovered/vm-zero-vector.json`、`recovered/vm-live-inputs.md`，同时把两次原始 9-Blob 捕获持久化到 `runtime/unidbg/vectors/`；JSON 中的完整 304 字节输出与实际 VM 执行逐字节一致。
+- 新增 `runtime/unidbg/README.md`，明确无需 Android 真机/ADB/SDK/NDK，记录一键命令、全部 CLI 参数、Java 嵌入方式、`key2`/HMAC 语义、非确定性和 trace 验证。
+- 使用 system Skill Creator 的 `quick_validate.py`（经 bundled `python_runner.sh` 选择解释器）验证 Codex/Claude 两份 Skill 均有效；两端 bundled scripts 各 4/4 通过，文件 manifest 一致。
+- 以 TDD 补齐 SDK 30 的 `PackageInfo.signingInfo`、`SigningInfo.hasMultipleSigners()` 和 `getSigningCertificateHistory()` strict bridge；全新临时 CWD、synthetic certificate/`key2` 下完整 CLI 返回 304 字节及四个 metadata，无真机/ADB 依赖。
+- 修复分析脚本的直接执行回归：两个脚本固定使用当前宿主可用的 `/usr/bin/python3` 并恢复 executable bit；新增跨 ABI 短字符串歧义定位和 environment guard 元数据，9 个 Python tests 全部通过，`recovered/strings.json` 重新生成到 11 条证据记录。
+- 主动验证官方 SDK 18 legacy 分支：解除旧的 21 限制后，runtime 依次命中 `SharedPreferences("adjust_keys")` 与 `getString`，说明还需要完整 RSA AndroidKeyStore 持久化链。为避免伪造空 stub，撤销部分桥接并把本地 harness 最低 SDK 收紧为已完整验证的 23；SDK 23/30 继续通过。
+- 继续做 9-Blob 单变量 replay 时发现更早的状态边界：捕获的全部 9 Blobs 在 clean `VM_INIT` context 中不能复现 live 签名；完全相同的 run-1 Blobs 连续两次分别得到 SHA-256 `3277d758...` 和 `8256e066...`。已纠正“9 Blob 是完整输入”的过度结论，后续因果 replay 必须同时快照 context/frame/module globals。
+- 修复 QBDI 公共 schema 漂移：`TraceEvent` 补齐 `module_size` 并由 callback 填充；fresh CMake build/CTest 1/1 通过，生成的 QBDI JSONL 通过同一 `validate_trace`。
+- 完成最终验证：Maven 9 个 test classes / 18 tests 全绿并生成 34 MB fat jar；从 `/tmp` 通过 `run.sh` 分别执行 SDK 23（64-event trace）和 SDK 30，均 exit 0、304 字节、四项 metadata、无 unsupported JNI。
+- 最终复验还包括 Python 9 tests、QBDI CTest 1/1、Codex/Claude Skill quick validation + 各 4 tests、四 ABI 原始哈希、ARM64 重复样本一致性、JNI C/C++ header 与 recovered pipeline link smoke；完整命令和结果写入 `analysis/verification.md`。
+- 根据用户“这是一个工程、签名不是固定常量”的使用视角，新增独立 `RUNBOOK.md`：覆盖首次构建、默认/SDK30 运行、自定义 JSON/有序参数、package/certificate/key2/HMAC、输出语义、fat jar 部署、子进程/Java 集成、退出码、trace、故障排查、升级和上线检查清单；根 `README.md` 已添加入口。
+- 运行手册已验证：从 `/tmp` 执行 `run.sh --help` 成功，所有关键文件存在，CLI 选项与文档一致，Markdown code fence 成对，SDK23/30 示例由已保存的真实运行结果支撑。
+- 生成正式 Word 操作手册 `libsigner工程操作手册.docx`：包含封面、目录、快速运行、参数、输出、fat jar 部署、子进程/Java 集成、trace、故障排查、升级与上线检查。ZIP/OOXML 完整性、heading/section/style/table geometry/field/a11y 审计通过，3 张表格宽度与单元格几何一致，无占位符。QuickLook 首屏预览无明显裁切；因本机未安装 LibreOffice/`soffice`，未能执行标准全页 PNG 渲染门禁。

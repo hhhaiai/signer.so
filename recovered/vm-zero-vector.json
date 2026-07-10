@@ -1,0 +1,38 @@
+{
+  "schema": "libsigner.vm-vector/v1",
+  "name": "arm64-protected-vm-all-zero-regression",
+  "purpose": "Deterministic fresh-emulator first-call regression at the protected VM boundary; this is not a captured mobile request or a state-independent replay oracle.",
+  "sample": {
+    "artifact": "com.adjust.signature:adjust-android-signature:3.62.0",
+    "abi": "arm64-v8a",
+    "sha256": "fb279ea3d929928055c8cb90e3a3c213939869a51ffafe6d587a072c530c5736"
+  },
+  "entrypoints": {
+    "context_allocator_relative_pc": "0x111a18",
+    "program_relative_pc": "0xb6c50",
+    "output_length_relative_pc": "0x111904",
+    "output_copy_relative_pc": "0x111910"
+  },
+  "inputs": [
+    { "index": 1, "length": 8, "encoding": "zero-bytes" },
+    { "index": 2, "length": 40, "encoding": "zero-bytes" },
+    { "index": 3, "length": 8, "encoding": "zero-bytes" },
+    { "index": 4, "length": 512, "encoding": "zero-bytes" },
+    { "index": 5, "length": 4, "encoding": "zero-bytes" },
+    { "index": 6, "length": 4, "encoding": "zero-bytes" },
+    { "index": 7, "length": 32, "encoding": "zero-bytes" },
+    { "index": 8, "length": 4, "encoding": "zero-bytes" },
+    { "index": 9, "length": 32, "encoding": "zero-bytes" }
+  ],
+  "result": {
+    "error_code": 0,
+    "length": 304,
+    "sha256": "d43a36f81b41cebd016c03e7e7e075e4df5741f46efc33380eabc2182272f1e2",
+    "hex": "59f066a1020fd01a6df980ae48bdcca6925a583d10826d4a2f3d115f4e89995f1bb364e8e386ce35f1f4e850be266a2bedcc0083748e104e38ae4c177e39a19dd4dd01324a25036b2ef79a5a487eae7825562f9a7e926c480f7242f8629bf1fa7c4fda841fa0a8a8508d49d05375c481319f0979b7ad79a5251cdddd43b50a8bb42b4175d12cdec6de4a5ab61ccd6fad60c2c38bd2897778526949bdde3cc9e82dd86ad90355bab8aad815029d82c24fd8a843fb9acdeeaaba77ab65a95346cee95cc6f3e801b5988b4fc4ba637d1e247c3881b3433f6297ee1666e9ed8bf202a53ec49d4f37a58dc4ab796368a5c4e9e8c367c8d0604098eb2dbd9cee2ca2c9bd79d78a49476a9c6551df97140c0e38de6c2439b40b0488ad824a99a7483782bb507d49dfd817005e5408e6aad3d744"
+  },
+  "verification": {
+    "test": "com.adjust.research.SignatureVmProgramTest#fixedNineBlobShapeProducesStableProtectedVmVector",
+    "precondition": "Fresh emulator, fresh module load, fresh context, first direct VM program call.",
+    "note": "The vector executes the original protected program from libsigner.so under unidbg. Later calls in one loaded module can observe additional mutable native state, so this vector does not claim an independently reimplemented or state-free VM algorithm."
+  }
+}
