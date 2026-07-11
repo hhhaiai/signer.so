@@ -75,16 +75,7 @@ runtime/qbdi/
 
 当前 macOS 已验证：CMake stub、公共 trace schema、CTest 和环境检查。真实 QBDI callback/`vm.run()` 需要 Android/Linux 兼容 loader 或进程；它是可选观测后端，不是纯 PC 签名运行的依赖。PC 主路径使用已真实工作的 unidbg/Unicorn trace。
 
-## Skill 安装
 
-已同步安装：
-
-```text
-~/.codex/skills/android-so-reversing
-~/.claude/skills/android-so-reversing
-```
-
-两端内容一致，system `quick_validate.py` 与 bundled script tests 均可执行。Claude Code CLI 当前未登录，因此 Claude 模型级 forward-test 不是本地代码运行的前置条件；Skill 文件本身已经安装。
 
 ## 重要边界
 
