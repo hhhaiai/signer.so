@@ -1,0 +1,17 @@
+{
+  "lastReflection":"2026-07-11T17:50:00+08:00",
+  "objective":"Desktop Java/Unidbg signer with configurable observed Android/native environment, unchanged Signer API, fixed onResume-to-sign order, strict device-reference equivalence, and an independently runnable native reimplementation where recoverable.",
+  "currentFocus":"Expand native-reimplementation from the verified AES-256 and codeword primitives toward the complete 176-byte signer pipeline while preserving the now-passing Java/Unidbg strict reference gate.",
+  "status":"active",
+  "evidence":{
+    "strictDesktopReference":"test-device-reference.sh exits 0 without ADB, Frida, an emulator, or a phone; SignerOneClick recursively matches the complete frozen Pixel 8 result and the raw signature is 176 bytes.",
+    "referenceIntegrity":"device-reference/references/pixel8-api36/reference-result.json was not modified.",
+    "rootCause":"libsigner.so+0x13063c scans signer function entries for an ARM64 LDR-literal-to-BR trampoline. The frozen true-device run had Frida Interceptor hooks on nOnResume/nSign, which causes the protected dispatcher to execute correction code 0x25.",
+    "configSurface":"device.runtime.signerCodeTrampolineDetected is parsed by SignerOneClick, stored in DeviceProfile, propagated through AdjustSignatureRunner.Config, and modeled in Unidbg without running Frida.",
+    "codewordClosure":"The strict path executes corrections 0x2b->0xd49d, 0x36->0xb5d3, 0x25->0xcacc, and 0x05->0x6ee6; context+0x54 becomes 0x6ee6cacc before downstream permutation.",
+    "nativeSourceSlice":"native-reimplementation/build-and-test.sh independently compiles C++ with the host compiler and passes the Pixel first-block AES-256 vector plus the complete 16-halfword encoder recovered from libsigner.so+0x13531c.",
+    "regression":"33 Maven tests pass with zero failures/errors/skips. API contract, one-click determinism, external structured API, process isolation, Python compatibility contract, native C++ primitive test, and Pixel 8 strict reference all pass.",
+    "runtimeStability":"generate-signer.sh prefers an already-installed macOS JDK 17 for signer execution, supports SIGNER_JAVA_BIN override, and falls back to java; no runtime is installed automatically.",
+    "remainingBoundary":"Normal Java signing still executes the original ARM64 libsigner.so under Unidbg. The independently compiled C++ source does not yet produce the complete 176-byte result and is not a full SO replacement."
+  }
+}
