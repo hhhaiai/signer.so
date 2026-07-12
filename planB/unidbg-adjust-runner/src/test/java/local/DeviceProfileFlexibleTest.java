@@ -8,6 +8,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DeviceProfileFlexibleTest {
     @Test
@@ -23,6 +24,9 @@ class DeviceProfileFlexibleTest {
                 .systemProperty("ro.product.model", "Pixel 9 Pro")
                 .secureSetting("android_id", "0123456789abcdef")
                 .systemSetting("time_12_24", "24")
+                .sharedPreference("adjust_keys", "encrypted_key", "base64-value")
+                .legacyRsaPrivateKeyPkcs8(new byte[]{1, 2, 3})
+                .legacyRsaPublicKeyX509(new byte[]{4, 5, 6})
                 .serviceClass("phone", "android/telephony/TelephonyManager")
                 .locale("zh-CN")
                 .timeZone("Asia/Shanghai")
@@ -31,6 +35,10 @@ class DeviceProfileFlexibleTest {
                 .nativeGettimeofday(1_760_000_001L, 123_456L)
                 .nativeClockGettime(1_760_000_002L, 987_654_321L)
                 .nativeUrandom(new byte[]{0, 1, 2, 3, 4, 5, 6, 7})
+                .nativeBackend("recovered")
+                .nativeCorrection05Enabled(false)
+                .nativeCorrectionCode(0x2b)
+                .nativeCorrectionCode(0x36)
                 .nativeLocalSocketResponse("/dev/socket/fwmarkd", new byte[]{0, 0, 0, 0})
                 .nativeFile("/proc/cpuinfo", "processor\\t: 0\\n".getBytes())
                 .nativeMissingPath("/proc/version")
@@ -51,6 +59,9 @@ class DeviceProfileFlexibleTest {
         assertEquals("Pixel 9 Pro", profile.getSystemProperties().get("ro.product.model"));
         assertEquals("0123456789abcdef", profile.getSecureSettings().get("android_id"));
         assertEquals("24", profile.getSystemSettings().get("time_12_24"));
+        assertEquals("base64-value", profile.getSharedPreferences().get("adjust_keys").get("encrypted_key"));
+        assertArrayEquals(new byte[]{1, 2, 3}, profile.getLegacyRsaPrivateKeyPkcs8());
+        assertArrayEquals(new byte[]{4, 5, 6}, profile.getLegacyRsaPublicKeyX509());
         assertEquals("android/telephony/TelephonyManager", profile.getServiceClasses().get("phone"));
         assertEquals("zh-CN", profile.getLocale());
         assertEquals("Asia/Shanghai", profile.getTimeZone());
@@ -61,6 +72,9 @@ class DeviceProfileFlexibleTest {
         assertEquals(1_760_000_002L, profile.getNativeClockGettimeSeconds());
         assertEquals(987_654_321L, profile.getNativeClockGettimeNanoseconds());
         assertArrayEquals(new byte[]{0, 1, 2, 3, 4, 5, 6, 7}, profile.getNativeUrandomBytes());
+        assertEquals("recovered", profile.getNativeBackend());
+        assertEquals(false, profile.getNativeCorrection05Enabled());
+        assertEquals(java.util.List.of(0x2b, 0x36), profile.getNativeCorrectionCodes());
         assertArrayEquals(new byte[]{0, 0, 0, 0},
                 profile.getNativeLocalSocketResponses().get("/dev/socket/fwmarkd"));
         assertArrayEquals("processor\\t: 0\\n".getBytes(), profile.getNativeFiles().get("/proc/cpuinfo"));
@@ -76,5 +90,12 @@ class DeviceProfileFlexibleTest {
         assertEquals(31.2304d, profile.getJniDoubles().get("android/location/Location->getLatitude()D"));
         assertEquals(true, profile.getJniBooleans().get("android/net/NetworkInfo->isConnected()Z"));
         assertArrayEquals(new byte[]{1, 2, 3}, profile.getJniBytes().get("android/provider/Settings$Secure->getBytes()[B"));
+    }
+
+    @Test
+    void legacyRsaImportRequiresTheCompletePair() {
+        assertThrows(IllegalArgumentException.class, () -> DeviceProfile.builder()
+                .legacyRsaPrivateKeyPkcs8(new byte[]{1})
+                .build());
     }
 }

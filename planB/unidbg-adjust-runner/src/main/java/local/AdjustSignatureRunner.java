@@ -1,6 +1,7 @@
 package local;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import com.adjust.sdk.sig.Signer;
 import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.Module;
@@ -36,6 +37,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
 
 import javax.crypto.Mac;
+import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
@@ -65,14 +67,28 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
             "ADJUST_VECTOR_READ_TRACE_CALLER_RANGE");
     private static final String NATIVE_CONTEXT_WORD_WATCH_OFFSET = System.getenv(
             "ADJUST_NATIVE_CONTEXT_WORD_WATCH_OFFSET");
+    private static final String NATIVE_APPEND_CORRECTIONS = System.getenv(
+            "ADJUST_NATIVE_APPEND_CORRECTIONS");
     private static final boolean NATIVE_ENVIRONMENT_DISPATCHER_TRACE = "1".equals(
             System.getenv("ADJUST_NATIVE_ENVIRONMENT_DISPATCHER_TRACE"));
+    private static final boolean NATIVE_STATE_BYTE_TRACE = "1".equals(
+            System.getenv("ADJUST_NATIVE_STATE_BYTE_TRACE"));
+    private static final boolean NATIVE_INITIALIZATION_TRACE = "1".equals(
+            System.getenv("ADJUST_NATIVE_INITIALIZATION_TRACE"));
+    private static final boolean NATIVE_METADATA_TRACE = "1".equals(
+            System.getenv("ADJUST_NATIVE_METADATA_TRACE"));
+    private static final boolean NATIVE_STAT_PROBE_TRACE = "1".equals(
+            System.getenv("ADJUST_NATIVE_STAT_PROBE_TRACE"));
+    private static final boolean NATIVE_STRING_PROBE_TRACE = "1".equals(
+            System.getenv("ADJUST_NATIVE_STRING_PROBE_TRACE"));
     private static final String NATIVE_ENVIRONMENT_HELPER_RESULT_OVERRIDE = System.getenv(
             "ADJUST_NATIVE_ENVIRONMENT_HELPER_RESULT_OVERRIDE");
     private static final String VM_NODE_WATCH_ADDRESS = System.getenv("ADJUST_VM_NODE_WATCH_ADDRESS");
     private static final boolean CRYPTO_WORD_TRACE = "1".equals(System.getenv("ADJUST_CRYPTO_WORD_TRACE"));
     private static final boolean JNI_CRYPTO_TRACE = "1".equals(System.getenv("ADJUST_JNI_CRYPTO_TRACE"));
     private static final boolean RESULT_LAYOUT_TRACE = "1".equals(System.getenv("ADJUST_RESULT_LAYOUT_TRACE"));
+    private static final boolean TAG_WORD_TRACE = "1".equals(System.getenv("ADJUST_TAG_WORD_TRACE"));
+    private static final boolean FIELD4_WORD_TRACE = "1".equals(System.getenv("ADJUST_FIELD4_WORD_TRACE"));
     private static final boolean ACCESSOR_TRANSITION_TRACE = "1".equals(System.getenv("ADJUST_ACCESSOR_TRANSITION_TRACE"));
     private static final String WATCH_MEMORY_CHECKPOINTS = System.getenv("ADJUST_WATCH_MEMORY_CHECKPOINTS");
     private static final String WATCH_MEMORY_CHECKPOINT_LR = System.getenv("ADJUST_WATCH_MEMORY_CHECKPOINT_LR");
@@ -132,6 +148,12 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
             if (config.nativeMissingPaths.contains(pathname)) {
                 return com.github.unidbg.file.FileResult.failed(2);
             }
+            // Do not let a base.apk left by an earlier emulator run make a different configured
+            // publicSourceDir accidentally readable. A distinct public path must be supplied through
+            // filesystem.files; sourceDir itself is prepared from baseApk above.
+            if (pathname.equals(config.publicSourceDir) && !pathname.equals(config.sourceDir)) {
+                return com.github.unidbg.file.FileResult.failed(2);
+            }
             if (config.nativeUrandomBytes != null
                     && ("/dev/urandom".equals(pathname) || "/dev/random".equals(pathname))) {
                 byte[] pattern = config.nativeUrandomBytes.clone();
@@ -169,8 +191,17 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
         installNativeVectorStoreWatch(module);
         installNativeVectorReadTrace(module);
         installNativeContextWordWatch(module);
+        installNativeAppendCorrections(module);
         installNativeEnvironmentDispatcherTrace(module);
+        installNativeStatProbeTrace(module);
+        installNativeStringProbeTrace(module);
+        installNativeCorrection05Override(module);
+        installNativeStateByteTrace(module);
+        installNativeInitializationTrace(module);
+        installNativeMetadataTrace(module);
         installResultLayoutTrace(module);
+        installNativeTagWordTrace(module);
+        installNativeField4WordTrace(module);
         installNativeWatchCheckpoints(module);
         installNativeCryptoWordTrace(module);
         installNativeAccessorTransitionTrace(module);
@@ -584,6 +615,55 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
         return offset != null && !offset.isEmpty();
     }
 
+    private void installNativeAppendCorrections(Module module) {
+        List<Integer> corrections = parseCorrectionCodeList(NATIVE_APPEND_CORRECTIONS);
+        if (corrections.isEmpty()) return;
+        long consumer = module.base + 0x11da64;
+        long correctionEntry = module.base + 0x13548c;
+        int[] index = {0};
+        long[] savedContext = {0};
+        long[] statePeer = {0};
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                if (savedContext[0] == 0) {
+                    savedContext[0] = backend.context_alloc();
+                    backend.context_save(savedContext[0]);
+                    statePeer[0] = registers.getXLong(2) + 0x20L;
+                }
+                if (index[0] >= corrections.size()) {
+                    backend.context_restore(savedContext[0]);
+                    backend.context_free(savedContext[0]);
+                    savedContext[0] = 0;
+                    return;
+                }
+                UnidbgPointer state = UnidbgPointer.pointer(emulator, statePeer[0]);
+                int correction = corrections.get(index[0]++);
+                System.err.printf("[qbdi-host] native-append-correction index=%d code=0x%x state=%s%n",
+                        index[0] - 1, correction, state);
+                backend.reg_write(unicorn.Arm64Const.UC_ARM64_REG_X0, state.peer);
+                backend.reg_write(unicorn.Arm64Const.UC_ARM64_REG_X1, correction);
+                backend.reg_write(unicorn.Arm64Const.UC_ARM64_REG_LR, consumer);
+                backend.reg_write(unicorn.Arm64Const.UC_ARM64_REG_PC, correctionEntry);
+            }
+
+            @Override public void onAttach(UnHook unHook) {}
+            @Override public void detach() {}
+        }, consumer, consumer + 4, null);
+    }
+
+    static List<Integer> parseCorrectionCodeList(String value) {
+        if (value == null || value.trim().isEmpty()) return List.of();
+        List<Integer> result = new ArrayList<>();
+        for (String item : value.split(",")) {
+            String code = item.trim();
+            if (code.startsWith("0x") || code.startsWith("0X")) code = code.substring(2);
+            result.add(Integer.parseInt(code, 16));
+        }
+        return result;
+    }
+
     private void installNativeEnvironmentDispatcherTrace(Module module) {
         boolean traceEnabled = shouldInstallNativeEnvironmentDispatcherTrace(NATIVE_ENVIRONMENT_DISPATCHER_TRACE);
         boolean explicitHelperResultOverride = shouldOverrideNativeEnvironmentHelper(
@@ -594,6 +674,7 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
         if (!traceEnabled && helperResultOverride == null) return;
         long start = module.base + 0x143e8;
         long end = module.base + 0x14e0c;
+        final UnidbgPointer[] accessProbeResult = new UnidbgPointer[1];
         emulator.getBackend().hook_add_new(new CodeHook() {
             @Override
             public void hook(Backend backend, long address, int size, Object user) {
@@ -618,9 +699,23 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
                                     + "x0=%s w1=0x%x%n",
                             offset, nativeEnvironmentDispatcherCallTarget(offset),
                             registers.getXPointer(0), registers.getIntArg(1));
+                    if (offset == 0x14d9c) {
+                        accessProbeResult[0] = registers.getXPointer(0);
+                        UnidbgPointer path = registers.getXPointer(1);
+                        System.err.printf("[qbdi-host] native-env-access-probe stage=call "
+                                        + "path=%s result=%s initial=0x%x%n",
+                                path == null ? "<null>" : path.getString(0), accessProbeResult[0],
+                                accessProbeResult[0] == null ? 0 : accessProbeResult[0].getInt(0));
+                    }
                 } else if (isNativeEnvironmentDispatcherReturn(offset)) {
                     System.err.printf("[qbdi-host] native-env-dispatch stage=return pc=0x%x w0=0x%x%n",
                             offset, registers.getIntArg(0));
+                    if (offset == 0x14da0) {
+                        System.err.printf("[qbdi-host] native-env-access-probe stage=return "
+                                        + "success=0x%x result=0x%x%n",
+                                registers.getIntArg(0), accessProbeResult[0] == null
+                                        ? 0 : accessProbeResult[0].getInt(0));
+                    }
                 } else if (offset == 0x14e08) {
                     System.err.println("[qbdi-host] native-env-dispatch stage=exit");
                 }
@@ -671,6 +766,347 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
 
     static boolean shouldInstallNativeEnvironmentDispatcherTrace(boolean enabled) {
         return enabled;
+    }
+
+    private void installNativeStatProbeTrace(Module module) {
+        if (!shouldInstallNativeStatProbeTrace(NATIVE_STAT_PROBE_TRACE)) return;
+        long helperEntry = module.base + 0xf18f4;
+        long statCall = module.base + 0xf1cdc;
+        long statReturn = module.base + 0xf1ce0;
+        long helperReturn = module.base + 0xf1ea0;
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                if (address == helperEntry) {
+                    System.err.printf("[qbdi-host] native-stat-probe stage=entry "
+                                    + "result=%s paths=%s%n",
+                            registers.getXPointer(0), registers.getXPointer(1));
+                } else if (address == statCall) {
+                    UnidbgPointer path = registers.getXPointer(0);
+                    System.err.printf("[qbdi-host] native-stat-probe stage=stat-call path=%s%n",
+                            path == null ? "<null>" : path.getString(0));
+                } else if (address == statReturn) {
+                    System.err.printf("[qbdi-host] native-stat-probe stage=stat-return value=%d%n",
+                            registers.getIntArg(0));
+                } else if (address == helperReturn) {
+                    System.err.printf("[qbdi-host] native-stat-probe stage=return value=%d%n",
+                            registers.getIntArg(0));
+                }
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this opt-in hook for its short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, helperEntry, helperReturn + 4, null);
+    }
+
+    static boolean shouldInstallNativeStatProbeTrace(boolean enabled) {
+        return enabled;
+    }
+
+    private void installNativeStringProbeTrace(Module module) {
+        if (!shouldInstallNativeStringProbeTrace(NATIVE_STRING_PROBE_TRACE)) return;
+        long entry = module.base + 0xaebf8;
+        long firstReturn = module.base + 0x15d50;
+        long secondReturn = module.base + 0x1606c;
+        UnidbgPointer[] result = new UnidbgPointer[1];
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                long offset = address - module.base;
+                if (address == entry) {
+                    long caller = registers.getLR() - module.base;
+                    if (caller != 0x15d50 && caller != 0x1606c) return;
+                    result[0] = registers.getXPointer(0);
+                    UnidbgPointer input = registers.getXPointer(1);
+                    UnidbgPointer pattern = registers.getXPointer(3);
+                    System.err.printf("[qbdi-host] native-string-probe stage=call caller=0x%x "
+                                    + "result=%s input=%s input-len=%d pattern=%s pattern-len=%d%n",
+                            caller, result[0], printableNativeString(input),
+                            registers.getXLong(2), printableNativeString(pattern),
+                            registers.getXLong(4));
+                } else if (address == firstReturn || address == secondReturn) {
+                    System.err.printf("[qbdi-host] native-string-probe stage=return caller=0x%x value=%d%n",
+                            offset, result[0] == null ? 0 : result[0].getInt(0));
+                }
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this opt-in hook for its short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, entry, secondReturn + 4, null);
+    }
+
+    private static String printableNativeString(UnidbgPointer pointer) {
+        if (pointer == null) return "<null>";
+        try {
+            String value = pointer.getString(0);
+            return '"' + value.replace("\n", "\\n") + '"';
+        } catch (RuntimeException exception) {
+            return pointer.toString();
+        }
+    }
+
+    static boolean shouldInstallNativeStringProbeTrace(boolean enabled) {
+        return enabled;
+    }
+
+    private void installNativeStateByteTrace(Module module) {
+        if (!shouldInstallNativeStateByteTrace(NATIVE_STATE_BYTE_TRACE)) return;
+        final long[] contextPeer = new long[1];
+        long initializerEntry = module.base + 0xcbbd4;
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                UnidbgPointer context = registers.getXPointer(3);
+                contextPeer[0] = context == null ? 0 : context.peer;
+                System.err.printf("[qbdi-host] native-state-byte stage=context-capture context=%s value=0x%x%n",
+                        context, context == null ? 0 : context.getByte(8) & 0xff);
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off probe for its short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, initializerEntry, initializerEntry + 4, null);
+
+        long timingEntry = module.base + 0xd184;
+        long timingWrite = module.base + 0xd32c;
+        long correctionGate = module.base + 0xf224;
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                long offset = address - module.base;
+                UnidbgPointer context = offset == 0xd32c
+                        ? registers.getXPointer(19) : registers.getXPointer(0);
+                boolean capturedContext = context != null && context.peer == contextPeer[0];
+                if (offset == 0xd184) {
+                    System.err.printf("[qbdi-host] native-state-byte stage=timing-check-entry "
+                                    + "context=%s captured=%s value=0x%x caller=0x%x%n",
+                            context, capturedContext, context == null ? 0 : context.getByte(8) & 0xff,
+                            registers.getLR() - module.base);
+                } else if (offset == 0xd32c) {
+                    System.err.printf("[qbdi-host] native-state-byte stage=timing-check-write "
+                                    + "context=%s captured=%s before=0x%x write=0x%x%n",
+                            context, capturedContext, context == null ? 0 : context.getByte(8) & 0xff,
+                            registers.getXLong(8) & 0xff);
+                } else if (offset == 0xf224) {
+                    System.err.printf("[qbdi-host] native-state-byte stage=correction-0x05-gate "
+                                    + "context=%s captured=%s value=0x%x%n",
+                            context, capturedContext, context == null ? 0 : context.getByte(8) & 0xff);
+                }
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off probe for its short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, timingEntry, correctionGate + 4, null);
+    }
+
+    static boolean shouldInstallNativeStateByteTrace(boolean enabled) {
+        return enabled;
+    }
+
+    private void installNativeInitializationTrace(Module module) {
+        if (!shouldInstallNativeInitializationTrace(NATIVE_INITIALIZATION_TRACE)) return;
+        final UnidbgPointer[] initializedContext = new UnidbgPointer[1];
+        final UnidbgPointer[] publicSourceProbeResult = new UnidbgPointer[1];
+        final UnidbgPointer[] legacyStateProbeResult = new UnidbgPointer[1];
+        CodeHook hook = new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                long offset = address - module.base;
+                if (offset == 0xcc604) {
+                    System.err.printf("[qbdi-host] native-init stage=nSign-entry android-api=%d "
+                                    + "context=%s params=%s hmac=%s%n",
+                            registers.getXInt(5), registers.getXPointer(2),
+                            registers.getXPointer(3), registers.getXPointer(4));
+                } else if (offset == 0x8128) {
+                    initializedContext[0] = registers.getXPointer(1);
+                    System.err.printf("[qbdi-host] native-init stage=entry caller=0x%x context=%s flags=0x%x%n",
+                            registers.getLR() - module.base, initializedContext[0],
+                            initializedContext[0] == null ? 0 : initializedContext[0].getLong(0xe0));
+                } else if (offset == 0x8994) {
+                    System.err.printf("[qbdi-host] native-init stage=select-0x2b state=0x%x context=%s%n",
+                            registers.getXLong(9), initializedContext[0]);
+                } else if (offset == 0x80c0) {
+                    initializedContext[0] = registers.getXPointer(0);
+                    System.err.printf("[qbdi-host] native-init stage=wrapper-entry context=%s flags=0x%x%n",
+                            initializedContext[0], initializedContext[0] == null
+                                    ? 0 : initializedContext[0].getLong(0xe0));
+                } else if (offset == 0x80d8) {
+                    System.err.printf("[qbdi-host] native-init stage=correction-call code=0x%x context=%s%n",
+                            registers.getIntArg(1), initializedContext[0]);
+                } else if (offset == 0x80dc) {
+                    System.err.printf("[qbdi-host] native-init stage=before-flag-set context=%s flags=0x%x%n",
+                            initializedContext[0], initializedContext[0] == null
+                                    ? 0 : initializedContext[0].getLong(0xe0));
+                } else if (offset == 0x80e8 || offset == 0x8acc) {
+                    System.err.printf("[qbdi-host] native-init stage=%s context=%s flags=0x%x%n",
+                            offset == 0x80e8 ? "after-flag-set" : "exit",
+                            initializedContext[0], initializedContext[0] == null
+                                    ? 0 : initializedContext[0].getLong(0xe0));
+                } else if (offset == 0xcbd40) {
+                    publicSourceProbeResult[0] = registers.getXPointer(1);
+                    System.err.printf("[qbdi-host] native-init stage=public-source-probe-call "
+                                    + "path=%s result=%s initial=0x%x%n",
+                            config.publicSourceDir, publicSourceProbeResult[0],
+                            publicSourceProbeResult[0] == null ? 0 : publicSourceProbeResult[0].getInt(0));
+                } else if (offset == 0xcbd48) {
+                    System.err.printf("[qbdi-host] native-init stage=public-source-probe-return "
+                                    + "success=0x%x result=0x%x%n",
+                            registers.getIntArg(0), publicSourceProbeResult[0] == null
+                                    ? 0 : publicSourceProbeResult[0].getInt(0));
+                } else if (offset == 0xcbdfc) {
+                    legacyStateProbeResult[0] = registers.getXPointer(0);
+                    System.err.printf("[qbdi-host] native-init stage=legacy-state-probe-call "
+                                    + "context=%s output=%s%n",
+                            initializedContext[0], legacyStateProbeResult[0]);
+                } else if (offset == 0xcbe00) {
+                    System.err.printf("[qbdi-host] native-init stage=legacy-state-probe-return "
+                                    + "result=0x%x output=0x%x%n",
+                            registers.getIntArg(0), legacyStateProbeResult[0] == null
+                                    ? 0 : legacyStateProbeResult[0].getInt(0));
+                } else if (offset == 0xcbe0c) {
+                    System.err.printf("[qbdi-host] native-init stage=legacy-state-selected state=0x%x%n",
+                            registers.getXLong(9));
+                } else if (offset == 0xcbd7c || offset == 0xd068) {
+                    System.err.printf("[qbdi-host] native-init stage=select-0x34 caller=0x%x context=%s%n",
+                            offset, registers.getXPointer(0));
+                } else if (offset == 0xd428) {
+                    initializedContext[0] = registers.getXPointer(0);
+                    System.err.printf("[qbdi-host] native-init stage=wrapper-0x34-entry context=%s flags=0x%x%n",
+                            initializedContext[0], initializedContext[0] == null
+                                    ? 0 : initializedContext[0].getLong(0xe0));
+                } else if (offset == 0xd440) {
+                    System.err.printf("[qbdi-host] native-init stage=correction-0x34-call code=0x%x context=%s%n",
+                            registers.getIntArg(1), initializedContext[0]);
+                }
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off hook for its short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        };
+        emulator.getBackend().hook_add_new(hook, module.base + 0x80c0, module.base + 0x80f0, null);
+        for (long offset : new long[]{0x8128, 0x8994, 0x8acc, 0xcbd40, 0xcbd48,
+                0xcbd7c, 0xcbdfc, 0xcbe00, 0xcbe0c, 0xcc604, 0xd068, 0xd428, 0xd440}) {
+            emulator.getBackend().hook_add_new(hook, module.base + offset, module.base + offset + 4, null);
+        }
+    }
+
+    static boolean shouldInstallNativeInitializationTrace(boolean enabled) {
+        return enabled;
+    }
+
+    private void installNativeMetadataTrace(Module module) {
+        if (!shouldInstallNativeMetadataTrace(NATIVE_METADATA_TRACE)) return;
+        CodeHook hook = new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                long offset = address - module.base;
+                if (offset == 0x9279c) {
+                    UnidbgPointer context = registers.getXPointer(2);
+                    System.err.printf("[qbdi-host] native-metadata stage=on-resume-flag-set "
+                                    + "context=%s flags=0x%x%n",
+                            context, context == null ? 0 : context.getLong(0xe0));
+                } else if (offset == 0x9954c) {
+                    System.err.printf("[qbdi-host] native-metadata stage=builder-entry "
+                                    + "arg0=0x%x arg1=0x%x arg2=0x%x key-data=0x%x value-data=0x%x%n",
+                            registers.getXLong(0), registers.getXLong(1), registers.getXLong(2),
+                            registers.getXLong(3), registers.getXLong(4));
+                } else if (offset == 0x99de8 || offset == 0x99f10) {
+                    UnidbgPointer string = registers.getXPointer(1);
+                    System.err.printf("[qbdi-host] native-metadata stage=new-string-call "
+                                    + "site=0x%x value=%s%n",
+                            offset, string == null ? "<null>" : string.getString(0));
+                } else if (offset == 0x99dec || offset == 0x99f14) {
+                    System.err.printf("[qbdi-host] native-metadata stage=new-string-return "
+                                    + "site=0x%x object=0x%x%n", offset, registers.getXLong(0));
+                } else if (offset == 0x9a4dc) {
+                    System.err.printf("[qbdi-host] native-metadata stage=map-put-call "
+                                    + "map=0x%x key=0x%x value=0x%x%n",
+                            registers.getXLong(1), registers.getXLong(3), registers.getXLong(4));
+                }
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off reverse-engineering hook.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        };
+        emulator.getBackend().hook_add_new(hook, module.base + 0x9279c, module.base + 0x927a0, null);
+        emulator.getBackend().hook_add_new(hook, module.base + 0x9954c, module.base + 0x99550, null);
+        emulator.getBackend().hook_add_new(hook, module.base + 0x99de8, module.base + 0x99dec, null);
+        emulator.getBackend().hook_add_new(hook, module.base + 0x99f10, module.base + 0x99f14, null);
+        emulator.getBackend().hook_add_new(hook, module.base + 0x9a4dc, module.base + 0x9a4e0, null);
+    }
+
+    static boolean shouldInstallNativeMetadataTrace(boolean enabled) {
+        return enabled;
+    }
+
+    private void installNativeCorrection05Override(Module module) {
+        if (config.nativeCorrection05Enabled == null) return;
+        long correctionGate = module.base + 0xf224;
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                UnidbgPointer context = registers.getXPointer(0);
+                context.setByte(8, (byte) (config.nativeCorrection05Enabled ? 1 : 0));
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The profile owns this narrow deterministic state override.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, correctionGate, correctionGate + 4, null);
     }
 
     static boolean shouldOverrideNativeEnvironmentHelper(String value) {
@@ -1041,6 +1477,33 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
                     UnidbgPointer fp = registers.getFpPointer();
                     System.err.printf("[qbdi-host] result-layout components fp-0x20=%s fp-0x28=%s%n",
                             fp.getPointer(-0x20), fp.getPointer(-0x28));
+                } else if (offset == 0x11e7f0) {
+                    UnidbgPointer stack = registers.getStackPointer();
+                    UnidbgPointer[] sources = {
+                            registers.getXPointer(3), registers.getXPointer(4),
+                            registers.getXPointer(5), registers.getXPointer(6),
+                            registers.getXPointer(7), stack.getPointer(0),
+                            stack.getPointer(8), stack.getPointer(16), stack.getPointer(24)
+                    };
+                    for (int index = 0; index < sources.length; index++) {
+                        UnidbgPointer source = sources[index];
+                        int length = source.getInt(0);
+                        UnidbgPointer data = source.getPointer(8);
+                        String bytes = length >= 0 && length <= 512 && data != null
+                                ? bytesToHex(data.getByteArray(0, length)) : "<invalid>";
+                        System.err.printf("[qbdi-host] result-layout-source-part index=%d "
+                                        + "source=%s length=%d data=%s bytes=%s%n",
+                                index, source, length, data, bytes);
+                    }
+                } else if (offset == 0x11e980) {
+                    UnidbgPointer source = registers.getXPointer(1);
+                    UnidbgPointer words = source.getPointer(0x20);
+                    UnidbgPointer sizeVector = source.getPointer(0x28);
+                    System.err.printf("[qbdi-host] result-layout-source source=%s bytes=%s "
+                                    + "words=%s words-bytes=%s size=%s size-bytes=%s%n",
+                            source, bytesToHex(source.getByteArray(0, 64)),
+                            words, bytesToHex(words.getByteArray(0, 64)),
+                            sizeVector, bytesToHex(sizeVector.getByteArray(0, 32)));
                 } else if (offset == 0x11e178) {
                     UnidbgPointer buffer = registers.getXPointer(4);
                     int length = registers.getXInt(3);
@@ -1067,6 +1530,263 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
         return enabled;
     }
 
+    private void installNativeTagWordTrace(Module module) {
+        if (!shouldInstallTagWordTrace(TAG_WORD_TRACE, WATCH_MEMORY_ADDRESS)) return;
+        long copyWord = module.base + 0xfbf18;
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                if (registers.getIntArg(2) != 0) return;
+                UnidbgPointer sourceSlot = registers.getXPointer(26);
+                UnidbgPointer source = sourceSlot == null ? null : sourceSlot.getPointer(0);
+                if (source == null) return;
+                int words = source.getInt(0);
+                UnidbgPointer data = source.getPointer(8);
+                int offsetCount = source.getInt(0x14);
+                UnidbgPointer offsets = source.getPointer(0x18);
+                int baseOffset = offsetCount > 0 && offsets != null
+                        ? offsets.getInt((offsetCount - 1L) * 4L) : 0;
+                long tagRawAddress = data == null ? 0L : data.peer + (baseOffset + 254L) * 4L;
+                int dumpWords = words >= 0 && words <= 64 ? words : 0;
+                String bytes = dumpWords > 0 && data != null
+                        ? bytesToHex(data.getByteArray(0, dumpWords * 4)) : "<invalid>";
+                System.err.printf("[qbdi-host] tag-copy-source pc=libsigner.so+0xfbf18 "
+                                + "first=0x%x source-slot=%s source=%s words=%d data=%s bytes=%s "
+                                + "offset-count=%d offsets=%s base-offset=0x%x tag-raw-address=0x%x "
+                                + "start=0x%x total=0x%x destination=%s%n",
+                        registers.getIntArg(3), sourceSlot, source, words, data, bytes,
+                        offsetCount, offsets, baseOffset, tagRawAddress, registers.getXInt(21),
+                        registers.getXInt(27), registers.getXPointer(1));
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off probe for its entire short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, copyWord, copyWord + 4, null);
+
+        long appendVectorWord = module.base + 0xf43a0;
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                if (registers.getXInt(23) != 0) return;
+                UnidbgPointer sourceSlot = registers.getXPointer(28);
+                UnidbgPointer source = sourceSlot == null ? null : sourceSlot.getPointer(0);
+                if (source == null) return;
+                int offsetCount = source.getInt(0x14);
+                UnidbgPointer offsets = source.getPointer(0x18);
+                int baseOffset = offsetCount > 0 && offsets != null
+                        ? offsets.getInt((offsetCount - 1L) * 4L) : 0;
+                int endOffset = source.getInt(0x10);
+                int logicalWords = endOffset - baseOffset;
+                UnidbgPointer data = source.getPointer(8);
+                String bytes = logicalWords >= 0 && logicalWords <= 64 && data != null
+                        ? bytesToHex(data.getByteArray(baseOffset * 4L, logicalWords * 4)) : "<invalid>";
+                long slotIndex = (sourceSlot.peer - registers.getXLong(20) - 0x20L) / 8L;
+                System.err.printf("[qbdi-host] tag-append-source pc=libsigner.so+0xf43a0 "
+                                + "first=0x%x slot-index=%d source-slot=%s source=%s "
+                                + "base=0x%x end=0x%x words=%d data=%s bytes=%s "
+                                + "destination=%s destination-index=0x%x%n",
+                        registers.getIntArg(3), slotIndex, sourceSlot, source, baseOffset, endOffset,
+                        logicalWords, data, bytes, registers.getXPointer(1), registers.getIntArg(2));
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off probe for its entire short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, appendVectorWord, appendVectorWord + 4, null);
+
+        long emitTagWord = module.base + 0x115bb8;
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                if (registers.getXInt(22) != 0) return;
+                UnidbgPointer sourceSlot = registers.getXPointer(26);
+                UnidbgPointer source = sourceSlot == null ? null : sourceSlot.getPointer(0);
+                if (source == null) return;
+                int offsetCount = source.getInt(0x14);
+                UnidbgPointer offsets = source.getPointer(0x18);
+                int baseOffset = offsetCount > 0 && offsets != null
+                        ? offsets.getInt((offsetCount - 1L) * 4L) : 0;
+                int start = registers.getXInt(27);
+                int words = registers.getXInt(28) - start;
+                UnidbgPointer data = source.getPointer(8);
+                int rawStart = baseOffset + start;
+                String bytes = words >= 0 && words <= 64 && data != null
+                        ? bytesToHex(data.getByteArray(rawStart * 4L, words * 4)) : "<invalid>";
+                System.err.printf("[qbdi-host] tag-emission-source pc=libsigner.so+0x115bb8 "
+                                + "first=0x%x source-slot=%s source=%s data=%s base=0x%x "
+                                + "slice-start=0x%x words=%d raw-address=0x%x bytes=%s "
+                                + "destination=%s%n",
+                        registers.getIntArg(3), sourceSlot, source, data, baseOffset, start, words,
+                        data == null ? 0L : data.peer + rawStart * 4L, bytes, registers.getXPointer(1));
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off probe for its entire short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, emitTagWord, emitTagWord + 4, null);
+
+        long emitHmacKeyWord = module.base + 0xf9730;
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                if (registers.getXInt(22) != 0) return;
+                UnidbgPointer sourceSlot = registers.getXPointer(26);
+                UnidbgPointer source = sourceSlot == null ? null : sourceSlot.getPointer(0);
+                if (source == null) return;
+                int offsetCount = source.getInt(0x14);
+                UnidbgPointer offsets = source.getPointer(0x18);
+                int baseOffset = offsetCount > 0 && offsets != null
+                        ? offsets.getInt((offsetCount - 1L) * 4L) : 0;
+                int start = registers.getXInt(21);
+                int words = registers.getXInt(27) - start;
+                UnidbgPointer data = source.getPointer(8);
+                int rawStart = baseOffset + start;
+                String bytes = words >= 0 && words <= 64 && data != null
+                        ? bytesToHex(data.getByteArray(rawStart * 4L, words * 4)) : "<invalid>";
+                System.err.printf("[qbdi-host] hmac-key-source pc=libsigner.so+0xf9730 "
+                                + "first=0x%x source-slot=%s source=%s data=%s base=0x%x "
+                                + "slice-start=0x%x words=%d raw-address=0x%x bytes=%s "
+                                + "destination=%s%n",
+                        registers.getIntArg(3), sourceSlot, source, data, baseOffset, start, words,
+                        data == null ? 0L : data.peer + rawStart * 4L, bytes, registers.getXPointer(1));
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off probe for its entire short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, emitHmacKeyWord, emitHmacKeyWord + 4, null);
+    }
+
+    static boolean shouldInstallTagWordTrace(boolean enabled, String address) {
+        return enabled && address != null && !address.isEmpty();
+    }
+
+    private void installNativeField4WordTrace(Module module) {
+        if (!shouldInstallField4WordTrace(FIELD4_WORD_TRACE)) return;
+        long firstPop = module.base + 0x101630;
+        long firstResult = module.base + 0x101634;
+        long secondPop = module.base + 0x101648;
+        long secondResult = module.base + 0x10164c;
+        long vectorWrite = module.base + 0x101664;
+        long[] firstNode = new long[1];
+        long[] secondNode = new long[1];
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                if (address == firstPop || address == secondPop) {
+                    UnidbgPointer stack = registers.getXPointer(1);
+                    int count = stack == null ? -1 : stack.getInt(0);
+                    UnidbgPointer node = stack == null ? null : stack.getPointer(8);
+                    long nodeAddress = node == null ? 0L : node.peer;
+                    if (address == firstPop) firstNode[0] = nodeAddress;
+                    else secondNode[0] = nodeAddress;
+                    int value = node == null ? 0 : node.getInt(0);
+                    UnidbgPointer next = node == null ? null : node.getPointer(8);
+                    int nextValue = next == null ? 0 : next.getInt(0);
+                    System.err.printf("[qbdi-host] field4-pop pc=libsigner.so+0x%x stack=%s "
+                                    + "count=%d node=%s value=0x%x next=%s next-value=0x%x%n",
+                            address - module.base, stack, count, node, value, next, nextValue);
+                } else if (address == firstResult || address == secondResult) {
+                    System.err.printf("[qbdi-host] field4-pop-result pc=libsigner.so+0x%x "
+                                    + "value=0x%x first-node=0x%x second-node=0x%x%n",
+                            address - module.base, registers.getIntArg(0), firstNode[0], secondNode[0]);
+                } else if (address == vectorWrite) {
+                    UnidbgPointer destinationSlot = registers.getXPointer(26);
+                    UnidbgPointer destination = destinationSlot == null ? null : destinationSlot.getPointer(0);
+                    System.err.printf("[qbdi-host] field4-vector-write pc=libsigner.so+0x101664 "
+                                    + "destination-slot=%s destination=%s index=0x%x value=0x%x "
+                                    + "first-node=0x%x second-node=0x%x%n",
+                            destinationSlot, destination, registers.getXInt(21), registers.getXInt(3),
+                            firstNode[0], secondNode[0]);
+                }
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off probe for its entire short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, firstPop, vectorWrite + 4, null);
+
+        long sourceRead = module.base + 0x109c94;
+        long sourceResult = module.base + 0x109c98;
+        UnidbgPointer[] sourceVector = new UnidbgPointer[1];
+        int[] sourceIndex = new int[1];
+        emulator.getBackend().hook_add_new(new CodeHook() {
+            @Override
+            public void hook(Backend backend, long address, int size, Object user) {
+                Arm64RegisterContext registers = emulator.getContext();
+                if (address == sourceRead) {
+                    sourceVector[0] = registers.getXPointer(0);
+                    sourceIndex[0] = registers.getXInt(1);
+                } else if (address == sourceResult && sourceVector[0] != null) {
+                    int word = registers.getIntArg(0);
+                    if (sourceIndex[0] < 0x41 || sourceIndex[0] > 0x48) return;
+                    UnidbgPointer data = sourceVector[0].getPointer(8);
+                    int offsetCount = sourceVector[0].getInt(0x14);
+                    UnidbgPointer offsets = sourceVector[0].getPointer(0x18);
+                    int baseOffset = offsetCount > 0 && offsets != null
+                            ? offsets.getInt((offsetCount - 1L) * 4L) : 0;
+                    long rawAddress = data == null ? 0L
+                            : data.peer + (baseOffset + sourceIndex[0]) * 4L;
+                    System.err.printf("[qbdi-host] field4-source-read pc=libsigner.so+0x109c98 "
+                                    + "source=%s index=0x%x value=0x%x data=%s base=0x%x "
+                                    + "raw-address=0x%x offset-count=%d offsets=%s%n",
+                            sourceVector[0], sourceIndex[0], word, data, baseOffset, rawAddress,
+                            offsetCount, offsets);
+                }
+            }
+
+            @Override
+            public void onAttach(UnHook unHook) {
+                // The emulator owns this default-off probe for its entire short-lived lifecycle.
+            }
+
+            @Override
+            public void detach() {
+                // Nothing to detach before the emulator closes.
+            }
+        }, sourceRead, sourceResult + 4, null);
+    }
+
+    static boolean shouldInstallField4WordTrace(boolean enabled) {
+        return enabled;
+    }
+
     private static boolean isResultLayoutCheckpoint(long offset) {
         switch ((int) offset) {
             case 0x11d798:
@@ -1084,6 +1804,7 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
             case 0x11e6c0:
             case 0x11e710:
             case 0x11e76c:
+            case 0x11e7f0:
             case 0x11e7f4:
             case 0x11e84c:
             case 0x11e924:
@@ -1233,7 +1954,17 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
     }
 
     public byte[] signNative(Map<String, String> params, byte[] input, int androidApi) {
-        return signNative(new Context(config.packageName), params, input, androidApi);
+        return signNative(newConfiguredContext(), params, input, androidApi);
+    }
+
+    private Context newConfiguredContext() {
+        Context context = new Context(config.packageName);
+        for (Map.Entry<String, Map<String, String>> file : config.sharedPreferences.entrySet()) {
+            for (Map.Entry<String, String> entry : file.getValue().entrySet()) {
+                context.putSharedPreference(file.getKey(), entry.getKey(), entry.getValue());
+            }
+        }
+        return context;
     }
 
     public byte[] signNative(Context context, Map<String, String> params, byte[] input, int androidApi) {
@@ -1248,6 +1979,27 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
 
     private DvmObject<?> newContext(Context context) {
         return vm.resolveClass("android/content/Context").newObject(context);
+    }
+
+    @Override
+    public DvmObject<?> newObject(BaseVM vm, DvmClass dvmClass, String signature,
+                                  com.github.unidbg.linux.android.dvm.VarArg varArg) {
+        if ("javax/crypto/spec/SecretKeySpec-><init>([BLjava/lang/String;)V".equals(signature)) {
+            byte[] key = ((ByteArray) varArg.getObjectArg(0)).getValue();
+            String algorithm = String.valueOf(varArg.getObjectArg(1).getValue());
+            return ProxyDvmObject.createObject(vm, new SecretKeySpec(key, algorithm));
+        }
+        return super.newObject(vm, dvmClass, signature, varArg);
+    }
+
+    @Override
+    public DvmObject<?> newObjectV(BaseVM vm, DvmClass dvmClass, String signature, VaList vaList) {
+        if ("javax/crypto/spec/SecretKeySpec-><init>([BLjava/lang/String;)V".equals(signature)) {
+            byte[] key = ((ByteArray) vaList.getObjectArg(0)).getValue();
+            String algorithm = String.valueOf(vaList.getObjectArg(1).getValue());
+            return ProxyDvmObject.createObject(vm, new SecretKeySpec(key, algorithm));
+        }
+        return super.newObjectV(vm, dvmClass, signature, vaList);
     }
 
     @Override
@@ -1313,6 +2065,38 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
         if (signature.endsWith("->getPackageName()Ljava/lang/String;")) {
             return new StringObject(vm, config.packageName);
         }
+        if (signature.endsWith("->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;")
+                && value instanceof Context) {
+            String name = String.valueOf(args.getObjectArg(0).getValue());
+            SharedPreferences preferences = ((Context) value).getSharedPreferences(name, args.getIntArg(1));
+            return vm.resolveClass("android/content/SharedPreferences").newObject(preferences);
+        }
+        if (signature.endsWith("->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+                && value instanceof SharedPreferences) {
+            String key = String.valueOf(args.getObjectArg(0).getValue());
+            DvmObject<?> defaultObject = args.getObjectArg(1);
+            String defaultValue = defaultObject == null ? null : String.valueOf(defaultObject.getValue());
+            String result = ((SharedPreferences) value).getString(key, defaultValue);
+            return result == null ? null : new StringObject(vm, result);
+        }
+        if (signature.endsWith("->edit()Landroid/content/SharedPreferences$Editor;")
+                && value instanceof SharedPreferences) {
+            return vm.resolveClass("android/content/SharedPreferences$Editor")
+                    .newObject(((SharedPreferences) value).edit());
+        }
+        if (signature.endsWith("->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;")
+                && value instanceof SharedPreferences.Editor) {
+            String key = String.valueOf(args.getObjectArg(0).getValue());
+            DvmObject<?> stringObject = args.getObjectArg(1);
+            String stringValue = stringObject == null ? null : String.valueOf(stringObject.getValue());
+            ((SharedPreferences.Editor) value).putString(key, stringValue);
+            return dvmObject;
+        }
+        if (signature.endsWith("->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;")
+                && value instanceof SharedPreferences.Editor) {
+            ((SharedPreferences.Editor) value).remove(String.valueOf(args.getObjectArg(0).getValue()));
+            return dvmObject;
+        }
         if (signature.endsWith("->getContentResolver()Landroid/content/ContentResolver;") && className.equals("android/content/Context")) {
             return vm.resolveClass("android/content/ContentResolver").newObject("content-resolver");
         }
@@ -1339,7 +2123,27 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
                 return ProxyDvmObject.createObject(vm, new SecretKeySpec(config.keyBytes, "HmacSHA256"));
             }
             if (signature.endsWith("->getEntry(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;")) {
+                if (config.androidApi < 23) {
+                    try {
+                        java.security.KeyStore keyStore = java.security.KeyStore.getInstance("AndroidKeyStore");
+                        keyStore.load(null);
+                        java.security.KeyStore.Entry entry = keyStore.getEntry(
+                                String.valueOf(args.getObjectArg(0).getValue()), null);
+                        return entry == null ? null : ProxyDvmObject.createObject(vm, entry);
+                    } catch (Exception exception) {
+                        throw new IllegalStateException(exception);
+                    }
+                }
                 return vm.resolveClass("java/security/KeyStore$Entry").newObject("key-entry");
+            }
+        }
+        if (value instanceof java.security.KeyStore.PrivateKeyEntry) {
+            java.security.KeyStore.PrivateKeyEntry entry = (java.security.KeyStore.PrivateKeyEntry) value;
+            if (signature.endsWith("->getPrivateKey()Ljava/security/PrivateKey;")) {
+                return ProxyDvmObject.createObject(vm, entry.getPrivateKey());
+            }
+            if (signature.endsWith("->getCertificate()Ljava/security/cert/Certificate;")) {
+                return ProxyDvmObject.createObject(vm, entry.getCertificate());
             }
         }
         if (signature.endsWith("->getSystemService(Ljava/lang/String;)Ljava/lang/Object;")) {
@@ -1469,6 +2273,13 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
                     + " input=" + bytesToHex(in) + " output=" + bytesToHex(out));
             return new ByteArray(vm, out);
         }
+        if (signature.endsWith("->doFinal([B)[B") && value instanceof Cipher) {
+            try {
+                return new ByteArray(vm, ((Cipher) value).doFinal(((ByteArray) args.getObjectArg(0)).getValue()));
+            } catch (Exception exception) {
+                throw new IllegalStateException(exception);
+            }
+        }
         return null;
     }
 
@@ -1504,6 +2315,9 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
         trace("JNI boolean " + signature + " this=" + value);
         String className = dvmObject == null ? "" : dvmObject.getObjectType().getClassName();
         if (config.jniBooleans.containsKey(signature)) return config.jniBooleans.get(signature);
+        if (signature.endsWith("->contains(Ljava/lang/String;)Z") && value instanceof SharedPreferences) {
+            return ((SharedPreferences) value).contains(String.valueOf(args.getObjectArg(0).getValue()));
+        }
         if (signature.endsWith("->containsKey(Ljava/lang/Object;)Z")) {
             Object keyObj = args.getObjectArg(0).getValue();
             return ((Map<?, ?>) value).containsKey(String.valueOf(keyObj));
@@ -1569,6 +2383,14 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
                 return ProxyDvmObject.createObject(vm, Mac.getInstance(algorithm));
             } catch (Exception e) { throw new IllegalStateException(e); }
         }
+        if ("javax/crypto/Cipher->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;".equals(signature)) {
+            try {
+                return ProxyDvmObject.createObject(vm,
+                        Cipher.getInstance(String.valueOf(varArg.getObjectArg(0).getValue())));
+            } catch (Exception exception) {
+                throw new IllegalStateException(exception);
+            }
+        }
         return super.callStaticObjectMethod(vm, dvmClass, signature, varArg);
     }
 
@@ -1600,12 +2422,24 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
                 return ProxyDvmObject.createObject(vm, Mac.getInstance(algorithm));
             } catch (Exception e) { throw new IllegalStateException(e); }
         }
+        if ("javax/crypto/Cipher->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;".equals(signature)) {
+            try {
+                return ProxyDvmObject.createObject(vm,
+                        Cipher.getInstance(String.valueOf(vaList.getObjectArg(0).getValue())));
+            } catch (Exception exception) {
+                throw new IllegalStateException(exception);
+            }
+        }
         return super.callStaticObjectMethodV(vm, dvmClass, signature, vaList);
     }
 
     private DvmObject<?> handleConfiguredStaticObject(BaseVM vm, String signature, VarArgReader args) {
         DvmObject<?> configured = configuredObject(vm, signature);
         if (configured != null) return configured;
+        if ("android/util/Base64->decode(Ljava/lang/String;I)[B".equals(signature)) {
+            String input = String.valueOf(args.getObjectArg(0).getValue());
+            return new ByteArray(vm, android.util.Base64.decode(input, args.getIntArg(1)));
+        }
         if (signature.startsWith("android/provider/Settings$Secure->getString")) {
             String key = String.valueOf(args.getObjectArg(1).getValue());
             String value = config.secureSettings.get(key);
@@ -1637,6 +2471,10 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
             ((MessageDigest) value).reset();
             return;
         }
+        if (signature.endsWith("->apply()V") && value instanceof SharedPreferences.Editor) {
+            ((SharedPreferences.Editor) value).apply();
+            return;
+        }
         if (dvmObject != null && dvmObject.getObjectType().getClassName().equals("java/security/KeyStore") && (signature.endsWith("->load(Ljava/security/KeyStore$LoadStoreParameter;)V") || signature.endsWith("->deleteEntry(Ljava/lang/String;)V"))) {
             return;
         }
@@ -1648,6 +2486,15 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
                         + " key=" + bytesToHex(key.getEncoded()));
                 return;
             } catch (Exception e) { throw new IllegalStateException(e); }
+        }
+        if (value instanceof Cipher && signature.endsWith("->init(ILjava/security/Key;)V")) {
+            try {
+                ((Cipher) value).init(varArg.getIntArg(0),
+                        (java.security.Key) varArg.getObjectArg(1).getValue());
+                return;
+            } catch (Exception exception) {
+                throw new IllegalStateException(exception);
+            }
         }
         if (value instanceof Mac && signature.endsWith("->update([B)V")) {
             byte[] in = ((ByteArray) varArg.getObjectArg(0)).getValue();
@@ -1671,6 +2518,10 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
             ((MessageDigest) value).reset();
             return;
         }
+        if (signature.endsWith("->apply()V") && value instanceof SharedPreferences.Editor) {
+            ((SharedPreferences.Editor) value).apply();
+            return;
+        }
         if (dvmObject != null && dvmObject.getObjectType().getClassName().equals("java/security/KeyStore") && (signature.endsWith("->load(Ljava/security/KeyStore$LoadStoreParameter;)V") || signature.endsWith("->deleteEntry(Ljava/lang/String;)V"))) {
             return;
         }
@@ -1682,6 +2533,15 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
                         + " key=" + bytesToHex(key.getEncoded()));
                 return;
             } catch (Exception e) { throw new IllegalStateException(e); }
+        }
+        if (value instanceof Cipher && signature.endsWith("->init(ILjava/security/Key;)V")) {
+            try {
+                ((Cipher) value).init(vaList.getIntArg(0),
+                        (java.security.Key) vaList.getObjectArg(1).getValue());
+                return;
+            } catch (Exception exception) {
+                throw new IllegalStateException(exception);
+            }
         }
         if (value instanceof Mac && signature.endsWith("->update([B)V")) {
             byte[] in = ((ByteArray) vaList.getObjectArg(0)).getValue();
@@ -2092,6 +2952,7 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
         final Map<String, String> systemProperties;
         final Map<String, String> secureSettings;
         final Map<String, String> systemSettings;
+        final Map<String, Map<String, String>> sharedPreferences;
         final Map<String, String> serviceClasses;
         final String locale;
         final String timeZone;
@@ -2103,6 +2964,7 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
         final Long nativeClockGettimeNanoseconds;
         final byte[] nativeUrandomBytes;
         final boolean nativeSignerCodeTrampolineDetected;
+        final Boolean nativeCorrection05Enabled;
         final java.util.Set<String> nativeConnectRefusedEndpoints;
         final Map<String, byte[]> nativeLocalSocketResponses;
         final Map<String, byte[]> nativeFiles;
@@ -2141,6 +3003,7 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
             this.systemProperties = profile.getSystemProperties();
             this.secureSettings = profile.getSecureSettings();
             this.systemSettings = profile.getSystemSettings();
+            this.sharedPreferences = profile.getSharedPreferences();
             this.serviceClasses = profile.getServiceClasses();
             this.locale = profile.getLocale();
             this.timeZone = profile.getTimeZone();
@@ -2152,6 +3015,7 @@ public class AdjustSignatureRunner extends AbstractJni implements AutoCloseable 
             this.nativeClockGettimeNanoseconds = profile.getNativeClockGettimeNanoseconds();
             this.nativeUrandomBytes = profile.getNativeUrandomBytes();
             this.nativeSignerCodeTrampolineDetected = profile.isNativeSignerCodeTrampolineDetected();
+            this.nativeCorrection05Enabled = profile.getNativeCorrection05Enabled();
             this.nativeConnectRefusedEndpoints = profile.getNativeConnectRefusedEndpoints();
             this.nativeLocalSocketResponses = profile.getNativeLocalSocketResponses();
             this.nativeFiles = profile.getNativeFiles();

@@ -1,0 +1,37 @@
+=== dynamic symbols ===
+                 U rand@LIBC
+                 U srand@LIBC
+=== strings ===
+3040 SHA-256
+ecdb *Hq@
+32ecb RHa@9@
+13c157 ECBBr
+=== Java crypto references in recovered classes ===
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:9:import javax.crypto.Cipher;
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:31:            KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:34:                KeyGenerator generator = KeyGenerator.getInstance("HmacSHA256", "AndroidKeyStore");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:45:        SharedPreferences preferences = context.getSharedPreferences("adjust_keys", Context.MODE_PRIVATE);
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:46:        if (preferences.contains("encrypted_key")) {
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:50:        Date start = Calendar.getInstance().getTime();
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:51:        Calendar end = Calendar.getInstance();
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:63:        KeyPairGenerator pairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:69:        KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:72:        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:73:        cipher.init(Cipher.ENCRYPT_MODE, entry.getCertificate().getPublicKey());
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:75:        preferences.edit().putString("encrypted_key", encrypted).apply();
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:79:        Mac mac = Mac.getInstance("HmacSHA256");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:82:            KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:86:            String encrypted = context.getSharedPreferences("adjust_keys", Context.MODE_PRIVATE)
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:87:                    .getString("encrypted_key", null);
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:92:            KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:95:            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:96:            cipher.init(Cipher.DECRYPT_MODE, entry.getPrivateKey());
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/c.java:97:            key = new SecretKeySpec(cipher.doFinal(encryptedBytes), "AES");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/d.java:105:            KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/d.java:108:            context.getSharedPreferences("adjust_keys", Context.MODE_PRIVATE)
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/d.java:109:                    .edit().remove("encrypted_key").apply();
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/RecoveredNativeBackend.java:41:    public byte[] sign(Context context, Object value, byte[] ignoredJavaHmac, int androidApi) {
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/RecoveredNativeBackend.java:52:        params.put("algorithm", "adj8");
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/RecoveredNativeBackend.java:61:            command.add("--certificate-sha1=" + hex(MessageDigest.getInstance("SHA-1")
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/Signer.java:89:                && params.containsKey("algorithm")
+unidbg-adjust-runner/src/main/java/com/adjust/sdk/sig/Signer.java:97:                + ",algorithm=\"" + params.get("algorithm") + "\""

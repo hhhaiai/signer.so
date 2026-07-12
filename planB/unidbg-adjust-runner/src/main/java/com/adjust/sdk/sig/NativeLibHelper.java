@@ -10,6 +10,7 @@ public class NativeLibHelper implements a {
     private static File projectRoot;
     private static DeviceProfile deviceProfile;
     private static AdjustSignatureRunner runner;
+    private static RecoveredNativeBackend recoveredBackend;
     private static NativeBackend backendForTesting;
 
     interface NativeBackend {
@@ -23,7 +24,9 @@ public class NativeLibHelper implements a {
         if (configured == null) {
             AndroidKeyStoreProvider.installFromEnv();
         } else {
-            AndroidKeyStoreProvider.install(configured.getSigningKey());
+            AndroidKeyStoreProvider.install(configured.getSigningKey(),
+                    configured.getLegacyRsaPrivateKeyPkcs8(),
+                    configured.getLegacyRsaPublicKeyX509());
         }
     }
 
@@ -56,10 +59,29 @@ public class NativeLibHelper implements a {
         return deviceProfile;
     }
 
+    private static synchronized RecoveredNativeBackend recoveredBackend() {
+        if (recoveredBackend == null) {
+            File root = projectRoot;
+            if (root == null) {
+                String configured = System.getProperty("adjust.project.root");
+                root = new File(configured == null || configured.isEmpty() ? "." : configured);
+            }
+            if (deviceProfile == null) {
+                throw new IllegalStateException("recovered backend requires a configured DeviceProfile");
+            }
+            recoveredBackend = new RecoveredNativeBackend(root, deviceProfile);
+        }
+        return recoveredBackend;
+    }
+
     public static synchronized void closeBridge() throws Exception {
         if (runner != null) {
             runner.close();
             runner = null;
+        }
+        if (recoveredBackend != null) {
+            recoveredBackend.close();
+            recoveredBackend = null;
         }
     }
 
@@ -88,6 +110,11 @@ public class NativeLibHelper implements a {
             backend.onResume();
             return;
         }
+        DeviceProfile profile = configuredProfile();
+        if (profile != null && "recovered".equals(profile.getNativeBackend())) {
+            recoveredBackend().onResume();
+            return;
+        }
         runner().onResume();
     }
 
@@ -95,6 +122,10 @@ public class NativeLibHelper implements a {
         NativeBackend backend = backendForTesting;
         if (backend != null) {
             return backend.sign(context, obj, input, androidApi);
+        }
+        DeviceProfile profile = configuredProfile();
+        if (profile != null && "recovered".equals(profile.getNativeBackend())) {
+            return recoveredBackend().sign(context, obj, input, androidApi);
         }
         if (!(obj instanceof java.util.Map)) {
             throw new IllegalArgumentException("nSign obj must be a Map, got " + (obj == null ? "null" : obj.getClass()));

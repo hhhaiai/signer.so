@@ -48,6 +48,7 @@ class SignerOneClickTest {
                 + "\"build\":{\"MODEL\":\"Pixel 9 Pro\",\"VERSION.RELEASE\":\"15\"},"
                 + "\"systemProperties\":{\"ro.product.model\":\"Pixel 9 Pro\"},"
                 + "\"settings\":{\"secure\":{\"android_id\":\"abc123\"}},"
+                + "\"sharedPreferences\":{\"adjust_keys\":{\"encrypted_key\":\"seed\"}},"
                 + "\"locale\":\"zh-CN\",\"timezone\":\"Asia/Shanghai\","
                 + "\"sensors\":[{\"name\":\"LSM6DSO\",\"vendor\":\"ST\",\"type\":1,\"version\":3}],"
                 + "\"jni\":{\"strings\":{\"android/telephony/TelephonyManager->getDeviceId()Ljava/lang/String;\":\"imei\"}}"
@@ -64,6 +65,8 @@ class SignerOneClickTest {
         assertEquals(Base64.getEncoder().encodeToString(NATIVE_RESULT), result.getString("signatureBase64"));
         assertEquals("3.67.0", result.getJSONObject("metadata").getString("native_version"));
         assertEquals("com.example.oneclick", capture.context.getPackageName());
+        assertEquals("seed", capture.context.getSharedPreferences("adjust_keys", Context.MODE_PRIVATE)
+                .getString("encrypted_key", null));
         assertEquals(35, capture.androidApi);
         assertEquals(1, capture.resumeCalls);
         assertEquals(1, capture.signCalls);
@@ -94,6 +97,8 @@ class SignerOneClickTest {
                 + "\"gettimeofday\":{\"seconds\":1760000001,\"microseconds\":123456},"
                 + "\"clockGettime\":{\"seconds\":1760000002,\"nanoseconds\":987654321},"
                 + "\"urandomHex\":\"0001020304050607\","
+                + "\"backend\":\"recovered\",\"correction05Enabled\":false,"
+                + "\"correctionCodes\":[\"2b\",\"0x36\",37],"
                 + "\"signerCodeTrampolineDetected\":true,"
                 + "\"network\":{\"connectRefusedEndpoints\":[\"127.0.0.1:27042\"],"
                 + "\"localSocketResponses\":{\"/dev/socket/fwmarkd\":{\"hex\":\"00000000\"}}}}},"
@@ -111,6 +116,9 @@ class SignerOneClickTest {
         assertEquals(1_760_000_002L, profile.getNativeClockGettimeSeconds());
         assertEquals(987_654_321L, profile.getNativeClockGettimeNanoseconds());
         assertArrayEquals(new byte[]{0, 1, 2, 3, 4, 5, 6, 7}, profile.getNativeUrandomBytes());
+        assertEquals("recovered", profile.getNativeBackend());
+        assertEquals(false, profile.getNativeCorrection05Enabled());
+        assertEquals(java.util.List.of(0x2b, 0x36, 37), profile.getNativeCorrectionCodes());
         assertTrue(profile.isNativeSignerCodeTrampolineDetected());
         assertEquals(Set.of("127.0.0.1:27042"), profile.getNativeConnectRefusedEndpoints());
         assertArrayEquals(new byte[]{0, 0, 0, 0},

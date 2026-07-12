@@ -1,0 +1,837 @@
+File opened '/dev/__properties__' with oflags=0x88000 from RX@0x12162854[libc.so]0x22854
+File closed '/dev/__properties__' from RX@0x1215ece4[libc.so]0x1ece4
+__system_property_get ro.kernel.qemu=<null>
+__system_property_get libc.debug.malloc=<null>
+File opened '/proc/stat' with oflags=0x80000 from RX@0x12162854[libc.so]0x22854
+Read 1871 bytes from '/proc/stat'
+Read 0 bytes from '/proc/stat'
+File closed '/proc/stat' from RX@0x1215ece4[libc.so]0x1ece4
+__system_property_get ro.arch=<null>
+loaded libsigner.so base=0x12340000 size=0x148000
+Find native function Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume => RX@0x1240ba8c[libsigner.so]0xcba8c
+[main]V/SignerInstance: Signing all the parameters begin: 2026-07-12T18:57:32.849+0800
+[main]V/SignerInstance: Calling native begin: 2026-07-12T18:57:33.042+0800
+Find native function Java_com_adjust_sdk_sig_NativeLibHelper_nSign => RX@0x1240c604[libsigner.so]0xcc604
+JNIEnv->GetMethodID(java/util/LinkedHashMap.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x147be1b1 was called from RX@0x123ee168[libsigner.so]0xae168
+JNIEnv->NewStringUTF("environment") was called from RX@0x123ee788[libsigner.so]0xae788
+JNI object java/util/LinkedHashMap->get(Ljava/lang/Object;)Ljava/lang/Object; this={environment=sandbox, app_token=abc123, created_at=2026-07-10T00:00:00.000+0800, gps_adid=11111111-1111-1111-1111-111111111111, android_id=0123456789abcdef, device_type=phone, device_name=Pixel 9 Pro, os_name=android, os_version=15, language=zh, country=CN, activity_kind=session, client_sdk=android4.38.5}
+JNIEnv->CallObjectMethod(java.util.LinkedHashMap@1151e434, get("environment") => "sandbox") was called from RX@0x123ee3f8[libsigner.so]0xae3f8
+JNIEnv->GetStringUTFLength("sandbox") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("sandbox") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->ReleaseStringUTFChars("sandbox") was called from RX@0x123ef050[libsigner.so]0xaf050
+__system_property_get persist.sys.timezone=Asia/Shanghai
+File opened '/system/usr/share/zoneinfo/tzdata' with oflags=0x0 from RX@0x12162854[libc.so]0x22854
+Read 24 bytes from '/system/usr/share/zoneinfo/tzdata'
+Read 30264 bytes from '/system/usr/share/zoneinfo/tzdata'
+Read 41464 bytes from '/system/usr/share/zoneinfo/tzdata'
+File closed '/system/usr/share/zoneinfo/tzdata' from RX@0x1215ece4[libc.so]0x1ece4
+__system_property_get persist.sys.timezone=Asia/Shanghai
+__system_property_get persist.sys.timezone=Asia/Shanghai
+getuid value=10513
+[qbdi-host] native local socket response path=/dev/socket/logdw bytes=0
+[qbdi-host] native local socket response path=/dev/socket/logdw bytes=0
+[qbdi-host] native local socket response path=/dev/socket/logdw bytes=0
+[qbdi-host] native local socket response path=/dev/socket/logdw bytes=0
+File opened '/dev/urandom' with oflags=0x80000 from RX@0x1246f800[libsigner.so]0x12f800
+Read 8 bytes from '/dev/urandom'
+File closed '/dev/urandom' from RX@0x1215ece4[libc.so]0x1ece4
+JNIEnv->GetMethodID(android/content/Context.getPackageName()Ljava/lang/String;) => 0xf6590850 was called from RX@0x123f3a54[libsigner.so]0xb3a54
+JNI object android/content/Context->getPackageName()Ljava/lang/String; this=android.content.Context@45099dd3
+JNIEnv->CallObjectMethod(android.content.Context@4b8ee4de, getPackageName() => "local.qbdi.adjustreference") was called from RX@0x123f392c[libsigner.so]0xb392c
+JNIEnv->GetMethodID(android/content/Context.getPackageManager()Landroid/content/pm/PackageManager;) => 0x3acc78f0 was called from RX@0x123f4344[libsigner.so]0xb4344
+JNI object android/content/Context->getPackageManager()Landroid/content/pm/PackageManager; this=android.content.Context@45099dd3
+JNIEnv->CallObjectMethod(android.content.Context@4b8ee4de, getPackageManager() => android.content.pm.PackageManager@1ffaf86) was called from RX@0x123f450c[libsigner.so]0xb450c
+JNIEnv->GetMethodID(android/content/pm/PackageManager.getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;) => 0x3bca8377 was called from RX@0x123fad30[libsigner.so]0xbad30
+JNI object android/content/pm/PackageManager->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo; this=package-manager
+JNIEnv->CallObjectMethod(android.content.pm.PackageManager@1ffaf86, getPackageInfo("local.qbdi.adjustreference", 0x40) => android.content.pm.PackageInfo@6574a52c) was called from RX@0x123fae78[libsigner.so]0xbae78
+JNIEnv->GetFieldID(android/content/pm/PackageInfo.signatures [Landroid/content/pm/Signature;) => 0x25f17218 was called from RX@0x123f9260[libsigner.so]0xb9260
+JNI getObjectField android/content/pm/PackageInfo->signatures:[Landroid/content/pm/Signature; this=local.qbdi.adjustreference
+JNIEnv->GetObjectField(android.content.pm.PackageInfo@6574a52c, signatures [Landroid/content/pm/Signature; => [android.content.pm.Signature@1e6a3214]) was called from RX@0x123f8d3c[libsigner.so]0xb8d3c
+JNIEnv->GetObjectArrayElement([android.content.pm.Signature@1e6a3214], 0) => android.content.pm.Signature@1e6a3214 was called from RX@0x1235ef20[libsigner.so]0x1ef20
+JNIEnv->GetMethodID(android/content/pm/Signature.toByteArray()[B) => 0x6a3e2031 was called from RX@0x12402984[libsigner.so]0xc2984
+JNI object android/content/pm/Signature->toByteArray()[B this=[B@1a6d8329
+JNIEnv->CallObjectMethod(android.content.pm.Signature@1e6a3214, toByteArray() => [B@1a942c18) was called from RX@0x124028d4[libsigner.so]0xc28d4
+JNIEnv->FindClass(java/security/MessageDigest) was called from RX@0x123f02cc[libsigner.so]0xb02cc
+JNIEnv->GetStaticMethodID(java/security/MessageDigest.getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;) => 0x5c20796 was called from RX@0x123efe9c[libsigner.so]0xafe9c
+JNIEnv->NewStringUTF("SHA1") was called from RX@0x123f016c[libsigner.so]0xb016c
+JNI static object java/security/MessageDigest->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+JNIEnv->CallStaticObjectMethod(class java/security/MessageDigest, getInstance("SHA1") => java.security.MessageDigest$Delegate$CloneableDelegate@738dc9b) was called from RX@0x123f044c[libsigner.so]0xb044c
+JNIEnv->GetMethodID(java/security/MessageDigest$Delegate$CloneableDelegate.update([B)V) => 0x842c3c0a was called from RX@0x123f0e38[libsigner.so]0xb0e38
+JNI void java/security/MessageDigest$Delegate$CloneableDelegate->update([B)V this=SHA1 Message Digest from SUN, <initialized>
+
+JNIEnv->CallVoidMethod(java.security.MessageDigest$Delegate$CloneableDelegate@738dc9b, update([B@1a942c18)) was called from RX@0x123f0ea8[libsigner.so]0xb0ea8
+JNIEnv->GetMethodID(java/security/MessageDigest$Delegate$CloneableDelegate.digest()[B) => 0xc7de34b5 was called from RX@0x123f1998[libsigner.so]0xb1998
+JNI object java/security/MessageDigest$Delegate$CloneableDelegate->digest()[B this=SHA1 Message Digest from SUN, <in progress>
+
+JNIEnv->CallObjectMethod(java.security.MessageDigest$Delegate$CloneableDelegate@738dc9b, digest() => [B@0x164a86faf30e412b59223a36ccbe0f6e46e40958) was called from RX@0x123f17f8[libsigner.so]0xb17f8
+JNIEnv->GetArrayLength([B@0x164a86faf30e412b59223a36ccbe0f6e46e40958 => 20) was called from RX@0x123d2f54[libsigner.so]0x92f54
+JNIEnv->GetByteArrayElements(false) => [B@0x164a86faf30e412b59223a36ccbe0f6e46e40958 was called from RX@0x123d53fc[libsigner.so]0x953fc
+__system_property_get ro.bootloader=ripcurrent-16.4-14540574
+__system_property_get ro.product.manufacturer=Google
+__system_property_get ro.product.model=Pixel 8
+__system_property_get ro.product.device=shiba
+__system_property_get ro.build.display.id=CP1A.260505.005
+__system_property_get ro.product.name=shiba
+__system_property_get ro.build.host=aa64758413cd
+__system_property_get ro.build.fingerprint=google/shiba/shiba:16/CP1A.260505.005/15081906:user/release-keys
+__system_property_get ro.build.type=user
+__system_property_get ro.product.brand=google
+__system_property_get ro.build.user=android-build
+__system_property_get ro.hardware=shiba
+__system_property_get ro.product.cpu.abilist=arm64-v8a
+JNIEnv->FindClass(android/content/Context) was called from RX@0x123f6354[libsigner.so]0xb6354
+JNIEnv->GetMethodID(android/content/Context.getSystemService(Ljava/lang/String;)Ljava/lang/Object;) => 0x545bcf2d was called from RX@0x123f6600[libsigner.so]0xb6600
+JNIEnv->GetStaticFieldID(android/content/Context.SENSOR_SERVICELjava/lang/String;) => 0xc2fd32a was called from RX@0x123f5f6c[libsigner.so]0xb5f6c
+JNI getStaticObjectField android/content/Context->SENSOR_SERVICE:Ljava/lang/String;
+JNIEnv->GetStaticObjectField(class android/content/Context, SENSOR_SERVICE Ljava/lang/String; => "sensor") was called from RX@0x123f6f24[libsigner.so]0xb6f24
+JNI object android/content/Context->getSystemService(Ljava/lang/String;)Ljava/lang/Object; this=android.content.Context@45099dd3
+JNIEnv->CallObjectMethod(android.content.Context@4b8ee4de, getSystemService("sensor") => android.hardware.SensorManager@76a4ebf2) was called from RX@0x123f6dc0[libsigner.so]0xb6dc0
+JNIEnv->GetMethodID(android/hardware/SensorManager.getSensorList(I)Ljava/util/List;) => 0xcbe7ed08 was called from RX@0x12400844[libsigner.so]0xc0844
+JNI object android/hardware/SensorManager->getSensorList(I)Ljava/util/List; this=service:sensor
+JNIEnv->CallObjectMethod(android.hardware.SensorManager@76a4ebf2, getSensorList(0xffffffff) => java.util.ArrayList@2e8c1c9b) was called from RX@0x12400b20[libsigner.so]0xc0b20
+JNIEnv->GetMethodID(java/util/ArrayList.size()I) => 0x7c07529f was called from RX@0x123e8e5c[libsigner.so]0xa8e5c
+JNI int java/util/ArrayList->size()I this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallIntMethod(java.util.ArrayList@2e8c1c9b, size() => 0x26) was called from RX@0x123e9134[libsigner.so]0xa9134
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x0) => android.hardware.Sensor@53fe15ff) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@75d3a5e0
+JNIEnv->CallObjectMethod(android.hardware.Sensor@53fe15ff, getName() => "Dynamic Sensor Manager") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Dynamic Sensor Manager") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Dynamic Sensor Manager") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@75d3a5e0
+JNIEnv->CallObjectMethod(android.hardware.Sensor@53fe15ff, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x1) => android.hardware.Sensor@449a4f23) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@74e28667
+JNIEnv->CallObjectMethod(android.hardware.Sensor@449a4f23, getName() => "ICM45631 Accelerometer") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("ICM45631 Accelerometer") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("ICM45631 Accelerometer") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@74e28667
+JNIEnv->CallObjectMethod(android.hardware.Sensor@449a4f23, getVendor() => "Invensense") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Invensense") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Invensense") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x2) => android.hardware.Sensor@1530c739) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@19e4653c
+JNIEnv->CallObjectMethod(android.hardware.Sensor@1530c739, getName() => "MMC56X3X Magnetometer") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("MMC56X3X Magnetometer") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("MMC56X3X Magnetometer") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@19e4653c
+JNIEnv->CallObjectMethod(android.hardware.Sensor@1530c739, getVendor() => "MEMSIC") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("MEMSIC") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("MEMSIC") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x3) => android.hardware.Sensor@5b1669c0) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@5149d738
+JNIEnv->CallObjectMethod(android.hardware.Sensor@5b1669c0, getName() => "Orientation Sensor") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Orientation Sensor") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Orientation Sensor") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@5149d738
+JNIEnv->CallObjectMethod(android.hardware.Sensor@5b1669c0, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x4) => android.hardware.Sensor@78e4deb0) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@4be29ed9
+JNIEnv->CallObjectMethod(android.hardware.Sensor@78e4deb0, getName() => "ICM45631 Gyroscope") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("ICM45631 Gyroscope") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("ICM45631 Gyroscope") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@4be29ed9
+JNIEnv->CallObjectMethod(android.hardware.Sensor@78e4deb0, getVendor() => "Invensense") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Invensense") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Invensense") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x5) => android.hardware.Sensor@6e9175d8) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@53fb3dab
+JNIEnv->CallObjectMethod(android.hardware.Sensor@6e9175d8, getName() => "TMD3719 Ambient Light") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("TMD3719 Ambient Light") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("TMD3719 Ambient Light") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@53fb3dab
+JNIEnv->CallObjectMethod(android.hardware.Sensor@6e9175d8, getVendor() => "AMS") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("AMS") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("AMS") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x6) => android.hardware.Sensor@7d0b7e3c) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@712625fd
+JNIEnv->CallObjectMethod(android.hardware.Sensor@7d0b7e3c, getName() => "ICP20100 Pressure Sensor") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("ICP20100 Pressure Sensor") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("ICP20100 Pressure Sensor") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@712625fd
+JNIEnv->CallObjectMethod(android.hardware.Sensor@7d0b7e3c, getVendor() => "InvenSense") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("InvenSense") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("InvenSense") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x7) => android.hardware.Sensor@15bb5034) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@75437611
+JNIEnv->CallObjectMethod(android.hardware.Sensor@15bb5034, getName() => "TMD3719 Proximity (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("TMD3719 Proximity (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("TMD3719 Proximity (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@75437611
+JNIEnv->CallObjectMethod(android.hardware.Sensor@15bb5034, getVendor() => "AMS") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("AMS") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("AMS") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x8) => android.hardware.Sensor@4b741d6d) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@17f9d882
+JNIEnv->CallObjectMethod(android.hardware.Sensor@4b741d6d, getName() => "Gravity Sensor") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Gravity Sensor") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Gravity Sensor") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@17f9d882
+JNIEnv->CallObjectMethod(android.hardware.Sensor@4b741d6d, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x9) => android.hardware.Sensor@2eae8e6e) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@4c60d6e9
+JNIEnv->CallObjectMethod(android.hardware.Sensor@2eae8e6e, getName() => "Linear Acceleration Sensor") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Linear Acceleration Sensor") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Linear Acceleration Sensor") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@4c60d6e9
+JNIEnv->CallObjectMethod(android.hardware.Sensor@2eae8e6e, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0xa) => android.hardware.Sensor@8f2ef19) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@1349883
+JNIEnv->CallObjectMethod(android.hardware.Sensor@8f2ef19, getName() => "Rotation Vector Sensor") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Rotation Vector Sensor") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Rotation Vector Sensor") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@1349883
+JNIEnv->CallObjectMethod(android.hardware.Sensor@8f2ef19, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0xb) => android.hardware.Sensor@470734c3) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@28261e8e
+JNIEnv->CallObjectMethod(android.hardware.Sensor@470734c3, getName() => "MMC56X3X Magnetometer-Uncalibrated") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("MMC56X3X Magnetometer-Uncalibrated") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("MMC56X3X Magnetometer-Uncalibrated") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@28261e8e
+JNIEnv->CallObjectMethod(android.hardware.Sensor@470734c3, getVendor() => "MEMSIC") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("MEMSIC") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("MEMSIC") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0xc) => android.hardware.Sensor@2cf3d63b) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@35dab4eb
+JNIEnv->CallObjectMethod(android.hardware.Sensor@2cf3d63b, getName() => "Game Rotation Vector Sensor") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Game Rotation Vector Sensor") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Game Rotation Vector Sensor") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@35dab4eb
+JNIEnv->CallObjectMethod(android.hardware.Sensor@2cf3d63b, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0xd) => android.hardware.Sensor@7674f035) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@3f191845
+JNIEnv->CallObjectMethod(android.hardware.Sensor@7674f035, getName() => "ICM45631 Gyroscope-Uncalibrated") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("ICM45631 Gyroscope-Uncalibrated") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("ICM45631 Gyroscope-Uncalibrated") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@3f191845
+JNIEnv->CallObjectMethod(android.hardware.Sensor@7674f035, getVendor() => "Invensense") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Invensense") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Invensense") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0xe) => android.hardware.Sensor@69e153c5) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@5afa3c9
+JNIEnv->CallObjectMethod(android.hardware.Sensor@69e153c5, getName() => "Significant Motion (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Significant Motion (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Significant Motion (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@5afa3c9
+JNIEnv->CallObjectMethod(android.hardware.Sensor@69e153c5, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0xf) => android.hardware.Sensor@173ed316) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@18271936
+JNIEnv->CallObjectMethod(android.hardware.Sensor@173ed316, getName() => "Step Detector") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Step Detector") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Step Detector") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@18271936
+JNIEnv->CallObjectMethod(android.hardware.Sensor@173ed316, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x10) => android.hardware.Sensor@25ce9dc4) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@48075da3
+JNIEnv->CallObjectMethod(android.hardware.Sensor@25ce9dc4, getName() => "Step Counter") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Step Counter") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Step Counter") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@48075da3
+JNIEnv->CallObjectMethod(android.hardware.Sensor@25ce9dc4, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x11) => android.hardware.Sensor@74ea2410) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@5e2c3d18
+JNIEnv->CallObjectMethod(android.hardware.Sensor@74ea2410, getName() => "Geomagnetic Rotation Vector Sensor") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Geomagnetic Rotation Vector Sensor") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Geomagnetic Rotation Vector Sensor") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@5e2c3d18
+JNIEnv->CallObjectMethod(android.hardware.Sensor@74ea2410, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x12) => android.hardware.Sensor@17f62e33) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@5b218417
+JNIEnv->CallObjectMethod(android.hardware.Sensor@17f62e33, getName() => "Tilt Sensor (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Tilt Sensor (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Tilt Sensor (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@5b218417
+JNIEnv->CallObjectMethod(android.hardware.Sensor@17f62e33, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x13) => android.hardware.Sensor@76b1e9b8) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@413d1baf
+JNIEnv->CallObjectMethod(android.hardware.Sensor@76b1e9b8, getName() => "Lift to Wake Sensor (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Lift to Wake Sensor (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Lift to Wake Sensor (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@413d1baf
+JNIEnv->CallObjectMethod(android.hardware.Sensor@76b1e9b8, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x14) => android.hardware.Sensor@27406a17) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@33bc72d1
+JNIEnv->CallObjectMethod(android.hardware.Sensor@27406a17, getName() => "Device Orientation") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Device Orientation") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Device Orientation") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@33bc72d1
+JNIEnv->CallObjectMethod(android.hardware.Sensor@27406a17, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x15) => android.hardware.Sensor@2af004b) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@5032714f
+JNIEnv->CallObjectMethod(android.hardware.Sensor@2af004b, getName() => "ICM45631 Accelerometer-Uncalibrated") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("ICM45631 Accelerometer-Uncalibrated") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("ICM45631 Accelerometer-Uncalibrated") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@5032714f
+JNIEnv->CallObjectMethod(android.hardware.Sensor@2af004b, getVendor() => "Invensense") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Invensense") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Invensense") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x16) => android.hardware.Sensor@248e319b) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@4681c175
+JNIEnv->CallObjectMethod(android.hardware.Sensor@248e319b, getName() => "ICM45631 Temperature") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("ICM45631 Temperature") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("ICM45631 Temperature") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@4681c175
+JNIEnv->CallObjectMethod(android.hardware.Sensor@248e319b, getVendor() => "Invensense") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Invensense") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Invensense") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x17) => android.hardware.Sensor@5d0bf09b) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@6fa51cd4
+JNIEnv->CallObjectMethod(android.hardware.Sensor@5d0bf09b, getName() => "ICP20100 Temperature") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("ICP20100 Temperature") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("ICP20100 Temperature") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@6fa51cd4
+JNIEnv->CallObjectMethod(android.hardware.Sensor@5d0bf09b, getVendor() => "InvenSense") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("InvenSense") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("InvenSense") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x18) => android.hardware.Sensor@793f29ff) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@5386659f
+JNIEnv->CallObjectMethod(android.hardware.Sensor@793f29ff, getName() => "Camera V-Sync 0") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Camera V-Sync 0") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Camera V-Sync 0") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@5386659f
+JNIEnv->CallObjectMethod(android.hardware.Sensor@793f29ff, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x19) => android.hardware.Sensor@3e8c3cb) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@1caa0244
+JNIEnv->CallObjectMethod(android.hardware.Sensor@3e8c3cb, getName() => "Camera V-Sync 1") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Camera V-Sync 1") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Camera V-Sync 1") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@1caa0244
+JNIEnv->CallObjectMethod(android.hardware.Sensor@3e8c3cb, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x1a) => android.hardware.Sensor@563f38c4) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@1750fbeb
+JNIEnv->CallObjectMethod(android.hardware.Sensor@563f38c4, getName() => "Camera V-Sync 2") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Camera V-Sync 2") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Camera V-Sync 2") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@1750fbeb
+JNIEnv->CallObjectMethod(android.hardware.Sensor@563f38c4, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x1b) => android.hardware.Sensor@543295b0) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@6e9a5ed8
+JNIEnv->CallObjectMethod(android.hardware.Sensor@543295b0, getName() => "VD6282 Rear Light Sensor") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("VD6282 Rear Light Sensor") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("VD6282 Rear Light Sensor") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@6e9a5ed8
+JNIEnv->CallObjectMethod(android.hardware.Sensor@543295b0, getVendor() => "STMicro") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("STMicro") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("STMicro") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x1c) => android.hardware.Sensor@54422e18) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@5890e879
+JNIEnv->CallObjectMethod(android.hardware.Sensor@54422e18, getName() => "ICM45631 Motion Detect") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("ICM45631 Motion Detect") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("ICM45631 Motion Detect") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@5890e879
+JNIEnv->CallObjectMethod(android.hardware.Sensor@54422e18, getVendor() => "Invensense") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Invensense") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Invensense") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x1d) => android.hardware.Sensor@117159c0) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@231f98ef
+JNIEnv->CallObjectMethod(android.hardware.Sensor@117159c0, getName() => "ICM45631 Stationary Detect") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("ICM45631 Stationary Detect") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("ICM45631 Stationary Detect") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@231f98ef
+JNIEnv->CallObjectMethod(android.hardware.Sensor@117159c0, getVendor() => "Invensense") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Invensense") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Invensense") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x1e) => android.hardware.Sensor@3e27ba32) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@7d9d0818
+JNIEnv->CallObjectMethod(android.hardware.Sensor@3e27ba32, getName() => "Double Twist (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Double Twist (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Double Twist (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@7d9d0818
+JNIEnv->CallObjectMethod(android.hardware.Sensor@3e27ba32, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x1f) => android.hardware.Sensor@7ef82753) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@2b40ff9c
+JNIEnv->CallObjectMethod(android.hardware.Sensor@7ef82753, getName() => "Binned Brightness (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Binned Brightness (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Binned Brightness (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@2b40ff9c
+JNIEnv->CallObjectMethod(android.hardware.Sensor@7ef82753, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x20) => android.hardware.Sensor@3b0fe47a) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@8462f31
+JNIEnv->CallObjectMethod(android.hardware.Sensor@3b0fe47a, getName() => "Proximity Gated Single Tap Gesture (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Proximity Gated Single Tap Gesture (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Proximity Gated Single Tap Gesture (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@8462f31
+JNIEnv->CallObjectMethod(android.hardware.Sensor@3b0fe47a, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x21) => android.hardware.Sensor@202b0582) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@70ed52de
+JNIEnv->CallObjectMethod(android.hardware.Sensor@202b0582, getName() => "Proximity Gated Long Press Gesture (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Proximity Gated Long Press Gesture (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Proximity Gated Long Press Gesture (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@70ed52de
+JNIEnv->CallObjectMethod(android.hardware.Sensor@202b0582, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x22) => android.hardware.Sensor@235ecd9f) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@7188af83
+JNIEnv->CallObjectMethod(android.hardware.Sensor@235ecd9f, getName() => "Quick Pickup Sensor (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Quick Pickup Sensor (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Quick Pickup Sensor (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@7188af83
+JNIEnv->CallObjectMethod(android.hardware.Sensor@235ecd9f, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x23) => android.hardware.Sensor@1ca3b418) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@247310d0
+JNIEnv->CallObjectMethod(android.hardware.Sensor@1ca3b418, getName() => "Auto Brightness") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Auto Brightness") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Auto Brightness") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@247310d0
+JNIEnv->CallObjectMethod(android.hardware.Sensor@1ca3b418, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x24) => android.hardware.Sensor@58cbafc2) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@76494737
+JNIEnv->CallObjectMethod(android.hardware.Sensor@58cbafc2, getName() => "AAD Proximity Sensor (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("AAD Proximity Sensor (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("AAD Proximity Sensor (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@76494737
+JNIEnv->CallObjectMethod(android.hardware.Sensor@58cbafc2, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(java/util/ArrayList.get(I)Ljava/lang/Object;) => 0x11309d56 was called from RX@0x123e9bf0[libsigner.so]0xa9bf0
+JNI object java/util/ArrayList->get(I)Ljava/lang/Object; this=[android.hardware.Sensor@53fe15ff, android.hardware.Sensor@449a4f23, android.hardware.Sensor@1530c739, android.hardware.Sensor@5b1669c0, android.hardware.Sensor@78e4deb0, android.hardware.Sensor@6e9175d8, android.hardware.Sensor@7d0b7e3c, android.hardware.Sensor@15bb5034, android.hardware.Sensor@4b741d6d, android.hardware.Sensor@2eae8e6e, android.hardware.Sensor@8f2ef19, android.hardware.Sensor@470734c3, android.hardware.Sensor@2cf3d63b, android.hardware.Sensor@7674f035, android.hardware.Sensor@69e153c5, android.hardware.Sensor@173ed316, android.hardware.Sensor@25ce9dc4, android.hardware.Sensor@74ea2410, android.hardware.Sensor@17f62e33, android.hardware.Sensor@76b1e9b8, android.hardware.Sensor@27406a17, android.hardware.Sensor@2af004b, android.hardware.Sensor@248e319b, android.hardware.Sensor@5d0bf09b, android.hardware.Sensor@793f29ff, android.hardware.Sensor@3e8c3cb, android.hardware.Sensor@563f38c4, android.hardware.Sensor@543295b0, android.hardware.Sensor@54422e18, android.hardware.Sensor@117159c0, android.hardware.Sensor@3e27ba32, android.hardware.Sensor@7ef82753, android.hardware.Sensor@3b0fe47a, android.hardware.Sensor@202b0582, android.hardware.Sensor@235ecd9f, android.hardware.Sensor@1ca3b418, android.hardware.Sensor@58cbafc2, android.hardware.Sensor@2034b64c]
+JNIEnv->CallObjectMethod(java.util.ArrayList@2e8c1c9b, get(0x25) => android.hardware.Sensor@2034b64c) was called from RX@0x123e9b2c[libsigner.so]0xa9b2c
+JNIEnv->GetMethodID(android/hardware/Sensor.getName()Ljava/lang/String;) => 0xfc35b75a was called from RX@0x123feea8[libsigner.so]0xbeea8
+JNI object android/hardware/Sensor->getName()Ljava/lang/String; this=local.DeviceProfile$Sensor@17fc391b
+JNIEnv->CallObjectMethod(android.hardware.Sensor@2034b64c, getName() => "Proximity(Voice Calls) Sensor (wake-up)") was called from RX@0x123ff06c[libsigner.so]0xbf06c
+JNIEnv->GetStringUTFLength("Proximity(Voice Calls) Sensor (wake-up)") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Proximity(Voice Calls) Sensor (wake-up)") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->GetMethodID(android/hardware/Sensor.getVendor()Ljava/lang/String;) => 0x3e979097 was called from RX@0x123ffd2c[libsigner.so]0xbfd2c
+JNI object android/hardware/Sensor->getVendor()Ljava/lang/String; this=local.DeviceProfile$Sensor@17fc391b
+JNIEnv->CallObjectMethod(android.hardware.Sensor@2034b64c, getVendor() => "Google") was called from RX@0x123ffbdc[libsigner.so]0xbfbdc
+JNIEnv->GetStringUTFLength("Google") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("Google") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->ReleaseStringUTFChars("Proximity(Voice Calls) Sensor (wake-up)") was called from RX@0x123d50dc[libsigner.so]0x950dc
+JNIEnv->ReleaseStringUTFChars("Google") was called from RX@0x123d50dc[libsigner.so]0x950dc
+JNIEnv->FindClass(android/content/res/Resources) was called from RX@0x123fc16c[libsigner.so]0xbc16c
+JNIEnv->GetStaticMethodID(android/content/res/Resources.getSystem()Landroid/content/res/Resources;) => 0x9b6c6e52 was called from RX@0x123fbf14[libsigner.so]0xbbf14
+JNI static object android/content/res/Resources->getSystem()Landroid/content/res/Resources;
+JNIEnv->CallStaticObjectMethod(class android/content/res/Resources, getSystem() => android.content.res.Resources@359df09a) was called from RX@0x123fc048[libsigner.so]0xbc048
+JNIEnv->GetMethodID(android/content/res/Resources.getDisplayMetrics()Landroid/util/DisplayMetrics;) => 0xe38a1df2 was called from RX@0x123fd558[libsigner.so]0xbd558
+JNI object android/content/res/Resources->getDisplayMetrics()Landroid/util/DisplayMetrics; this=system-resources
+JNIEnv->CallObjectMethod(android.content.res.Resources@359df09a, getDisplayMetrics() => android.util.DisplayMetrics@43df23d3) was called from RX@0x123fd498[libsigner.so]0xbd498
+JNIEnv->GetFieldID(android/util/DisplayMetrics.widthPixels I) => 0x6be4c703 was called from RX@0x123f26d0[libsigner.so]0xb26d0
+JNI getIntField android/util/DisplayMetrics->widthPixels:I this=display-metrics
+JNIEnv->GetIntField(android.util.DisplayMetrics@43df23d3, widthPixels => 0x438) was called from RX@0x123f282c[libsigner.so]0xb282c
+JNIEnv->GetFieldID(android/util/DisplayMetrics.heightPixels I) => 0x6cb02cc2 was called from RX@0x123f26d0[libsigner.so]0xb26d0
+JNI getIntField android/util/DisplayMetrics->heightPixels:I this=display-metrics
+JNIEnv->GetIntField(android.util.DisplayMetrics@43df23d3, heightPixels => 0x960) was called from RX@0x123f282c[libsigner.so]0xb282c
+File opened '/proc/cpuinfo' with oflags=0x0 from RX@0x12416c48[libsigner.so]0xd6c48
+Read 2049 bytes from '/proc/cpuinfo'
+File closed '/proc/cpuinfo' from RX@0x12416c18[libsigner.so]0xd6c18
+__system_property_get init.svc.qemud=<null>
+__system_property_get init.svc.qemud-props=<null>
+__system_property_get qemu.hw.mainkeys=<null>
+__system_property_get qemu.sf.fake.camera=<null>
+__system_property_get qemu.sf.lcd.density=<null>
+__system_property_get ro.kernel.android.qemud=<null>
+__system_property_get ro.kernel.qemu.gles=<null>
+__system_property_get ro.boot.serialno=37101FDJH0077P
+__system_property_get ro.hardware=shiba
+__system_property_get ro.build.host=aa64758413cd
+__system_property_get ro.bootloader=ripcurrent-16.4-14540574
+__system_property_get ro.bootmode=unknown
+__system_property_get ro.product.manufacturer=Google
+__system_property_get ro.product.model=Pixel 8
+__system_property_get ro.product.brand=google
+__system_property_get ro.product.device=shiba
+__system_property_get ro.product.board=shiba
+__system_property_get ro.product.name=shiba
+__system_property_get ro.product.user=<null>
+__system_property_get ro.build.fingerprint=google/shiba/shiba:16/CP1A.260505.005/15081906:user/release-keys
+__system_property_get ro.kernel.qemu=<null>
+__system_property_get ro.bootimage.build.fingerprint=google/shiba/shiba:16/CP1A.260505.005/15081906:user/release-keys
+__system_property_get ro.brand=<null>
+__system_property_get ro.device=<null>
+__system_property_get ro.build.characteristics=nosdcard
+__system_property_get ro.secure=1
+__system_property_get ro.serialno=37101FDJH0077P
+__system_property_get ro.system.build.type=user
+__system_property_get ro.product.manufacturer=Google
+__system_property_get ro.product.vendor.manufacturer=Google
+__system_property_get ro.product.manufacturer=Google
+__system_property_get ro.product.vendor.manufacturer=Google
+__system_property_get ro.product.model=Pixel 8
+__system_property_get ro.product.vendor.model=Pixel 8
+__system_property_get ro.build.display.id=CP1A.260505.005
+__system_property_get ro.boot.qemu.gltransport.name=<null>
+__system_property_get ro.boot.qemu.hwcodec.avcdec=<null>
+__system_property_get ro.kernel.mac80211_hwsim.channels=<null>
+__system_property_get init.svc.qemu-adb-setup=<null>
+__system_property_get vendor.qemu.timezone=<null>
+__system_property_get ro.kernel.qemu.gltransport=<null>
+__system_property_get ro.kernel.qemu.settings.system.screen_off_timeout=<null>
+__system_property_get ro.hardware.power=<null>
+__system_property_get qemu.networknamespace=<null>
+__system_property_get init.svc.goldfish-logcat=<null>
+__system_property_get ro.kernel.qemu.uirenderer=<null>
+__system_property_get ro.boot.qemu.gltransport.drawFlushInterval=<null>
+__system_property_get ro.adb.qemud=<null>
+__system_property_get vendor.qemu.vport.bluetooth=<null>
+__system_property_get qemu.cmdline=<null>
+__system_property_get ro.product.board=shiba
+__system_property_get ro.boot.qemu.camera_hq_edge_processing=<null>
+__system_property_get ro.kernel.qemu.encrypt=<null>
+__system_property_get ro.boot.qemu.avd_name=<null>
+__system_property_get init.svc.qemu-props-bootcomplete=<null>
+__system_property_get vendor.qemu.sf.fake_camera=<null>
+__system_property_get qemu.gles=<null>
+__system_property_get qemu.timezone=<null>
+__system_property_get init.svc.goldfish-setup=<null>
+__system_property_get ro.kernel.qemu.camera_hq_edge_processing=<null>
+__system_property_get ro.hardware.egl=mali
+__system_property_get init.svc.qemu-props=<null>
+__system_property_get ro.boot.qemu.cpuvulkan.version=<null>
+__system_property_get ro.kernel.qemu.wifi=<null>
+__system_property_get ro.kernel.qemu.gltransport.drawFlushInterval=<null>
+__system_property_get ro.kernel.qemu.dalvik.vm.heapsize=<null>
+__system_property_get ro.kernel.qemu.camera_protocol_ver=<null>
+__system_property_get vendor.qemu.dev.bootcomplete=<null>
+__system_property_get init.svc.ranchu-net=<null>
+__system_property_get init.svc.qemu-adb-keys=<null>
+__system_property_get ro.kernel.qemu.avd_name=<null>
+__system_property_get vendor.qemu.vport.modem=<null>
+__system_property_get qemu.adb.secure=<null>
+__system_property_get init.svc.android-hardware-media-c2-goldfish-hal-1-0=<null>
+__system_property_get ro.boot.qemu.virtiowifi=<null>
+__system_property_get ro.kernel.qemu.vsync=<null>
+__system_property_get qemu.sf.lcd_density=<null>
+__system_property_get init.svc.ranchu-setup=<null>
+__system_property_get ro.qemu.initrc=<null>
+__system_property_get ro.boot.qemu.hwcodec.hevcdec=<null>
+__system_property_get ro.boot.qemu.camera_protocol_ver=<null>
+__system_property_get ro.soc.model=Tensor G3
+__system_property_get qemu.sf.fake_camera=<null>
+__system_property_get ro.kernel.qemu.opengles.version=<null>
+__system_property_get ro.boot.qemu=<null>
+__system_property_get ro.boot.qemu.vsync=<null>
+__system_property_get ro.boot.qemu.settings.system.screen_off_timeout=<null>
+__system_property_get ro.soc.manufacturer=Google
+__system_property_get qemu.logcat=<null>
+[qbdi-host] native-init stage=entry caller=0xcbc30 context=unidbg@0xe4fff3c8 flags=0x51183fffffd1e
+JNIEnv->GetMethodID(java/util/LinkedHashMap.get(Ljava/lang/Object;)Ljava/lang/Object;) => 0x147be1b1 was called from RX@0x123ee168[libsigner.so]0xae168
+JNIEnv->NewStringUTF("client_sdk") was called from RX@0x123ee788[libsigner.so]0xae788
+JNI object java/util/LinkedHashMap->get(Ljava/lang/Object;)Ljava/lang/Object; this={environment=sandbox, app_token=abc123, created_at=2026-07-10T00:00:00.000+0800, gps_adid=11111111-1111-1111-1111-111111111111, android_id=0123456789abcdef, device_type=phone, device_name=Pixel 9 Pro, os_name=android, os_version=15, language=zh, country=CN, activity_kind=session, client_sdk=android4.38.5}
+JNIEnv->CallObjectMethod(java.util.LinkedHashMap@1151e434, get("client_sdk") => "android4.38.5") was called from RX@0x123ee3f8[libsigner.so]0xae3f8
+JNIEnv->GetStringUTFLength("android4.38.5") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("android4.38.5") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->ReleaseStringUTFChars("android4.38.5") was called from RX@0x123ef050[libsigner.so]0xaf050
+JNIEnv->FindClass(java/lang/Thread) was called from RX@0x12407f74[libsigner.so]0xc7f74
+JNIEnv->GetStaticMethodID(java/lang/Thread.currentThread()Ljava/lang/Thread;) => 0xb11dab06 was called from RX@0x124071b4[libsigner.so]0xc71b4
+JNI static object java/lang/Thread->currentThread()Ljava/lang/Thread;
+JNIEnv->CallStaticObjectMethod(class java/lang/Thread, currentThread() => java.lang.Thread@23e84203) was called from RX@0x124088f0[libsigner.so]0xc88f0
+JNIEnv->GetMethodID(java/lang/Thread.getStackTrace()[Ljava/lang/StackTraceElement;) => 0xb5a73646 was called from RX@0x12406f30[libsigner.so]0xc6f30
+JNIEnv->FindClass(java/lang/StackTraceElement) was called from RX@0x12407a5c[libsigner.so]0xc7a5c
+JNIEnv->GetMethodID(java/lang/StackTraceElement.getClassName()Ljava/lang/String;) => 0x24f40ed4 was called from RX@0x124070ec[libsigner.so]0xc70ec
+JNIEnv->GetMethodID(java/lang/StackTraceElement.getMethodName()Ljava/lang/String;) => 0x88b83731 was called from RX@0x12407d3c[libsigner.so]0xc7d3c
+JNI object java/lang/Thread->getStackTrace()[Ljava/lang/StackTraceElement; this=main-thread
+JNIEnv->CallObjectMethod(java.lang.Thread@23e84203, getStackTrace() => [java.lang.StackTraceElement@19932c16, java.lang.StackTraceElement@73eb439a]) was called from RX@0x12408748[libsigner.so]0xc8748
+JNIEnv->GetArrayLength([java.lang.StackTraceElement@19932c16, java.lang.StackTraceElement@73eb439a] => 2) was called from RX@0x123d2f54[libsigner.so]0x92f54
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@19932c16, java.lang.StackTraceElement@73eb439a], 0) => java.lang.StackTraceElement@19932c16 was called from RX@0x124089bc[libsigner.so]0xc89bc
+JNI object java/lang/StackTraceElement->getClassName()Ljava/lang/String; this=com.adjust.sdk.sig.NativeLibHelper.nSign
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@19932c16, getClassName() => "com.adjust.sdk.sig.NativeLibHelper") was called from RX@0x124081b4[libsigner.so]0xc81b4
+JNIEnv->GetStringUTFLength("com.adjust.sdk.sig.NativeLibHelper") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("com.adjust.sdk.sig.NativeLibHelper") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNI object java/lang/StackTraceElement->getMethodName()Ljava/lang/String; this=com.adjust.sdk.sig.NativeLibHelper.nSign
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@19932c16, getMethodName() => "nSign") was called from RX@0x124085ec[libsigner.so]0xc85ec
+JNIEnv->GetStringUTFLength("nSign") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("nSign") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->ReleaseStringUTFChars("com.adjust.sdk.sig.NativeLibHelper") was called from RX@0x12407830[libsigner.so]0xc7830
+JNIEnv->ReleaseStringUTFChars("nSign") was called from RX@0x1240826c[libsigner.so]0xc826c
+JNIEnv->GetObjectArrayElement([java.lang.StackTraceElement@19932c16, java.lang.StackTraceElement@73eb439a], 1) => java.lang.StackTraceElement@73eb439a was called from RX@0x124089bc[libsigner.so]0xc89bc
+JNI object java/lang/StackTraceElement->getClassName()Ljava/lang/String; this=com.adjust.sdk.sig.Signer.sign
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@73eb439a, getClassName() => "com.adjust.sdk.sig.Signer") was called from RX@0x124081b4[libsigner.so]0xc81b4
+JNIEnv->GetStringUTFLength("com.adjust.sdk.sig.Signer") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("com.adjust.sdk.sig.Signer") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNI object java/lang/StackTraceElement->getMethodName()Ljava/lang/String; this=com.adjust.sdk.sig.Signer.sign
+JNIEnv->CallObjectMethod(java.lang.StackTraceElement@73eb439a, getMethodName() => "sign") was called from RX@0x124085ec[libsigner.so]0xc85ec
+JNIEnv->GetStringUTFLength("sign") was called from RX@0x123d2954[libsigner.so]0x92954
+JNIEnv->GetStringUtfChars("sign") was called from RX@0x123d2d5c[libsigner.so]0x92d5c
+JNIEnv->ReleaseStringUTFChars("com.adjust.sdk.sig.Signer") was called from RX@0x12407830[libsigner.so]0xc7830
+JNIEnv->ReleaseStringUTFChars("sign") was called from RX@0x1240826c[libsigner.so]0xc826c
+[qbdi-host] native-init stage=select-0x2b state=0xdceadccbe705fd3c context=unidbg@0xe4fff3c8
+[qbdi-host] native-init stage=wrapper-entry context=unidbg@0xe4fff3c8 flags=0x51183fffffd1e
+[qbdi-host] native-init stage=correction-call code=0x2b context=unidbg@0xe4fff3c8
+[qbdi-host] native-init stage=before-flag-set context=unidbg@0xe4fff3c8 flags=0x51183fffffd1e
+[qbdi-host] native-init stage=after-flag-set context=unidbg@0xe4fff3c8 flags=0x51183fffffd1f
+[qbdi-host] native-init stage=exit context=unidbg@0xe4fff3c8 flags=0x2051983fffffd1f
+[qbdi-host] native-init stage=public-source-probe-call path=/data/app/~~7_posD2Xt1__e0e3j-WT5Q==/local.qbdi.adjustreference-g0OvN03MKCT_ocLhy-EC4Q==/base.apk result=unidbg@0xe4fff2d4 initial=0x0
+JNIEnv->GetMethodID(android/content/Context.getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;) => 0xa0a12d1f was called from RX@0x123f5114[libsigner.so]0xb5114
+JNIEnv->NewStringUTF("adjust_keys") was called from RX@0x123f555c[libsigner.so]0xb555c
+JNI object android/content/Context->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences; this=android.content.Context@45099dd3
+JNIEnv->CallObjectMethod(android.content.Context@4b8ee4de, getSharedPreferences("adjust_keys", 0x0) => android.content.SharedPreferences@61c4eee0) was called from RX@0x123f5274[libsigner.so]0xb5274
+JNIEnv->GetMethodID(android/content/SharedPreferences.getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;) => 0x2c5b4190 was called from RX@0x12401e50[libsigner.so]0xc1e50
+JNIEnv->NewStringUTF("encrypted_key") was called from RX@0x12401b9c[libsigner.so]0xc1b9c
+JNI object android/content/SharedPreferences->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; this=android.content.Context$MemorySharedPreferences@1040be71
+JNIEnv->CallObjectMethod(android.content.SharedPreferences@61c4eee0, getString("encrypted_key", null) => "GUK9r8cU9PYfGAOibWoQuStbreTx9rXkfVIdbRK8zmAbzWVAq1sL6gBDiV+Z8OWS2UNmBrv6tmibUYsFTff5Sbs+2/TLW/Fh59QWw3SyFW6IZBOuLYVMhp4WLpRXsJlo9pvYlBH5RazP/jJs/EbSxVEv/yuajXYiT40jXYd7f4I=") was called from RX@0x124014fc[libsigner.so]0xc14fc
+JNIEnv->FindClass(android/util/Base64) was called from RX@0x123d3c7c[libsigner.so]0x93c7c
+JNIEnv->GetStaticMethodID(android/util/Base64.decode(Ljava/lang/String;I)[B) => 0xbf6bbabe was called from RX@0x123d3b1c[libsigner.so]0x93b1c
+JNI static object android/util/Base64->decode(Ljava/lang/String;I)[B
+JNIEnv->CallStaticObjectMethod(class android/util/Base64, decode("GUK9r8cU9PYfGAOibWoQuStbreTx9rXkfVIdbRK8zmAbzWVAq1sL6gBDiV+Z8OWS2UNmBrv6tmibUYsFTff5Sbs+2/TLW/Fh59QWw3SyFW6IZBOuLYVMhp4WLpRXsJlo9pvYlBH5RazP/jJs/EbSxVEv/yuajXYiT40jXYd7f4I=", 0x0) => [B@433defed) was called from RX@0x123d3984[libsigner.so]0x93984
+JNIEnv->FindClass(java/security/KeyStore) was called from RX@0x123e50f8[libsigner.so]0xa50f8
+JNIEnv->GetStaticMethodID(java/security/KeyStore.getInstance(Ljava/lang/String;)Ljava/security/KeyStore;) => 0x84aaea18 was called from RX@0x123e4bc8[libsigner.so]0xa4bc8
+JNIEnv->NewStringUTF("AndroidKeyStore") was called from RX@0x123e4f00[libsigner.so]0xa4f00
+JNI static object java/security/KeyStore->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
+JNIEnv->CallStaticObjectMethod(class java/security/KeyStore, getInstance("AndroidKeyStore") => java.security.KeyStore@7fd50002) was called from RX@0x123e49e4[libsigner.so]0xa49e4
+JNIEnv->GetMethodID(java/security/KeyStore.load(Ljava/security/KeyStore$LoadStoreParameter;)V) => 0x5499ce39 was called from RX@0x123e59d0[libsigner.so]0xa59d0
+JNI void java/security/KeyStore->load(Ljava/security/KeyStore$LoadStoreParameter;)V this=android-keystore
+JNIEnv->CallVoidMethod(java.security.KeyStore@7fd50002, load(null)) was called from RX@0x123e5844[libsigner.so]0xa5844
+JNIEnv->GetMethodID(java/security/KeyStore.getEntry(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;) => 0x31b6a986 was called from RX@0x123e6134[libsigner.so]0xa6134
+JNIEnv->NewStringUTF("key2") was called from RX@0x123e62e4[libsigner.so]0xa62e4
+JNI object java/security/KeyStore->getEntry(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry; this=android-keystore
+JNIEnv->CallObjectMethod(java.security.KeyStore@7fd50002, getEntry("key2", null) => java.security.KeyStore$PrivateKeyEntry@304bb45b) was called from RX@0x123e6b58[libsigner.so]0xa6b58
+JNIEnv->GetMethodID(java/security/KeyStore$PrivateKeyEntry.getPrivateKey()Ljava/security/PrivateKey;) => 0xa9bc6c5d was called from RX@0x123e849c[libsigner.so]0xa849c
+JNI object java/security/KeyStore$PrivateKeyEntry->getPrivateKey()Ljava/security/PrivateKey; this=Private key entry and certificate chain with 1 elements:
+LocalCertificate(RSA)
+
+JNIEnv->CallObjectMethod(java.security.KeyStore$PrivateKeyEntry@304bb45b, getPrivateKey() => sun.security.rsa.RSAPrivateCrtKeyImpl@4a8355dd) was called from RX@0x123e82e4[libsigner.so]0xa82e4
+JNIEnv->FindClass(javax/crypto/Cipher) was called from RX@0x123d6d68[libsigner.so]0x96d68
+JNIEnv->GetStaticMethodID(javax/crypto/Cipher.getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;) => 0x26676b36 was called from RX@0x123d6bec[libsigner.so]0x96bec
+JNIEnv->NewStringUTF("RSA/ECB/PKCS1Padding") was called from RX@0x123d6a3c[libsigner.so]0x96a3c
+JNI static object javax/crypto/Cipher->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+JNIEnv->CallStaticObjectMethod(class javax/crypto/Cipher, getInstance("RSA/ECB/PKCS1Padding") => javax.crypto.Cipher@c430e6c) was called from RX@0x123d69e4[libsigner.so]0x969e4
+JNIEnv->GetMethodID(javax/crypto/Cipher.init(ILjava/security/Key;)V) => 0x1ec864d5 was called from RX@0x123d742c[libsigner.so]0x9742c
+JNI void javax/crypto/Cipher->init(ILjava/security/Key;)V this=Cipher.RSA/ECB/PKCS1Padding, mode: not initialized, algorithm from: (no provider)
+JNIEnv->CallVoidMethod(javax.crypto.Cipher@c430e6c, init(0x2, sun.security.rsa.RSAPrivateCrtKeyImpl@4a8355dd)) was called from RX@0x123d75a8[libsigner.so]0x975a8
+JNIEnv->GetMethodID(javax/crypto/Cipher.doFinal([B)[B) => 0x13ab3b was called from RX@0x123d7e08[libsigner.so]0x97e08
+JNI object javax/crypto/Cipher->doFinal([B)[B this=Cipher.RSA/ECB/PKCS1Padding, mode: decryption, algorithm from: SunJCE
+JNIEnv->CallObjectMethod(javax.crypto.Cipher@c430e6c, doFinal([B@433defed) => [B@0x2b8d072edf1667468ff3eac8a5f6e97d) was called from RX@0x123d7b64[libsigner.so]0x97b64
+JNIEnv->FindClass(javax/crypto/spec/SecretKeySpec) was called from RX@0x123fe144[libsigner.so]0xbe144
+JNIEnv->GetMethodID(javax/crypto/spec/SecretKeySpec.<init>([BLjava/lang/String;)V) => 0x391fc558 was called from RX@0x123fe8bc[libsigner.so]0xbe8bc
+JNIEnv->NewStringUTF("AES") was called from RX@0x123fe310[libsigner.so]0xbe310
+java.lang.UnsupportedOperationException: javax/crypto/spec/SecretKeySpec-><init>([BLjava/lang/String;)V
+	at com.github.unidbg.linux.android.dvm.AbstractJni.newObject(AbstractJni.java:753)
+	at com.github.unidbg.linux.android.dvm.AbstractJni.newObject(AbstractJni.java:733)
+	at com.github.unidbg.linux.android.dvm.DvmMethod.newObject(DvmMethod.java:224)
+	at com.github.unidbg.linux.android.dvm.DalvikVM64$25.handle(DalvikVM64.java:395)
+	at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:119)
+	at local.ConfigurableAndroidARM64Emulator$ConfigurableARM64SyscallHandler.hook(ConfigurableAndroidARM64Emulator.java:109)
+	at com.github.unidbg.arm.backend.UnicornBackend.lambda$hook_add_new$4(UnicornBackend.java:232)
+	at unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:97)
+	at unicorn.Unicorn.emu_start(Native Method)
+	at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:253)
+	at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:375)
+	at com.github.unidbg.thread.Function64.run(Function64.java:39)
+	at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
+	at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:165)
+	at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:97)
+	at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:332)
+	at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:262)
+	at com.github.unidbg.Module.emulateFunction(Module.java:170)
+	at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
+	at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethodObject(DvmObject.java:93)
+	at local.AdjustSignatureRunner.signNative(AdjustSignatureRunner.java:1758)
+	at com.adjust.sdk.sig.NativeLibHelper.nSign(NativeLibHelper.java:133)
+	at com.adjust.sdk.sig.NativeLibHelper.a(NativeLibHelper.java:141)
+	at com.adjust.sdk.sig.d.a(d.java:73)
+	at com.adjust.sdk.sig.Signer.sign(Signer.java:37)
+	at local.SignerEngine.sign(SignerEngine.java:58)
+	at local.SignerEngine.signOnce(SignerEngine.java:77)
+	at local.SignerOneClick.run(SignerOneClick.java:29)
+	at local.SignerOneClick.run(SignerOneClick.java:21)
+	at local.SignerOneClick.main(SignerOneClick.java:50)
+debugger break at: 0xfffe0214 @ Runnable|Function64 address=0x1240c604, arguments=[unidbg@0xfffe1640, 1306834002, 1267655902, 290579508, 767904468, 22]
+>>> x0=0xfffe1640(-125376) x1=0xdf277c6a x2=0x391fc558 x3=0x312aa7c x4=0x536f2a7e x5=0xc8c8ed3277d0510e x6=0xce5ea9740754cb33 x7=0xeb32644ec3e76b57 x8=0xfffe0210 x9=0xce5ea9740754cb33 x10=0x79273c48c73229bb x11=0xeb2678d035d7d19d x12=0xe6be8ea0e62453e1 x13=0xd898cf373cdeb9d7 x14=0xd2698616108eb7ca
+>>> x15=0xbcca68a0b4ef9a96 x16=0xb0b236328fbe5808 x17=0xab755405ba4df450 x18=0x12229f50 x19=0xafb424edc3bf8772 x20=0xa28d7522ed747296 x21=0x8f90b9364f2edf19 x22=0xaa56d42db7077fc0 x23=0xfffe1640 x24=0x536f2a7e x25=0xe7d3e632f22490c2 x26=0x9b586ad2ef0e3146 x27=0x88275077c0e88dd2 x28=0x8c42f9900cee0936 fp=0xe4ffef00
+>>> q0=0x74532f676e616c2f6176616a4c425b28(3.146502099056523E161, 2.1977691884903096E252) q1=0x56293b676e6972(4.931000125388513E-307) q2=0xe3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3(-1.537328181705375E173, -1.537328181705375E173) q3=0xe2f0b9aebfaea6aab9aa9ba5a4a2bfa8(-6.5593775057327E-31, -3.9450462143501174E168) q4=0xcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcb(-1.363115719988382E57, -1.363115719988382E57) q5=0x100000000(2.121995791E-314) q6=0x0(0.0) q7=0x80200802802008028020080280200802(-4.458850023827439E-308, -4.458850023827439E-308) q8=0xe3e3e3e3e3e3e3e3(-1.537328181705375E173) q9=0xcdcdcdcdcdcdcdcd(-6.2774385622041925E66) q10=0x1a1a1a1a1a1a1a1a(6.14293298947794E-183) q11=0x2828282828282828(3.0654356309538037E-115) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
+>>> q16=0x40100401401004014010040140100401(4.003911019303815, 4.003911019303815) q17=0xaa800100(-2.2738061433713597E-13) q18=0x0(0.0) q19=0x0(0.0) q20=0x0(0.0) q21=0x0(0.0) q22=0x0(0.0) q23=0x0(0.0) q24=0x0(0.0) q25=0x0(0.0) q26=0x0(0.0) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
+LR=RX@0x123fddf8[libsigner.so]0xbddf8
+SP=0xe4ffee90
+PC=unidbg@0xfffe0214
+nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
+    [Arm64Svc     0x000210] [012300d4] 0xfffe0210: "svc #0x118"
+=> *[Arm64Svc    *0x000214]*[c0035fd6]*0xfffe0214:*"ret"
+
+[main]V/SignerInstance: Calling native end  : 2026-07-12T18:57:33.970+0800
+[main]E/SignerInstance: sign: Returned an null signature. Exiting...
+Exception in thread "main" java.lang.IllegalStateException: Signer v4 did not produce a signature: {environment=sandbox, app_token=abc123, created_at=2026-07-10T00:00:00.000+0800, gps_adid=11111111-1111-1111-1111-111111111111, android_id=0123456789abcdef, device_type=phone, device_name=Pixel 9 Pro, os_name=android, os_version=15, language=zh, country=CN}
+	at local.SignerEngine.sign(SignerEngine.java:60)
+	at local.SignerEngine.signOnce(SignerEngine.java:77)
+	at local.SignerOneClick.run(SignerOneClick.java:29)
+	at local.SignerOneClick.run(SignerOneClick.java:21)
+	at local.SignerOneClick.main(SignerOneClick.java:50)

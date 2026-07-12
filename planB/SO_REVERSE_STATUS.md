@@ -1,9 +1,11 @@
 # `libsigner.so` 3.67.0 reverse-engineering status
 
-This document is deliberately an evidence log, not a claim that the native
-library has been fully recovered.  The desktop runner executes the original
-ARM64 `libsigner.so` through Unidbg; it does not substitute a reconstructed
-signature implementation.
+This document is deliberately an evidence log. The default Java desktop backend
+still executes the original ARM64 `libsigner.so` through Unidbg. The optional
+Java `recovered` backend now invokes the independently source-built C++17 core,
+does not load the original SO, and exactly matches the frozen Pixel result. The
+remaining boundary is Android probe-to-correction mapping, not Java integration
+or the AES/HMAC/result-layout algorithm.
 
 ## Artifact
 
@@ -59,6 +61,10 @@ signature implementation.
 | `0x11d9e0` | Native plaintext allocation return path |
 | `0x11daa8` / `0x11daac` | `time()` then `srand()` path |
 | `0x913a0` | `SHA-256` string reference in obfuscated JNI-related path |
+| `0x9279c` | `nOnResume` helper: sets context `+0xe0` bit `0x1000000000000`; not the metadata/algorithm dispatcher |
+| `0x9954c` | Protected metadata item builder, called once for each of the four fixed key/value pairs |
+| `0x99f10` / `0x99de8` | JNI `NewStringUTF` calls for metadata key/value respectively |
+| `0x9a4dc` | JNI `Map.put` call for a completed metadata item |
 | `0x1441d8`, `0x1442f0`, `0x144390` | Runtime-XOR/anti-emulation string state differs between device and Unidbg |
 | `0x1463c5`, `0x146693`, `0x1466ad` | Device/Unidbg environment state flags differ before `srand()` |
 
@@ -313,13 +319,450 @@ list sizes and scalar values.  The shell test deliberately does not compare
 serialized JSON text because `/` and `\/` are equivalent JSON strings; the
 embedded `expectedResultFile` comparison is the authoritative strict gate.
 
-The remaining reverse-engineering boundary is now the requested complete
-independent C/C++/Go replacement.  The Java/Unidbg signer and the frozen Pixel
-reference are equivalent, but normal execution still loads the original ARM64
-`libsigner.so`.  `native-reimplementation/` independently compiles and tests
-AES-256 plus the complete 16-halfword correction encoder recovered from
-`0x13531c`; the complete 176-byte native pipeline has not yet been reproduced
-by that source.
+The Java/Unidbg signer and the frozen Pixel reference are equivalent. The
+independent C++ implementation reproduces the complete 176-byte pipeline, and
+`runtime.backend=recovered` now exposes it behind the same Java `Signer` API and
+fixed `onResume -> sign` lifecycle. What remains before calling it a general SO
+replacement is the complete mapping from every Android/native probe to its
+correction event.
+
+## 2026-07-12 complete source-built result pipeline
+
+### Final format and fixed cryptographic material
+
+The independently compiled C++ now proves the complete layout:
+
+```text
+176 bytes = 16-byte IV + 128-byte AES-256-CBC ciphertext + 32-byte HMAC-SHA256
+```
+
+Recovered AES-256 key:
+
+```text
+ffb5e5f9c862b637d13351c292633e39
+965a3c2d037ed64dfff5388e11d80db3
+```
+
+Recovered HMAC-SHA256 key:
+
+```text
+caab83444a2146392abb96b642306155
+29a770c63c163c1c7528673e0671728f
+```
+
+The HMAC message is the 128-byte ciphertext only; it does not include the IV.
+
+### IV derivation
+
+`0x11a62c/0x11a64c` call Bionic `rand()` twice per output word. Four words are:
+
+```text
+IV_word[i] = rand() XOR rand()
+```
+
+The seed is native `timeSeconds`. For `1760000000` the result is
+`3b273362218b186a73e7349775b93f11`. Changing only the seed to `1760000001`
+produces a C++ signature exactly equal to the original SO's complete 176 bytes.
+
+### 113-byte payload
+
+```text
+01
+00 08 + 8 environment halfwords
+02 + 4-byte field2 serialized in reverse order
+03 + 20-byte certificate SHA1
+04 + 32-byte custom-state SHA-256 field
+05 + SHA256(empty)
+06 + one-byte state
+```
+
+Field 4 hashes a different serialization of the same inputs: certificate SHA1,
+`00 08` plus the halfwords, field2 in forward order, `SHA256(empty)`, state,
+and the native plaintext.
+
+### Field-4 custom SHA-256 initial state
+
+The source constants are emitted at `0xf8xxx..0xf9a4c`, copied through
+`0x111020`, then XORed with `0xcccccccc` by `0x115ca0..0x115ce8`. The resulting
+initial state is:
+
+```text
+cd46a0de d5c62fe0 02cb3985 fd4a15a3
+07cad499 63840dbf 51698010 ca03ff52
+```
+
+Using this state with otherwise standard SHA-256 padding/compression over the
+Pixel 229-byte material gives these exact block states:
+
+```text
+1 9c5245c90d73ee79a98ab1650b7d7fd74ba327d58460a7b4389832e193d3b2ad
+2 b87423995a0954c8c6454b4a60fc23d6f2a35e8e75acef675af49f911f931a02
+3 e283c5c66393e853d87b0712ab34170cf0bab471e6f6c02c6da1da731b55d080
+4 fef6ae81ab7a34b0c938952ba406bbee57d47d7b82a99fde1a6b84e42e105380
+```
+
+This closes the earlier reason why ordinary `SHA256(229-byte material)` did not
+match field 4.
+
+### Field-0 correction model
+
+The field starts with eight halfwords `encodeCorrection(0x40..0x47)`.
+Environment correction events overwrite the first N slots in event order. The
+original SO rounds capacity up in blocks of eight halfwords and repeats the
+eight-value base pattern before applying overrides: `8 -> 16 -> 24 -> 32 ...`.
+
+```text
+trampoline=false: [2b,36,05]    -> d49d b5d3 6ee6 6c8f a19a 6ae7 a7f2 cc92
+trampoline=true : [2b,36,25,05] -> d49d b5d3 cacc 6ee6 a19a 6ae7 a7f2 cc92
+```
+
+Decrypting both original-SO outputs and rebuilding them in C++ proves the rule;
+both complete 176-byte results match exactly.
+
+A combined nine-event profile proves the expansion rule end-to-end:
+
+```text
+corrections = 2b,09,37,2a,3c,35,36,25,05
+field 0     = 16 halfwords
+payload     = 129 bytes
+ciphertext  = 144 bytes
+result      = 16-byte IV + 144-byte ciphertext + 32-byte tag = 192 bytes
+```
+
+The independently built C++ result and the Java recovered-backend result both
+match the original SO's complete 192 bytes.
+
+The default-off `ADJUST_NATIVE_APPEND_CORRECTIONS` diagnostic redirects the
+original SO at the native context consumer, invokes the real correction helper
+at `0x13548c`, and restores the complete Unicorn CPU context before normal
+execution resumes. Injecting 13 events after the four-event Pixel sequence
+produces this additional original-SO oracle:
+
+```text
+corrections = 2b,36,25,05,01,02,03,04,05,06,07,08,09,0a,0b,0c,0d
+field 0     = 24 halfwords
+payload     = 145 bytes
+ciphertext  = 160 bytes
+result      = 16-byte IV + 160-byte ciphertext + 32-byte tag = 208 bytes
+```
+
+Decrypting the result confirms field-0 count byte `0x18`. The recovered C++
+backend, after changing growth from an unsupported doubling assumption to
+eight-halfword chunking, reproduces all 208 bytes exactly.
+
+#### Narrowed correction conditions
+
+Static AArch64 disassembly now closes two wrapper-level conditions without
+assigning unsupported Android marketing names:
+
+- `0x80c0` always calls `0x13548c(context+0x20, 0x2b)`, then ORs bit 0 into
+  `context+0xe0`. Its observed call site is `0x8998` inside the protected
+  initialization state machine. Entry/return probes across package, path,
+  certificate, maps, timing, API 23/35/36 and trampoline variants show exactly
+  one `0x2b` event on every successful `nOnResume`. It is therefore the fixed
+  first successful native-context initialization event, not a variable Android
+  environment anomaly.
+- `0xf224` loads `context[+0x8]`. If that byte is nonzero, the state machine
+  reaches `0xf2d8` and calls `0x13548c(context+0x20, 0x05)`; if it is zero,
+  the correction is skipped and the function only updates `context+0xe0`.
+  The producer is now identified: `0xd184` calls AArch64 syscalls `169`
+  (`gettimeofday`) and `113` (`clock_gettime`), converts both results to a
+  common time scale, compares their elapsed/delta value with a caller-supplied
+  threshold, and writes byte `1` at `0xd32c` when the protected timing state
+  selects the anomaly branch. Narrow dynamic evidence on the Pixel profile is:
+
+  ```text
+  timing-check-entry value=0x0
+  timing-check-write before=0x0 write=0x1
+  correction-0x05-gate value=0x1
+  ```
+
+  `nOnResume` calls the correction gate at `0xcc26c`. The configurable host
+  observation is `runtime.correction05Enabled`; setting it false immediately
+  before `0xf224` removes only correction `0x05`.
+- Decrypting that original-SO output proves the `context+0x8` timing flag is
+  not payload field 6: with correction `0x05` disabled, field 0 becomes
+  `[2b,36,25]`, while the payload still ends in `06 01`. The recovered backend
+  therefore keeps payload state `true` and independently controls correction
+  `0x05`; conflating the two would produce a different signature.
+- `0x14e44` is a simple unconditional wrapper for correction `0x36`; its
+  dispatcher call site is `0x14a04`. The containing dispatcher at `0x14d9c`
+  calls helper `0xd78b8`, which accesses `/proc/self/maps` and writes an integer
+  result through an output pointer. Narrow original-SO probes establish:
+
+  ```text
+  maps contains a line with current packageName and /base.apk:
+      helper return=0, result=0, corrections=2b,36,25,05
+  maps exists but has no such package/base.apk line:
+      helper return=0, result=0, corrections=2b,37,36,25,05
+  maps path missing:
+      result=8, corrections=2b,37,35,36,25,05
+  ```
+
+  A line-level binary search of the 3268-line frozen maps snapshot reduced the
+  success condition to line 3189, the mapped package `.../base.apk` entry.
+  Follow-up path-shape experiments prove the decision is not exact sourceDir
+  containment: a line must contain the current runtime package name and
+  `/base.apk`. A package-name-only shared-library line still produces `0x37`;
+  a package/base.apk line suppresses it. Changing the runtime package while
+  leaving the old maps path produces `0x37`; changing the maps package with it
+  suppresses `0x37`. Address, permission bits, inode/device fields and spacing
+  do not decide the branch.
+
+  Separate one-line inputs containing `frida-server`, `gum-js-loop`,
+  `libfrida-gadget.so`, `XposedBridge.jar`, or `/data/local/tmp/clean.so` all
+  produced the same missing-package-baseApk sequence `[2b,37,36,25,05]`. Therefore
+  this branch is an application APK mapping-presence check, not evidence of a
+  Frida/Xposed keyword blacklist.
+
+  Thus `0x37` is the maps-present-but-current-package-base.apk-not-found event,
+  `0x35` is the maps path missing/access-failure event, and `0x36` is a baseline
+  maps probe/scan completion event present in all observed cases. It is
+  incorrect to name `0x36` itself as "maps missing". The Java recovered backend
+  now implements this package/base.apk line rule. If such a line exists but its
+  extracted first APK path differs from `applicationInfo.publicSourceDir`, the
+  separate correction `0x29` is emitted.
+
+### Multi-configuration oracle evidence
+
+`native-reimplementation/build-and-test.sh` requires exact complete-signature
+matches for:
+
+1. frozen Pixel reference;
+2. `timeSeconds=1760000001`;
+3. `signerCodeTrampolineDetected=false`;
+4. `correction05Enabled=false`, producing corrections `[2b,36,25]` while
+   retaining payload field 6 as `01`;
+5. empty `/proc/self/maps`, producing `[2b,37,36,25,05]`;
+6. missing `/proc/self/maps`, producing `[2b,37,35,36,25,05]`;
+7. changed `device_name`, which changes the native plaintext and field 4;
+8. omitted `android_id`, `country`, and `device_name`; the original SO allocation
+   length and complete output prove missing fields contribute empty bytes;
+9. APK signer certificate versus PackageManager certificate mismatch, producing
+   correction `0x2a` immediately after the earlier package/maps/path events;
+10. a combined nine-correction profile, proving 8-to-16 field-0 expansion and a
+    complete 192-byte result.
+
+### Correction `0x2a`: APK/package certificate mismatch
+
+Controlled original-SO experiments kept every Pixel input fixed while changing
+the certificate returned through the emulated PackageManager and/or resigning
+the same APK payload:
+
+```text
+reference APK + reference certificate:       2b,36,25,05
+alternate APK + matching alternate cert:     2b,36,25,05
+alternate APK + reference certificate:       2b,2a,36,25,05
+reference APK + alternate certificate:       2b,2a,36,25,05
+v2-only alternate APK + matching cert:       2b,36,25,05
+v3-only APK + matching cert:                  2b,36,25,05
+v3-only APK + alternate cert:                 2b,2a,36,25,05
+```
+
+Changing the PackageManager certificate by one byte, truncating/appending it,
+using zero bytes, arbitrary text, or a different valid X.509 certificate while
+keeping the reference APK all produced `0x2a`. A separately signed APK with its
+own matching certificate removed `0x2a`, proving that this is not a hardcoded
+reference fingerprint check. It is the mismatch event between the certificate
+reported for the package and the actual signer certificate parsed from
+`applicationInfo.sourceDir`/`baseApk`.
+
+`RecoveredNativeBackend` parses v1 and v2 APK signer certificates through the
+project-local Maven dependency. The project-owned pure Java
+`ApkSigningBlockCertificates` additionally parses APK Signature Scheme v3
+(`0xf05368c0`) and v3.1 (`0x1b93ad61`) signing blocks directly from EOCD,
+central-directory offset, APK Signing Block pairs and length-prefixed signer
+records. It does not invoke Android SDK tools at runtime. A valid v3-only APK
+with the matching reference certificate exactly reproduces the original-SO
+no-`0x2a` 176-byte result; replacing only the PackageManager certificate emits
+the original-SO `0x2a` result. Both complete outputs match the recovered C++
+backend byte-for-byte. Unreadable/unsigned APKs remain an explicit
+`runtime.correctionCodes` calibration case rather than being guessed.
+
+### Corrections `0x09`, `0x34`, `0x29`, `0x38`, and `0x3c`
+
+Controlled single-variable original-SO experiments close four additional
+environment events:
+
+- `0x09`: `/proc/self/cmdline` is non-empty, but its first NUL-terminated process
+  name differs from the runtime package name. A matching cmdline suppresses it;
+  whitespace or another non-empty process name emits it. Earlier package-only
+  experiments also left the frozen cmdline unchanged and therefore did not
+  isolate the APK manifest. A corrected experiment changes runtime package and
+  cmdline together while leaving the APK manifest unchanged; `0x09` disappears,
+  proving binary AXML manifest package mismatch is not this event.
+- `0x34`: `/proc/self/cmdline` is missing or its first process-name field is
+  empty. The unique wrapper is `0xd428`, with observed call sites `0xcbd7c` and
+  `0xd068`; the missing/empty experiment reaches the latter and emits exactly
+  `0x34`. `0x09` and `0x34` are mutually exclusive for the observed cmdline
+  states.
+- `0x29`: `/proc/self/maps` contains a current-package `/base.apk` mapping, but
+  the path extracted from the first such line differs from
+  `applicationInfo.publicSourceDir`. If no package/base.apk line exists,
+  `0x37` is emitted and this comparison is not reached.
+- `0x38`: `applicationInfo.publicSourceDir` cannot be opened/is absent. The
+  basename and path shape do not decide it: preparing the same path through
+  `sourceDir` or `filesystem.files` removes only `0x38`. The Unidbg IO resolver
+  now treats an unprovided publicSourceDir distinct from sourceDir as ENOENT, so
+  stale rootfs files from previous runs cannot alter the observation.
+- `0x3c`: the event is present exactly when
+  `androidApi != 36`. It is independent of `targetSdk`. Original-SO probes emit
+  it for API 18/21/22, API 23 through 35, and again for 37/40, but not for 36.
+  The API 18-22 path is now executable on the desktop through SharedPreferences,
+  Android Base64, AndroidKeyStore RSA private-key entry, Cipher and SecretKeySpec
+  JNI emulation; APIs 18, 21 and 22 all produce the same exact original-SO
+  176-byte result for equal downstream observations.
+
+The observed combined ordering is:
+
+```text
+2b, 34-or-09, 37-or-29, 38, 2a, 3c, 35, 36, 25, 05
+```
+
+`0x34`/`0x09` and `0x37`/`0x29` are mutually exclusive pairs in the recovered model. Other entries
+appear only when their corresponding observation is true. The nine-event
+original-SO vector `2b,09,37,2a,3c,35,36,25,05` is reproduced byte-for-byte by
+both the C++ CLI and the unchanged Java `Signer` API through
+`runtime.backend=recovered`.
+
+### API-selected cryptographic layers
+
+JNI traces confirm that the signer has API-selected key acquisition and MAC
+paths in addition to the independently recovered native result envelope:
+
+```text
+API 23+:
+  AndroidKeyStore.getKey("key2")
+  -> HmacSHA256
+
+API 18-22:
+  SharedPreferences["adjust_keys"]["encrypted_key"]
+  -> Base64.decode
+  -> AndroidKeyStore PrivateKeyEntry.getPrivateKey
+  -> RSA/ECB/PKCS1Padding decrypt
+  -> SecretKeySpec(..., "AES")
+  -> HmacSHA256
+
+Observed native result envelope:
+  custom-state SHA-256
+  -> AES-256-CBC + PKCS#7
+  -> HMAC-SHA256(ciphertext)
+  -> IV || ciphertext || tag
+```
+
+The desktop profile can now reproduce the API 18-22 persistent state instead
+of only generating a fresh pair. `device.legacyKeyStore` imports a PKCS#8 RSA
+private key plus X.509 SubjectPublicKeyInfo public key, while
+`device.sharedPreferences.adjust_keys.encrypted_key` supplies the paired
+Base64 RSA/PKCS1-wrapped secret. A controlled API 18 original-SO test succeeds
+only with the imported pair and reproduces the complete established 176-byte
+oracle.
+
+For equal correction sequences and payload inputs, API 18/21/22 and API 35
+produce the same complete `adj8` result, even though their Android key retrieval
+paths differ. This proves a dynamic crypto/key-management switch, but does not
+yet prove a second final envelope algorithm. Unreached protected dispatcher
+branches remain under investigation and are not collapsed into the recovered
+`adj8` path without an original-SO oracle.
+
+Changing only the Java-side signing key/HMAC input did not change any native
+signature byte on the Pixel profile. This agrees with field 5 being
+`SHA256(empty)` on the recovered path; the source implementation does not claim
+that Java HMAC bytes are a field-4 input.
+
+### `algorithm=adj8` selection evidence
+
+The initial trace label for `0x9279c` was incorrect. Static disassembly proves
+that the function is only the `onResume` state-bit setter:
+
+```text
+ldr x8, [x2, #0xe0]
+orr x8, x8, #0x1000000000000
+str x8, [x2, #0xe0]
+ret
+```
+
+The protected metadata item builder starts at `0x9954c`. Four original-SO call
+sites invoke it with four static encoded key/value buffers. The opt-in
+`ADJUST_NATIVE_METADATA_TRACE=1` probe maps them as follows (addresses are
+module-relative):
+
+```text
+key 0x142ea8 + value 0x142eb4 -> headers_id     = 9
+key 0x142ed0 + value 0x142ea0 -> adj_signing_id = 1400000
+key 0x142eb8 + value 0x142ec8 -> native_version = 3.67.0
+key 0x142ee0 + value 0x142eec -> algorithm      = adj8
+```
+
+API 22, API 36 and the combined nine-correction profile reach the same four
+builder calls with the same static key/value addresses and values. A separate
+27-case host matrix varied API 18/22/23/28/35/36/40, environment, activity
+kind, client SDK, public request version, minimal parameters and 64 extra
+parameters. Every valid case returned the same `adj8`, `1400000`, `9`, and
+`3.67.0` metadata. Evidence is stored under:
+
+```text
+.omx/algorithm-matrix/results.json
+.omx/metadata-direct.stderr
+.omx/metadata-api22.stderr
+.omx/metadata-api36.stderr
+.omx/metadata-combined.stderr
+```
+
+The current evidence therefore supports this narrower conclusion for
+`libsigner.so` 3.67.0: multiple cryptographic primitives and an API-selected
+key-management path exist, but `algorithm=adj8` is a fixed static metadata
+value on every reachable valid path tested so far. It does not prove that all
+other library versions use only `adj8`, and it does not yet prove that no
+unreached/tamper/failure branch in this binary can select a different final
+envelope.
+
+### Targeted native crypto-switch matrix
+
+A direct original-SO matrix now separates the Java HMAC argument from the
+native API/environment inputs. The probe fixes PID, `time`, `gettimeofday`,
+`clock_gettime` and `/dev/urandom`, then calls the unchanged native descriptor:
+
+```text
+nOnResume()
+-> nSign(Context, Object, byte[], int)
+```
+
+For API 36, changing the third argument across 0, 16, 31, 32, 33 and 64 bytes,
+and changing its byte value from `0x11` to `0x22`, produces the exact same
+192-byte result SHA-256 every time:
+
+```text
+118637a615c3bf42ca3d7abbe8a0d2777ff7cd733c71a9601d0c34a6f8629b7b
+```
+
+Thus the reached native `adj8` path does not select a final cipher from the
+length or content of the Java-produced HMAC byte array. API is observable,
+but the newly isolated API 23/24 boundary changes the environment correction
+vector rather than the final envelope:
+
+```text
+API 23 corrections: 2b,07,34,37,38,2f,36,05
+API 24 corrections: 2b,07,34,37,38,2f,3c,36,05
+
+API 23 -> 176 bytes, algorithm=adj8
+API 24 -> 192 bytes, algorithm=adj8
+```
+
+The added `0x3c` makes field 0 cross the 8-halfword capacity boundary, so the
+plaintext/ciphertext grows by one AES block. This is dynamic input selection
+inside the same recovered `custom SHA-256 -> AES-256-CBC -> HMAC-SHA256`
+envelope, not evidence of AES-GCM, RSA or another final signer algorithm.
+
+Reproducible evidence:
+
+```text
+.omx/ProbeNativeCryptoSwitch.java
+.omx/native-crypto-input-matrix-deterministic.log
+.omx/native-api-switch-matrix-deterministic.log
+.omx/native-api23-corrections.stderr
+.omx/native-api24-corrections.stderr
+```
 
 ## Instrumentation constraints observed
 

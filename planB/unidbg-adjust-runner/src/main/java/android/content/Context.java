@@ -46,6 +46,10 @@ public class Context {
         return preferences.computeIfAbsent(name, ignored -> new MemorySharedPreferences());
     }
 
+    public void putSharedPreference(String name, String key, String value) {
+        getSharedPreferences(name, MODE_PRIVATE).edit().putString(key, value).apply();
+    }
+
     private static final class MemorySharedPreferences implements SharedPreferences {
         private final Map<String, String> values = new ConcurrentHashMap<>();
 

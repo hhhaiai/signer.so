@@ -17,6 +17,8 @@ public final class DeviceProfile {
     private final File baseApk;
     private final byte[] certificateDer;
     private final byte[] signingKey;
+    private final byte[] legacyRsaPrivateKeyPkcs8;
+    private final byte[] legacyRsaPublicKeyX509;
     private final List<Sensor> sensors;
     private final int displayWidth;
     private final int displayHeight;
@@ -35,6 +37,7 @@ public final class DeviceProfile {
     private final Map<String, String> systemProperties;
     private final Map<String, String> secureSettings;
     private final Map<String, String> systemSettings;
+    private final Map<String, Map<String, String>> sharedPreferences;
     private final Map<String, String> serviceClasses;
     private final String locale;
     private final String timeZone;
@@ -46,6 +49,9 @@ public final class DeviceProfile {
     private final Long nativeClockGettimeNanoseconds;
     private final byte[] nativeUrandomBytes;
     private final boolean nativeSignerCodeTrampolineDetected;
+    private final Boolean nativeCorrection05Enabled;
+    private final String nativeBackend;
+    private final List<Integer> nativeCorrectionCodes;
     private final Set<String> nativeConnectRefusedEndpoints;
     private final Map<String, byte[]> nativeLocalSocketResponses;
     private final Map<String, byte[]> nativeFiles;
@@ -63,6 +69,13 @@ public final class DeviceProfile {
         if (builder.androidApi < 1) throw new IllegalArgumentException("androidApi must be positive");
         if (builder.certificateDer.length == 0) throw new IllegalArgumentException("certificateDer must not be empty");
         if (builder.signingKey.length == 0) throw new IllegalArgumentException("signingKey must not be empty");
+        if ((builder.legacyRsaPrivateKeyPkcs8 == null) != (builder.legacyRsaPublicKeyX509 == null)) {
+            throw new IllegalArgumentException("legacyKeyStore requires both privateKeyPkcs8 and publicKeyX509");
+        }
+        if (builder.legacyRsaPrivateKeyPkcs8 != null
+                && (builder.legacyRsaPrivateKeyPkcs8.length == 0 || builder.legacyRsaPublicKeyX509.length == 0)) {
+            throw new IllegalArgumentException("legacyKeyStore keys must not be empty");
+        }
         if (builder.sensors.isEmpty()) throw new IllegalArgumentException("at least one sensor is required");
         if (builder.displayWidth < 1 || builder.displayHeight < 1 || builder.densityDpi < 1) {
             throw new IllegalArgumentException("display dimensions and densityDpi must be positive");
@@ -91,6 +104,10 @@ public final class DeviceProfile {
         baseApk = builder.baseApk;
         certificateDer = builder.certificateDer.clone();
         signingKey = builder.signingKey.clone();
+        legacyRsaPrivateKeyPkcs8 = builder.legacyRsaPrivateKeyPkcs8 == null
+                ? null : builder.legacyRsaPrivateKeyPkcs8.clone();
+        legacyRsaPublicKeyX509 = builder.legacyRsaPublicKeyX509 == null
+                ? null : builder.legacyRsaPublicKeyX509.clone();
         sensors = Collections.unmodifiableList(new ArrayList<>(builder.sensors));
         displayWidth = builder.displayWidth;
         displayHeight = builder.displayHeight;
@@ -111,6 +128,7 @@ public final class DeviceProfile {
         systemProperties = immutableCopy(builder.systemProperties);
         secureSettings = immutableCopy(builder.secureSettings);
         systemSettings = immutableCopy(builder.systemSettings);
+        sharedPreferences = immutableNestedCopy(builder.sharedPreferences);
         serviceClasses = immutableCopy(builder.serviceClasses);
         locale = builder.locale;
         timeZone = builder.timeZone;
@@ -122,6 +140,12 @@ public final class DeviceProfile {
         nativeClockGettimeNanoseconds = builder.nativeClockGettimeNanoseconds;
         nativeUrandomBytes = builder.nativeUrandomBytes == null ? null : builder.nativeUrandomBytes.clone();
         nativeSignerCodeTrampolineDetected = builder.nativeSignerCodeTrampolineDetected;
+        nativeCorrection05Enabled = builder.nativeCorrection05Enabled;
+        nativeBackend = requireText(builder.nativeBackend, "runtime.backend");
+        if (!"unidbg".equals(nativeBackend) && !"recovered".equals(nativeBackend)) {
+            throw new IllegalArgumentException("runtime.backend must be unidbg or recovered");
+        }
+        nativeCorrectionCodes = Collections.unmodifiableList(new ArrayList<>(builder.nativeCorrectionCodes));
         nativeConnectRefusedEndpoints = Collections.unmodifiableSet(
                 new LinkedHashSet<>(builder.nativeConnectRefusedEndpoints));
         nativeLocalSocketResponses = immutableBytes(builder.nativeLocalSocketResponses);
@@ -169,6 +193,9 @@ public final class DeviceProfile {
         Long nativeClockGettimeSeconds = envOptionalLong("ADJUST_NATIVE_CLOCK_GETTIME_SECONDS");
         Long nativeClockGettimeNanoseconds = envOptionalLong("ADJUST_NATIVE_CLOCK_GETTIME_NANOSECONDS");
         String nativeUrandomHex = System.getenv("ADJUST_NATIVE_URANDOM_HEX");
+        String nativeBackend = System.getenv("ADJUST_NATIVE_BACKEND");
+        String nativeCorrectionCodes = System.getenv("ADJUST_NATIVE_CORRECTION_CODES");
+        String nativeCorrection05Enabled = System.getenv("ADJUST_NATIVE_CORRECTION_05_ENABLED");
         if (nativeProcessId != null) builder.nativeProcessId(nativeProcessId);
         if (nativeTimeSeconds != null) builder.nativeTimeSeconds(nativeTimeSeconds);
         if (nativeGettimeofdaySeconds != null || nativeGettimeofdayMicroseconds != null) {
@@ -186,6 +213,17 @@ public final class DeviceProfile {
             builder.nativeClockGettime(nativeClockGettimeSeconds, nativeClockGettimeNanoseconds);
         }
         if (nativeUrandomHex != null && !nativeUrandomHex.isEmpty()) builder.nativeUrandomHex(nativeUrandomHex);
+        if (nativeBackend != null && !nativeBackend.isEmpty()) builder.nativeBackend(nativeBackend);
+        if (nativeCorrection05Enabled != null && !nativeCorrection05Enabled.isEmpty()) {
+            builder.nativeCorrection05Enabled(Boolean.parseBoolean(nativeCorrection05Enabled));
+        }
+        if (nativeCorrectionCodes != null && !nativeCorrectionCodes.isEmpty()) {
+            for (String code : nativeCorrectionCodes.split(",")) {
+                String value = code.trim();
+                if (value.startsWith("0x") || value.startsWith("0X")) value = value.substring(2);
+                builder.nativeCorrectionCode(Integer.parseInt(value, 16));
+            }
+        }
         return builder.build();
     }
 
@@ -194,6 +232,12 @@ public final class DeviceProfile {
     public File getBaseApk() { return baseApk; }
     public byte[] getCertificateDer() { return certificateDer.clone(); }
     public byte[] getSigningKey() { return signingKey.clone(); }
+    public byte[] getLegacyRsaPrivateKeyPkcs8() {
+        return legacyRsaPrivateKeyPkcs8 == null ? null : legacyRsaPrivateKeyPkcs8.clone();
+    }
+    public byte[] getLegacyRsaPublicKeyX509() {
+        return legacyRsaPublicKeyX509 == null ? null : legacyRsaPublicKeyX509.clone();
+    }
     public List<Sensor> getSensors() { return sensors; }
     public String getSensorName() { return sensors.get(0).getName(); }
     public String getSensorVendor() { return sensors.get(0).getVendor(); }
@@ -216,6 +260,7 @@ public final class DeviceProfile {
     public Map<String, String> getSystemProperties() { return systemProperties; }
     public Map<String, String> getSecureSettings() { return secureSettings; }
     public Map<String, String> getSystemSettings() { return systemSettings; }
+    public Map<String, Map<String, String>> getSharedPreferences() { return sharedPreferences; }
     public Map<String, String> getServiceClasses() { return serviceClasses; }
     public String getLocale() { return locale; }
     public String getTimeZone() { return timeZone; }
@@ -227,6 +272,9 @@ public final class DeviceProfile {
     public Long getNativeClockGettimeNanoseconds() { return nativeClockGettimeNanoseconds; }
     public byte[] getNativeUrandomBytes() { return nativeUrandomBytes == null ? null : nativeUrandomBytes.clone(); }
     public boolean isNativeSignerCodeTrampolineDetected() { return nativeSignerCodeTrampolineDetected; }
+    public Boolean getNativeCorrection05Enabled() { return nativeCorrection05Enabled; }
+    public String getNativeBackend() { return nativeBackend; }
+    public List<Integer> getNativeCorrectionCodes() { return nativeCorrectionCodes; }
     public Set<String> getNativeConnectRefusedEndpoints() { return nativeConnectRefusedEndpoints; }
     public Map<String, byte[]> getNativeLocalSocketResponses() { return mutableBytesCopy(nativeLocalSocketResponses); }
     public Map<String, byte[]> getNativeFiles() { return mutableBytesCopy(nativeFiles); }
@@ -288,6 +336,15 @@ public final class DeviceProfile {
         return Collections.unmodifiableMap(new LinkedHashMap<>(source));
     }
 
+    private static Map<String, Map<String, String>> immutableNestedCopy(
+            Map<String, Map<String, String>> source) {
+        Map<String, Map<String, String>> copy = new LinkedHashMap<>();
+        for (Map.Entry<String, Map<String, String>> entry : source.entrySet()) {
+            copy.put(entry.getKey(), immutableCopy(entry.getValue()));
+        }
+        return Collections.unmodifiableMap(copy);
+    }
+
     private static Map<String, byte[]> immutableBytes(Map<String, byte[]> source) {
         return Collections.unmodifiableMap(mutableBytesCopy(source));
     }
@@ -325,6 +382,8 @@ public final class DeviceProfile {
         private File baseApk;
         private byte[] certificateDer = "local-adjust-debug-certificate".getBytes(StandardCharsets.UTF_8);
         private byte[] signingKey = "local-adjust-keystore-key".getBytes(StandardCharsets.UTF_8);
+        private byte[] legacyRsaPrivateKeyPkcs8;
+        private byte[] legacyRsaPublicKeyX509;
         private final List<Sensor> sensors = new ArrayList<>();
         private boolean customSensors;
         private int displayWidth = 1080;
@@ -345,6 +404,7 @@ public final class DeviceProfile {
         private final Map<String, String> systemProperties = new LinkedHashMap<>();
         private final Map<String, String> secureSettings = new LinkedHashMap<>();
         private final Map<String, String> systemSettings = new LinkedHashMap<>();
+        private final Map<String, Map<String, String>> sharedPreferences = new LinkedHashMap<>();
         private final Map<String, String> serviceClasses = new LinkedHashMap<>();
         private String locale;
         private String timeZone;
@@ -356,6 +416,9 @@ public final class DeviceProfile {
         private Long nativeClockGettimeNanoseconds;
         private byte[] nativeUrandomBytes;
         private boolean nativeSignerCodeTrampolineDetected;
+        private Boolean nativeCorrection05Enabled;
+        private String nativeBackend = "unidbg";
+        private final List<Integer> nativeCorrectionCodes = new ArrayList<>();
         private final Set<String> nativeConnectRefusedEndpoints = new LinkedHashSet<>();
         private final Map<String, byte[]> nativeLocalSocketResponses = new LinkedHashMap<>();
         private final Map<String, byte[]> nativeFiles = new LinkedHashMap<>();
@@ -388,6 +451,14 @@ public final class DeviceProfile {
         public Builder certificateHex(String value) { return certificateDer(hexToBytes(Objects.requireNonNull(value, "certificateHex"))); }
         public Builder signingKey(byte[] value) { signingKey = Objects.requireNonNull(value, "signingKey").clone(); return this; }
         public Builder signingKeyHex(String value) { return signingKey(hexToBytes(Objects.requireNonNull(value, "signingKeyHex"))); }
+        public Builder legacyRsaPrivateKeyPkcs8(byte[] value) {
+            legacyRsaPrivateKeyPkcs8 = Objects.requireNonNull(value, "legacyRsaPrivateKeyPkcs8").clone();
+            return this;
+        }
+        public Builder legacyRsaPublicKeyX509(byte[] value) {
+            legacyRsaPublicKeyX509 = Objects.requireNonNull(value, "legacyRsaPublicKeyX509").clone();
+            return this;
+        }
         public Builder sensor(String name, String vendor, int type, int version) {
             sensors.clear();
             sensors.add(new Sensor(name, vendor, type, version));
@@ -430,6 +501,14 @@ public final class DeviceProfile {
         public Builder secureSettings(Map<String, String> values) { secureSettings.putAll(values); return this; }
         public Builder systemSetting(String name, String value) { systemSettings.put(name, value); return this; }
         public Builder systemSettings(Map<String, String> values) { systemSettings.putAll(values); return this; }
+        public Builder sharedPreference(String file, String key, String value) {
+            sharedPreferences.computeIfAbsent(file, ignored -> new LinkedHashMap<>()).put(key, value);
+            return this;
+        }
+        public Builder sharedPreferences(String file, Map<String, String> values) {
+            sharedPreferences.computeIfAbsent(file, ignored -> new LinkedHashMap<>()).putAll(values);
+            return this;
+        }
         public Builder serviceClass(String name, String className) { serviceClasses.put(name, className); return this; }
         public Builder serviceClasses(Map<String, String> values) { serviceClasses.putAll(values); return this; }
         public Builder locale(String value) { locale = value; return this; }
@@ -455,6 +534,18 @@ public final class DeviceProfile {
         }
         public Builder nativeSignerCodeTrampolineDetected(boolean value) {
             nativeSignerCodeTrampolineDetected = value;
+            return this;
+        }
+        public Builder nativeCorrection05Enabled(boolean value) {
+            nativeCorrection05Enabled = value;
+            return this;
+        }
+        public Builder nativeBackend(String value) { nativeBackend = value; return this; }
+        public Builder nativeCorrectionCode(int value) {
+            if (value < 0 || value > 0xffff) {
+                throw new IllegalArgumentException("runtime.correctionCodes values must be between 0 and 65535");
+            }
+            nativeCorrectionCodes.add(value);
             return this;
         }
         public Builder nativeConnectRefusedEndpoint(String value) {

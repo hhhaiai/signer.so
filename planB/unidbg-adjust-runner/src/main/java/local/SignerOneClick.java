@@ -58,6 +58,13 @@ public final class SignerOneClick {
         if (value.containsKey("baseApk")) builder.baseApk(resolve(baseDirectory, value.getString("baseApk")));
         applyBytes(value, "certificate", baseDirectory, builder::certificateDer);
         applyBytes(value, "signingKey", baseDirectory, builder::signingKey);
+        JSONObject legacyKeyStore = value.getJSONObject("legacyKeyStore");
+        if (legacyKeyStore != null) {
+            applyBytes(legacyKeyStore, "privateKeyPkcs8", baseDirectory,
+                    builder::legacyRsaPrivateKeyPkcs8);
+            applyBytes(legacyKeyStore, "publicKeyX509", baseDirectory,
+                    builder::legacyRsaPublicKeyX509);
+        }
         if (value.containsKey("appUid")) builder.appUid(value.getIntValue("appUid"));
         if (value.containsKey("targetSdk")) builder.targetSdk(value.getIntValue("targetSdk"));
         JSONObject applicationInfo = value.getJSONObject("applicationInfo");
@@ -107,12 +114,23 @@ public final class SignerOneClick {
             builder.secureSettings(stringMap(settings.getJSONObject("secure")));
             builder.systemSettings(stringMap(settings.getJSONObject("system")));
         }
+        JSONObject sharedPreferences = value.getJSONObject("sharedPreferences");
+        if (sharedPreferences != null) {
+            for (String name : sharedPreferences.keySet()) {
+                JSONObject entries = sharedPreferences.getJSONObject(name);
+                if (entries == null) {
+                    throw new IllegalArgumentException("sharedPreferences entry must be an object: " + name);
+                }
+                builder.sharedPreferences(name, stringMap(entries));
+            }
+        }
         builder.serviceClasses(stringMap(value.getJSONObject("services")));
         if (value.containsKey("locale")) builder.locale(value.getString("locale"));
         if (value.containsKey("timezone")) builder.timeZone(value.getString("timezone"));
 
         JSONObject runtime = value.getJSONObject("runtime");
         if (runtime != null) {
+            if (runtime.containsKey("backend")) builder.nativeBackend(runtime.getString("backend"));
             if (runtime.containsKey("processId")) builder.nativeProcessId(runtime.getIntValue("processId"));
             if (runtime.containsKey("timeSeconds")) builder.nativeTimeSeconds(runtime.getLongValue("timeSeconds"));
             JSONObject gettimeofday = runtime.getJSONObject("gettimeofday");
@@ -129,6 +147,22 @@ public final class SignerOneClick {
             if (runtime.containsKey("signerCodeTrampolineDetected")) {
                 builder.nativeSignerCodeTrampolineDetected(
                         runtime.getBooleanValue("signerCodeTrampolineDetected"));
+            }
+            if (runtime.containsKey("correction05Enabled")) {
+                builder.nativeCorrection05Enabled(runtime.getBooleanValue("correction05Enabled"));
+            }
+            JSONArray correctionCodes = runtime.getJSONArray("correctionCodes");
+            if (correctionCodes != null) {
+                for (int i = 0; i < correctionCodes.size(); i++) {
+                    Object correction = correctionCodes.get(i);
+                    if (correction instanceof Number) {
+                        builder.nativeCorrectionCode(((Number) correction).intValue());
+                    } else {
+                        String text = String.valueOf(correction).trim();
+                        if (text.startsWith("0x") || text.startsWith("0X")) text = text.substring(2);
+                        builder.nativeCorrectionCode(Integer.parseInt(text, 16));
+                    }
+                }
             }
             JSONObject network = runtime.getJSONObject("network");
             if (network != null) {

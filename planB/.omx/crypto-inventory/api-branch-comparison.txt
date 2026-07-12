@@ -1,0 +1,75 @@
+=== API36 crypto JNI ===
+JNIEnv->FindClass(java/security/MessageDigest) was called from RX@0x123f02cc[libsigner.so]0xb02cc
+JNIEnv->NewStringUTF("SHA1") was called from RX@0x123f016c[libsigner.so]0xb016c
+JNIEnv->FindClass(java/security/KeyStore) was called from RX@0x123e50f8[libsigner.so]0xa50f8
+JNIEnv->GetStaticMethodID(java/security/KeyStore.getInstance(Ljava/lang/String;)Ljava/security/KeyStore;) => 0x84aaea18 was called from RX@0x123e4bc8[libsigner.so]0xa4bc8
+JNIEnv->NewStringUTF("AndroidKeyStore") was called from RX@0x123e4f00[libsigner.so]0xa4f00
+JNI static object java/security/KeyStore->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
+JNIEnv->CallStaticObjectMethod(class java/security/KeyStore, getInstance("AndroidKeyStore") => java.security.KeyStore@72035809) was called from RX@0x123e49e4[libsigner.so]0xa49e4
+JNIEnv->GetMethodID(java/security/KeyStore.load(Ljava/security/KeyStore$LoadStoreParameter;)V) => 0x5499ce39 was called from RX@0x123e59d0[libsigner.so]0xa59d0
+JNI void java/security/KeyStore->load(Ljava/security/KeyStore$LoadStoreParameter;)V this=android-keystore
+JNIEnv->CallVoidMethod(java.security.KeyStore@72035809, load(null)) was called from RX@0x123e5844[libsigner.so]0xa5844
+JNIEnv->GetMethodID(java/security/KeyStore.getKey(Ljava/lang/String;[C)Ljava/security/Key;) => 0x594e481d was called from RX@0x123e725c[libsigner.so]0xa725c
+JNI object java/security/KeyStore->getKey(Ljava/lang/String;[C)Ljava/security/Key; this=android-keystore
+JNIEnv->CallObjectMethod(java.security.KeyStore@72035809, getKey("key2", null) => javax.crypto.spec.SecretKeySpec@18271936) was called from RX@0x123e7ad8[libsigner.so]0xa7ad8
+JNIEnv->FindClass(javax/crypto/Mac) was called from RX@0x123eaa80[libsigner.so]0xaaa80
+JNIEnv->GetStaticMethodID(javax/crypto/Mac.getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;) => 0xcb3c802c was called from RX@0x123ea7c8[libsigner.so]0xaa7c8
+JNIEnv->NewStringUTF("HmacSHA256") was called from RX@0x123eafd4[libsigner.so]0xaafd4
+JNI static object javax/crypto/Mac->getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;
+JNIEnv->CallStaticObjectMethod(class javax/crypto/Mac, getInstance("HmacSHA256") => javax.crypto.Mac@7a35b0f5) was called from RX@0x123ead58[libsigner.so]0xaad58
+JNIEnv->GetMethodID(javax/crypto/Mac.init(Ljava/security/Key;)V) => 0x4dc2978a was called from RX@0x123eb7f0[libsigner.so]0xab7f0
+JNI void javax/crypto/Mac->init(Ljava/security/Key;)V this=javax.crypto.Mac@5e2c3d18
+JNIEnv->CallVoidMethod(javax.crypto.Mac@7a35b0f5, init(javax.crypto.spec.SecretKeySpec@18271936)) was called from RX@0x123eb738[libsigner.so]0xab738
+JNIEnv->GetMethodID(javax/crypto/Mac.update([B)V) => 0xb5fb4bc8 was called from RX@0x123ebe0c[libsigner.so]0xabe0c
+JNI void javax/crypto/Mac->update([B)V this=javax.crypto.Mac@5e2c3d18
+JNIEnv->CallVoidMethod(javax.crypto.Mac@7a35b0f5, update([B@8458f04)) was called from RX@0x123ebf30[libsigner.so]0xabf30
+JNIEnv->GetMethodID(javax/crypto/Mac.doFinal()[B) => 0x7cf45228 was called from RX@0x123ecc44[libsigner.so]0xacc44
+JNI object javax/crypto/Mac->doFinal()[B this=javax.crypto.Mac@5e2c3d18
+JNIEnv->CallObjectMethod(javax.crypto.Mac@7a35b0f5, doFinal() => [B@0x62876b08dac9ca39bd9d4761388f59ac65fb36a1b539d7f5fff140ef19fcbf5f) was called from RX@0x123ec61c[libsigner.so]0xac61c
+=== API22 crypto JNI ===
+JNIEnv->FindClass(java/security/MessageDigest) was called from RX@0x123f02cc[libsigner.so]0xb02cc
+JNIEnv->NewStringUTF("SHA1") was called from RX@0x123f016c[libsigner.so]0xb016c
+JNIEnv->FindClass(android/util/Base64) was called from RX@0x123d3c7c[libsigner.so]0x93c7c
+JNIEnv->FindClass(java/security/KeyStore) was called from RX@0x123e50f8[libsigner.so]0xa50f8
+JNIEnv->GetStaticMethodID(java/security/KeyStore.getInstance(Ljava/lang/String;)Ljava/security/KeyStore;) => 0x84aaea18 was called from RX@0x123e4bc8[libsigner.so]0xa4bc8
+JNIEnv->NewStringUTF("AndroidKeyStore") was called from RX@0x123e4f00[libsigner.so]0xa4f00
+JNI static object java/security/KeyStore->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
+JNIEnv->CallStaticObjectMethod(class java/security/KeyStore, getInstance("AndroidKeyStore") => java.security.KeyStore@7fd50002) was called from RX@0x123e49e4[libsigner.so]0xa49e4
+JNIEnv->GetMethodID(java/security/KeyStore.load(Ljava/security/KeyStore$LoadStoreParameter;)V) => 0x5499ce39 was called from RX@0x123e59d0[libsigner.so]0xa59d0
+JNI void java/security/KeyStore->load(Ljava/security/KeyStore$LoadStoreParameter;)V this=android-keystore
+JNIEnv->CallVoidMethod(java.security.KeyStore@7fd50002, load(null)) was called from RX@0x123e5844[libsigner.so]0xa5844
+JNIEnv->GetMethodID(java/security/KeyStore.getEntry(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;) => 0x31b6a986 was called from RX@0x123e6134[libsigner.so]0xa6134
+JNI object java/security/KeyStore->getEntry(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry; this=android-keystore
+JNIEnv->CallObjectMethod(java.security.KeyStore@7fd50002, getEntry("key2", null) => java.security.KeyStore$PrivateKeyEntry@304bb45b) was called from RX@0x123e6b58[libsigner.so]0xa6b58
+JNIEnv->GetMethodID(java/security/KeyStore$PrivateKeyEntry.getPrivateKey()Ljava/security/PrivateKey;) => 0xa9bc6c5d was called from RX@0x123e849c[libsigner.so]0xa849c
+JNI object java/security/KeyStore$PrivateKeyEntry->getPrivateKey()Ljava/security/PrivateKey; this=Private key entry and certificate chain with 1 elements:
+JNIEnv->CallObjectMethod(java.security.KeyStore$PrivateKeyEntry@304bb45b, getPrivateKey() => sun.security.rsa.RSAPrivateCrtKeyImpl@4a8355dd) was called from RX@0x123e82e4[libsigner.so]0xa82e4
+JNIEnv->FindClass(javax/crypto/Cipher) was called from RX@0x123d6d68[libsigner.so]0x96d68
+JNIEnv->GetStaticMethodID(javax/crypto/Cipher.getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;) => 0x26676b36 was called from RX@0x123d6bec[libsigner.so]0x96bec
+JNIEnv->NewStringUTF("RSA/ECB/PKCS1Padding") was called from RX@0x123d6a3c[libsigner.so]0x96a3c
+JNI static object javax/crypto/Cipher->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+JNIEnv->CallStaticObjectMethod(class javax/crypto/Cipher, getInstance("RSA/ECB/PKCS1Padding") => javax.crypto.Cipher@c430e6c) was called from RX@0x123d69e4[libsigner.so]0x969e4
+JNIEnv->GetMethodID(javax/crypto/Cipher.init(ILjava/security/Key;)V) => 0x1ec864d5 was called from RX@0x123d742c[libsigner.so]0x9742c
+JNI void javax/crypto/Cipher->init(ILjava/security/Key;)V this=Cipher.RSA/ECB/PKCS1Padding, mode: not initialized, algorithm from: (no provider)
+JNIEnv->CallVoidMethod(javax.crypto.Cipher@c430e6c, init(0x2, sun.security.rsa.RSAPrivateCrtKeyImpl@4a8355dd)) was called from RX@0x123d75a8[libsigner.so]0x975a8
+JNIEnv->GetMethodID(javax/crypto/Cipher.doFinal([B)[B) => 0x13ab3b was called from RX@0x123d7e08[libsigner.so]0x97e08
+JNI object javax/crypto/Cipher->doFinal([B)[B this=Cipher.RSA/ECB/PKCS1Padding, mode: decryption, algorithm from: SunJCE
+JNIEnv->CallObjectMethod(javax.crypto.Cipher@c430e6c, doFinal([B@433defed) => [B@0x5fdd34965949a67c0c25267312f58fab) was called from RX@0x123d7b64[libsigner.so]0x97b64
+JNIEnv->FindClass(javax/crypto/spec/SecretKeySpec) was called from RX@0x123fe144[libsigner.so]0xbe144
+JNIEnv->GetMethodID(javax/crypto/spec/SecretKeySpec.<init>([BLjava/lang/String;)V) => 0x391fc558 was called from RX@0x123fe8bc[libsigner.so]0xbe8bc
+JNIEnv->NewStringUTF("AES") was called from RX@0x123fe310[libsigner.so]0xbe310
+JNIEnv->NewObject(class javax/crypto/spec/SecretKeySpec, <init>([B@0x5fdd34965949a67c0c25267312f58fab, "AES") => javax.crypto.spec.SecretKeySpec@72bc6553) was called from RX@0x123fddf8[libsigner.so]0xbddf8
+JNIEnv->FindClass(javax/crypto/Mac) was called from RX@0x123eaa80[libsigner.so]0xaaa80
+JNIEnv->GetStaticMethodID(javax/crypto/Mac.getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;) => 0xcb3c802c was called from RX@0x123ea7c8[libsigner.so]0xaa7c8
+JNIEnv->NewStringUTF("HmacSHA256") was called from RX@0x123eafd4[libsigner.so]0xaafd4
+JNI static object javax/crypto/Mac->getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;
+JNIEnv->CallStaticObjectMethod(class javax/crypto/Mac, getInstance("HmacSHA256") => javax.crypto.Mac@6c4906d3) was called from RX@0x123ead58[libsigner.so]0xaad58
+JNIEnv->GetMethodID(javax/crypto/Mac.init(Ljava/security/Key;)V) => 0x4dc2978a was called from RX@0x123eb7f0[libsigner.so]0xab7f0
+JNI void javax/crypto/Mac->init(Ljava/security/Key;)V this=javax.crypto.Mac@65987993
+JNIEnv->CallVoidMethod(javax.crypto.Mac@6c4906d3, init(javax.crypto.spec.SecretKeySpec@72bc6553)) was called from RX@0x123eb738[libsigner.so]0xab738
+JNIEnv->GetMethodID(javax/crypto/Mac.update([B)V) => 0xb5fb4bc8 was called from RX@0x123ebe0c[libsigner.so]0xabe0c
+JNI void javax/crypto/Mac->update([B)V this=javax.crypto.Mac@65987993
+JNIEnv->CallVoidMethod(javax.crypto.Mac@6c4906d3, update([B@70cf32e3)) was called from RX@0x123ebf30[libsigner.so]0xabf30
+JNIEnv->GetMethodID(javax/crypto/Mac.doFinal()[B) => 0x7cf45228 was called from RX@0x123ecc44[libsigner.so]0xacc44
+JNI object javax/crypto/Mac->doFinal()[B this=javax.crypto.Mac@65987993
+JNIEnv->CallObjectMethod(javax.crypto.Mac@6c4906d3, doFinal() => [B@0x86613d4ea8df3005f838ea3dbfca65bec7b02199055d1329b7ec8751027f69be) was called from RX@0x123ec61c[libsigner.so]0xac61c

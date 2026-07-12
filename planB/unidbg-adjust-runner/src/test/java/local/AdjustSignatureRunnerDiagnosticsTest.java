@@ -66,6 +66,20 @@ class AdjustSignatureRunnerDiagnosticsTest {
     }
 
     @Test
+    void tagWordTraceRequiresExplicitToggleAndWatchAddress() {
+        assertFalse(AdjustSignatureRunner.shouldInstallTagWordTrace(false, "0x1233e490"));
+        assertFalse(AdjustSignatureRunner.shouldInstallTagWordTrace(true, null));
+        assertFalse(AdjustSignatureRunner.shouldInstallTagWordTrace(true, ""));
+        assertTrue(AdjustSignatureRunner.shouldInstallTagWordTrace(true, "0x1233e490"));
+    }
+
+    @Test
+    void field4WordTraceRequiresExplicitToggle() {
+        assertFalse(AdjustSignatureRunner.shouldInstallField4WordTrace(false));
+        assertTrue(AdjustSignatureRunner.shouldInstallField4WordTrace(true));
+    }
+
+    @Test
     void parsesOptionalModuleRelativeVmTraceCallerRange() {
         assertNull(AdjustSignatureRunner.parseModuleRelativeRange(null));
         assertNull(AdjustSignatureRunner.parseModuleRelativeRange("  "));
@@ -102,9 +116,47 @@ class AdjustSignatureRunnerDiagnosticsTest {
     }
 
     @Test
+    void parsesOptionalNativeCorrectionAppendList() {
+        assertEquals(List.of(), AdjustSignatureRunner.parseCorrectionCodeList(null));
+        assertEquals(List.of(), AdjustSignatureRunner.parseCorrectionCodeList("  "));
+        assertEquals(List.of(0x2b, 0x05, 0x0d),
+                AdjustSignatureRunner.parseCorrectionCodeList("2b, 0x05, 0D"));
+    }
+
+    @Test
     void nativeEnvironmentDispatcherTraceRequiresExplicitToggle() {
         assertFalse(AdjustSignatureRunner.shouldInstallNativeEnvironmentDispatcherTrace(false));
         assertTrue(AdjustSignatureRunner.shouldInstallNativeEnvironmentDispatcherTrace(true));
+    }
+
+    @Test
+    void nativeStatProbeTraceRequiresExplicitToggle() {
+        assertFalse(AdjustSignatureRunner.shouldInstallNativeStatProbeTrace(false));
+        assertTrue(AdjustSignatureRunner.shouldInstallNativeStatProbeTrace(true));
+    }
+
+    @Test
+    void nativeStringProbeTraceRequiresExplicitToggle() {
+        assertFalse(AdjustSignatureRunner.shouldInstallNativeStringProbeTrace(false));
+        assertTrue(AdjustSignatureRunner.shouldInstallNativeStringProbeTrace(true));
+    }
+
+    @Test
+    void nativeStateByteTraceRequiresExplicitToggle() {
+        assertFalse(AdjustSignatureRunner.shouldInstallNativeStateByteTrace(false));
+        assertTrue(AdjustSignatureRunner.shouldInstallNativeStateByteTrace(true));
+    }
+
+    @Test
+    void nativeInitializationTraceRequiresExplicitToggle() {
+        assertFalse(AdjustSignatureRunner.shouldInstallNativeInitializationTrace(false));
+        assertTrue(AdjustSignatureRunner.shouldInstallNativeInitializationTrace(true));
+    }
+
+    @Test
+    void nativeMetadataTraceRequiresExplicitToggle() {
+        assertFalse(AdjustSignatureRunner.shouldInstallNativeMetadataTrace(false));
+        assertTrue(AdjustSignatureRunner.shouldInstallNativeMetadataTrace(true));
     }
 
     @Test

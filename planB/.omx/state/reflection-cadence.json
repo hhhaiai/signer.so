@@ -1,17 +1,21 @@
 {
-  "lastReflection":"2026-07-11T17:50:00+08:00",
-  "objective":"Desktop Java/Unidbg signer with configurable observed Android/native environment, unchanged Signer API, fixed onResume-to-sign order, strict device-reference equivalence, and an independently runnable native reimplementation where recoverable.",
-  "currentFocus":"Expand native-reimplementation from the verified AES-256 and codeword primitives toward the complete 176-byte signer pipeline while preserving the now-passing Java/Unidbg strict reference gate.",
-  "status":"active",
-  "evidence":{
-    "strictDesktopReference":"test-device-reference.sh exits 0 without ADB, Frida, an emulator, or a phone; SignerOneClick recursively matches the complete frozen Pixel 8 result and the raw signature is 176 bytes.",
-    "referenceIntegrity":"device-reference/references/pixel8-api36/reference-result.json was not modified.",
-    "rootCause":"libsigner.so+0x13063c scans signer function entries for an ARM64 LDR-literal-to-BR trampoline. The frozen true-device run had Frida Interceptor hooks on nOnResume/nSign, which causes the protected dispatcher to execute correction code 0x25.",
-    "configSurface":"device.runtime.signerCodeTrampolineDetected is parsed by SignerOneClick, stored in DeviceProfile, propagated through AdjustSignatureRunner.Config, and modeled in Unidbg without running Frida.",
-    "codewordClosure":"The strict path executes corrections 0x2b->0xd49d, 0x36->0xb5d3, 0x25->0xcacc, and 0x05->0x6ee6; context+0x54 becomes 0x6ee6cacc before downstream permutation.",
-    "nativeSourceSlice":"native-reimplementation/build-and-test.sh independently compiles C++ with the host compiler and passes the Pixel first-block AES-256 vector plus the complete 16-halfword encoder recovered from libsigner.so+0x13531c.",
-    "regression":"33 Maven tests pass with zero failures/errors/skips. API contract, one-click determinism, external structured API, process isolation, Python compatibility contract, native C++ primitive test, and Pixel 8 strict reference all pass.",
-    "runtimeStability":"generate-signer.sh prefers an already-installed macOS JDK 17 for signer execution, supports SIGNER_JAVA_BIN override, and falls back to java; no runtime is installed automatically.",
-    "remainingBoundary":"Normal Java signing still executes the original ARM64 libsigner.so under Unidbg. The independently compiled C++ source does not yet produce the complete 176-byte result and is not a full SO replacement."
+  "lastReflection": "2026-07-12T21:00:00+08:00",
+  "objective": "Desktop-only Java/Unidbg signer with configurable observable Android/native state, unchanged Signer API, fixed onResume-to-sign order, frozen device-reference parity, and an independently executable recovered implementation including API-selected crypto behavior where proven.",
+  "currentFocus": "Map remaining protected final-envelope control flow and unnamed correction/probe branches; v3/v3.1 certificates, importable API18-22 RSA state, and field0 growth through 24 halfwords are closed.",
+  "status": "active",
+  "evidence": {
+    "desktopExecution": "Default Unidbg/original-SO and recovered C++ backends run fully on the host without a phone, ADB, Frida, Android emulator, or automatic system plugin installation.",
+    "apiAndLifecycle": "Original public Signer descriptors pass test-api-contract.sh and SignerEngine preserves fixed onResume then sign ordering.",
+    "strictReference": "Default and recovered backends both exactly match the complete frozen Pixel 8 structured reference; frozen SHA-256 remains b163eb800b2a425158f6b825e8e9439b4b9bd1bca8b0ed0be2a155f2ef9ceca0.",
+    "cmdlineCorrections": "Controlled original-SO oracles prove missing or empty /proc/self/cmdline emits 0x34; a non-empty first NUL-terminated process name unequal to runtime packageName emits 0x09; a matching process name emits neither. APK manifest mismatch alone does not emit 0x09.",
+    "legacyApi": "API 18, 21 and 22 now complete original-SO signing on the desktop through SharedPreferences, Base64, AndroidKeyStore RSA PrivateKeyEntry, RSA/ECB/PKCS1Padding, SecretKeySpec and HmacSHA256 JNI support. Equal downstream observations produce identical 176-byte adj8 output.",
+    "cryptoSwitch": "API 23+ obtains key2 through AndroidKeyStore.getKey then HmacSHA256; API 18-22 decrypt SharedPreferences encrypted_key through RSA/ECB/PKCS1Padding before HmacSHA256. A deterministic direct original-SO matrix proves that changing the Java HMAC argument across 0/16/31/32/33/64 bytes or changing its contents does not alter the reached API36 result. API23-to-24 adds correction 0x3c and expands the payload, but retains algorithm=adj8 and the recovered custom-SHA256/AES-256-CBC/HMAC-SHA256 final envelope.",
+    "algorithmMetadata": "Static disassembly corrects 0x9279c to the onResume context-bit setter. The actual protected metadata item builder is 0x9954c; four calls pass fixed encoded buffers that decode to headers_id=9, adj_signing_id=1400000, native_version=3.67.0 and algorithm=adj8. API22, API36, combined corrections and a 27-case parameter matrix preserve the same addresses and values.",
+    "v3Certificates": "Project-owned pure Java ApkSigningBlockCertificates parses v3 and v3.1 APK Signing Blocks without Android SDK runtime tools. A v3-only APK with matching certificate reproduces the original-SO no-0x2a output; a mismatching certificate reproduces the original-SO 0x2a output; both complete 176-byte outputs match recovered backend byte-for-byte.",
+    "legacyRsaImport": "device.legacyKeyStore imports a paired PKCS8 RSA private key and X509 SubjectPublicKeyInfo public key; device.sharedPreferences supplies adjust_keys/encrypted_key. A controlled API18 original-SO test decrypts the imported persisted secret and reproduces the complete 176-byte oracle.",
+    "configSurface": "device.sharedPreferences configures named string preference files; native filesystem config controls /proc/self/cmdline and maps; recovered backend derives 0x34/0x09 and 0x3c for every observed API not equal to 36.",
+    "nativeSourceParity": "Independent C++ matches thirteen original-SO oracle categories, including cmdline 0x09, cmdline 0x34, frozen 176-byte Pixel, nine-correction 192-byte expansion and seventeen-correction 208-byte expansion. Field0 capacity grows 8 to 16 to 24 to 32 halfwords in blocks of eight.",
+    "regression": "After rebuilding the recovered C++ executable, the latest Maven build passes 64 tests with zero failures/errors/skips; v3/v3.1 parser is 3/3, recovered integration is 16/16 and legacy API integration is 2/2. API contract, frozen device-reference, recovered reference and native C++ oracle suite pass. The frozen reference SHA-256 remains b163eb800b2a425158f6b825e8e9439b4b9bd1bca8b0ed0be2a155f2ef9ceca0.",
+    "remainingBoundary": "No reached profile proves a second final envelope algorithm. Remaining work is protected/unreached final-envelope control flow, unnamed correction/probe semantics, and broader full-function/protected-VM source recovery."
   }
 }

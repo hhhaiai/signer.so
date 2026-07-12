@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
+import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.KeyPairGeneratorSpi;
@@ -26,6 +27,8 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.spec.AlgorithmParameterSpec;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
@@ -48,13 +51,31 @@ public final class AndroidKeyStoreProvider extends Provider {
     }
 
     public static synchronized void install(byte[] configuredKey) {
+        install(configuredKey, null, null);
+    }
+
+    public static synchronized void install(byte[] configuredKey, byte[] privateKeyPkcs8,
+                                            byte[] publicKeyX509) {
         if (configuredKey == null || configuredKey.length == 0) {
             throw new IllegalArgumentException("configuredKey must not be empty");
+        }
+        if ((privateKeyPkcs8 == null) != (publicKeyX509 == null)) {
+            throw new IllegalArgumentException("legacy RSA import requires both private and public keys");
         }
         keyBytes = configuredKey.clone();
         secretKey = currentKey();
         rsaKeyPair = null;
         rsaCertificate = null;
+        if (privateKeyPkcs8 != null) {
+            try {
+                KeyFactory factory = KeyFactory.getInstance("RSA");
+                PrivateKey privateKey = factory.generatePrivate(new PKCS8EncodedKeySpec(privateKeyPkcs8));
+                PublicKey publicKey = factory.generatePublic(new X509EncodedKeySpec(publicKeyX509));
+                storeRsaKeyPair(new KeyPair(publicKey, privateKey));
+            } catch (Exception exception) {
+                throw new IllegalArgumentException("invalid legacy RSA key pair", exception);
+            }
+        }
         if (Security.getProvider("AndroidKeyStore") == null) {
             Security.addProvider(new AndroidKeyStoreProvider());
         }

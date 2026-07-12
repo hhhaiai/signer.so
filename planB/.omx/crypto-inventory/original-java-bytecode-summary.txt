@@ -1,0 +1,351 @@
+=== com.adjust.sdk.sig.Signer ===
+2:public class com.adjust.sdk.sig.Signer {
+5:  public com.adjust.sdk.sig.d b;
+7:  public com.adjust.sdk.sig.a c;
+9:  public com.adjust.sdk.sig.c d;
+11:  public com.adjust.sdk.sig.Signer();
+20:  public static java.lang.String getVersion();
+22:       0: ldc           #25                 // String 3.67.0
+30:       5: getfield      #30                 // Field b:Lcom/adjust/sdk/sig/d;
+32:       9: getfield      #32                 // Field c:Lcom/adjust/sdk/sig/a;
+36:      17: getstatic     #39                 // Field com/adjust/sdk/sig/d.a:Z
+40:      27: checkcast     #43                 // class com/adjust/sdk/sig/NativeLibHelper
+41:      30: invokevirtual #44                 // Method com/adjust/sdk/sig/NativeLibHelper.a:()V
+44:  public synchronized void sign(android.content.Context, java.util.Map<java.lang.String, java.lang.String>, java.lang.String, java.lang.String);
+50:       6: getfield      #30                 // Field b:Lcom/adjust/sdk/sig/d;
+53:      11: getfield      #49                 // Field d:Lcom/adjust/sdk/sig/c;
+55:      15: getfield      #32                 // Field c:Lcom/adjust/sdk/sig/a;
+64:      29: invokestatic  #52                 // Method com/adjust/sdk/sig/d.a:(Landroid/content/Context;Lcom/adjust/sdk/sig/c;Lcom/adjust/sdk/sig/a;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V
+67:  public synchronized void sign(android.content.Context, java.util.Map<java.lang.String, java.lang.String>, java.util.Map<java.lang.String, java.lang.String>, java.util.Map<java.lang.String, java.lang.String>);
+73:       6: getfield      #30                 // Field b:Lcom/adjust/sdk/sig/d;
+76:      11: getfield      #49                 // Field d:Lcom/adjust/sdk/sig/c;
+78:      15: getfield      #32                 // Field c:Lcom/adjust/sdk/sig/a;
+96:      58: ldc           #74                 // String yyyy-MM-dd\'T\'HH:mm:ss.SSSZ
+98:      61: invokespecial #77                 // Method java/text/SimpleDateFormat."<init>":(Ljava/lang/String;Ljava/util/Locale;)V
+99:      64: ldc           #79                 // String environment
+101:      71: ldc           #85                 // String sandbox
+103:      74: invokevirtual #91                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+107:      83: new           #93                 // class java/lang/StringBuilder
+111:      90: ldc           #95                 // String SDKv5 Signing all the parameters begin:
+112:      92: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+117:     105: invokevirtual #115                // Method java/text/DateFormat.format:(Ljava/util/Date;)Ljava/lang/String;
+118:     108: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+119:     111: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+120:     114: ldc           #124                // String SignerInstance
+122:     117: invokestatic  #130                // Method android/util/Log.v:(Ljava/lang/String;Ljava/lang/String;)I
+135:     142: invokestatic  #140                // Method com/adjust/sdk/sig/d.a:(Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;)V
+136:     145: ldc           #142                // String activity_kind
+138:     152: checkcast     #87                 // class java/lang/String
+140:     157: ldc           #144                // String client_sdk
+142:     164: checkcast     #87                 // class java/lang/String
+144:     169: ldc           #145                // String a
+146:     176: ldc           #146                // String b
+148:     179: invokevirtual #91                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+157:     197: invokestatic  #52                 // Method com/adjust/sdk/sig/d.a:(Landroid/content/Context;Lcom/adjust/sdk/sig/c;Lcom/adjust/sdk/sig/a;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V
+158:     200: ldc           #148                // String signature
+162:     210: ldc           #153                // String adj_signing_id
+166:     220: ldc           #155                // String headers_id
+170:     230: ldc           #157                // String algorithm
+174:     240: ldc           #159                // String native_version
+183:     258: ldc           #153                // String adj_signing_id
+185:     263: checkcast     #87                 // class java/lang/String
+187:     267: ldc           #155                // String headers_id
+189:     272: checkcast     #87                 // class java/lang/String
+191:     276: ldc           #148                // String signature
+193:     281: checkcast     #87                 // class java/lang/String
+195:     286: ldc           #157                // String algorithm
+197:     291: checkcast     #87                 // class java/lang/String
+199:     296: ldc           #159                // String native_version
+201:     301: checkcast     #87                 // class java/lang/String
+203:     306: new           #93                 // class java/lang/StringBuilder
+208:     314: ldc           #162                // String signature=\"
+209:     316: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+210:     319: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+212:     323: ldc           #164                // String \"
+213:     325: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+215:     329: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+217:     334: new           #93                 // class java/lang/StringBuilder
+222:     341: ldc           #166                // String adj_signing_id=\"
+223:     343: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+224:     346: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+226:     350: ldc           #164                // String \"
+227:     352: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+229:     356: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+231:     360: new           #93                 // class java/lang/StringBuilder
+236:     367: ldc           #168                // String headers_id=\"
+237:     369: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+238:     372: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+240:     376: ldc           #164                // String \"
+241:     378: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+243:     382: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+245:     386: new           #93                 // class java/lang/StringBuilder
+250:     394: ldc           #170                // String algorithm=\"
+251:     396: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+252:     399: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+254:     403: ldc           #164                // String \"
+255:     405: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+257:     409: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+259:     414: new           #93                 // class java/lang/StringBuilder
+264:     422: ldc           #172                // String native_version=\"
+265:     424: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+266:     427: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+268:     431: ldc           #164                // String \"
+269:     433: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+271:     437: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+273:     442: new           #93                 // class java/lang/StringBuilder
+291:     471: ldc           #174                // String Signature
+292:     473: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+293:     476: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+295:     480: ldc           #176                // String ,
+296:     482: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+298:     486: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+300:     490: ldc           #176                // String ,
+301:     492: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+303:     496: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+305:     500: ldc           #176                // String ,
+306:     502: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+308:     506: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+310:     510: ldc           #176                // String ,
+311:     512: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+313:     516: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+315:     520: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+316:     523: ldc           #178                // String authorization
+321:     535: ldc           #124                // String SignerInstance
+322:     537: ldc           #184                // String sign: Signature generation failed. Exiting...
+323:     539: invokestatic  #187                // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+331:     557: invokestatic  #140                // Method com/adjust/sdk/sig/d.a:(Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;)V
+337:     567: anewarray     #87                 // class java/lang/String
+341:     573: ldc           #191                // String network_payload
+344:     577: ldc           #193                // String endpoint
+349:     588: invokestatic  #140                // Method com/adjust/sdk/sig/d.a:(Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;)V
+351:     594: new           #93                 // class java/lang/StringBuilder
+355:     601: ldc           #204                // String SDKv5 Signing all the parameters end  :
+356:     603: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+361:     616: invokevirtual #115                // Method java/text/DateFormat.format:(Ljava/util/Date;)Ljava/lang/String;
+362:     619: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+363:     622: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+364:     625: ldc           #124                // String SignerInstance
+366:     628: invokestatic  #130                // Method android/util/Log.v:(Ljava/lang/String;Ljava/lang/String;)I
+369:     635: ldc           #124                // String SignerInstance
+370:     637: ldc           #206                // String sign: One or more parameters are null
+371:     639: invokestatic  #187                // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+384:      11: new           #38                 // class com/adjust/sdk/sig/d
+386:      15: invokespecial #207                // Method com/adjust/sdk/sig/d."<init>":()V
+387:      18: putfield      #30                 // Field b:Lcom/adjust/sdk/sig/d;
+388:      21: new           #62                 // class com/adjust/sdk/sig/c
+390:      25: getstatic     #213                // Field android/os/Build$VERSION.SDK_INT:I
+391:      28: invokespecial #216                // Method com/adjust/sdk/sig/c."<init>":(I)V
+392:      31: putfield      #49                 // Field d:Lcom/adjust/sdk/sig/c;
+393:      34: new           #43                 // class com/adjust/sdk/sig/NativeLibHelper
+395:      38: invokespecial #217                // Method com/adjust/sdk/sig/NativeLibHelper."<init>":()V
+396:      41: putfield      #32                 // Field c:Lcom/adjust/sdk/sig/a;
+=== com.adjust.sdk.sig.NativeLibHelper ===
+2:class com.adjust.sdk.sig.NativeLibHelper implements com.adjust.sdk.sig.a {
+3:  public com.adjust.sdk.sig.NativeLibHelper();
+9:  private native byte[] nSign(android.content.Context, java.lang.Object, byte[], int);
+11:  private native void nOnResume();
+15:       0: ldc           #19                 // String signer
+16:       2: invokestatic  #25                 // Method java/lang/System.loadLibrary:(Ljava/lang/String;)V
+19:       9: new           #29                 // class java/lang/StringBuilder
+23:      15: ldc           #31                 // String Signer Library could not be loaded:
+24:      17: invokespecial #33                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+25:      20: invokevirtual #39                 // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+26:      23: invokevirtual #43                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+27:      26: invokevirtual #46                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+28:      29: ldc           #48                 // String NativeLibHelper
+30:      32: invokestatic  #54                 // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+44:       6: invokespecial #57                 // Method nSign:(Landroid/content/Context;Ljava/lang/Object;[BI)[B
+50:       1: invokespecial #59                 // Method nOnResume:()V
+=== com.adjust.sdk.sig.a ===
+2:public interface com.adjust.sdk.sig.a {
+=== com.adjust.sdk.sig.b ===
+2:public final class com.adjust.sdk.sig.b extends java.lang.RuntimeException {
+3:  public com.adjust.sdk.sig.b();
+=== com.adjust.sdk.sig.c ===
+2:public final class com.adjust.sdk.sig.c {
+5:  public com.adjust.sdk.sig.c(int);
+20:       6: bipush        23
+22:      11: ldc           #19                 // String AndroidKeyStore
+23:      13: invokestatic  #25                 // Method java/security/KeyStore.getInstance:(Ljava/lang/String;)Ljava/security/KeyStore;
+26:      18: invokevirtual #29                 // Method java/security/KeyStore.load:(Ljava/security/KeyStore$LoadStoreParameter;)V
+27:      21: ldc           #31                 // String key2
+28:      23: invokevirtual #35                 // Method java/security/KeyStore.containsAlias:(Ljava/lang/String;)Z
+31:      32: ldc           #37                 // String HmacSHA256
+32:      34: ldc           #19                 // String AndroidKeyStore
+33:      36: invokestatic  #42                 // Method javax/crypto/KeyGenerator.getInstance:(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/KeyGenerator;
+37:      44: ldc           #31                 // String key2
+39:      47: invokespecial #47                 // Method android/security/keystore/KeyGenParameterSpec$Builder."<init>":(Ljava/lang/String;I)V
+46:      64: bipush        18
+49:      70: ldc           #63                 // String adjust_keys
+51:      73: invokevirtual #67                 // Method android/content/Context.getSharedPreferences:(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+54:      78: ldc           #69                 // String encrypted_key
+55:      80: invokeinterface #74,  2           // InterfaceMethod android/content/SharedPreferences.contains:(Ljava/lang/String;)Z
+72:     119: ldc           #31                 // String key2
+73:     121: invokevirtual #95                 // Method android/security/KeyPairGeneratorSpec$Builder.setAlias:(Ljava/lang/String;)Landroid/security/KeyPairGeneratorSpec$Builder;
+76:     128: ldc           #99                 // String CN=key2
+77:     130: invokespecial #102                // Method javax/security/auth/x500/X500Principal."<init>":(Ljava/lang/String;)V
+87:     154: bipush        19
+90:     160: sipush        1024
+94:     168: ldc           #129                // String RSA
+95:     170: ldc           #19                 // String AndroidKeyStore
+96:     172: invokestatic  #134                // Method java/security/KeyPairGenerator.getInstance:(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyPairGenerator;
+103:     187: bipush        16
+112:     204: ldc           #19                 // String AndroidKeyStore
+113:     206: invokestatic  #25                 // Method java/security/KeyStore.getInstance:(Ljava/lang/String;)Ljava/security/KeyStore;
+116:     211: invokevirtual #29                 // Method java/security/KeyStore.load:(Ljava/security/KeyStore$LoadStoreParameter;)V
+117:     214: ldc           #31                 // String key2
+119:     217: invokevirtual #155                // Method java/security/KeyStore.getEntry:(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;
+120:     220: checkcast     #157                // class java/security/KeyStore$PrivateKeyEntry
+122:     224: ldc           #159                // String RSA/ECB/PKCS1Padding
+123:     226: invokestatic  #164                // Method javax/crypto/Cipher.getInstance:(Ljava/lang/String;)Ljavax/crypto/Cipher;
+128:     233: invokevirtual #168                // Method java/security/KeyStore$PrivateKeyEntry.getCertificate:()Ljava/security/cert/Certificate;
+132:     241: invokevirtual #177                // Method javax/crypto/Cipher.init:(ILjava/security/Key;)V
+133:     244: invokevirtual #181                // Method javax/crypto/Cipher.doFinal:([B)[B
+135:     248: invokestatic  #187                // Method android/util/Base64.encodeToString:([BI)Ljava/lang/String;
+139:     258: ldc           #69                 // String encrypted_key
+141:     261: invokeinterface #197,  3          // InterfaceMethod android/content/SharedPreferences$Editor.putString:(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+145:     273: new           #202                // class com/adjust/sdk/sig/b
+147:     277: invokespecial #203                // Method com/adjust/sdk/sig/b."<init>":()V
+153:       1: ldc           #37                 // String HmacSHA256
+154:       3: invokestatic  #209                // Method javax/crypto/Mac.getInstance:(Ljava/lang/String;)Ljavax/crypto/Mac;
+159:      12: bipush        23
+161:      17: ldc           #19                 // String AndroidKeyStore
+162:      19: invokestatic  #25                 // Method java/security/KeyStore.getInstance:(Ljava/lang/String;)Ljava/security/KeyStore;
+165:      24: invokevirtual #29                 // Method java/security/KeyStore.load:(Ljava/security/KeyStore$LoadStoreParameter;)V
+166:      27: ldc           #31                 // String key2
+168:      30: invokevirtual #213                // Method java/security/KeyStore.getKey:(Ljava/lang/String;[C)Ljava/security/Key;
+172:      38: bipush        18
+175:      44: ldc           #63                 // String adjust_keys
+177:      47: invokevirtual #67                 // Method android/content/Context.getSharedPreferences:(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+178:      50: ldc           #69                 // String encrypted_key
+180:      53: invokeinterface #219,  3          // InterfaceMethod android/content/SharedPreferences.getString:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+186:      65: invokestatic  #223                // Method android/util/Base64.decode:(Ljava/lang/String;I)[B
+188:      69: ldc           #19                 // String AndroidKeyStore
+189:      71: invokestatic  #25                 // Method java/security/KeyStore.getInstance:(Ljava/lang/String;)Ljava/security/KeyStore;
+192:      76: invokevirtual #29                 // Method java/security/KeyStore.load:(Ljava/security/KeyStore$LoadStoreParameter;)V
+193:      79: ldc           #31                 // String key2
+195:      82: invokevirtual #155                // Method java/security/KeyStore.getEntry:(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;
+196:      85: checkcast     #157                // class java/security/KeyStore$PrivateKeyEntry
+198:      89: ldc           #159                // String RSA/ECB/PKCS1Padding
+199:      91: invokestatic  #164                // Method javax/crypto/Cipher.getInstance:(Ljava/lang/String;)Ljavax/crypto/Cipher;
+204:      98: invokevirtual #227                // Method java/security/KeyStore$PrivateKeyEntry.getPrivateKey:()Ljava/security/PrivateKey;
+207:     103: invokevirtual #177                // Method javax/crypto/Cipher.init:(ILjava/security/Key;)V
+208:     106: invokevirtual #181                // Method javax/crypto/Cipher.doFinal:([B)[B
+214:     116: ldc           #231                // String AES
+215:     118: invokespecial #234                // Method javax/crypto/spec/SecretKeySpec."<init>":([BLjava/lang/String;)V
+223:     128: invokevirtual #237                // Method javax/crypto/Mac.init:(Ljava/security/Key;)V
+224:     131: invokevirtual #240                // Method javax/crypto/Mac.update:([B)V
+225:     134: invokevirtual #243                // Method javax/crypto/Mac.doFinal:()[B
+229:     142: ldc           #247                // String Failed to find encrypted key in SharedPreferences
+230:     144: invokespecial #248                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+234:     152: ldc           #250                // String Unsupported version
+235:     154: invokespecial #248                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+=== com.adjust.sdk.sig.d ===
+2:public final class com.adjust.sdk.sig.d {
+5:  public com.adjust.sdk.sig.d();
+11:  public static void a(android.content.Context, com.adjust.sdk.sig.c, com.adjust.sdk.sig.a, java.util.Map, java.lang.String, java.lang.String);
+15:       6: ldc           #19                 // String SignerInstance
+16:       8: ldc           #21                 // String sign: library received error. It has locked down
+17:      10: invokestatic  #27                 // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+35:      51: ldc           #43                 // String yyyy-MM-dd\'T\'HH:mm:ss.SSSZ
+37:      54: invokespecial #46                 // Method java/text/SimpleDateFormat."<init>":(Ljava/lang/String;Ljava/util/Locale;)V
+38:      57: ldc           #48                 // String environment
+40:      64: ldc           #54                 // String sandbox
+42:      67: invokevirtual #60                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+46:      76: new           #62                 // class java/lang/StringBuilder
+50:      83: ldc           #64                 // String Signing all the parameters begin:
+51:      85: invokespecial #67                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+56:      98: invokevirtual #84                 // Method java/text/DateFormat.format:(Ljava/util/Date;)Ljava/lang/String;
+57:     101: invokevirtual #88                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+58:     104: invokevirtual #92                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+59:     107: ldc           #19                 // String SignerInstance
+61:     110: invokestatic  #95                 // Method android/util/Log.v:(Ljava/lang/String;Ljava/lang/String;)I
+65:     116: ldc           #97                 // String activity_kind
+69:     126: ldc           #103                // String client_sdk
+84:     152: invokevirtual #114                // Method com/adjust/sdk/sig/c.a:(Landroid/content/Context;)V
+85:     155: invokevirtual #115                // Method java/lang/Object.toString:()Ljava/lang/String;
+87:     161: invokevirtual #125                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+88:     164: invokevirtual #128                // Method com/adjust/sdk/sig/c.a:(Landroid/content/Context;[B)[B
+102:     193: new           #62                 // class java/lang/StringBuilder
+106:     199: ldc           #138                // String sign: Received an Exception:
+107:     201: invokespecial #67                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+108:     204: invokevirtual #143                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+109:     207: invokevirtual #88                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+110:     210: invokevirtual #92                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+111:     213: ldc           #19                 // String SignerInstance
+114:     217: invokestatic  #146                // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+116:     221: ldc           #97                 // String activity_kind
+119:     229: ldc           #103                // String client_sdk
+125:     240: new           #62                 // class java/lang/StringBuilder
+129:     247: ldc           #153                // String sign: Received a retriable exception:
+130:     249: invokespecial #67                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+131:     252: invokevirtual #143                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+132:     255: invokevirtual #88                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+133:     258: invokevirtual #92                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+134:     261: ldc           #19                 // String SignerInstance
+137:     266: invokestatic  #146                // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+139:     270: new           #62                 // class java/lang/StringBuilder
+143:     277: ldc           #155                // String sign: Attempting retry #
+144:     279: invokespecial #67                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+145:     282: invokevirtual #158                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+146:     285: invokevirtual #92                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+147:     288: ldc           #19                 // String SignerInstance
+149:     291: invokestatic  #27                 // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+154:     302: ldc           #164                // String AndroidKeyStore
+155:     304: invokestatic  #170                // Method java/security/KeyStore.getInstance:(Ljava/lang/String;)Ljava/security/KeyStore;
+158:     309: invokevirtual #174                // Method java/security/KeyStore.load:(Ljava/security/KeyStore$LoadStoreParameter;)V
+159:     312: ldc           #176                // String key2
+160:     314: invokevirtual #179                // Method java/security/KeyStore.deleteEntry:(Ljava/lang/String;)V
+161:     317: ldc           #181                // String adjust_keys
+163:     320: invokevirtual #185                // Method android/content/Context.getSharedPreferences:(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+165:     328: ldc           #193                // String encrypted_key
+166:     330: invokeinterface #198,  2          // InterfaceMethod android/content/SharedPreferences$Editor.remove:(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+172:     346: ldc           #19                 // String SignerInstance
+173:     348: ldc           #203                // String sign: Api is less than JellyBean-4-18
+174:     350: invokestatic  #27                 // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+178:     358: ldc           #97                 // String activity_kind
+181:     366: ldc           #103                // String client_sdk
+191:     386: ldc           #97                 // String activity_kind
+194:     394: ldc           #103                // String client_sdk
+200:     408: new           #62                 // class java/lang/StringBuilder
+204:     415: ldc           #205                // String Calling native begin:
+205:     417: invokespecial #67                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+210:     430: invokevirtual #84                 // Method java/text/DateFormat.format:(Ljava/util/Date;)Ljava/lang/String;
+211:     433: invokevirtual #88                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+212:     436: invokevirtual #92                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+213:     439: ldc           #19                 // String SignerInstance
+215:     442: invokestatic  #95                 // Method android/util/Log.v:(Ljava/lang/String;Ljava/lang/String;)I
+220:     450: getfield      #208                // Field com/adjust/sdk/sig/c.a:I
+222:     454: checkcast     #210                // class com/adjust/sdk/sig/NativeLibHelper
+227:     462: invokevirtual #213                // Method com/adjust/sdk/sig/NativeLibHelper.a:(Landroid/content/Context;Ljava/lang/Object;[BI)[B
+230:     469: new           #62                 // class java/lang/StringBuilder
+234:     476: ldc           #215                // String Calling native end  :
+235:     478: invokespecial #67                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+240:     491: invokevirtual #84                 // Method java/text/DateFormat.format:(Ljava/util/Date;)Ljava/lang/String;
+241:     494: invokevirtual #88                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+242:     497: invokevirtual #92                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+243:     500: ldc           #19                 // String SignerInstance
+245:     503: invokestatic  #95                 // Method android/util/Log.v:(Ljava/lang/String;Ljava/lang/String;)I
+251:     513: ldc           #19                 // String SignerInstance
+252:     515: ldc           #217                // String sign: Returned an null signature. Exiting...
+253:     517: invokestatic  #27                 // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+255:     521: ldc           #97                 // String activity_kind
+258:     529: ldc           #103                // String client_sdk
+268:     545: invokestatic  #223                // Method android/util/Base64.encodeToString:([BI)Ljava/lang/String;
+269:     548: ldc           #225                // String signature
+273:     557: ldc           #97                 // String activity_kind
+276:     565: ldc           #103                // String client_sdk
+280:     576: new           #62                 // class java/lang/StringBuilder
+284:     583: ldc           #227                // String Signing all the parameters end  :
+285:     585: invokespecial #67                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+290:     598: invokevirtual #84                 // Method java/text/DateFormat.format:(Ljava/util/Date;)Ljava/lang/String;
+291:     601: invokevirtual #88                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+292:     604: invokevirtual #92                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+293:     607: ldc           #19                 // String SignerInstance
+295:     610: invokestatic  #95                 // Method android/util/Log.v:(Ljava/lang/String;Ljava/lang/String;)I
+298:     615: ldc           #19                 // String SignerInstance
+299:     617: ldc           #229                // String sign: One or more parameters are null
+300:     619: invokestatic  #27                 // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+305:         147   167   186   Class com/adjust/sdk/sig/b
+321:      23: checkcast     #56                 // class java/lang/String
+331:      45: checkcast     #56                 // class java/lang/String

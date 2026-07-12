@@ -32,6 +32,11 @@ public final class SignerEngine implements AutoCloseable {
             d.a = false;
             NativeLibHelper.configure(projectRoot.getCanonicalFile(), profile);
             context = new Context(profile.getPackageName());
+            for (Map.Entry<String, Map<String, String>> file : profile.getSharedPreferences().entrySet()) {
+                for (Map.Entry<String, String> entry : file.getValue().entrySet()) {
+                    context.putSharedPreference(file.getKey(), entry.getKey(), entry.getValue());
+                }
+            }
             signer = new Signer();
             try {
                 signer.onResume();

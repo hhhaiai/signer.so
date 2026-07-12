@@ -1,0 +1,37 @@
+loaded libsigner.so base=0x12340000 size=0x148000
+java.lang.UnsupportedOperationException: android/content/SharedPreferences->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	at com.github.unidbg.linux.android.dvm.AbstractJni.callObjectMethod(AbstractJni.java:933)
+	at local.AdjustSignatureRunner.callObjectMethod(AdjustSignatureRunner.java:2564)
+	at com.github.unidbg.linux.android.dvm.AbstractJni.callObjectMethod(AbstractJni.java:867)
+	at com.github.unidbg.linux.android.dvm.DvmMethod.callObjectMethod(DvmMethod.java:69)
+	at com.github.unidbg.linux.android.dvm.DalvikVM64$31.handle(DalvikVM64.java:533)
+	at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:119)
+	at com.github.unidbg.arm.backend.UnicornBackend.lambda$hook_add_new$4(UnicornBackend.java:232)
+	at unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:97)
+	at unicorn.Unicorn.emu_start(Native Method)
+	at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:253)
+	at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:375)
+	at com.github.unidbg.thread.Function64.run(Function64.java:39)
+	at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
+	at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:165)
+	at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:97)
+	at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:332)
+	at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:262)
+	at com.github.unidbg.Module.emulateFunction(Module.java:170)
+	at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
+	at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethodObject(DvmObject.java:93)
+	at local.AdjustSignatureRunner.signNative(AdjustSignatureRunner.java:1866)
+	at local.ProbeNativeCryptoSwitch.main(ProbeNativeCryptoSwitch.java:27)
+debugger break at: 0xfffe0274 @ Runnable|Function64 address=0x1240c604, arguments=[unidbg@0xfffe1640, 84113572, 454884231, 1572256205, 554348863, 18]
+>>> x0=0xfffe1640(-125376) x1=0x4f49f6af x2=0x2c5b4190 x3=0x78452606 x4=0x0 x5=0xe5088f588126a7c3 x6=0xcab88adc458b06e2 x7=0x8dd1a8c9624d2ddc x8=0xfffe0270 x9=0x8bf683981de07804 x10=0x8bf683981de07804 x11=0x5cdd6a785d13a1d0 x12=0xca7e4085479d0b8d x13=0xc7073984675dd38e x14=0xbef96ee129655b72
+>>> x15=0xb3de1cae17ecc375 x16=0xb332d9978eb5e320 x17=0xb1e7a1505df33abd x18=0x12229f50 x19=0x60abb7c30996edbd x20=0x78452606 x21=0xfffe1640 x22=0x0 x23=0xfffe1640 x24=0x2c5b4190 x25=0xfffe1640 x26=0xc4313302219bf789 x27=0x8bf59466a4a7d70a x28=0x869fb1721e471801 fp=0xe4ffef10
+>>> q0=0x6e69727453746567(7.358764061799372E223) q1=0x676e616c2f6176616a4c293b676e6972(1.1036620799261696E204, 1.692010343618467E190) q2=0x646d626f2c627562694f2a38646d6a71(1.8636880011653989E199, 5.814145900946195E175) q3=0x3030303030303030303030303030303(3.7209743448696E-294, 3.7209743448696E-294) q4=0x0(0.0) q5=0x100000000(2.121995791E-314) q6=0x0(0.0) q7=0x80200802802008028020080280200802(-4.458850023827439E-308, -4.458850023827439E-308) q8=0x303030303030303(3.7209743448696E-294) q9=0xb6b6b6b6b6b6b6b6(-3.978588581063402E-45) q10=0x1a1a1a1a1a1a1a1a(6.14293298947794E-183) q11=0x2828282828282828(3.0654356309538037E-115) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
+>>> q16=0x40100401401004014010040140100401(4.003911019303815, 4.003911019303815) q17=0xaa800100(-2.2738061433713597E-13) q18=0x0(0.0) q19=0x0(0.0) q20=0x0(0.0) q21=0x0(0.0) q22=0x0(0.0) q23=0x0(0.0) q24=0x0(0.0) q25=0x0(0.0) q26=0x0(0.0) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
+LR=RX@0x124014fc[libsigner.so]0xc14fc
+SP=0xe4ffee80
+PC=unidbg@0xfffe0274
+nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
+    [Arm64Svc     0x000270] [c12300d4] 0xfffe0270: "svc #0x11e"
+=> *[Arm64Svc    *0x000274]*[c0035fd6]*0xfffe0274:*"ret"
+
+api=18 inputLength=32 inputByte=0x11 resultLength=-1 sha256=null algorithm=null
