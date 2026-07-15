@@ -1,0 +1,10 @@
+[main]V/SignerInstance: Signing all the parameters begin: 2026-07-13T11:59:25.943+0800
+[main]V/SignerInstance: Calling native begin: 2026-07-13T11:59:25.965+0800
+[recovered-hmac] api=36 params={environment=sandbox, app_token=abc123, created_at=2026-07-10T00:00:00.000+0800, gps_adid=11111111-1111-1111-1111-111111111111, android_id=0123456789abcdef, device_type=phone, device_name=Pixel 9 Pro, os_name=android, os_version=15, language=zh, country=CN, activity_kind=session, client_sdk=android4.38.5} key=6c6f63616c2d61646a7573742d6b657973746f72652d6b6579 expected=62876b08dac9ca39bd9d4761388f59ac65fb36a1b539d7f5fff140ef19fcbf5f actual=62876b08dac9ca39bd9d4761388f59ac65fb36a1b539d7f5fff140ef19fcbf5f
+[main]V/SignerInstance: Calling native end  : 2026-07-13T11:59:26.163+0800
+[main]V/SignerInstance: Signing all the parameters end  : 2026-07-13T11:59:26.164+0800
+Exception in thread "main" java.lang.IllegalStateException: expectedResult mismatch at expectedResult.rawSignatureHex expected=3b273362218b186a73e7349775b93f1151da6894512660bd1e9809e7c17c3898a2d0c5508f89e6c3022e6c8f7b442797abef7d1d32d8a04d887d2d1bf24b19b1f9ab2e878f79e9e4403f2fbb71ee5609443039c0ce6fc355892096d63e697e9ca2794cf0628c4403e0d6e9e452c356cbf881e5aebd431e2b583b6d923875d3eb9b3b2de520ab291ca72a1f1cd661d6af510d952d14921db3ae61537b5fccc21e45554bf72a6d107816fbbf28ebd8f6f7 actual=3b273362218b186a73e7349775b93f11130c3612e6ea8dd6a2ba50e81d465005541e622702decf58c7127a81ccea4a27438a20164210cd22cdedf1019ad65372d5db4bb68e28bc43101e302fbba63fee3391175746ed0c7c86b6cc0f387bc30a1501d578056a517b93b524cbb89ee036e8aa3e9cc82aa7a768afc28d1cc3a707efb3f2520295e718f33b31a9bdc05c2f349574307ab2b39214a1ac987b41f5a710306d770bcd18ec66c716cbfcc0448d
+	at local.SignerOneClick.assertExpectedResult(SignerOneClick.java:283)
+	at local.SignerOneClick.run(SignerOneClick.java:40)
+	at local.SignerOneClick.run(SignerOneClick.java:21)
+	at local.SignerOneClick.main(SignerOneClick.java:50)

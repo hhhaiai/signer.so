@@ -88,3 +88,8 @@
 - 签名输入、Java 调用方与预期输出样例是否已包含在现有资产中？
 - 样本是否执行动态 JNI 注册、运行时解密或自修改？
 - 是否已有可作为基准的移动端输入/输出、Context/PackageManager/证书等 Java 环境数据？
+
+## Adjust Signature SDK Releases 归档（2026-07-15）
+
+- 用户要求下载 `https://github.com/adjust/adjust_signature_sdk/releases` 的所有版本及 SDK 附件到工作区 `adjust_signature_sdk/`。
+- 用户列举的 3.67.0 有四类资产：Android AAR、iOS Static `.a.zip`、iOS/tvOS Dynamic xcframework、iOS/tvOS Static xcframework；历史 release 的实际资产数量和命名需以 GitHub API 清单为准，不能假定所有版本都恰好四个。

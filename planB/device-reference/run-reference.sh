@@ -11,6 +11,8 @@ APK="$HERE/build/adjust-reference.apk"
 FRIDA_LOG="$OUT/frida.log"
 LOGCAT="$OUT/logcat.txt"
 LIVE_MAPS="$OUT/live-proc-self-maps.txt"
+FRIDA_SCRIPT="$HERE/frida/fixed-runtime.js"
+COMBINED_FRIDA_SCRIPT="$OUT/fixed-runtime-combined.js"
 
 if [[ "${REFERENCE_REBUILD:-1}" == 1 || ! -f "$APK" ]]; then
   "$HERE/build-reference-apk.sh"
@@ -45,7 +47,12 @@ if [[ "$gadget" != 1 ]]; then
   exit 1
 fi
 
-frida -H 127.0.0.1:27042 -n Gadget -l "$HERE/frida/fixed-runtime.js" \
+if [[ -n "${REFERENCE_FRIDA_EXTRA:-}" ]]; then
+  cat "$FRIDA_SCRIPT" "$REFERENCE_FRIDA_EXTRA" > "$COMBINED_FRIDA_SCRIPT"
+  FRIDA_SCRIPT="$COMBINED_FRIDA_SCRIPT"
+fi
+
+frida -H 127.0.0.1:27042 -n Gadget -l "$FRIDA_SCRIPT" \
   -q -t 60 --exit-on-error -o "$FRIDA_LOG" >/dev/null 2>&1 &
 FRIDA_PID=$!
 wait "$START_PID" 2>/dev/null || true

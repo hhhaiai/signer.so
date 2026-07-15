@@ -1,0 +1,27 @@
+{
+  "active": true,
+  "iteration": 1,
+  "max_iterations": 10,
+  "current_phase": "executing",
+  "started_at": "2026-07-14T00:03:08+08:00",
+  "task_description": "完整静态恢复 libsigner.so 的 JNI 可达逻辑并在 native-reimplementation 中实现等价 C++",
+  "context_snapshot_path": ".omx/context/libsigner-cpp-equivalence-20260713T160308Z.md",
+  "execution_lane": "single-agent due developer policy",
+  "current_focus": "sole partial 0xf1ec8 protected crypto/work engine, then 144 JNI unknown",
+  "owner_omx_session_id": "019f596d-011d-7112-b36d-5f2fe91efa76",
+  "coverage": {
+    "total_fde": 388,
+    "jni_reachable": 321,
+    "recovered": 176,
+    "partial": 1,
+    "unknown": 144
+  },
+  "verification": {
+    "cpp_oracle": "fresh 176/192/208-byte and branch oracle PASS after 0xd78b8",
+    "asan_ubsan": "fresh PASS after 0xd78b8",
+    "maven_compile": "fresh offline BUILD SUCCESS collected at 2026-07-14T03:30:15+08:00",
+    "static_analyzers": "fresh PASS for 0xcc604 and 0xd78b8 full ARM64 interpreters",
+    "batch_parity": "fresh 14/14 pass after 0x11ba78/0x11da64 recovery",
+    "walker_full": "fresh PASS collected from .omx/verification-20260714/walker-full.txt"
+  }
+}

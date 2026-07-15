@@ -7,6 +7,8 @@ INPUT="${1:-$ROOT/examples/signer-job.json}"
 PROJECT_ROOT="${2:-$ROOT}"
 LOG="$(mktemp)"
 trap 'rm -f "$LOG"' EXIT
+CRASH_DIR="$ROOT/.omx/crash-diagnostics"
+mkdir -p "$CRASH_DIR"
 
 mvn -q -f "$RUNNER/pom.xml" -DskipTests package dependency:build-classpath \
   -Dmdep.includeScope=runtime -Dmdep.outputFile="$RUNNER/target/runtime-classpath.txt"
@@ -21,11 +23,23 @@ if [[ -z "$JAVA_BIN" ]] && [[ "$(uname -s)" == "Darwin" ]] && [[ -x /usr/libexec
 fi
 JAVA_BIN="${JAVA_BIN:-java}"
 
-if ! "$JAVA_BIN" -XX:TieredStopAtLevel=1 -Dorg.slf4j.simpleLogger.defaultLogLevel=error -cp "$CP" \
-    local.SignerOneClick "$INPUT" "$PROJECT_ROOT" >"$LOG" 2>&1; then
-  cat "$LOG" >&2
-  exit 1
-fi
+ATTEMPT=1
+while true; do
+  if "$JAVA_BIN" -XX:TieredStopAtLevel=1 -XX:ErrorFile="$CRASH_DIR/hs_err_pid%p.log" \
+      -Dorg.slf4j.simpleLogger.defaultLogLevel=error -cp "$CP" \
+      local.SignerOneClick "$INPUT" "$PROJECT_ROOT" >"$LOG" 2>&1; then
+    break
+  else
+    STATUS=$?
+  fi
+  if [[ "$(uname -s)" != "Darwin" || "$ATTEMPT" -ge 2 \
+      || ( "$STATUS" -ne 134 && "$STATUS" -ne 135 && "$STATUS" -ne 138 ) ]]; then
+    cat "$LOG" >&2
+    exit "$STATUS"
+  fi
+  echo "Signer JVM native crash (exit $STATUS); retrying once in a fresh JVM" >&2
+  ATTEMPT=$((ATTEMPT + 1))
+done
 
 RESULT="$(awk '/^SIGNER_RESULT_JSON=/{sub(/^SIGNER_RESULT_JSON=/, ""); value=$0} END{print value}' "$LOG")"
 if [[ -z "$RESULT" ]]; then

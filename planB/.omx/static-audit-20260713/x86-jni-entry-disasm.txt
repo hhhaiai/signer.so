@@ -1,0 +1,1659 @@
+
+adjust-android-signature-3.67.0/jni/x86/libsigner.so:	file format elf32-i386
+
+Disassembly of section .text:
+
+00007610 <.text>:
+   b1800: 01 8d 65 f4 5e 5f            	addl	%ecx, 0x5f5ef465(%ebp)
+   b1806: 5b                           	popl	%ebx
+   b1807: 5d                           	popl	%ebp
+   b1808: c3                           	retl
+   b1809: 8b 5e 08                     	movl	0x8(%esi), %ebx
+   b180c: e8 7f bb 07 00               	calll	0x12d390 <__stack_chk_fail@plt>
+   b1811: cc                           	int3
+   b1812: cc                           	int3
+   b1813: cc                           	int3
+   b1814: cc                           	int3
+   b1815: cc                           	int3
+   b1816: cc                           	int3
+   b1817: cc                           	int3
+   b1818: cc                           	int3
+   b1819: cc                           	int3
+   b181a: cc                           	int3
+   b181b: cc                           	int3
+   b181c: cc                           	int3
+   b181d: cc                           	int3
+   b181e: cc                           	int3
+   b181f: cc                           	int3
+   b1820: 31 c0                        	xorl	%eax, %eax
+   b1822: c3                           	retl
+
+000b1823 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume>:
+   b1823: 55                           	pushl	%ebp
+   b1824: 89 e5                        	movl	%esp, %ebp
+   b1826: 53                           	pushl	%ebx
+   b1827: 83 e4 f0                     	andl	$-0x10, %esp
+   b182a: 83 ec 10                     	subl	$0x10, %esp
+   b182d: e8 00 00 00 00               	calll	0xb1832 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xf>
+   b1832: 5b                           	popl	%ebx
+   b1833: 81 c3 36 04 08 00            	addl	$0x80436, %ebx          # imm = 0x80436
+   b1839: e8 35 8a 00 00               	calll	0xba273 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7edf>
+   b183e: 8d 65 fc                     	leal	-0x4(%ebp), %esp
+   b1841: 5b                           	popl	%ebx
+   b1842: 5d                           	popl	%ebp
+   b1843: c3                           	retl
+   b1844: 55                           	pushl	%ebp
+   b1845: 89 e5                        	movl	%esp, %ebp
+   b1847: 53                           	pushl	%ebx
+   b1848: 57                           	pushl	%edi
+   b1849: 56                           	pushl	%esi
+   b184a: 83 e4 f0                     	andl	$-0x10, %esp
+   b184d: 83 ec 10                     	subl	$0x10, %esp
+   b1850: e8 00 00 00 00               	calll	0xb1855 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x32>
+   b1855: 5b                           	popl	%ebx
+   b1856: 81 c3 13 04 08 00            	addl	$0x80413, %ebx          # imm = 0x80413
+   b185c: 8b 75 10                     	movl	0x10(%ebp), %esi
+   b185f: 65 a1 14 00 00 00            	movl	%gs:0x14, %eax
+   b1865: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+   b1869: 8d 44 24 04                  	leal	0x4(%esp), %eax
+   b186d: 83 20 00                     	andl	$0x0, (%eax)
+   b1870: 83 ec 0c                     	subl	$0xc, %esp
+   b1873: 56                           	pushl	%esi
+   b1874: e8 f6 e2 f5 ff               	calll	0xfb6f <.text+0x855f>
+   b1879: 83 c4 10                     	addl	$0x10, %esp
+   b187c: bf 02 9e 21 11               	movl	$0x11219e02, %edi       # imm = 0x11219E02
+   b1881: b9 dd 95 db 78               	movl	$0x78db95dd, %ecx       # imm = 0x78DB95DD
+   b1886: 89 ca                        	movl	%ecx, %edx
+   b1888: 81 f2 bb 95 34 ae            	xorl	$0xae3495bb, %edx       # imm = 0xAE3495BB
+   b188e: 89 f8                        	movl	%edi, %eax
+   b1890: 35 0b e9 42 a8               	xorl	$0xa842e90b, %eax       # imm = 0xA842E90B
+   b1895: 09 d0                        	orl	%edx, %eax
+   b1897: 74 7c                        	je	0xb1915 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xf2>
+   b1899: 89 c8                        	movl	%ecx, %eax
+   b189b: 35 b9 2e a0 ad               	xorl	$0xada02eb9, %eax       # imm = 0xADA02EB9
+   b18a0: 89 fa                        	movl	%edi, %edx
+   b18a2: 81 f2 24 09 92 fa            	xorl	$0xfa920924, %edx       # imm = 0xFA920924
+   b18a8: 09 c2                        	orl	%eax, %edx
+   b18aa: 74 58                        	je	0xb1904 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xe1>
+   b18ac: 89 c8                        	movl	%ecx, %eax
+   b18ae: 35 f3 2b ef 22               	xorl	$0x22ef2bf3, %eax       # imm = 0x22EF2BF3
+   b18b3: 89 fa                        	movl	%edi, %edx
+   b18b5: 81 f2 c0 61 72 57            	xorl	$0x577261c0, %edx       # imm = 0x577261C0
+   b18bb: 09 c2                        	orl	%eax, %edx
+   b18bd: 74 65                        	je	0xb1924 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x101>
+   b18bf: 89 c8                        	movl	%ecx, %eax
+   b18c1: 35 dd 95 db 78               	xorl	$0x78db95dd, %eax       # imm = 0x78DB95DD
+   b18c6: 89 fa                        	movl	%edi, %edx
+   b18c8: 81 f2 02 9e 21 11            	xorl	$0x11219e02, %edx       # imm = 0x11219E02
+   b18ce: 09 c2                        	orl	%eax, %edx
+   b18d0: 75 b4                        	jne	0xb1886 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x63>
+   b18d2: 56                           	pushl	%esi
+   b18d3: ff 75 0c                     	pushl	0xc(%ebp)
+   b18d6: 8d 44 24 0c                  	leal	0xc(%esp), %eax
+   b18da: 50                           	pushl	%eax
+   b18db: ff 75 08                     	pushl	0x8(%ebp)
+   b18de: e8 39 af f5 ff               	calll	0xc81c <.text+0x520c>
+   b18e3: 83 c4 10                     	addl	$0x10, %esp
+   b18e6: 84 c0                        	testb	%al, %al
+   b18e8: bf 24 09 92 fa               	movl	$0xfa920924, %edi       # imm = 0xFA920924
+   b18ed: b8 0b e9 42 a8               	movl	$0xa842e90b, %eax       # imm = 0xA842E90B
+   b18f2: 0f 45 f8                     	cmovnel	%eax, %edi
+   b18f5: b9 b9 2e a0 ad               	movl	$0xada02eb9, %ecx       # imm = 0xADA02EB9
+   b18fa: b8 bb 95 34 ae               	movl	$0xae3495bb, %eax       # imm = 0xAE3495BB
+   b18ff: 0f 45 c8                     	cmovnel	%eax, %ecx
+   b1902: eb 82                        	jmp	0xb1886 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x63>
+   b1904: 83 ec 0c                     	subl	$0xc, %esp
+   b1907: 56                           	pushl	%esi
+   b1908: e8 d7 e1 f5 ff               	calll	0xfae4 <.text+0x84d4>
+   b190d: 83 c4 10                     	addl	$0x10, %esp
+   b1910: 83 64 24 04 00               	andl	$0x0, 0x4(%esp)
+   b1915: b9 f3 2b ef 22               	movl	$0x22ef2bf3, %ecx       # imm = 0x22EF2BF3
+   b191a: bf c0 61 72 57               	movl	$0x577261c0, %edi       # imm = 0x577261C0
+   b191f: e9 62 ff ff ff               	jmp	0xb1886 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x63>
+   b1924: 83 ec 04                     	subl	$0x4, %esp
+   b1927: 56                           	pushl	%esi
+   b1928: ff 75 08                     	pushl	0x8(%ebp)
+   b192b: 8d 44 24 10                  	leal	0x10(%esp), %eax
+   b192f: 50                           	pushl	%eax
+   b1930: e8 4f ae fd ff               	calll	0x8c784 <.text+0x85174>
+   b1935: 83 c4 10                     	addl	$0x10, %esp
+   b1938: 65 a1 14 00 00 00            	movl	%gs:0x14, %eax
+   b193e: 3b 44 24 08                  	cmpl	0x8(%esp), %eax
+   b1942: 75 08                        	jne	0xb194c <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x129>
+   b1944: 8d 65 f4                     	leal	-0xc(%ebp), %esp
+   b1947: 5e                           	popl	%esi
+   b1948: 5f                           	popl	%edi
+   b1949: 5b                           	popl	%ebx
+   b194a: 5d                           	popl	%ebp
+   b194b: c3                           	retl
+   b194c: e8 3f ba 07 00               	calll	0x12d390 <__stack_chk_fail@plt>
+   b1951: 55                           	pushl	%ebp
+   b1952: 89 e5                        	movl	%esp, %ebp
+   b1954: 53                           	pushl	%ebx
+   b1955: 57                           	pushl	%edi
+   b1956: 56                           	pushl	%esi
+   b1957: 83 e4 f0                     	andl	$-0x10, %esp
+   b195a: 83 ec 30                     	subl	$0x30, %esp
+   b195d: e8 00 00 00 00               	calll	0xb1962 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x13f>
+   b1962: 5b                           	popl	%ebx
+   b1963: 81 c3 06 03 08 00            	addl	$0x80306, %ebx          # imm = 0x80306
+   b1969: 8b 75 14                     	movl	0x14(%ebp), %esi
+   b196c: 65 a1 14 00 00 00            	movl	%gs:0x14, %eax
+   b1972: 89 44 24 28                  	movl	%eax, 0x28(%esp)
+   b1976: 8d 44 24 24                  	leal	0x24(%esp), %eax
+   b197a: 83 20 00                     	andl	$0x0, (%eax)
+   b197d: 8b 45 08                     	movl	0x8(%ebp), %eax
+   b1980: 89 74 24 04                  	movl	%esi, 0x4(%esp)
+   b1984: 89 04 24                     	movl	%eax, (%esp)
+   b1987: e8 90 5d f5 ff               	calll	0x771c <.text+0x10c>
+   b198c: 8d 86 f8 00 00 00            	leal	0xf8(%esi), %eax
+   b1992: 89 44 24 20                  	movl	%eax, 0x20(%esp)
+   b1996: 8d 86 f4 00 00 00            	leal	0xf4(%esi), %eax
+   b199c: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+   b19a0: bf bc cc 2d 4f               	movl	$0x4f2dccbc, %edi       # imm = 0x4F2DCCBC
+   b19a5: ba 48 ed 83 6d               	movl	$0x6d83ed48, %edx       # imm = 0x6D83ED48
+   b19aa: 89 f8                        	movl	%edi, %eax
+   b19ac: 89 d1                        	movl	%edx, %ecx
+   b19ae: 81 f2 0a be fd 30            	xorl	$0x30fdbe0a, %edx       # imm = 0x30FDBE0A
+   b19b4: 81 f7 cb c7 1b d1            	xorl	$0xd11bc7cb, %edi       # imm = 0xD11BC7CB
+   b19ba: 09 d7                        	orl	%edx, %edi
+   b19bc: 0f 84 05 02 00 00            	je	0xb1bc7 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x3a4>
+   b19c2: 89 ca                        	movl	%ecx, %edx
+   b19c4: 81 f2 65 16 56 a9            	xorl	$0xa9561665, %edx       # imm = 0xA9561665
+   b19ca: 89 c7                        	movl	%eax, %edi
+   b19cc: 81 f7 96 15 1e ee            	xorl	$0xee1e1596, %edi       # imm = 0xEE1E1596
+   b19d2: 09 d7                        	orl	%edx, %edi
+   b19d4: 0f 84 0e 01 00 00            	je	0xb1ae8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x2c5>
+   b19da: 89 ca                        	movl	%ecx, %edx
+   b19dc: 81 f2 c8 94 f8 ac            	xorl	$0xacf894c8, %edx       # imm = 0xACF894C8
+   b19e2: 89 c7                        	movl	%eax, %edi
+   b19e4: 81 f7 f9 2b b7 01            	xorl	$0x1b72bf9, %edi        # imm = 0x1B72BF9
+   b19ea: 09 d7                        	orl	%edx, %edi
+   b19ec: 0f 84 8f 01 00 00            	je	0xb1b81 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x35e>
+   b19f2: 89 ca                        	movl	%ecx, %edx
+   b19f4: 81 f2 fc 76 9a 66            	xorl	$0x669a76fc, %edx       # imm = 0x669A76FC
+   b19fa: 89 c7                        	movl	%eax, %edi
+   b19fc: 81 f7 22 18 30 23            	xorl	$0x23301822, %edi       # imm = 0x23301822
+   b1a02: 09 d7                        	orl	%edx, %edi
+   b1a04: 0f 84 1f 01 00 00            	je	0xb1b29 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x306>
+   b1a0a: 89 ca                        	movl	%ecx, %edx
+   b1a0c: 81 f2 55 39 1c 12            	xorl	$0x121c3955, %edx       # imm = 0x121C3955
+   b1a12: 89 c7                        	movl	%eax, %edi
+   b1a14: 81 f7 15 01 99 2b            	xorl	$0x2b990115, %edi       # imm = 0x2B990115
+   b1a1a: 09 d7                        	orl	%edx, %edi
+   b1a1c: ba c8 94 f8 ac               	movl	$0xacf894c8, %edx       # imm = 0xACF894C8
+   b1a21: bf f9 2b b7 01               	movl	$0x1b72bf9, %edi        # imm = 0x1B72BF9
+   b1a26: 74 82                        	je	0xb19aa <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x187>
+   b1a28: 89 ca                        	movl	%ecx, %edx
+   b1a2a: 81 f2 1c a3 2d 84            	xorl	$0x842da31c, %edx       # imm = 0x842DA31C
+   b1a30: 89 c7                        	movl	%eax, %edi
+   b1a32: 81 f7 b6 f6 24 47            	xorl	$0x4724f6b6, %edi       # imm = 0x4724F6B6
+   b1a38: 09 d7                        	orl	%edx, %edi
+   b1a3a: 0f 84 93 00 00 00            	je	0xb1ad3 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x2b0>
+   b1a40: 89 ca                        	movl	%ecx, %edx
+   b1a42: 81 f2 48 ed 83 6d            	xorl	$0x6d83ed48, %edx       # imm = 0x6D83ED48
+   b1a48: 89 c7                        	movl	%eax, %edi
+   b1a4a: 81 f7 bc cc 2d 4f            	xorl	$0x4f2dccbc, %edi       # imm = 0x4F2DCCBC
+   b1a50: 09 d7                        	orl	%edx, %edi
+   b1a52: 74 39                        	je	0xb1a8d <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x26a>
+   b1a54: 89 ca                        	movl	%ecx, %edx
+   b1a56: 81 f2 67 3e a0 b8            	xorl	$0xb8a03e67, %edx       # imm = 0xB8A03E67
+   b1a5c: 89 c7                        	movl	%eax, %edi
+   b1a5e: 81 f7 7e a2 62 5f            	xorl	$0x5f62a27e, %edi       # imm = 0x5F62A27E
+   b1a64: 09 d7                        	orl	%edx, %edi
+   b1a66: 0f 84 a1 00 00 00            	je	0xb1b0d <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x2ea>
+   b1a6c: 89 ca                        	movl	%ecx, %edx
+   b1a6e: 81 f2 7a 42 d0 11            	xorl	$0x11d0427a, %edx       # imm = 0x11D0427A
+   b1a74: 89 c7                        	movl	%eax, %edi
+   b1a76: 81 f7 d8 18 d8 a1            	xorl	$0xa1d818d8, %edi       # imm = 0xA1D818D8
+   b1a7c: 09 d7                        	orl	%edx, %edi
+   b1a7e: 89 ca                        	movl	%ecx, %edx
+   b1a80: 89 c7                        	movl	%eax, %edi
+   b1a82: 0f 85 22 ff ff ff            	jne	0xb19aa <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x187>
+   b1a88: e9 6e 01 00 00               	jmp	0xb1bfb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x3d8>
+   b1a8d: 8b 45 10                     	movl	0x10(%ebp), %eax
+   b1a90: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+   b1a94: 8b 45 0c                     	movl	0xc(%ebp), %eax
+   b1a97: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+   b1a9b: 89 74 24 08                  	movl	%esi, 0x8(%esp)
+   b1a9f: 8d 44 24 24                  	leal	0x24(%esp), %eax
+   b1aa3: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+   b1aa7: 8b 45 08                     	movl	0x8(%ebp), %eax
+   b1aaa: 89 04 24                     	movl	%eax, (%esp)
+   b1aad: e8 cd a1 f5 ff               	calll	0xbc7f <.text+0x466f>
+   b1ab2: 84 c0                        	testb	%al, %al
+   b1ab4: bf 7e a2 62 5f               	movl	$0x5f62a27e, %edi       # imm = 0x5F62A27E
+   b1ab9: b8 15 01 99 2b               	movl	$0x2b990115, %eax       # imm = 0x2B990115
+   b1abe: 0f 45 f8                     	cmovnel	%eax, %edi
+   b1ac1: ba 67 3e a0 b8               	movl	$0xb8a03e67, %edx       # imm = 0xB8A03E67
+   b1ac6: b8 55 39 1c 12               	movl	$0x121c3955, %eax       # imm = 0x121C3955
+   b1acb: 0f 45 d0                     	cmovnel	%eax, %edx
+   b1ace: e9 d7 fe ff ff               	jmp	0xb19aa <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x187>
+   b1ad3: 89 34 24                     	movl	%esi, (%esp)
+   b1ad6: e8 4a 93 f5 ff               	calll	0xae25 <.text+0x3815>
+   b1adb: 89 34 24                     	movl	%esi, (%esp)
+   b1ade: e8 65 9b f5 ff               	calll	0xb648 <.text+0x4038>
+   b1ae3: e9 04 01 00 00               	jmp	0xb1bec <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x3c9>
+   b1ae8: 89 34 24                     	movl	%esi, (%esp)
+   b1aeb: e8 e4 92 f5 ff               	calll	0xadd4 <.text+0x37c4>
+   b1af0: 89 34 24                     	movl	%esi, (%esp)
+   b1af3: e8 af 97 f5 ff               	calll	0xb2a7 <.text+0x3c97>
+   b1af8: 89 34 24                     	movl	%esi, (%esp)
+   b1afb: e8 32 a1 f5 ff               	calll	0xbc32 <.text+0x4622>
+   b1b00: 89 34 24                     	movl	%esi, (%esp)
+   b1b03: e8 02 93 f5 ff               	calll	0xae0a <.text+0x37fa>
+   b1b08: e9 ca 00 00 00               	jmp	0xb1bd7 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x3b4>
+   b1b0d: 89 34 24                     	movl	%esi, (%esp)
+   b1b10: e8 bc ab f5 ff               	calll	0xc6d1 <.text+0x50c1>
+   b1b15: 83 64 24 24 00               	andl	$0x0, 0x24(%esp)
+   b1b1a: ba c8 94 f8 ac               	movl	$0xacf894c8, %edx       # imm = 0xACF894C8
+   b1b1f: bf f9 2b b7 01               	movl	$0x1b72bf9, %edi        # imm = 0x1B72BF9
+   b1b24: e9 81 fe ff ff               	jmp	0xb19aa <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x187>
+   b1b29: 89 34 24                     	movl	%esi, (%esp)
+   b1b2c: e8 d4 8c f5 ff               	calll	0xa805 <.text+0x31f5>
+   b1b31: 8b 86 f4 00 00 00            	movl	0xf4(%esi), %eax
+   b1b37: 8b 4c 24 20                  	movl	0x20(%esp), %ecx
+   b1b3b: 89 4c 24 10                  	movl	%ecx, 0x10(%esp)
+   b1b3f: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+   b1b43: 8b 45 0c                     	movl	0xc(%ebp), %eax
+   b1b46: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+   b1b4a: 8b 45 08                     	movl	0x8(%ebp), %eax
+   b1b4d: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+   b1b51: 8d 44 24 24                  	leal	0x24(%esp), %eax
+   b1b55: 89 04 24                     	movl	%eax, (%esp)
+   b1b58: e8 73 16 f6 ff               	calll	0x131d0 <.text+0xbbc0>
+   b1b5d: 83 7c 24 24 00               	cmpl	$0x0, 0x24(%esp)
+   b1b62: bf cb c7 1b d1               	movl	$0xd11bc7cb, %edi       # imm = 0xD11BC7CB
+   b1b67: b8 b6 f6 24 47               	movl	$0x4724f6b6, %eax       # imm = 0x4724F6B6
+   b1b6c: 0f 44 f8                     	cmovel	%eax, %edi
+   b1b6f: ba 0a be fd 30               	movl	$0x30fdbe0a, %edx       # imm = 0x30FDBE0A
+   b1b74: b8 1c a3 2d 84               	movl	$0x842da31c, %eax       # imm = 0x842DA31C
+   b1b79: 0f 44 d0                     	cmovel	%eax, %edx
+   b1b7c: e9 29 fe ff ff               	jmp	0xb19aa <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x187>
+   b1b81: 8b 44 24 1c                  	movl	0x1c(%esp), %eax
+   b1b85: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+   b1b89: 8b 45 0c                     	movl	0xc(%ebp), %eax
+   b1b8c: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+   b1b90: 8b 45 08                     	movl	0x8(%ebp), %eax
+   b1b93: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+   b1b97: 8d 44 24 24                  	leal	0x24(%esp), %eax
+   b1b9b: 89 04 24                     	movl	%eax, (%esp)
+   b1b9e: e8 d0 0b f6 ff               	calll	0x12773 <.text+0xb163>
+   b1ba3: 83 7c 24 24 00               	cmpl	$0x0, 0x24(%esp)
+   b1ba8: bf 96 15 1e ee               	movl	$0xee1e1596, %edi       # imm = 0xEE1E1596
+   b1bad: b8 22 18 30 23               	movl	$0x23301822, %eax       # imm = 0x23301822
+   b1bb2: 0f 44 f8                     	cmovel	%eax, %edi
+   b1bb5: ba 65 16 56 a9               	movl	$0xa9561665, %edx       # imm = 0xA9561665
+   b1bba: b8 fc 76 9a 66               	movl	$0x669a76fc, %eax       # imm = 0x669A76FC
+   b1bbf: 0f 44 d0                     	cmovel	%eax, %edx
+   b1bc2: e9 e3 fd ff ff               	jmp	0xb19aa <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x187>
+   b1bc7: 89 34 24                     	movl	%esi, (%esp)
+   b1bca: e8 d8 96 f5 ff               	calll	0xb2a7 <.text+0x3c97>
+   b1bcf: 89 34 24                     	movl	%esi, (%esp)
+   b1bd2: e8 5b a0 f5 ff               	calll	0xbc32 <.text+0x4622>
+   b1bd7: 89 34 24                     	movl	%esi, (%esp)
+   b1bda: e8 fe 96 f5 ff               	calll	0xb2dd <.text+0x3ccd>
+   b1bdf: 89 34 24                     	movl	%esi, (%esp)
+   b1be2: e8 81 a0 f5 ff               	calll	0xbc68 <.text+0x4658>
+   b1be7: 83 64 24 24 00               	andl	$0x0, 0x24(%esp)
+   b1bec: ba 7a 42 d0 11               	movl	$0x11d0427a, %edx       # imm = 0x11D0427A
+   b1bf1: bf d8 18 d8 a1               	movl	$0xa1d818d8, %edi       # imm = 0xA1D818D8
+   b1bf6: e9 af fd ff ff               	jmp	0xb19aa <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x187>
+   b1bfb: 89 34 24                     	movl	%esi, (%esp)
+   b1bfe: e8 4d f7 f5 ff               	calll	0x11350 <.text+0x9d40>
+   b1c03: 89 74 24 04                  	movl	%esi, 0x4(%esp)
+   b1c07: 8b 45 08                     	movl	0x8(%ebp), %eax
+   b1c0a: 89 04 24                     	movl	%eax, (%esp)
+   b1c0d: e8 28 f9 f5 ff               	calll	0x1153a <.text+0x9f2a>
+   b1c12: 65 a1 14 00 00 00            	movl	%gs:0x14, %eax
+   b1c18: 3b 44 24 28                  	cmpl	0x28(%esp), %eax
+   b1c1c: 75 08                        	jne	0xb1c26 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x403>
+   b1c1e: 8d 65 f4                     	leal	-0xc(%ebp), %esp
+   b1c21: 5e                           	popl	%esi
+   b1c22: 5f                           	popl	%edi
+   b1c23: 5b                           	popl	%ebx
+   b1c24: 5d                           	popl	%ebp
+   b1c25: c3                           	retl
+   b1c26: e8 65 b7 07 00               	calll	0x12d390 <__stack_chk_fail@plt>
+   b1c2b: 55                           	pushl	%ebp
+   b1c2c: 89 e5                        	movl	%esp, %ebp
+   b1c2e: 53                           	pushl	%ebx
+   b1c2f: 83 e4 f0                     	andl	$-0x10, %esp
+   b1c32: 83 ec 10                     	subl	$0x10, %esp
+   b1c35: e8 00 00 00 00               	calll	0xb1c3a <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x417>
+   b1c3a: 5b                           	popl	%ebx
+   b1c3b: 81 c3 2e 00 08 00            	addl	$0x8002e, %ebx          # imm = 0x8002E
+   b1c41: 8b 45 08                     	movl	0x8(%ebp), %eax
+   b1c44: 89 04 24                     	movl	%eax, (%esp)
+   b1c47: e8 44 ed f5 ff               	calll	0x10990 <.text+0x9380>
+   b1c4c: 8d 65 fc                     	leal	-0x4(%ebp), %esp
+   b1c4f: 5b                           	popl	%ebx
+   b1c50: 5d                           	popl	%ebp
+   b1c51: c3                           	retl
+   b1c52: 55                           	pushl	%ebp
+   b1c53: 89 e5                        	movl	%esp, %ebp
+   b1c55: 53                           	pushl	%ebx
+   b1c56: 57                           	pushl	%edi
+   b1c57: 56                           	pushl	%esi
+   b1c58: 83 e4 f0                     	andl	$-0x10, %esp
+   b1c5b: 81 ec 60 01 00 00            	subl	$0x160, %esp            # imm = 0x160
+   b1c61: 8b 45 08                     	movl	0x8(%ebp), %eax
+   b1c64: 65 8b 0d 14 00 00 00         	movl	%gs:0x14, %ecx
+   b1c6b: 89 8c 24 58 01 00 00         	movl	%ecx, 0x158(%esp)
+   b1c72: 8b 38                        	movl	(%eax), %edi
+   b1c74: 8b 48 04                     	movl	0x4(%eax), %ecx
+   b1c77: 8b 50 08                     	movl	0x8(%eax), %edx
+   b1c7a: 8b 70 0c                     	movl	0xc(%eax), %esi
+   b1c7d: 8b 40 10                     	movl	0x10(%eax), %eax
+   b1c80: 8b 00                        	movl	(%eax), %eax
+   b1c82: 8b 09                        	movl	(%ecx), %ecx
+   b1c84: 8b 12                        	movl	(%edx), %edx
+   b1c86: 8b 36                        	movl	(%esi), %esi
+   b1c88: 8d 5c 24 4c                  	leal	0x4c(%esp), %ebx
+   b1c8c: 83 23 00                     	andl	$0x0, (%ebx)
+   b1c8f: e8 00 00 00 00               	calll	0xb1c94 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x471>
+   b1c94: 5b                           	popl	%ebx
+   b1c95: 81 c3 d4 ff 07 00            	addl	$0x7ffd4, %ebx          # imm = 0x7FFD4
+   b1c9b: 89 74 24 20                  	movl	%esi, 0x20(%esp)
+   b1c9f: 66 0f 6e c6                  	movd	%esi, %xmm0
+   b1ca3: 8d 74 24 4c                  	leal	0x4c(%esp), %esi
+   b1ca7: 89 54 24 24                  	movl	%edx, 0x24(%esp)
+   b1cab: 66 0f 6e ca                  	movd	%edx, %xmm1
+   b1caf: 66 0f 62 c8                  	punpckldq	%xmm0, %xmm1    # xmm1 = xmm1[0],xmm0[0],xmm1[1],xmm0[1]
+   b1cb3: 89 7c 24 14                  	movl	%edi, 0x14(%esp)
+   b1cb7: 66 0f 6e c7                  	movd	%edi, %xmm0
+   b1cbb: 89 4c 24 0c                  	movl	%ecx, 0xc(%esp)
+   b1cbf: 66 0f 6e d1                  	movd	%ecx, %xmm2
+   b1cc3: 66 0f 62 d0                  	punpckldq	%xmm0, %xmm2    # xmm2 = xmm2[0],xmm0[0],xmm2[1],xmm0[1]
+   b1cc7: 66 0f 6c d1                  	punpcklqdq	%xmm1, %xmm2    # xmm2 = xmm2[0],xmm1[0]
+   b1ccb: 66 0f ef c0                  	pxor	%xmm0, %xmm0
+   b1ccf: 66 0f 76 c2                  	pcmpeqd	%xmm2, %xmm0
+   b1cd3: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+   b1cd7: 85 c0                        	testl	%eax, %eax
+   b1cd9: 0f 9e c0                     	setle	%al
+   b1cdc: 0f 50 c8                     	movmskps	%xmm0, %ecx
+   b1cdf: 85 c9                        	testl	%ecx, %ecx
+   b1ce1: 0f 95 c1                     	setne	%cl
+   b1ce4: 08 c1                        	orb	%al, %cl
+   b1ce6: b8 3f ed 49 ad               	movl	$0xad49ed3f, %eax       # imm = 0xAD49ED3F
+   b1ceb: b9 b1 b4 90 bd               	movl	$0xbd90b4b1, %ecx       # imm = 0xBD90B4B1
+   b1cf0: 0f 45 c8                     	cmovnel	%eax, %ecx
+   b1cf3: 89 4c 24 3c                  	movl	%ecx, 0x3c(%esp)
+   b1cf7: b8 25 6c bb 14               	movl	$0x14bb6c25, %eax       # imm = 0x14BB6C25
+   b1cfc: b9 42 6d 23 10               	movl	$0x10236d42, %ecx       # imm = 0x10236D42
+   b1d01: 0f 45 c8                     	cmovnel	%eax, %ecx
+   b1d04: 89 4c 24 38                  	movl	%ecx, 0x38(%esp)
+   b1d08: bf 3f cd 2b c9               	movl	$0xc92bcd3f, %edi       # imm = 0xC92BCD3F
+   b1d0d: ba 1b 05 78 c8               	movl	$0xc878051b, %edx       # imm = 0xC878051B
+   b1d12: 89 f8                        	movl	%edi, %eax
+   b1d14: 89 d1                        	movl	%edx, %ecx
+   b1d16: 81 f2 a5 e7 cf 78            	xorl	$0x78cfe7a5, %edx       # imm = 0x78CFE7A5
+   b1d1c: 81 f7 48 52 9c 96            	xorl	$0x969c5248, %edi       # imm = 0x969C5248
+   b1d22: 09 d7                        	orl	%edx, %edi
+   b1d24: ba be ec 72 7e               	movl	$0x7e72ecbe, %edx       # imm = 0x7E72ECBE
+   b1d29: bf 6e 82 06 ee               	movl	$0xee06826e, %edi       # imm = 0xEE06826E
+   b1d2e: 74 e2                        	je	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1d30: 89 ca                        	movl	%ecx, %edx
+   b1d32: 81 f2 dd 78 19 f0            	xorl	$0xf01978dd, %edx       # imm = 0xF01978DD
+   b1d38: 89 c7                        	movl	%eax, %edi
+   b1d3a: 81 f7 5d b4 36 9c            	xorl	$0x9c36b45d, %edi       # imm = 0x9C36B45D
+   b1d40: 09 d7                        	orl	%edx, %edi
+   b1d42: ba 82 48 52 ed               	movl	$0xed524882, %edx       # imm = 0xED524882
+   b1d47: bf 62 c0 d8 55               	movl	$0x55d8c062, %edi       # imm = 0x55D8C062
+   b1d4c: 74 c4                        	je	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1d4e: 89 ca                        	movl	%ecx, %edx
+   b1d50: 81 f2 7b be d4 74            	xorl	$0x74d4be7b, %edx       # imm = 0x74D4BE7B
+   b1d56: 89 c7                        	movl	%eax, %edi
+   b1d58: 81 f7 f9 4e 3f a4            	xorl	$0xa43f4ef9, %edi       # imm = 0xA43F4EF9
+   b1d5e: 09 d7                        	orl	%edx, %edi
+   b1d60: 0f 84 05 02 00 00            	je	0xb1f6b <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x748>
+   b1d66: 89 ca                        	movl	%ecx, %edx
+   b1d68: 81 f2 25 6c bb 14            	xorl	$0x14bb6c25, %edx       # imm = 0x14BB6C25
+   b1d6e: 89 c7                        	movl	%eax, %edi
+   b1d70: 81 f7 3f ed 49 ad            	xorl	$0xad49ed3f, %edi       # imm = 0xAD49ED3F
+   b1d76: 09 d7                        	orl	%edx, %edi
+   b1d78: 0f 84 bd 01 00 00            	je	0xb1f3b <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x718>
+   b1d7e: 89 ca                        	movl	%ecx, %edx
+   b1d80: 81 f2 ba c8 98 20            	xorl	$0x2098c8ba, %edx       # imm = 0x2098C8BA
+   b1d86: 89 c7                        	movl	%eax, %edi
+   b1d88: 81 f7 06 d9 2d b3            	xorl	$0xb32dd906, %edi       # imm = 0xB32DD906
+   b1d8e: 09 d7                        	orl	%edx, %edi
+   b1d90: 0f 84 ea 03 00 00            	je	0xb2180 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x95d>
+   b1d96: 89 ca                        	movl	%ecx, %edx
+   b1d98: 81 f2 42 6d 23 10            	xorl	$0x10236d42, %edx       # imm = 0x10236D42
+   b1d9e: 89 c7                        	movl	%eax, %edi
+   b1da0: 81 f7 b1 b4 90 bd            	xorl	$0xbd90b4b1, %edi       # imm = 0xBD90B4B1
+   b1da6: 09 d7                        	orl	%edx, %edi
+   b1da8: 0f 84 a1 03 00 00            	je	0xb214f <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x92c>
+   b1dae: 89 ca                        	movl	%ecx, %edx
+   b1db0: 81 f2 a2 ba 49 ea            	xorl	$0xea49baa2, %edx       # imm = 0xEA49BAA2
+   b1db6: 89 c7                        	movl	%eax, %edi
+   b1db8: 81 f7 34 4f 23 be            	xorl	$0xbe234f34, %edi       # imm = 0xBE234F34
+   b1dbe: 09 d7                        	orl	%edx, %edi
+   b1dc0: 0f 84 7f 01 00 00            	je	0xb1f45 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x722>
+   b1dc6: 89 ca                        	movl	%ecx, %edx
+   b1dc8: 81 f2 1b 05 78 c8            	xorl	$0xc878051b, %edx       # imm = 0xC878051B
+   b1dce: 89 c7                        	movl	%eax, %edi
+   b1dd0: 81 f7 3f cd 2b c9            	xorl	$0xc92bcd3f, %edi       # imm = 0xC92BCD3F
+   b1dd6: 09 d7                        	orl	%edx, %edi
+   b1dd8: 8b 54 24 38                  	movl	0x38(%esp), %edx
+   b1ddc: 8b 7c 24 3c                  	movl	0x3c(%esp), %edi
+   b1de0: 0f 84 2c ff ff ff            	je	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1de6: 89 ca                        	movl	%ecx, %edx
+   b1de8: 81 f2 3c fd 05 e7            	xorl	$0xe705fd3c, %edx       # imm = 0xE705FD3C
+   b1dee: 89 c7                        	movl	%eax, %edi
+   b1df0: 81 f7 cb dc ea dc            	xorl	$0xdceadccb, %edi       # imm = 0xDCEADCCB
+   b1df6: 09 d7                        	orl	%edx, %edi
+   b1df8: 0f 84 03 03 00 00            	je	0xb2101 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x8de>
+   b1dfe: 89 ca                        	movl	%ecx, %edx
+   b1e00: 81 f2 db be 00 54            	xorl	$0x5400bedb, %edx       # imm = 0x5400BEDB
+   b1e06: 89 c7                        	movl	%eax, %edi
+   b1e08: 81 f7 44 ce 30 e3            	xorl	$0xe330ce44, %edi       # imm = 0xE330CE44
+   b1e0e: 09 d7                        	orl	%edx, %edi
+   b1e10: ba 7b be d4 74               	movl	$0x74d4be7b, %edx       # imm = 0x74D4BE7B
+   b1e15: bf f9 4e 3f a4               	movl	$0xa43f4ef9, %edi       # imm = 0xA43F4EF9
+   b1e1a: 0f 84 f2 fe ff ff            	je	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1e20: 89 ca                        	movl	%ecx, %edx
+   b1e22: 81 f2 be ec 72 7e            	xorl	$0x7e72ecbe, %edx       # imm = 0x7E72ECBE
+   b1e28: 89 c7                        	movl	%eax, %edi
+   b1e2a: 81 f7 6e 82 06 ee            	xorl	$0xee06826e, %edi       # imm = 0xEE06826E
+   b1e30: 09 d7                        	orl	%edx, %edi
+   b1e32: 0f 84 96 01 00 00            	je	0xb1fce <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x7ab>
+   b1e38: 89 ca                        	movl	%ecx, %edx
+   b1e3a: 81 f2 a8 8f c1 3f            	xorl	$0x3fc18fa8, %edx       # imm = 0x3FC18FA8
+   b1e40: 89 c7                        	movl	%eax, %edi
+   b1e42: 81 f7 bb 00 54 fc            	xorl	$0xfc5400bb, %edi       # imm = 0xFC5400BB
+   b1e48: 09 d7                        	orl	%edx, %edi
+   b1e4a: 0f 84 22 02 00 00            	je	0xb2072 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x84f>
+   b1e50: 89 ca                        	movl	%ecx, %edx
+   b1e52: 81 f2 4f 3f a7 d6            	xorl	$0xd6a73f4f, %edx       # imm = 0xD6A73F4F
+   b1e58: 89 c7                        	movl	%eax, %edi
+   b1e5a: 81 f7 08 d1 d4 fe            	xorl	$0xfed4d108, %edi       # imm = 0xFED4D108
+   b1e60: 09 d7                        	orl	%edx, %edi
+   b1e62: ba be a2 25 27               	movl	$0x2725a2be, %edx       # imm = 0x2725A2BE
+   b1e67: bf fd e1 20 72               	movl	$0x7220e1fd, %edi       # imm = 0x7220E1FD
+   b1e6c: 0f 84 a0 fe ff ff            	je	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1e72: 89 ca                        	movl	%ecx, %edx
+   b1e74: 81 f2 04 ee 6e 80            	xorl	$0x806eee04, %edx       # imm = 0x806EEE04
+   b1e7a: 89 c7                        	movl	%eax, %edi
+   b1e7c: 81 f7 ad f5 2e 0c            	xorl	$0xc2ef5ad, %edi        # imm = 0xC2EF5AD
+   b1e82: 09 d7                        	orl	%edx, %edi
+   b1e84: 0f 84 b1 00 00 00            	je	0xb1f3b <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x718>
+   b1e8a: 89 ca                        	movl	%ecx, %edx
+   b1e8c: 81 f2 f7 c6 ba 0c            	xorl	$0xcbac6f7, %edx        # imm = 0xCBAC6F7
+   b1e92: 89 c7                        	movl	%eax, %edi
+   b1e94: 81 f7 6b 1c 06 2f            	xorl	$0x2f061c6b, %edi       # imm = 0x2F061C6B
+   b1e9a: 09 d7                        	orl	%edx, %edi
+   b1e9c: 0f 84 00 02 00 00            	je	0xb20a2 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x87f>
+   b1ea2: 89 ca                        	movl	%ecx, %edx
+   b1ea4: 81 f2 03 24 9e 5a            	xorl	$0x5a9e2403, %edx       # imm = 0x5A9E2403
+   b1eaa: 89 c7                        	movl	%eax, %edi
+   b1eac: 81 f7 d4 b0 1e 39            	xorl	$0x391eb0d4, %edi       # imm = 0x391EB0D4
+   b1eb2: 09 d7                        	orl	%edx, %edi
+   b1eb4: 0f 84 da 00 00 00            	je	0xb1f94 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x771>
+   b1eba: 89 ca                        	movl	%ecx, %edx
+   b1ebc: 81 f2 64 e0 bc b9            	xorl	$0xb9bce064, %edx       # imm = 0xB9BCE064
+   b1ec2: 89 c7                        	movl	%eax, %edi
+   b1ec4: 81 f7 af a5 78 3a            	xorl	$0x3a78a5af, %edi       # imm = 0x3A78A5AF
+   b1eca: 09 d7                        	orl	%edx, %edi
+   b1ecc: 0f 84 d6 00 00 00            	je	0xb1fa8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x785>
+   b1ed2: 89 ca                        	movl	%ecx, %edx
+   b1ed4: 81 f2 98 ce f3 71            	xorl	$0x71f3ce98, %edx       # imm = 0x71F3CE98
+   b1eda: 89 c7                        	movl	%eax, %edi
+   b1edc: 81 f7 7e 67 98 45            	xorl	$0x4598677e, %edi       # imm = 0x4598677E
+   b1ee2: 09 d7                        	orl	%edx, %edi
+   b1ee4: 0f 84 a4 01 00 00            	je	0xb208e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x86b>
+   b1eea: 89 ca                        	movl	%ecx, %edx
+   b1eec: 81 f2 82 48 52 ed            	xorl	$0xed524882, %edx       # imm = 0xED524882
+   b1ef2: 89 c7                        	movl	%eax, %edi
+   b1ef4: 81 f7 62 c0 d8 55            	xorl	$0x55d8c062, %edi       # imm = 0x55D8C062
+   b1efa: 09 d7                        	orl	%edx, %edi
+   b1efc: 0f 84 d3 01 00 00            	je	0xb20d5 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x8b2>
+   b1f02: 89 ca                        	movl	%ecx, %edx
+   b1f04: 81 f2 be a2 25 27            	xorl	$0x2725a2be, %edx       # imm = 0x2725A2BE
+   b1f0a: 89 c7                        	movl	%eax, %edi
+   b1f0c: 81 f7 fd e1 20 72            	xorl	$0x7220e1fd, %edi       # imm = 0x7220E1FD
+   b1f12: 09 d7                        	orl	%edx, %edi
+   b1f14: 0f 84 2c 01 00 00            	je	0xb2046 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x823>
+   b1f1a: 89 ca                        	movl	%ecx, %edx
+   b1f1c: 81 f2 f4 2f 9f 62            	xorl	$0x629f2ff4, %edx       # imm = 0x629F2FF4
+   b1f22: 89 c7                        	movl	%eax, %edi
+   b1f24: 81 f7 f3 d6 66 2c            	xorl	$0x2c66d6f3, %edi       # imm = 0x2C66D6F3
+   b1f2a: 09 d7                        	orl	%edx, %edi
+   b1f2c: 89 ca                        	movl	%ecx, %edx
+   b1f2e: 89 c7                        	movl	%eax, %edi
+   b1f30: 0f 85 dc fd ff ff            	jne	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1f36: e9 b9 02 00 00               	jmp	0xb21f4 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9d1>
+   b1f3b: c7 44 24 08 00 00 00 00      	movl	$0x0, 0x8(%esp)
+   b1f43: eb 40                        	jmp	0xb1f85 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x762>
+   b1f45: 83 ec 0c                     	subl	$0xc, %esp
+   b1f48: ff 74 24 40                  	pushl	0x40(%esp)
+   b1f4c: e8 2f b4 07 00               	calll	0x12d380 <free@plt>
+   b1f51: 83 c4 10                     	addl	$0x10, %esp
+   b1f54: 83 a4 24 44 01 00 00 00      	andl	$0x0, 0x144(%esp)
+   b1f5c: ba be a2 25 27               	movl	$0x2725a2be, %edx       # imm = 0x2725A2BE
+   b1f61: bf fd e1 20 72               	movl	$0x7220e1fd, %edi       # imm = 0x7220E1FD
+   b1f66: e9 a7 fd ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1f6b: 83 ec 0c                     	subl	$0xc, %esp
+   b1f6e: ff b4 24 5c 01 00 00         	pushl	0x15c(%esp)
+   b1f75: e8 06 b4 07 00               	calll	0x12d380 <free@plt>
+   b1f7a: 83 c4 10                     	addl	$0x10, %esp
+   b1f7d: 8b 44 24 64                  	movl	0x64(%esp), %eax
+   b1f81: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+   b1f85: ba f4 2f 9f 62               	movl	$0x629f2ff4, %edx       # imm = 0x629F2FF4
+   b1f8a: bf f3 d6 66 2c               	movl	$0x2c66d6f3, %edi       # imm = 0x2C66D6F3
+   b1f8f: e9 7e fd ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1f94: 83 64 24 4c 00               	andl	$0x0, 0x4c(%esp)
+   b1f99: ba be ec 72 7e               	movl	$0x7e72ecbe, %edx       # imm = 0x7E72ECBE
+   b1f9e: bf 6e 82 06 ee               	movl	$0xee06826e, %edi       # imm = 0xEE06826E
+   b1fa3: e9 6a fd ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1fa8: 83 ec 0c                     	subl	$0xc, %esp
+   b1fab: ff 74 24 3c                  	pushl	0x3c(%esp)
+   b1faf: e8 cc b3 07 00               	calll	0x12d380 <free@plt>
+   b1fb4: 83 c4 10                     	addl	$0x10, %esp
+   b1fb7: 83 a4 24 48 01 00 00 00      	andl	$0x0, 0x148(%esp)
+   b1fbf: ba 7b be d4 74               	movl	$0x74d4be7b, %edx       # imm = 0x74D4BE7B
+   b1fc4: bf f9 4e 3f a4               	movl	$0xa43f4ef9, %edi       # imm = 0xA43F4EF9
+   b1fc9: e9 44 fd ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b1fce: 83 ec 04                     	subl	$0x4, %esp
+   b1fd1: 8d 44 24 54                  	leal	0x54(%esp), %eax
+   b1fd5: 50                           	pushl	%eax
+   b1fd6: 8b 74 24 14                  	movl	0x14(%esp), %esi
+   b1fda: 56                           	pushl	%esi
+   b1fdb: 8b 7c 24 20                  	movl	0x20(%esp), %edi
+   b1fdf: 57                           	pushl	%edi
+   b1fe0: e8 5f f8 ff ff               	calll	0xb1844 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x21>
+   b1fe5: 83 c4 10                     	addl	$0x10, %esp
+   b1fe8: 8d 44 24 50                  	leal	0x50(%esp), %eax
+   b1fec: 50                           	pushl	%eax
+   b1fed: ff 74 24 24                  	pushl	0x24(%esp)
+   b1ff1: 56                           	pushl	%esi
+   b1ff2: 57                           	pushl	%edi
+   b1ff3: e8 59 f9 ff ff               	calll	0xb1951 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x12e>
+   b1ff8: 58                           	popl	%eax
+   b1ff9: 8d 74 24 5c                  	leal	0x5c(%esp), %esi
+   b1ffd: 56                           	pushl	%esi
+   b1ffe: e8 8d e9 f5 ff               	calll	0x10990 <.text+0x9380>
+   b2003: 58                           	popl	%eax
+   b2004: 56                           	pushl	%esi
+   b2005: e8 25 99 00 00               	calll	0xbb92f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x959b>
+   b200a: 58                           	popl	%eax
+   b200b: 56                           	pushl	%esi
+   b200c: e8 ef a6 f5 ff               	calll	0xc700 <.text+0x50f0>
+   b2011: 83 c4 0c                     	addl	$0xc, %esp
+   b2014: 56                           	pushl	%esi
+   b2015: 8d 44 24 54                  	leal	0x54(%esp), %eax
+   b2019: 89 c6                        	movl	%eax, %esi
+   b201b: 50                           	pushl	%eax
+   b201c: 57                           	pushl	%edi
+   b201d: e8 c0 cc 05 00               	calll	0x10ece2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x5c94e>
+   b2022: 83 c4 10                     	addl	$0x10, %esp
+   b2025: 84 c0                        	testb	%al, %al
+   b2027: bf 7e 67 98 45               	movl	$0x4598677e, %edi       # imm = 0x4598677E
+   b202c: b8 5d b4 36 9c               	movl	$0x9c36b45d, %eax       # imm = 0x9C36B45D
+   b2031: 0f 45 f8                     	cmovnel	%eax, %edi
+   b2034: ba 98 ce f3 71               	movl	$0x71f3ce98, %edx       # imm = 0x71F3CE98
+   b2039: b8 dd 78 19 f0               	movl	$0xf01978dd, %eax       # imm = 0xF01978DD
+   b203e: 0f 45 d0                     	cmovnel	%eax, %edx
+   b2041: e9 cc fc ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b2046: 8b 84 24 48 01 00 00         	movl	0x148(%esp), %eax
+   b204d: 89 44 24 30                  	movl	%eax, 0x30(%esp)
+   b2051: 85 c0                        	testl	%eax, %eax
+   b2053: bf af a5 78 3a               	movl	$0x3a78a5af, %edi       # imm = 0x3A78A5AF
+   b2058: b8 44 ce 30 e3               	movl	$0xe330ce44, %eax       # imm = 0xE330CE44
+   b205d: 0f 44 f8                     	cmovel	%eax, %edi
+   b2060: ba 64 e0 bc b9               	movl	$0xb9bce064, %edx       # imm = 0xB9BCE064
+   b2065: b8 db be 00 54               	movl	$0x5400bedb, %eax       # imm = 0x5400BEDB
+   b206a: 0f 44 d0                     	cmovel	%eax, %edx
+   b206d: e9 a0 fc ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b2072: 8b 4c 24 28                  	movl	0x28(%esp), %ecx
+   b2076: c6 01 00                     	movb	$0x0, (%ecx)
+   b2079: 8b 44 24 2c                  	movl	0x2c(%esp), %eax
+   b207d: 48                           	decl	%eax
+   b207e: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+   b2082: 8d 41 01                     	leal	0x1(%ecx), %eax
+   b2085: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+   b2089: e9 57 01 00 00               	jmp	0xb21e5 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9c2>
+   b208e: 83 64 24 4c 00               	andl	$0x0, 0x4c(%esp)
+   b2093: ba 82 48 52 ed               	movl	$0xed524882, %edx       # imm = 0xED524882
+   b2098: bf 62 c0 d8 55               	movl	$0x55d8c062, %edi       # imm = 0x55D8C062
+   b209d: e9 70 fc ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b20a2: 8b 4c 24 18                  	movl	0x18(%esp), %ecx
+   b20a6: 85 c9                        	testl	%ecx, %ecx
+   b20a8: bf bb 00 54 fc               	movl	$0xfc5400bb, %edi       # imm = 0xFC5400BB
+   b20ad: b8 cb dc ea dc               	movl	$0xdceadccb, %eax       # imm = 0xDCEADCCB
+   b20b2: 0f 44 f8                     	cmovel	%eax, %edi
+   b20b5: ba a8 8f c1 3f               	movl	$0x3fc18fa8, %edx       # imm = 0x3FC18FA8
+   b20ba: b8 3c fd 05 e7               	movl	$0xe705fd3c, %eax       # imm = 0xE705FD3C
+   b20bf: 0f 44 d0                     	cmovel	%eax, %edx
+   b20c2: 89 c8                        	movl	%ecx, %eax
+   b20c4: 89 4c 24 2c                  	movl	%ecx, 0x2c(%esp)
+   b20c8: 8b 44 24 1c                  	movl	0x1c(%esp), %eax
+   b20cc: 89 44 24 28                  	movl	%eax, 0x28(%esp)
+   b20d0: e9 3d fc ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b20d5: 8b 84 24 44 01 00 00         	movl	0x144(%esp), %eax
+   b20dc: 89 44 24 34                  	movl	%eax, 0x34(%esp)
+   b20e0: 85 c0                        	testl	%eax, %eax
+   b20e2: bf 34 4f 23 be               	movl	$0xbe234f34, %edi       # imm = 0xBE234F34
+   b20e7: b8 08 d1 d4 fe               	movl	$0xfed4d108, %eax       # imm = 0xFED4D108
+   b20ec: 0f 44 f8                     	cmovel	%eax, %edi
+   b20ef: ba a2 ba 49 ea               	movl	$0xea49baa2, %edx       # imm = 0xEA49BAA2
+   b20f4: b8 4f 3f a7 d6               	movl	$0xd6a73f4f, %eax       # imm = 0xD6A73F4F
+   b20f9: 0f 44 d0                     	cmovel	%eax, %edx
+   b20fc: e9 11 fc ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b2101: 83 ec 0c                     	subl	$0xc, %esp
+   b2104: ff 74 24 1c                  	pushl	0x1c(%esp)
+   b2108: e8 b7 7e 00 00               	calll	0xb9fc4 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7c30>
+   b210d: 58                           	popl	%eax
+   b210e: 8d 84 24 3c 01 00 00         	leal	0x13c(%esp), %eax
+   b2115: 50                           	pushl	%eax
+   b2116: ff 74 24 6c                  	pushl	0x6c(%esp)
+   b211a: ff 74 24 20                  	pushl	0x20(%esp)
+   b211e: ff 74 24 2c                  	pushl	0x2c(%esp)
+   b2122: 56                           	pushl	%esi
+   b2123: e8 a5 9a f6 ff               	calll	0x1bbcd <.text+0x145bd>
+   b2128: 83 c4 20                     	addl	$0x20, %esp
+   b212b: 83 7c 24 4c 00               	cmpl	$0x0, 0x4c(%esp)
+   b2130: bf d4 b0 1e 39               	movl	$0x391eb0d4, %edi       # imm = 0x391EB0D4
+   b2135: b8 48 52 9c 96               	movl	$0x969c5248, %eax       # imm = 0x969C5248
+   b213a: 0f 44 f8                     	cmovel	%eax, %edi
+   b213d: ba 03 24 9e 5a               	movl	$0x5a9e2403, %edx       # imm = 0x5A9E2403
+   b2142: b8 a5 e7 cf 78               	movl	$0x78cfe7a5, %eax       # imm = 0x78CFE7A5
+   b2147: 0f 44 d0                     	cmovel	%eax, %edx
+   b214a: e9 c3 fb ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b214f: 89 f1                        	movl	%esi, %ecx
+   b2151: e8 be 00 00 00               	calll	0xb2214 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9f1>
+   b2156: 83 7c 24 4c 00               	cmpl	$0x0, 0x4c(%esp)
+   b215b: bf ad f5 2e 0c               	movl	$0xc2ef5ad, %edi        # imm = 0xC2EF5AD
+   b2160: b8 06 d9 2d b3               	movl	$0xb32dd906, %eax       # imm = 0xB32DD906
+   b2165: 0f 44 f8                     	cmovel	%eax, %edi
+   b2168: f2 0f 11 44 24 40            	movsd	%xmm0, 0x40(%esp)
+   b216e: ba 04 ee 6e 80               	movl	$0x806eee04, %edx       # imm = 0x806EEE04
+   b2173: b8 ba c8 98 20               	movl	$0x2098c8ba, %eax       # imm = 0x2098C8BA
+   b2178: 0f 44 d0                     	cmovel	%eax, %edx
+   b217b: e9 92 fb ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b2180: 83 ec 04                     	subl	$0x4, %esp
+   b2183: 68 fc 00 00 00               	pushl	$0xfc
+   b2188: 6a 00                        	pushl	$0x0
+   b218a: 8d 44 24 64                  	leal	0x64(%esp), %eax
+   b218e: 50                           	pushl	%eax
+   b218f: e8 1c b2 07 00               	calll	0x12d3b0 <memset@plt>
+   b2194: 83 c4 10                     	addl	$0x10, %esp
+   b2197: f2 0f 10 44 24 40            	movsd	0x40(%esp), %xmm0
+   b219d: f2 0f 11 44 24 50            	movsd	%xmm0, 0x50(%esp)
+   b21a3: 8b 44 24 10                  	movl	0x10(%esp), %eax
+   b21a7: 89 44 24 5c                  	movl	%eax, 0x5c(%esp)
+   b21ab: 8b 44 24 24                  	movl	0x24(%esp), %eax
+   b21af: 89 44 24 60                  	movl	%eax, 0x60(%esp)
+   b21b3: 83 ec 0c                     	subl	$0xc, %esp
+   b21b6: 8d 44 24 74                  	leal	0x74(%esp), %eax
+   b21ba: 50                           	pushl	%eax
+   b21bb: e8 43 66 07 00               	calll	0x128803 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7646f>
+   b21c0: 83 c4 10                     	addl	$0x10, %esp
+   b21c3: 83 a4 24 30 01 00 00 00      	andl	$0x0, 0x130(%esp)
+   b21cb: 83 a4 24 40 01 00 00 00      	andl	$0x0, 0x140(%esp)
+   b21d3: 8d 84 24 30 01 00 00         	leal	0x130(%esp), %eax
+   b21da: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+   b21de: 6a 14                        	pushl	$0x14
+   b21e0: 58                           	popl	%eax
+   b21e1: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+   b21e5: ba f7 c6 ba 0c               	movl	$0xcbac6f7, %edx        # imm = 0xCBAC6F7
+   b21ea: bf 6b 1c 06 2f               	movl	$0x2f061c6b, %edi       # imm = 0x2F061C6B
+   b21ef: e9 1e fb ff ff               	jmp	0xb1d12 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x4ef>
+   b21f4: 65 a1 14 00 00 00            	movl	%gs:0x14, %eax
+   b21fa: 3b 84 24 58 01 00 00         	cmpl	0x158(%esp), %eax
+   b2201: 75 0c                        	jne	0xb220f <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9ec>
+   b2203: 8b 44 24 08                  	movl	0x8(%esp), %eax
+   b2207: 8d 65 f4                     	leal	-0xc(%ebp), %esp
+   b220a: 5e                           	popl	%esi
+   b220b: 5f                           	popl	%edi
+   b220c: 5b                           	popl	%ebx
+   b220d: 5d                           	popl	%ebp
+   b220e: c3                           	retl
+   b220f: e8 7c b1 07 00               	calll	0x12d390 <__stack_chk_fail@plt>
+   b2214: 55                           	pushl	%ebp
+   b2215: 89 e5                        	movl	%esp, %ebp
+   b2217: 53                           	pushl	%ebx
+   b2218: 57                           	pushl	%edi
+   b2219: 56                           	pushl	%esi
+   b221a: 83 e4 f0                     	andl	$-0x10, %esp
+   b221d: 83 ec 20                     	subl	$0x20, %esp
+   b2220: 89 cf                        	movl	%ecx, %edi
+   b2222: e8 00 00 00 00               	calll	0xb2227 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xa04>
+   b2227: 5b                           	popl	%ebx
+   b2228: 81 c3 41 fa 07 00            	addl	$0x7fa41, %ebx          # imm = 0x7FA41
+   b222e: 65 a1 14 00 00 00            	movl	%gs:0x14, %eax
+   b2234: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+   b2238: 83 ec 08                     	subl	$0x8, %esp
+   b223b: 8d 74 24 18                  	leal	0x18(%esp), %esi
+   b223f: 56                           	pushl	%esi
+   b2240: 6a 00                        	pushl	$0x0
+   b2242: e8 09 b2 07 00               	calll	0x12d450 <clock_gettime@plt>
+   b2247: 83 c4 10                     	addl	$0x10, %esp
+   b224a: f2 0f 2a 0e                  	cvtsi2sdl	(%esi), %xmm1
+   b224e: f2 0f 2a 46 04               	cvtsi2sdl	0x4(%esi), %xmm0
+   b2253: f2 0f 5e 83 88 11 ed ff      	divsd	-0x12ee78(%ebx), %xmm0
+   b225b: f2 0f 59 8b 90 11 ed ff      	mulsd	-0x12ee70(%ebx), %xmm1
+   b2263: 89 7c 24 0c                  	movl	%edi, 0xc(%esp)
+   b2267: 85 ff                        	testl	%edi, %edi
+   b2269: b9 0d b2 0a 84               	movl	$0x840ab20d, %ecx       # imm = 0x840AB20D
+   b226e: ba a3 11 ee 68               	movl	$0x68ee11a3, %edx       # imm = 0x68EE11A3
+   b2273: 0f 44 d1                     	cmovel	%ecx, %edx
+   b2276: 89 54 24 08                  	movl	%edx, 0x8(%esp)
+   b227a: b9 0e 2e 26 fa               	movl	$0xfa262e0e, %ecx       # imm = 0xFA262E0E
+   b227f: ba d8 ea 6f ae               	movl	$0xae6fead8, %edx       # imm = 0xAE6FEAD8
+   b2284: 0f 44 d1                     	cmovel	%ecx, %edx
+   b2287: 89 54 24 04                  	movl	%edx, 0x4(%esp)
+   b228b: f2 0f 58 c8                  	addsd	%xmm0, %xmm1
+   b228f: 85 c0                        	testl	%eax, %eax
+   b2291: b9 13 39 dc ab               	movl	$0xabdc3913, %ecx       # imm = 0xABDC3913
+   b2296: b8 0d 21 0a 49               	movl	$0x490a210d, %eax       # imm = 0x490A210D
+   b229b: 0f 44 c1                     	cmovel	%ecx, %eax
+   b229e: 89 04 24                     	movl	%eax, (%esp)
+   b22a1: b9 0d 38 ba 0f               	movl	$0xfba380d, %ecx        # imm = 0xFBA380D
+   b22a6: bf 70 fb 90 79               	movl	$0x7990fb70, %edi       # imm = 0x7990FB70
+   b22ab: 0f 44 f9                     	cmovel	%ecx, %edi
+   b22ae: b8 5e ff 6c 18               	movl	$0x186cff5e, %eax       # imm = 0x186CFF5E
+   b22b3: be 0f 59 29 fa               	movl	$0xfa29590f, %esi       # imm = 0xFA29590F
+   b22b8: 89 f2                        	movl	%esi, %edx
+   b22ba: 81 f2 0e 2e 26 fa            	xorl	$0xfa262e0e, %edx       # imm = 0xFA262E0E
+   b22c0: 89 c1                        	movl	%eax, %ecx
+   b22c2: 81 f1 0d b2 0a 84            	xorl	$0x840ab20d, %ecx       # imm = 0x840AB20D
+   b22c8: 09 d1                        	orl	%edx, %ecx
+   b22ca: 74 7f                        	je	0xb234b <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xb28>
+   b22cc: 89 f1                        	movl	%esi, %ecx
+   b22ce: 81 f1 b5 32 df 83            	xorl	$0x83df32b5, %ecx       # imm = 0x83DF32B5
+   b22d4: 89 c2                        	movl	%eax, %edx
+   b22d6: 81 f2 e4 7d 1b 86            	xorl	$0x861b7de4, %edx       # imm = 0x861B7DE4
+   b22dc: 09 ca                        	orl	%ecx, %edx
+   b22de: 0f 84 97 00 00 00            	je	0xb237b <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xb58>
+   b22e4: 89 f1                        	movl	%esi, %ecx
+   b22e6: 81 f1 0d 38 ba 0f            	xorl	$0xfba380d, %ecx        # imm = 0xFBA380D
+   b22ec: 89 c2                        	movl	%eax, %edx
+   b22ee: 81 f2 13 39 dc ab            	xorl	$0xabdc3913, %edx       # imm = 0xABDC3913
+   b22f4: 09 ca                        	orl	%ecx, %edx
+   b22f6: 74 66                        	je	0xb235e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xb3b>
+   b22f8: 89 f1                        	movl	%esi, %ecx
+   b22fa: 81 f1 0f 59 29 fa            	xorl	$0xfa29590f, %ecx       # imm = 0xFA29590F
+   b2300: 89 c2                        	movl	%eax, %edx
+   b2302: 81 f2 5e ff 6c 18            	xorl	$0x186cff5e, %edx       # imm = 0x186CFF5E
+   b2308: 09 ca                        	orl	%ecx, %edx
+   b230a: 74 65                        	je	0xb2371 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xb4e>
+   b230c: 89 f1                        	movl	%esi, %ecx
+   b230e: 81 f1 d8 ea 6f ae            	xorl	$0xae6fead8, %ecx       # imm = 0xAE6FEAD8
+   b2314: 89 c2                        	movl	%eax, %edx
+   b2316: 81 f2 a3 11 ee 68            	xorl	$0x68ee11a3, %edx       # imm = 0x68EE11A3
+   b231c: 09 ca                        	orl	%ecx, %edx
+   b231e: 74 21                        	je	0xb2341 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xb1e>
+   b2320: 89 f1                        	movl	%esi, %ecx
+   b2322: 81 f1 70 fb 90 79            	xorl	$0x7990fb70, %ecx       # imm = 0x7990FB70
+   b2328: 89 c2                        	movl	%eax, %edx
+   b232a: 81 f2 0d 21 0a 49            	xorl	$0x490a210d, %edx       # imm = 0x490A210D
+   b2330: 09 ca                        	orl	%ecx, %edx
+   b2332: 75 84                        	jne	0xb22b8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xa95>
+   b2334: 8b 74 24 04                  	movl	0x4(%esp), %esi
+   b2338: 8b 44 24 08                  	movl	0x8(%esp), %eax
+   b233c: e9 77 ff ff ff               	jmp	0xb22b8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xa95>
+   b2341: 8b 44 24 0c                  	movl	0xc(%esp), %eax
+   b2345: c7 00 0e 00 00 00            	movl	$0xe, (%eax)
+   b234b: b8 e4 7d 1b 86               	movl	$0x861b7de4, %eax       # imm = 0x861B7DE4
+   b2350: be b5 32 df 83               	movl	$0x83df32b5, %esi       # imm = 0x83DF32B5
+   b2355: 66 0f 57 c0                  	xorpd	%xmm0, %xmm0
+   b2359: e9 5a ff ff ff               	jmp	0xb22b8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xa95>
+   b235e: b8 e4 7d 1b 86               	movl	$0x861b7de4, %eax       # imm = 0x861B7DE4
+   b2363: be b5 32 df 83               	movl	$0x83df32b5, %esi       # imm = 0x83DF32B5
+   b2368: 66 0f 28 c1                  	movapd	%xmm1, %xmm0
+   b236c: e9 47 ff ff ff               	jmp	0xb22b8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xa95>
+   b2371: 89 fe                        	movl	%edi, %esi
+   b2373: 8b 04 24                     	movl	(%esp), %eax
+   b2376: e9 3d ff ff ff               	jmp	0xb22b8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xa95>
+   b237b: 65 a1 14 00 00 00            	movl	%gs:0x14, %eax
+   b2381: 3b 44 24 18                  	cmpl	0x18(%esp), %eax
+   b2385: 75 08                        	jne	0xb238f <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xb6c>
+   b2387: 8d 65 f4                     	leal	-0xc(%ebp), %esp
+   b238a: 5e                           	popl	%esi
+   b238b: 5f                           	popl	%edi
+   b238c: 5b                           	popl	%ebx
+   b238d: 5d                           	popl	%ebp
+   b238e: c3                           	retl
+   b238f: e8 fc af 07 00               	calll	0x12d390 <__stack_chk_fail@plt>
+
+000b2394 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign>:
+   b2394: 55                           	pushl	%ebp
+   b2395: 89 e5                        	movl	%esp, %ebp
+   b2397: 53                           	pushl	%ebx
+   b2398: 57                           	pushl	%edi
+   b2399: 56                           	pushl	%esi
+   b239a: 83 e4 f0                     	andl	$-0x10, %esp
+   b239d: 81 ec c0 00 00 00            	subl	$0xc0, %esp
+   b23a3: 89 e6                        	movl	%esp, %esi
+   b23a5: e8 00 00 00 00               	calll	0xb23aa <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x16>
+   b23aa: 59                           	popl	%ecx
+   b23ab: 81 c1 be f8 07 00            	addl	$0x7f8be, %ecx          # imm = 0x7F8BE
+   b23b1: 65 a1 14 00 00 00            	movl	%gs:0x14, %eax
+   b23b7: 89 86 b8 00 00 00            	movl	%eax, 0xb8(%esi)
+   b23bd: 0f 28 81 f8 03 ed ff         	movaps	-0x12fc08(%ecx), %xmm0
+   b23c4: 0f 29 86 a0 00 00 00         	movaps	%xmm0, 0xa0(%esi)
+   b23cb: 0f 28 81 f8 0a ed ff         	movaps	-0x12f508(%ecx), %xmm0
+   b23d2: 0f 29 86 90 00 00 00         	movaps	%xmm0, 0x90(%esi)
+   b23d9: 0f 28 81 28 11 ed ff         	movaps	-0x12eed8(%ecx), %xmm0
+   b23e0: 0f 29 86 80 00 00 00         	movaps	%xmm0, 0x80(%esi)
+   b23e7: 89 4e 20                     	movl	%ecx, 0x20(%esi)
+   b23ea: 0f 28 81 d8 f9 ec ff         	movaps	-0x130628(%ecx), %xmm0
+   b23f1: 0f 29 46 70                  	movaps	%xmm0, 0x70(%esi)
+   b23f5: bf 5d 28 de 95               	movl	$0x95de285d, %edi       # imm = 0x95DE285D
+   b23fa: bb a0 8c 1e 49               	movl	$0x491e8ca0, %ebx       # imm = 0x491E8CA0
+   b23ff: 89 f8                        	movl	%edi, %eax
+   b2401: 89 d9                        	movl	%ebx, %ecx
+   b2403: 89 df                        	movl	%ebx, %edi
+   b2405: 81 f7 29 8e c9 3a            	xorl	$0x3ac98e29, %edi       # imm = 0x3AC98E29
+   b240b: 89 c3                        	movl	%eax, %ebx
+   b240d: 81 f3 ae b8 fd 85            	xorl	$0x85fdb8ae, %ebx       # imm = 0x85FDB8AE
+   b2413: 09 fb                        	orl	%edi, %ebx
+   b2415: 89 56 1c                     	movl	%edx, 0x1c(%esi)
+   b2418: 8b 7e 10                     	movl	0x10(%esi), %edi
+   b241b: 89 7e 18                     	movl	%edi, 0x18(%esi)
+   b241e: 8a 5e 14                     	movb	0x14(%esi), %bl
+   b2421: 88 5e 0f                     	movb	%bl, 0xf(%esi)
+   b2424: bb 23 7a 3d 50               	movl	$0x503d7a23, %ebx       # imm = 0x503D7A23
+   b2429: bf 45 17 93 e6               	movl	$0xe6931745, %edi       # imm = 0xE6931745
+   b242e: 74 cf                        	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2430: 89 ca                        	movl	%ecx, %edx
+   b2432: 81 f2 1e 15 24 f8            	xorl	$0xf824151e, %edx       # imm = 0xF824151E
+   b2438: 89 c7                        	movl	%eax, %edi
+   b243a: 81 f7 66 05 79 94            	xorl	$0x94790566, %edi       # imm = 0x94790566
+   b2440: 09 d7                        	orl	%edx, %edi
+   b2442: 0f 84 ba 04 00 00            	je	0xb2902 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x56e>
+   b2448: 89 ca                        	movl	%ecx, %edx
+   b244a: 81 f2 a0 8c 1e 49            	xorl	$0x491e8ca0, %edx       # imm = 0x491E8CA0
+   b2450: 89 c7                        	movl	%eax, %edi
+   b2452: 81 f7 5d 28 de 95            	xorl	$0x95de285d, %edi       # imm = 0x95DE285D
+   b2458: 09 d7                        	orl	%edx, %edi
+   b245a: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b245d: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b2460: 8b 56 18                     	movl	0x18(%esi), %edx
+   b2463: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b2466: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2469: bb c5 87 5a 16               	movl	$0x165a87c5, %ebx       # imm = 0x165A87C5
+   b246e: bf d2 c3 6d a5               	movl	$0xa56dc3d2, %edi       # imm = 0xA56DC3D2
+   b2473: 74 8a                        	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2475: 89 ca                        	movl	%ecx, %edx
+   b2477: 81 f2 ff f4 15 3b            	xorl	$0x3b15f4ff, %edx       # imm = 0x3B15F4FF
+   b247d: 89 c7                        	movl	%eax, %edi
+   b247f: 81 f7 6d 64 68 99            	xorl	$0x9968646d, %edi       # imm = 0x9968646D
+   b2485: 09 d7                        	orl	%edx, %edi
+   b2487: 0f 84 7c 09 00 00            	je	0xb2e09 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0xa75>
+   b248d: 89 ca                        	movl	%ecx, %edx
+   b248f: 81 f2 29 ba 56 c7            	xorl	$0xc756ba29, %edx       # imm = 0xC756BA29
+   b2495: 89 c7                        	movl	%eax, %edi
+   b2497: 81 f7 11 e6 7e a1            	xorl	$0xa17ee611, %edi       # imm = 0xA17EE611
+   b249d: 09 d7                        	orl	%edx, %edi
+   b249f: 0f 84 a1 06 00 00            	je	0xb2b46 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7b2>
+   b24a5: 89 ca                        	movl	%ecx, %edx
+   b24a7: 81 f2 c5 87 5a 16            	xorl	$0x165a87c5, %edx       # imm = 0x165A87C5
+   b24ad: 89 c7                        	movl	%eax, %edi
+   b24af: 81 f7 d2 c3 6d a5            	xorl	$0xa56dc3d2, %edi       # imm = 0xA56DC3D2
+   b24b5: 09 d7                        	orl	%edx, %edi
+   b24b7: 0f 84 77 07 00 00            	je	0xb2c34 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x8a0>
+   b24bd: 89 ca                        	movl	%ecx, %edx
+   b24bf: 81 f2 d0 2a aa e4            	xorl	$0xe4aa2ad0, %edx       # imm = 0xE4AA2AD0
+   b24c5: 89 c7                        	movl	%eax, %edi
+   b24c7: 81 f7 90 1c 03 a7            	xorl	$0xa7031c90, %edi       # imm = 0xA7031C90
+   b24cd: 09 d7                        	orl	%edx, %edi
+   b24cf: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b24d2: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b24d5: 8b 56 18                     	movl	0x18(%esi), %edx
+   b24d8: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b24db: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b24de: bb 4a e9 77 1d               	movl	$0x1d77e94a, %ebx       # imm = 0x1D77E94A
+   b24e3: bf c7 6b f5 3e               	movl	$0x3ef56bc7, %edi       # imm = 0x3EF56BC7
+   b24e8: 0f 84 11 ff ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b24ee: 89 ca                        	movl	%ecx, %edx
+   b24f0: 81 f2 e7 5a 3b b2            	xorl	$0xb23b5ae7, %edx       # imm = 0xB23B5AE7
+   b24f6: 89 c7                        	movl	%eax, %edi
+   b24f8: 81 f7 7c 80 36 ae            	xorl	$0xae36807c, %edi       # imm = 0xAE36807C
+   b24fe: 09 d7                        	orl	%edx, %edi
+   b2500: 0f 84 b3 08 00 00            	je	0xb2db9 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0xa25>
+   b2506: 89 ca                        	movl	%ecx, %edx
+   b2508: 81 f2 2a 0b 63 e6            	xorl	$0xe6630b2a, %edx       # imm = 0xE6630B2A
+   b250e: 89 c7                        	movl	%eax, %edi
+   b2510: 81 f7 d8 c6 af b3            	xorl	$0xb3afc6d8, %edi       # imm = 0xB3AFC6D8
+   b2516: 09 d7                        	orl	%edx, %edi
+   b2518: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b251b: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b251e: 8b 56 18                     	movl	0x18(%esi), %edx
+   b2521: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b2524: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2527: bb e7 5a 3b b2               	movl	$0xb23b5ae7, %ebx       # imm = 0xB23B5AE7
+   b252c: bf 7c 80 36 ae               	movl	$0xae36807c, %edi       # imm = 0xAE36807C
+   b2531: 0f 84 c8 fe ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2537: 89 ca                        	movl	%ecx, %edx
+   b2539: 81 f2 82 0d a7 b8            	xorl	$0xb8a70d82, %edx       # imm = 0xB8A70D82
+   b253f: 89 c7                        	movl	%eax, %edi
+   b2541: 81 f7 7e 93 6d b6            	xorl	$0xb66d937e, %edi       # imm = 0xB66D937E
+   b2547: 09 d7                        	orl	%edx, %edi
+   b2549: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b254c: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b254f: 8b 56 18                     	movl	0x18(%esi), %edx
+   b2552: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b2555: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2558: bb 26 e2 82 d5               	movl	$0xd582e226, %ebx       # imm = 0xD582E226
+   b255d: bf 2c 9b 53 d6               	movl	$0xd6539b2c, %edi       # imm = 0xD6539B2C
+   b2562: 0f 84 97 fe ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2568: 89 ca                        	movl	%ecx, %edx
+   b256a: 81 f2 26 3f 89 92            	xorl	$0x92893f26, %edx       # imm = 0x92893F26
+   b2570: 89 c7                        	movl	%eax, %edi
+   b2572: 81 f7 60 cf 28 ba            	xorl	$0xba28cf60, %edi       # imm = 0xBA28CF60
+   b2578: 09 d7                        	orl	%edx, %edi
+   b257a: 0f 84 d1 07 00 00            	je	0xb2d51 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9bd>
+   b2580: 89 ca                        	movl	%ecx, %edx
+   b2582: 81 f2 16 94 0f f0            	xorl	$0xf00f9416, %edx       # imm = 0xF00F9416
+   b2588: 89 c7                        	movl	%eax, %edi
+   b258a: 81 f7 64 da be bc            	xorl	$0xbcbeda64, %edi       # imm = 0xBCBEDA64
+   b2590: 09 d7                        	orl	%edx, %edi
+   b2592: 0f 84 31 06 00 00            	je	0xb2bc9 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x835>
+   b2598: 89 ca                        	movl	%ecx, %edx
+   b259a: 81 f2 31 13 eb 2d            	xorl	$0x2deb1331, %edx       # imm = 0x2DEB1331
+   b25a0: 89 c7                        	movl	%eax, %edi
+   b25a2: 81 f7 e7 76 79 bd            	xorl	$0xbd7976e7, %edi       # imm = 0xBD7976E7
+   b25a8: 09 d7                        	orl	%edx, %edi
+   b25aa: 0f 84 14 04 00 00            	je	0xb29c4 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x630>
+   b25b0: 89 ca                        	movl	%ecx, %edx
+   b25b2: 81 f2 b3 9b a1 c2            	xorl	$0xc2a19bb3, %edx       # imm = 0xC2A19BB3
+   b25b8: 89 c7                        	movl	%eax, %edi
+   b25ba: 81 f7 c1 96 c9 c1            	xorl	$0xc1c996c1, %edi       # imm = 0xC1C996C1
+   b25c0: 09 d7                        	orl	%edx, %edi
+   b25c2: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b25c5: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b25c8: 8b 56 34                     	movl	0x34(%esi), %edx
+   b25cb: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b25ce: 8b 56 30                     	movl	0x30(%esi), %edx
+   b25d1: bb dc 34 e5 0c               	movl	$0xce534dc, %ebx        # imm = 0xCE534DC
+   b25d6: bf 24 19 19 ca               	movl	$0xca191924, %edi       # imm = 0xCA191924
+   b25db: 0f 84 1e fe ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b25e1: 89 ca                        	movl	%ecx, %edx
+   b25e3: 81 f2 dc 34 e5 0c            	xorl	$0xce534dc, %edx        # imm = 0xCE534DC
+   b25e9: 89 c7                        	movl	%eax, %edi
+   b25eb: 81 f7 24 19 19 ca            	xorl	$0xca191924, %edi       # imm = 0xCA191924
+   b25f1: 09 d7                        	orl	%edx, %edi
+   b25f3: 0f 84 2f 03 00 00            	je	0xb2928 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x594>
+   b25f9: 89 ca                        	movl	%ecx, %edx
+   b25fb: 81 f2 c1 50 f3 08            	xorl	$0x8f350c1, %edx        # imm = 0x8F350C1
+   b2601: 89 c7                        	movl	%eax, %edi
+   b2603: 81 f7 9f e8 ca cd            	xorl	$0xcdcae89f, %edi       # imm = 0xCDCAE89F
+   b2609: 09 d7                        	orl	%edx, %edi
+   b260b: 0f 84 7e 07 00 00            	je	0xb2d8f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9fb>
+   b2611: 89 ca                        	movl	%ecx, %edx
+   b2613: 81 f2 26 e2 82 d5            	xorl	$0xd582e226, %edx       # imm = 0xD582E226
+   b2619: 89 c7                        	movl	%eax, %edi
+   b261b: 81 f7 2c 9b 53 d6            	xorl	$0xd6539b2c, %edi       # imm = 0xD6539B2C
+   b2621: 09 d7                        	orl	%edx, %edi
+   b2623: 0f 84 8f 04 00 00            	je	0xb2ab8 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x724>
+   b2629: 89 ca                        	movl	%ecx, %edx
+   b262b: 81 f2 b1 32 8a 01            	xorl	$0x18a32b1, %edx        # imm = 0x18A32B1
+   b2631: 89 c7                        	movl	%eax, %edi
+   b2633: 81 f7 8f 50 64 d8            	xorl	$0xd864508f, %edi       # imm = 0xD864508F
+   b2639: 09 d7                        	orl	%edx, %edi
+   b263b: 0f 84 1e 06 00 00            	je	0xb2c5f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x8cb>
+   b2641: 89 ca                        	movl	%ecx, %edx
+   b2643: 81 f2 e5 0b 21 28            	xorl	$0x28210be5, %edx       # imm = 0x28210BE5
+   b2649: 89 c7                        	movl	%eax, %edi
+   b264b: 81 f7 64 ad 52 da            	xorl	$0xda52ad64, %edi       # imm = 0xDA52AD64
+   b2651: 09 d7                        	orl	%edx, %edi
+   b2653: 0f 84 fa 02 00 00            	je	0xb2953 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x5bf>
+   b2659: 89 ca                        	movl	%ecx, %edx
+   b265b: 81 f2 fc e0 5a 70            	xorl	$0x705ae0fc, %edx       # imm = 0x705AE0FC
+   b2661: 89 c7                        	movl	%eax, %edi
+   b2663: 81 f7 74 ff 1e db            	xorl	$0xdb1eff74, %edi       # imm = 0xDB1EFF74
+   b2669: 09 d7                        	orl	%edx, %edi
+   b266b: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b266e: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b2671: 8b 56 18                     	movl	0x18(%esi), %edx
+   b2674: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b2677: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b267a: bb e5 0b 21 28               	movl	$0x28210be5, %ebx       # imm = 0x28210BE5
+   b267f: bf 64 ad 52 da               	movl	$0xda52ad64, %edi       # imm = 0xDA52AD64
+   b2684: 0f 84 75 fd ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b268a: 89 ca                        	movl	%ecx, %edx
+   b268c: 81 f2 23 7a 3d 50            	xorl	$0x503d7a23, %edx       # imm = 0x503D7A23
+   b2692: 89 c7                        	movl	%eax, %edi
+   b2694: 81 f7 45 17 93 e6            	xorl	$0xe6931745, %edi       # imm = 0xE6931745
+   b269a: 09 d7                        	orl	%edx, %edi
+   b269c: 0f 84 72 06 00 00            	je	0xb2d14 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x980>
+   b26a2: 89 ca                        	movl	%ecx, %edx
+   b26a4: 81 f2 22 74 78 fb            	xorl	$0xfb787422, %edx       # imm = 0xFB787422
+   b26aa: 89 c7                        	movl	%eax, %edi
+   b26ac: 81 f7 19 9b 94 ea            	xorl	$0xea949b19, %edi       # imm = 0xEA949B19
+   b26b2: 09 d7                        	orl	%edx, %edi
+   b26b4: 0f 84 18 06 00 00            	je	0xb2cd2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x93e>
+   b26ba: 89 ca                        	movl	%ecx, %edx
+   b26bc: 81 f2 df 06 01 c1            	xorl	$0xc10106df, %edx       # imm = 0xC10106DF
+   b26c2: 89 c7                        	movl	%eax, %edi
+   b26c4: 81 f7 b4 27 11 eb            	xorl	$0xeb1127b4, %edi       # imm = 0xEB1127B4
+   b26ca: 09 d7                        	orl	%edx, %edi
+   b26cc: 0f 84 1c 06 00 00            	je	0xb2cee <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x95a>
+   b26d2: 89 ca                        	movl	%ecx, %edx
+   b26d4: 81 f2 5e 48 9f 81            	xorl	$0x819f485e, %edx       # imm = 0x819F485E
+   b26da: 89 c7                        	movl	%eax, %edi
+   b26dc: 81 f7 3c 6c fb ed            	xorl	$0xedfb6c3c, %edi       # imm = 0xEDFB6C3C
+   b26e2: 09 d7                        	orl	%edx, %edi
+   b26e4: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b26e7: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b26ea: 8b 56 18                     	movl	0x18(%esi), %edx
+   b26ed: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b26f0: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b26f3: bb c5 87 5a 16               	movl	$0x165a87c5, %ebx       # imm = 0x165A87C5
+   b26f8: bf d2 c3 6d a5               	movl	$0xa56dc3d2, %edi       # imm = 0xA56DC3D2
+   b26fd: 0f 84 fc fc ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2703: 89 ca                        	movl	%ecx, %edx
+   b2705: 81 f2 92 19 d3 ba            	xorl	$0xbad31992, %edx       # imm = 0xBAD31992
+   b270b: 89 c7                        	movl	%eax, %edi
+   b270d: 81 f7 ec 28 51 f1            	xorl	$0xf15128ec, %edi       # imm = 0xF15128EC
+   b2713: 09 d7                        	orl	%edx, %edi
+   b2715: 0f 84 f3 04 00 00            	je	0xb2c0e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x87a>
+   b271b: 89 ca                        	movl	%ecx, %edx
+   b271d: 81 f2 74 c4 d3 7d            	xorl	$0x7dd3c474, %edx       # imm = 0x7DD3C474
+   b2723: 89 c7                        	movl	%eax, %edi
+   b2725: 81 f7 2f 5c e0 05            	xorl	$0x5e05c2f, %edi        # imm = 0x5E05C2F
+   b272b: 09 d7                        	orl	%edx, %edi
+   b272d: 0f 84 52 05 00 00            	je	0xb2c85 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x8f1>
+   b2733: 89 ca                        	movl	%ecx, %edx
+   b2735: 81 f2 59 5c 5d a2            	xorl	$0xa25d5c59, %edx       # imm = 0xA25D5C59
+   b273b: 89 c7                        	movl	%eax, %edi
+   b273d: 81 f7 fc e3 68 23            	xorl	$0x2368e3fc, %edi       # imm = 0x2368E3FC
+   b2743: 09 d7                        	orl	%edx, %edi
+   b2745: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b2748: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b274b: 8b 56 18                     	movl	0x18(%esi), %edx
+   b274e: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b2751: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2754: bb 5d 59 88 be               	movl	$0xbe88595d, %ebx       # imm = 0xBE88595D
+   b2759: bf 81 12 35 fa               	movl	$0xfa351281, %edi       # imm = 0xFA351281
+   b275e: 0f 84 9b fc ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2764: 89 ca                        	movl	%ecx, %edx
+   b2766: 81 f2 50 30 d8 07            	xorl	$0x7d83050, %edx        # imm = 0x7D83050
+   b276c: 89 c7                        	movl	%eax, %edi
+   b276e: 81 f7 4a 46 ca 2d            	xorl	$0x2dca464a, %edi       # imm = 0x2DCA464A
+   b2774: 09 d7                        	orl	%edx, %edi
+   b2776: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b2779: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b277c: 8b 56 18                     	movl	0x18(%esi), %edx
+   b277f: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b2782: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2785: bb 23 7a 3d 50               	movl	$0x503d7a23, %ebx       # imm = 0x503D7A23
+   b278a: bf 45 17 93 e6               	movl	$0xe6931745, %edi       # imm = 0xE6931745
+   b278f: 0f 84 6a fc ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2795: 89 ca                        	movl	%ecx, %edx
+   b2797: 81 f2 a7 cf dc f5            	xorl	$0xf5dccfa7, %edx       # imm = 0xF5DCCFA7
+   b279d: 89 c7                        	movl	%eax, %edi
+   b279f: 81 f7 45 06 b9 32            	xorl	$0x32b90645, %edi       # imm = 0x32B90645
+   b27a5: 09 d7                        	orl	%edx, %edi
+   b27a7: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b27aa: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b27ad: 8b 56 18                     	movl	0x18(%esi), %edx
+   b27b0: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b27b3: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b27b6: bb dc 34 e5 0c               	movl	$0xce534dc, %ebx        # imm = 0xCE534DC
+   b27bb: bf 24 19 19 ca               	movl	$0xca191924, %edi       # imm = 0xCA191924
+   b27c0: 0f 84 39 fc ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b27c6: 89 ca                        	movl	%ecx, %edx
+   b27c8: 81 f2 73 0c 94 3d            	xorl	$0x3d940c73, %edx       # imm = 0x3D940C73
+   b27ce: 89 c7                        	movl	%eax, %edi
+   b27d0: 81 f7 2a c2 fa 36            	xorl	$0x36fac22a, %edi       # imm = 0x36FAC22A
+   b27d6: 09 d7                        	orl	%edx, %edi
+   b27d8: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b27db: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b27de: 8b 56 18                     	movl	0x18(%esi), %edx
+   b27e1: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b27e4: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b27e7: bb 4a e9 77 1d               	movl	$0x1d77e94a, %ebx       # imm = 0x1D77E94A
+   b27ec: bf c7 6b f5 3e               	movl	$0x3ef56bc7, %edi       # imm = 0x3EF56BC7
+   b27f1: 0f 84 08 fc ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b27f7: 89 ca                        	movl	%ecx, %edx
+   b27f9: 81 f2 4a e9 77 1d            	xorl	$0x1d77e94a, %edx       # imm = 0x1D77E94A
+   b27ff: 89 c7                        	movl	%eax, %edi
+   b2801: 81 f7 c7 6b f5 3e            	xorl	$0x3ef56bc7, %edi       # imm = 0x3EF56BC7
+   b2807: 09 d7                        	orl	%edx, %edi
+   b2809: 0f 84 8f 03 00 00            	je	0xb2b9e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x80a>
+   b280f: 89 ca                        	movl	%ecx, %edx
+   b2811: 81 f2 fb bd b6 ca            	xorl	$0xcab6bdfb, %edx       # imm = 0xCAB6BDFB
+   b2817: 89 c7                        	movl	%eax, %edi
+   b2819: 81 f7 c1 7c b8 4c            	xorl	$0x4cb87cc1, %edi       # imm = 0x4CB87CC1
+   b281f: 09 d7                        	orl	%edx, %edi
+   b2821: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b2824: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b2827: 8b 56 18                     	movl	0x18(%esi), %edx
+   b282a: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b282d: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2830: bb 31 13 eb 2d               	movl	$0x2deb1331, %ebx       # imm = 0x2DEB1331
+   b2835: bf e7 76 79 bd               	movl	$0xbd7976e7, %edi       # imm = 0xBD7976E7
+   b283a: 0f 84 bf fb ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2840: 89 ca                        	movl	%ecx, %edx
+   b2842: 81 f2 ab 60 d5 9b            	xorl	$0x9bd560ab, %edx       # imm = 0x9BD560AB
+   b2848: 89 c7                        	movl	%eax, %edi
+   b284a: 81 f7 e7 a5 66 50            	xorl	$0x5066a5e7, %edi       # imm = 0x5066A5E7
+   b2850: 09 d7                        	orl	%edx, %edi
+   b2852: 0f 84 a7 02 00 00            	je	0xb2aff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x76b>
+   b2858: 89 ca                        	movl	%ecx, %edx
+   b285a: 81 f2 d3 5a 09 7b            	xorl	$0x7b095ad3, %edx       # imm = 0x7B095AD3
+   b2860: 89 c7                        	movl	%eax, %edi
+   b2862: 81 f7 fe f9 06 5b            	xorl	$0x5b06f9fe, %edi       # imm = 0x5B06F9FE
+   b2868: 09 d7                        	orl	%edx, %edi
+   b286a: 0f 84 2f 01 00 00            	je	0xb299f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x60b>
+   b2870: 89 ca                        	movl	%ecx, %edx
+   b2872: 81 f2 8d 7f 7f 35            	xorl	$0x357f7f8d, %edx       # imm = 0x357F7F8D
+   b2878: 89 c7                        	movl	%eax, %edi
+   b287a: 81 f7 1e 25 bc 65            	xorl	$0x65bc251e, %edi       # imm = 0x65BC251E
+   b2880: 09 d7                        	orl	%edx, %edi
+   b2882: 8a 56 27                     	movb	0x27(%esi), %dl
+   b2885: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b2888: 8b 56 18                     	movl	0x18(%esi), %edx
+   b288b: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b288e: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2891: bb 74 c4 d3 7d               	movl	$0x7dd3c474, %ebx       # imm = 0x7DD3C474
+   b2896: bf 2f 5c e0 05               	movl	$0x5e05c2f, %edi        # imm = 0x5E05C2F
+   b289b: 0f 84 5e fb ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b28a1: 89 ca                        	movl	%ecx, %edx
+   b28a3: 81 f2 40 60 87 c6            	xorl	$0xc6876040, %edx       # imm = 0xC6876040
+   b28a9: 89 c7                        	movl	%eax, %edi
+   b28ab: 81 f7 48 30 1f 7d            	xorl	$0x7d1f3048, %edi       # imm = 0x7D1F3048
+   b28b1: 09 d7                        	orl	%edx, %edi
+   b28b3: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b28b6: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b28b9: 8b 56 18                     	movl	0x18(%esi), %edx
+   b28bc: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b28bf: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b28c2: bb ab 60 d5 9b               	movl	$0x9bd560ab, %ebx       # imm = 0x9BD560AB
+   b28c7: bf e7 a5 66 50               	movl	$0x5066a5e7, %edi       # imm = 0x5066A5E7
+   b28cc: 0f 84 2d fb ff ff            	je	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b28d2: 89 ca                        	movl	%ecx, %edx
+   b28d4: 81 f2 5d 59 88 be            	xorl	$0xbe88595d, %edx       # imm = 0xBE88595D
+   b28da: 89 c7                        	movl	%eax, %edi
+   b28dc: 81 f7 81 12 35 fa            	xorl	$0xfa351281, %edi       # imm = 0xFA351281
+   b28e2: 09 d7                        	orl	%edx, %edi
+   b28e4: 8a 56 0f                     	movb	0xf(%esi), %dl
+   b28e7: 88 56 14                     	movb	%dl, 0x14(%esi)
+   b28ea: 8b 56 18                     	movl	0x18(%esi), %edx
+   b28ed: 89 56 10                     	movl	%edx, 0x10(%esi)
+   b28f0: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b28f3: 89 cb                        	movl	%ecx, %ebx
+   b28f5: 89 c7                        	movl	%eax, %edi
+   b28f7: 0f 85 02 fb ff ff            	jne	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b28fd: e9 5f 05 00 00               	jmp	0xb2e61 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0xacd>
+   b2902: 8b 46 20                     	movl	0x20(%esi), %eax
+   b2905: 80 b8 4b 78 00 00 00         	cmpb	$0x0, 0x784b(%eax)
+   b290c: bf 6d 64 68 99               	movl	$0x9968646d, %edi       # imm = 0x9968646D
+   b2911: b8 7e 93 6d b6               	movl	$0xb66d937e, %eax       # imm = 0xB66D937E
+   b2916: 0f 45 f8                     	cmovnel	%eax, %edi
+   b2919: bb ff f4 15 3b               	movl	$0x3b15f4ff, %ebx       # imm = 0x3B15F4FF
+   b291e: b8 82 0d a7 b8               	movl	$0xb8a70d82, %eax       # imm = 0xB8A70D82
+   b2923: e9 e7 03 00 00               	jmp	0xb2d0f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x97b>
+   b2928: 31 c0                        	xorl	%eax, %eax
+   b292a: 8b 4e 20                     	movl	0x20(%esi), %ecx
+   b292d: b2 01                        	movb	$0x1, %dl
+   b292f: f0                           	lock
+   b2930: 0f b0 91 46 78 00 00         	cmpxchgb	%dl, 0x7846(%ecx)
+   b2937: bf 45 06 b9 32               	movl	$0x32b90645, %edi       # imm = 0x32B90645
+   b293c: b8 8f 50 64 d8               	movl	$0xd864508f, %eax       # imm = 0xD864508F
+   b2941: 0f 44 f8                     	cmovel	%eax, %edi
+   b2944: bb a7 cf dc f5               	movl	$0xf5dccfa7, %ebx       # imm = 0xF5DCCFA7
+   b2949: b8 b1 32 8a 01               	movl	$0x18a32b1, %eax        # imm = 0x18A32B1
+   b294e: e9 e7 03 00 00               	jmp	0xb2d3a <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9a6>
+   b2953: 8b 46 20                     	movl	0x20(%esi), %eax
+   b2956: c6 80 46 78 00 00 00         	movb	$0x0, 0x7846(%eax)
+   b295d: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2960: 8a 00                        	movb	(%eax), %al
+   b2962: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2965: 3a 02                        	cmpb	(%edx), %al
+   b2967: 0f 95 c1                     	setne	%cl
+   b296a: 84 c0                        	testb	%al, %al
+   b296c: 0f 94 c0                     	sete	%al
+   b296f: 88 4e 27                     	movb	%cl, 0x27(%esi)
+   b2972: 08 c8                        	orb	%cl, %al
+   b2974: bf 9f e8 ca cd               	movl	$0xcdcae89f, %edi       # imm = 0xCDCAE89F
+   b2979: b8 1e 25 bc 65               	movl	$0x65bc251e, %eax       # imm = 0x65BC251E
+   b297e: 0f 45 f8                     	cmovnel	%eax, %edi
+   b2981: bb c1 50 f3 08               	movl	$0x8f350c1, %ebx        # imm = 0x8F350C1
+   b2986: b8 8d 7f 7f 35               	movl	$0x357f7f8d, %eax       # imm = 0x357F7F8D
+   b298b: 0f 45 d8                     	cmovnel	%eax, %ebx
+   b298e: 8a 46 0f                     	movb	0xf(%esi), %al
+   b2991: 88 46 14                     	movb	%al, 0x14(%esi)
+   b2994: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2997: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b299a: e9 60 fa ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b299f: 8b 46 2c                     	movl	0x2c(%esi), %eax
+   b29a2: 8b 00                        	movl	(%eax), %eax
+   b29a4: 89 46 34                     	movl	%eax, 0x34(%esi)
+   b29a7: 8a 46 0f                     	movb	0xf(%esi), %al
+   b29aa: 88 46 14                     	movb	%al, 0x14(%esi)
+   b29ad: 8b 46 18                     	movl	0x18(%esi), %eax
+   b29b0: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b29b3: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b29b6: 8b 46 20                     	movl	0x20(%esi), %eax
+   b29b9: 8d 80 78 6b 00 00            	leal	0x6b78(%eax), %eax
+   b29bf: e9 e3 03 00 00               	jmp	0xb2da7 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0xa13>
+   b29c4: 8b 5e 20                     	movl	0x20(%esi), %ebx
+   b29c7: c6 83 44 78 00 00 00         	movb	$0x0, 0x7844(%ebx)
+   b29ce: 89 e0                        	movl	%esp, %eax
+   b29d0: 89 46 54                     	movl	%eax, 0x54(%esi)
+   b29d3: 83 c0 f0                     	addl	$-0x10, %eax
+   b29d6: 89 46 14                     	movl	%eax, 0x14(%esi)
+   b29d9: 89 c4                        	movl	%eax, %esp
+   b29db: 89 e0                        	movl	%esp, %eax
+   b29dd: 89 46 4c                     	movl	%eax, 0x4c(%esi)
+   b29e0: 8d 40 f0                     	leal	-0x10(%eax), %eax
+   b29e3: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b29e6: 89 c4                        	movl	%eax, %esp
+   b29e8: 89 e0                        	movl	%esp, %eax
+   b29ea: 89 46 48                     	movl	%eax, 0x48(%esi)
+   b29ed: 8d 40 f0                     	leal	-0x10(%eax), %eax
+   b29f0: 89 46 58                     	movl	%eax, 0x58(%esi)
+   b29f3: 89 c4                        	movl	%eax, %esp
+   b29f5: 89 e0                        	movl	%esp, %eax
+   b29f7: 89 46 44                     	movl	%eax, 0x44(%esi)
+   b29fa: 8d 40 f0                     	leal	-0x10(%eax), %eax
+   b29fd: 89 46 50                     	movl	%eax, 0x50(%esi)
+   b2a00: 89 c4                        	movl	%eax, %esp
+   b2a02: 89 e0                        	movl	%esp, %eax
+   b2a04: 8d 78 f0                     	leal	-0x10(%eax), %edi
+   b2a07: 89 7e 28                     	movl	%edi, 0x28(%esi)
+   b2a0a: 89 46 40                     	movl	%eax, 0x40(%esi)
+   b2a0d: 89 fc                        	movl	%edi, %esp
+   b2a0f: 89 e7                        	movl	%esp, %edi
+   b2a11: 8d 4f e0                     	leal	-0x20(%edi), %ecx
+   b2a14: 89 4e 5c                     	movl	%ecx, 0x5c(%esi)
+   b2a17: 89 cc                        	movl	%ecx, %esp
+   b2a19: 89 e1                        	movl	%esp, %ecx
+   b2a1b: 89 4e 3c                     	movl	%ecx, 0x3c(%esi)
+   b2a1e: 8d 49 f0                     	leal	-0x10(%ecx), %ecx
+   b2a21: 89 4e 2c                     	movl	%ecx, 0x2c(%esi)
+   b2a24: 89 cc                        	movl	%ecx, %esp
+   b2a26: 8b 4d 10                     	movl	0x10(%ebp), %ecx
+   b2a29: 8b 56 54                     	movl	0x54(%esi), %edx
+   b2a2c: 89 4a f0                     	movl	%ecx, -0x10(%edx)
+   b2a2f: 8b 55 14                     	movl	0x14(%ebp), %edx
+   b2a32: 8b 4e 4c                     	movl	0x4c(%esi), %ecx
+   b2a35: 89 51 f0                     	movl	%edx, -0x10(%ecx)
+   b2a38: 8b 4d 18                     	movl	0x18(%ebp), %ecx
+   b2a3b: 8b 56 48                     	movl	0x48(%esi), %edx
+   b2a3e: 89 4a f0                     	movl	%ecx, -0x10(%edx)
+   b2a41: 8b 4d 1c                     	movl	0x1c(%ebp), %ecx
+   b2a44: 8b 56 44                     	movl	0x44(%esi), %edx
+   b2a47: 89 4a f0                     	movl	%ecx, -0x10(%edx)
+   b2a4a: 83 60 f0 00                  	andl	$0x0, -0x10(%eax)
+   b2a4e: e8 20 78 00 00               	calll	0xba273 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7edf>
+   b2a53: 8b 4d 08                     	movl	0x8(%ebp), %ecx
+   b2a56: 89 4f e0                     	movl	%ecx, -0x20(%edi)
+   b2a59: 8b 46 14                     	movl	0x14(%esi), %eax
+   b2a5c: 89 47 e4                     	movl	%eax, -0x1c(%edi)
+   b2a5f: 8b 46 10                     	movl	0x10(%esi), %eax
+   b2a62: 89 47 e8                     	movl	%eax, -0x18(%edi)
+   b2a65: 8b 46 58                     	movl	0x58(%esi), %eax
+   b2a68: 89 47 ec                     	movl	%eax, -0x14(%edi)
+   b2a6b: 8b 46 50                     	movl	0x50(%esi), %eax
+   b2a6e: 89 47 f0                     	movl	%eax, -0x10(%edi)
+   b2a71: 8b 46 3c                     	movl	0x3c(%esi), %eax
+   b2a74: 83 60 f0 00                  	andl	$0x0, -0x10(%eax)
+   b2a78: 83 ec 0c                     	subl	$0xc, %esp
+   b2a7b: 8d 83 68 6b 00 00            	leal	0x6b68(%ebx), %eax
+   b2a81: ff 76 2c                     	pushl	0x2c(%esi)
+   b2a84: 50                           	pushl	%eax
+   b2a85: ff 75 14                     	pushl	0x14(%ebp)
+   b2a88: 51                           	pushl	%ecx
+   b2a89: ff 76 28                     	pushl	0x28(%esi)
+   b2a8c: e8 39 ba fe ff               	calll	0x9e4ca <.text+0x96eba>
+   b2a91: 83 c4 20                     	addl	$0x20, %esp
+   b2a94: 31 c0                        	xorl	%eax, %eax
+   b2a96: 8b 4e 40                     	movl	0x40(%esi), %ecx
+   b2a99: 39 41 f0                     	cmpl	%eax, -0x10(%ecx)
+   b2a9c: bf 19 9b 94 ea               	movl	$0xea949b19, %edi       # imm = 0xEA949B19
+   b2aa1: b8 fe f9 06 5b               	movl	$0x5b06f9fe, %eax       # imm = 0x5B06F9FE
+   b2aa6: 0f 44 f8                     	cmovel	%eax, %edi
+   b2aa9: bb 22 74 78 fb               	movl	$0xfb787422, %ebx       # imm = 0xFB787422
+   b2aae: b8 d3 5a 09 7b               	movl	$0x7b095ad3, %eax       # imm = 0x7B095AD3
+   b2ab3: e9 82 02 00 00               	jmp	0xb2d3a <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9a6>
+   b2ab8: 8b 5e 20                     	movl	0x20(%esi), %ebx
+   b2abb: c6 83 4a 78 00 00 00         	movb	$0x0, 0x784a(%ebx)
+   b2ac2: 83 ec 10                     	subl	$0x10, %esp
+   b2ac5: f2 0f 10 46 60               	movsd	0x60(%esi), %xmm0
+   b2aca: f2 0f 11 44 24 04            	movsd	%xmm0, 0x4(%esp)
+   b2ad0: 8d 83 b8 6b 00 00            	leal	0x6bb8(%ebx), %eax
+   b2ad6: 89 04 24                     	movl	%eax, (%esp)
+   b2ad9: e8 e1 fc 06 00               	calll	0x1227bf <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7042b>
+   b2ade: 83 c4 10                     	addl	$0x10, %esp
+   b2ae1: 8a 46 0f                     	movb	0xf(%esi), %al
+   b2ae4: 88 46 14                     	movb	%al, 0x14(%esi)
+   b2ae7: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2aea: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b2aed: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2af0: bb 5d 59 88 be               	movl	$0xbe88595d, %ebx       # imm = 0xBE88595D
+   b2af5: bf 81 12 35 fa               	movl	$0xfa351281, %edi       # imm = 0xFA351281
+   b2afa: e9 00 f9 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2aff: 8b 5e 20                     	movl	0x20(%esi), %ebx
+   b2b02: c6 83 48 78 00 00 00         	movb	$0x0, 0x7848(%ebx)
+   b2b09: 83 ec 10                     	subl	$0x10, %esp
+   b2b0c: f2 0f 10 46 68               	movsd	0x68(%esi), %xmm0
+   b2b11: f2 0f 11 44 24 04            	movsd	%xmm0, 0x4(%esp)
+   b2b17: 8d 83 88 6b 00 00            	leal	0x6b88(%ebx), %eax
+   b2b1d: 89 04 24                     	movl	%eax, (%esp)
+   b2b20: e8 9a fc 06 00               	calll	0x1227bf <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7042b>
+   b2b25: 83 c4 10                     	addl	$0x10, %esp
+   b2b28: 8a 46 0f                     	movb	0xf(%esi), %al
+   b2b2b: 88 46 14                     	movb	%al, 0x14(%esi)
+   b2b2e: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2b31: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b2b34: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2b37: bb e7 5a 3b b2               	movl	$0xb23b5ae7, %ebx       # imm = 0xB23B5AE7
+   b2b3c: bf 7c 80 36 ae               	movl	$0xae36807c, %edi       # imm = 0xAE36807C
+   b2b41: e9 b9 f8 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2b46: 8b 46 20                     	movl	0x20(%esi), %eax
+   b2b49: 0f 28 80 88 6b 00 00         	movaps	0x6b88(%eax), %xmm0
+   b2b50: 0f 28 8e 90 00 00 00         	movaps	0x90(%esi), %xmm1
+   b2b57: 0f 57 c1                     	xorps	%xmm1, %xmm0
+   b2b5a: 0f 29 80 88 6b 00 00         	movaps	%xmm0, 0x6b88(%eax)
+   b2b61: 0f 28 80 98 6b 00 00         	movaps	0x6b98(%eax), %xmm0
+   b2b68: 0f 57 c1                     	xorps	%xmm1, %xmm0
+   b2b6b: 0f 29 80 98 6b 00 00         	movaps	%xmm0, 0x6b98(%eax)
+   b2b72: 80 b0 a8 6b 00 00 10         	xorb	$0x10, 0x6ba8(%eax)
+   b2b79: c6 80 49 78 00 00 01         	movb	$0x1, 0x7849(%eax)
+   b2b80: 8a 46 0f                     	movb	0xf(%esi), %al
+   b2b83: 88 46 14                     	movb	%al, 0x14(%esi)
+   b2b86: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2b89: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b2b8c: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2b8f: bb ab 60 d5 9b               	movl	$0x9bd560ab, %ebx       # imm = 0x9BD560AB
+   b2b94: bf e7 a5 66 50               	movl	$0x5066a5e7, %edi       # imm = 0x5066A5E7
+   b2b99: e9 61 f8 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2b9e: 31 c0                        	xorl	%eax, %eax
+   b2ba0: 8b 4e 20                     	movl	0x20(%esi), %ecx
+   b2ba3: b2 01                        	movb	$0x1, %dl
+   b2ba5: f0                           	lock
+   b2ba6: 0f b0 91 48 78 00 00         	cmpxchgb	%dl, 0x7848(%ecx)
+   b2bad: bf 2a c2 fa 36               	movl	$0x36fac22a, %edi       # imm = 0x36FAC22A
+   b2bb2: b8 b4 27 11 eb               	movl	$0xeb1127b4, %eax       # imm = 0xEB1127B4
+   b2bb7: 0f 44 f8                     	cmovel	%eax, %edi
+   b2bba: bb 73 0c 94 3d               	movl	$0x3d940c73, %ebx       # imm = 0x3D940C73
+   b2bbf: b8 df 06 01 c1               	movl	$0xc10106df, %eax       # imm = 0xC10106DF
+   b2bc4: e9 71 01 00 00               	jmp	0xb2d3a <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9a6>
+   b2bc9: 8b 46 20                     	movl	0x20(%esi), %eax
+   b2bcc: f2 0f 10 80 68 6b 00 00      	movsd	0x6b68(%eax), %xmm0
+   b2bd4: 0f 57 46 70                  	xorps	0x70(%esi), %xmm0
+   b2bd8: 0f 13 80 68 6b 00 00         	movlps	%xmm0, 0x6b68(%eax)
+   b2bdf: 81 b0 70 6b 00 00 af af af af	xorl	$0xafafafaf, 0x6b70(%eax) # imm = 0xAFAFAFAF
+   b2be9: c6 80 45 78 00 00 01         	movb	$0x1, 0x7845(%eax)
+   b2bf0: 8a 46 0f                     	movb	0xf(%esi), %al
+   b2bf3: 88 46 14                     	movb	%al, 0x14(%esi)
+   b2bf6: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2bf9: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b2bfc: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2bff: bb 31 13 eb 2d               	movl	$0x2deb1331, %ebx       # imm = 0x2DEB1331
+   b2c04: bf e7 76 79 bd               	movl	$0xbd7976e7, %edi       # imm = 0xBD7976E7
+   b2c09: e9 f1 f7 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2c0e: 8b 46 20                     	movl	0x20(%esi), %eax
+   b2c11: 80 b8 45 78 00 00 00         	cmpb	$0x0, 0x7845(%eax)
+   b2c18: bf 64 da be bc               	movl	$0xbcbeda64, %edi       # imm = 0xBCBEDA64
+   b2c1d: b8 c1 7c b8 4c               	movl	$0x4cb87cc1, %eax       # imm = 0x4CB87CC1
+   b2c22: 0f 45 f8                     	cmovnel	%eax, %edi
+   b2c25: bb 16 94 0f f0               	movl	$0xf00f9416, %ebx       # imm = 0xF00F9416
+   b2c2a: b8 fb bd b6 ca               	movl	$0xcab6bdfb, %eax       # imm = 0xCAB6BDFB
+   b2c2f: e9 db 00 00 00               	jmp	0xb2d0f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x97b>
+   b2c34: 31 c0                        	xorl	%eax, %eax
+   b2c36: 8b 4e 20                     	movl	0x20(%esi), %ecx
+   b2c39: b2 01                        	movb	$0x1, %dl
+   b2c3b: f0                           	lock
+   b2c3c: 0f b0 91 44 78 00 00         	cmpxchgb	%dl, 0x7844(%ecx)
+   b2c43: bf 3c 6c fb ed               	movl	$0xedfb6c3c, %edi       # imm = 0xEDFB6C3C
+   b2c48: b8 ec 28 51 f1               	movl	$0xf15128ec, %eax       # imm = 0xF15128EC
+   b2c4d: 0f 44 f8                     	cmovel	%eax, %edi
+   b2c50: bb 5e 48 9f 81               	movl	$0x819f485e, %ebx       # imm = 0x819F485E
+   b2c55: b8 92 19 d3 ba               	movl	$0xbad31992, %eax       # imm = 0xBAD31992
+   b2c5a: e9 db 00 00 00               	jmp	0xb2d3a <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9a6>
+   b2c5f: 8b 46 20                     	movl	0x20(%esi), %eax
+   b2c62: 80 b8 47 78 00 00 00         	cmpb	$0x0, 0x7847(%eax)
+   b2c69: bf 60 cf 28 ba               	movl	$0xba28cf60, %edi       # imm = 0xBA28CF60
+   b2c6e: b8 74 ff 1e db               	movl	$0xdb1eff74, %eax       # imm = 0xDB1EFF74
+   b2c73: 0f 45 f8                     	cmovnel	%eax, %edi
+   b2c76: bb 26 3f 89 92               	movl	$0x92893f26, %ebx       # imm = 0x92893F26
+   b2c7b: b8 fc e0 5a 70               	movl	$0x705ae0fc, %eax       # imm = 0x705AE0FC
+   b2c80: e9 8a 00 00 00               	jmp	0xb2d0f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x97b>
+   b2c85: 8b 7e 28                     	movl	0x28(%esi), %edi
+   b2c88: 89 f9                        	movl	%edi, %ecx
+   b2c8a: 8b 5e 20                     	movl	0x20(%esi), %ebx
+   b2c8d: e8 82 f5 ff ff               	calll	0xb2214 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9f1>
+   b2c92: 83 3f 00                     	cmpl	$0x0, (%edi)
+   b2c95: 0f 95 c0                     	setne	%al
+   b2c98: 8a 4e 0f                     	movb	0xf(%esi), %cl
+   b2c9b: 08 c8                        	orb	%cl, %al
+   b2c9d: a8 01                        	testb	$0x1, %al
+   b2c9f: bf 90 1c 03 a7               	movl	$0xa7031c90, %edi       # imm = 0xA7031C90
+   b2ca4: b8 d8 c6 af b3               	movl	$0xb3afc6d8, %eax       # imm = 0xB3AFC6D8
+   b2ca9: 0f 45 f8                     	cmovnel	%eax, %edi
+   b2cac: f2 0f 11 46 68               	movsd	%xmm0, 0x68(%esi)
+   b2cb1: bb d0 2a aa e4               	movl	$0xe4aa2ad0, %ebx       # imm = 0xE4AA2AD0
+   b2cb6: b8 2a 0b 63 e6               	movl	$0xe6630b2a, %eax       # imm = 0xE6630B2A
+   b2cbb: 0f 45 d8                     	cmovnel	%eax, %ebx
+   b2cbe: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2cc1: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b2cc4: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2cc7: 88 4e 14                     	movb	%cl, 0x14(%esi)
+   b2cca: 88 4e 26                     	movb	%cl, 0x26(%esi)
+   b2ccd: e9 2d f7 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2cd2: c6 46 14 01                  	movb	$0x1, 0x14(%esi)
+   b2cd6: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2cd9: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b2cdc: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2cdf: bb 74 c4 d3 7d               	movl	$0x7dd3c474, %ebx       # imm = 0x7DD3C474
+   b2ce4: bf 2f 5c e0 05               	movl	$0x5e05c2f, %edi        # imm = 0x5E05C2F
+   b2ce9: e9 11 f7 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2cee: 8b 46 20                     	movl	0x20(%esi), %eax
+   b2cf1: 80 b8 49 78 00 00 00         	cmpb	$0x0, 0x7849(%eax)
+   b2cf8: bf 11 e6 7e a1               	movl	$0xa17ee611, %edi       # imm = 0xA17EE611
+   b2cfd: b8 48 30 1f 7d               	movl	$0x7d1f3048, %eax       # imm = 0x7D1F3048
+   b2d02: 0f 45 f8                     	cmovnel	%eax, %edi
+   b2d05: bb 29 ba 56 c7               	movl	$0xc756ba29, %ebx       # imm = 0xC756BA29
+   b2d0a: b8 40 60 87 c6               	movl	$0xc6876040, %eax       # imm = 0xC6876040
+   b2d0f: 0f 45 d8                     	cmovnel	%eax, %ebx
+   b2d12: eb 29                        	jmp	0xb2d3d <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9a9>
+   b2d14: 31 c0                        	xorl	%eax, %eax
+   b2d16: 8b 4e 20                     	movl	0x20(%esi), %ecx
+   b2d19: b2 01                        	movb	$0x1, %dl
+   b2d1b: f0                           	lock
+   b2d1c: 0f b0 91 4a 78 00 00         	cmpxchgb	%dl, 0x784a(%ecx)
+   b2d23: bf 4a 46 ca 2d               	movl	$0x2dca464a, %edi       # imm = 0x2DCA464A
+   b2d28: b8 66 05 79 94               	movl	$0x94790566, %eax       # imm = 0x94790566
+   b2d2d: 0f 44 f8                     	cmovel	%eax, %edi
+   b2d30: bb 50 30 d8 07               	movl	$0x7d83050, %ebx        # imm = 0x7D83050
+   b2d35: b8 1e 15 24 f8               	movl	$0xf824151e, %eax       # imm = 0xF824151E
+   b2d3a: 0f 44 d8                     	cmovel	%eax, %ebx
+   b2d3d: 8a 46 0f                     	movb	0xf(%esi), %al
+   b2d40: 88 46 14                     	movb	%al, 0x14(%esi)
+   b2d43: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2d46: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b2d49: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2d4c: e9 ae f6 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2d51: 8b 46 20                     	movl	0x20(%esi), %eax
+   b2d54: f2 0f 10 80 78 6b 00 00      	movsd	0x6b78(%eax), %xmm0
+   b2d5c: 0f 57 86 80 00 00 00         	xorps	0x80(%esi), %xmm0
+   b2d63: 0f 13 80 78 6b 00 00         	movlps	%xmm0, 0x6b78(%eax)
+   b2d6a: c6 80 47 78 00 00 01         	movb	$0x1, 0x7847(%eax)
+   b2d71: 8a 46 0f                     	movb	0xf(%esi), %al
+   b2d74: 88 46 14                     	movb	%al, 0x14(%esi)
+   b2d77: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2d7a: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b2d7d: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2d80: bb e5 0b 21 28               	movl	$0x28210be5, %ebx       # imm = 0x28210BE5
+   b2d85: bf 64 ad 52 da               	movl	$0xda52ad64, %edi       # imm = 0xDA52AD64
+   b2d8a: e9 70 f6 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2d8f: 8b 4e 18                     	movl	0x18(%esi), %ecx
+   b2d92: 8d 41 01                     	leal	0x1(%ecx), %eax
+   b2d95: 89 46 34                     	movl	%eax, 0x34(%esi)
+   b2d98: 8a 46 0f                     	movb	0xf(%esi), %al
+   b2d9b: 88 46 14                     	movb	%al, 0x14(%esi)
+   b2d9e: 89 4e 10                     	movl	%ecx, 0x10(%esi)
+   b2da1: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2da4: 8d 42 01                     	leal	0x1(%edx), %eax
+   b2da7: 89 46 30                     	movl	%eax, 0x30(%esi)
+   b2daa: bb b3 9b a1 c2               	movl	$0xc2a19bb3, %ebx       # imm = 0xC2A19BB3
+   b2daf: bf c1 96 c9 c1               	movl	$0xc1c996c1, %edi       # imm = 0xC1C996C1
+   b2db4: e9 46 f6 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2db9: 83 ec 0c                     	subl	$0xc, %esp
+   b2dbc: 8b 5e 20                     	movl	0x20(%esi), %ebx
+   b2dbf: ff 76 5c                     	pushl	0x5c(%esi)
+   b2dc2: e8 8b ee ff ff               	calll	0xb1c52 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x42f>
+   b2dc7: 83 c4 10                     	addl	$0x10, %esp
+   b2dca: 89 46 38                     	movl	%eax, 0x38(%esi)
+   b2dcd: 8b 7e 28                     	movl	0x28(%esi), %edi
+   b2dd0: 83 27 00                     	andl	$0x0, (%edi)
+   b2dd3: 89 f9                        	movl	%edi, %ecx
+   b2dd5: e8 3a f4 ff ff               	calll	0xb2214 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9f1>
+   b2dda: 83 3f 00                     	cmpl	$0x0, (%edi)
+   b2ddd: 0f 95 c0                     	setne	%al
+   b2de0: 0a 46 26                     	orb	0x26(%esi), %al
+   b2de3: a8 01                        	testb	$0x1, %al
+   b2de5: bf ae b8 fd 85               	movl	$0x85fdb8ae, %edi       # imm = 0x85FDB8AE
+   b2dea: b8 fc e3 68 23               	movl	$0x2368e3fc, %eax       # imm = 0x2368E3FC
+   b2def: 0f 45 f8                     	cmovnel	%eax, %edi
+   b2df2: bb 29 8e c9 3a               	movl	$0x3ac98e29, %ebx       # imm = 0x3AC98E29
+   b2df7: b8 59 5c 5d a2               	movl	$0xa25d5c59, %eax       # imm = 0xA25D5C59
+   b2dfc: 0f 45 d8                     	cmovnel	%eax, %ebx
+   b2dff: f2 0f 11 46 60               	movsd	%xmm0, 0x60(%esi)
+   b2e04: e9 34 ff ff ff               	jmp	0xb2d3d <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9a9>
+   b2e09: 8b 46 20                     	movl	0x20(%esi), %eax
+   b2e0c: 0f 28 80 b8 6b 00 00         	movaps	0x6bb8(%eax), %xmm0
+   b2e13: 0f 28 8e a0 00 00 00         	movaps	0xa0(%esi), %xmm1
+   b2e1a: 0f 57 c1                     	xorps	%xmm1, %xmm0
+   b2e1d: 0f 29 80 b8 6b 00 00         	movaps	%xmm0, 0x6bb8(%eax)
+   b2e24: 0f 28 80 c8 6b 00 00         	movaps	0x6bc8(%eax), %xmm0
+   b2e2b: 0f 57 c1                     	xorps	%xmm1, %xmm0
+   b2e2e: 0f 29 80 c8 6b 00 00         	movaps	%xmm0, 0x6bc8(%eax)
+   b2e35: 80 b0 d8 6b 00 00 3a         	xorb	$0x3a, 0x6bd8(%eax)
+   b2e3c: c6 80 4b 78 00 00 01         	movb	$0x1, 0x784b(%eax)
+   b2e43: 8a 46 0f                     	movb	0xf(%esi), %al
+   b2e46: 88 46 14                     	movb	%al, 0x14(%esi)
+   b2e49: 8b 46 18                     	movl	0x18(%esi), %eax
+   b2e4c: 89 46 10                     	movl	%eax, 0x10(%esi)
+   b2e4f: 8b 56 1c                     	movl	0x1c(%esi), %edx
+   b2e52: bb 26 e2 82 d5               	movl	$0xd582e226, %ebx       # imm = 0xD582E226
+   b2e57: bf 2c 9b 53 d6               	movl	$0xd6539b2c, %edi       # imm = 0xD6539B2C
+   b2e5c: e9 9e f5 ff ff               	jmp	0xb23ff <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6b>
+   b2e61: 65 a1 14 00 00 00            	movl	%gs:0x14, %eax
+   b2e67: 3b 86 b8 00 00 00            	cmpl	0xb8(%esi), %eax
+   b2e6d: 75 0b                        	jne	0xb2e7a <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0xae6>
+   b2e6f: 8b 46 38                     	movl	0x38(%esi), %eax
+   b2e72: 8d 65 f4                     	leal	-0xc(%ebp), %esp
+   b2e75: 5e                           	popl	%esi
+   b2e76: 5f                           	popl	%edi
+   b2e77: 5b                           	popl	%ebx
+   b2e78: 5d                           	popl	%ebp
+   b2e79: c3                           	retl
+   b2e7a: 8b 5e 20                     	movl	0x20(%esi), %ebx
+   b2e7d: e8 0e a5 07 00               	calll	0x12d390 <__stack_chk_fail@plt>
+   b2e82: cc                           	int3
+   b2e83: cc                           	int3
+   b2e84: cc                           	int3
+   b2e85: cc                           	int3
+   b2e86: cc                           	int3
+   b2e87: cc                           	int3
+   b2e88: cc                           	int3
+   b2e89: cc                           	int3
+   b2e8a: cc                           	int3
+   b2e8b: cc                           	int3
+   b2e8c: cc                           	int3
+   b2e8d: cc                           	int3
+   b2e8e: cc                           	int3
+   b2e8f: cc                           	int3
+   b2e90: 31 c0                        	xorl	%eax, %eax
+   b2e92: c3                           	retl
+   b2e93: 55                           	pushl	%ebp
+   b2e94: 89 e5                        	movl	%esp, %ebp
+   b2e96: 53                           	pushl	%ebx
+   b2e97: 57                           	pushl	%edi
+   b2e98: 56                           	pushl	%esi
+   b2e99: 83 e4 f0                     	andl	$-0x10, %esp
+   b2e9c: 81 ec 90 01 00 00            	subl	$0x190, %esp            # imm = 0x190
+   b2ea2: e8 00 00 00 00               	calll	0xb2ea7 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0xb13>
+   b2ea7: 58                           	popl	%eax
+   b2ea8: 81 c0 c1 ed 07 00            	addl	$0x7edc1, %eax          # imm = 0x7EDC1
+   b2eae: 89 44 24 78                  	movl	%eax, 0x78(%esp)
+   b2eb2: 8b 7d 0c                     	movl	0xc(%ebp), %edi
+   b2eb5: bb 02 9e 21 11               	movl	$0x11219e02, %ebx       # imm = 0x11219E02
+   b2eba: ba dd 95 db 78               	movl	$0x78db95dd, %edx       # imm = 0x78DB95DD
+   b2ebf: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+   b2ec3: 89 84 24 88 00 00 00         	movl	%eax, 0x88(%esp)
+   b2eca: 89 84 24 b8 00 00 00         	movl	%eax, 0xb8(%esp)
+   b2ed1: 89 d8                        	movl	%ebx, %eax
+   b2ed3: 89 d1                        	movl	%edx, %ecx
+   b2ed5: 81 f2 0e 2e 26 fa            	xorl	$0xfa262e0e, %edx       # imm = 0xFA262E0E
+   b2edb: 89 de                        	movl	%ebx, %esi
+   b2edd: 81 f6 0d b2 0a 84            	xorl	$0x840ab20d, %esi       # imm = 0x840AB20D
+   b2ee3: 09 d6                        	orl	%edx, %esi
+   b2ee5: 8b 54 24 14                  	movl	0x14(%esp), %edx
+   b2ee9: 89 54 24 48                  	movl	%edx, 0x48(%esp)
+   b2eed: 8b 54 24 10                  	movl	0x10(%esp), %edx
+   b2ef1: 89 54 24 3c                  	movl	%edx, 0x3c(%esp)
+   b2ef5: 8b 54 24 18                  	movl	0x18(%esp), %edx
+   b2ef9: 89 54 24 44                  	movl	%edx, 0x44(%esp)
+   b2efd: 8b 54 24 1c                  	movl	0x1c(%esp), %edx
+   b2f01: 89 54 24 64                  	movl	%edx, 0x64(%esp)
+   b2f05: 8b 54 24 24                  	movl	0x24(%esp), %edx
+   b2f09: 89 54 24 60                  	movl	%edx, 0x60(%esp)
+   b2f0d: 8b 54 24 20                  	movl	0x20(%esp), %edx
+   b2f11: 89 54 24 5c                  	movl	%edx, 0x5c(%esp)
+   b2f15: 8b 54 24 28                  	movl	0x28(%esp), %edx
+   b2f19: 89 54 24 58                  	movl	%edx, 0x58(%esp)
+   b2f1d: 8b 54 24 2c                  	movl	0x2c(%esp), %edx
+   b2f21: 89 54 24 54                  	movl	%edx, 0x54(%esp)
+   b2f25: 8b 54 24 30                  	movl	0x30(%esp), %edx
+   b2f29: 89 54 24 50                  	movl	%edx, 0x50(%esp)
+   b2f2d: 8b 54 24 0c                  	movl	0xc(%esp), %edx
+   b2f31: 66 89 54 24 0a               	movw	%dx, 0xa(%esp)
+   b2f36: 8b 54 24 34                  	movl	0x34(%esp), %edx
+   b2f3a: 89 54 24 40                  	movl	%edx, 0x40(%esp)
+   b2f3e: 8b 54 24 38                  	movl	0x38(%esp), %edx
+   b2f42: 89 54 24 4c                  	movl	%edx, 0x4c(%esp)
+   b2f46: 8b 94 24 20 01 00 00         	movl	0x120(%esp), %edx
+   b2f4d: 89 54 24 10                  	movl	%edx, 0x10(%esp)
+   b2f51: ba f4 2f 9f 62               	movl	$0x629f2ff4, %edx       # imm = 0x629F2FF4
+   b2f56: bb f3 d6 66 2c               	movl	$0x2c66d6f3, %ebx       # imm = 0x2C66D6F3
+   b2f5b: 0f 84 70 ff ff ff            	je	0xb2ed1 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0xb3d>
+   b2f61: 89 fe                        	movl	%edi, %esi
+   b2f63: 89 ca                        	movl	%ecx, %edx
+   b2f65: 81 f2 29 8e c9 3a            	xorl	$0x3ac98e29, %edx       # imm = 0x3AC98E29
+   b2f6b: 89 c7                        	movl	%eax, %edi
+   b2f6d: 81 f7 ae b8 fd 85            	xorl	$0x85fdb8ae, %edi       # imm = 0x85FDB8AE
+   b2f73: 09 d7                        	orl	%edx, %edi
+   b2f75: 8b 54 24 4c                  	movl	0x4c(%esp), %edx
+   b2f79: 89 54 24 38                  	movl	%edx, 0x38(%esp)
+   b2f7d: 8b 54 24 40                  	movl	0x40(%esp), %edx
+   b2f81: 89 54 24 34                  	movl	%edx, 0x34(%esp)
+   b2f85: 0f b7 54 24 0a               	movzwl	0xa(%esp), %edx
+   b2f8a: 89 54 24 0c                  	movl	%edx, 0xc(%esp)
+   b2f8e: 8b 54 24 50                  	movl	0x50(%esp), %edx
+   b2f92: 89 54 24 30                  	movl	%edx, 0x30(%esp)
+   b2f96: 8b 54 24 54                  	movl	0x54(%esp), %edx
+   b2f9a: 89 54 24 2c                  	movl	%edx, 0x2c(%esp)
+   b2f9e: 8b 54 24 58                  	movl	0x58(%esp), %edx
+   b2fa2: 89 54 24 28                  	movl	%edx, 0x28(%esp)
+   b2fa6: 8b 54 24 5c                  	movl	0x5c(%esp), %edx
+   b2faa: 89 54 24 20                  	movl	%edx, 0x20(%esp)
+   b2fae: 8b 54 24 60                  	movl	0x60(%esp), %edx
+   b2fb2: 89 54 24 24                  	movl	%edx, 0x24(%esp)
+   b2fb6: 8b 54 24 64                  	movl	0x64(%esp), %edx
+   b2fba: 89 54 24 1c                  	movl	%edx, 0x1c(%esp)
+   b2fbe: 8b 54 24 44                  	movl	0x44(%esp), %edx
+   b2fc2: 89 54 24 18                  	movl	%edx, 0x18(%esp)
+   b2fc6: 8b 54 24 3c                  	movl	0x3c(%esp), %edx
+   b2fca: 89 54 24 10                  	movl	%edx, 0x10(%esp)
+   b2fce: 8b 54 24 48                  	movl	0x48(%esp), %edx
+   b2fd2: 89 54 24 14                  	movl	%edx, 0x14(%esp)
+   b2fd6: 89 f7                        	movl	%esi, %edi
+   b2fd8: ba 26 e2 82 d5               	movl	$0xd582e226, %edx       # imm = 0xD582E226
+   b2fdd: bb 2c 9b 53 d6               	movl	$0xd6539b2c, %ebx       # imm = 0xD6539B2C
+   b2fe2: 0f 84 e9 fe ff ff            	je	0xb2ed1 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0xb3d>
+   b2fe8: 89 ca                        	movl	%ecx, %edx
+   b2fea: 81 f2 b5 32 df 83            	xorl	$0x83df32b5, %edx       # imm = 0x83DF32B5
+   b2ff0: 89 c7                        	movl	%eax, %edi
+   b2ff2: 81 f7 e4 7d 1b 86            	xorl	$0x861b7de4, %edi       # imm = 0x861B7DE4
+   b2ff8: 09 d7                        	orl	%edx, %edi
+   b2ffa: 8b 54 24 4c                  	movl	0x4c(%esp), %edx
+   b2ffe: 89 54 24 38                  	movl	%edx, 0x38(%esp)

@@ -1,0 +1,24 @@
+=== b5828 verifier ===
+cross-ABI FDE and sole producer caller: PASS
+Context, method and two JNI signatures decoded cross-ABI: PASS
+six JNI operations, five exception stages and two cleanup sites: PASS
+input gate, statuses 3/18/28 and result clearing: PASS
+C++ implementation, regression and coverage entry: PASS
+=== five-helper verifier ===
+four cross-ABI FDE/caller pairs: PASS
+class/method/signature constants decoded across both ABIs: PASS
+JNI vtable surfaces and three-stage exception handling: PASS
+status split including getSensorList call/null status 18: PASS
+C++ source, regression guards and coverage entries: PASS
+=== producer dependency verifier ===
+cross-ABI FDE, sole caller and {JNIEnv,Context,scratch} signature: PASS
+cross-ABI 13-helper mapping and sixteen once-init locks: PASS
+thirteen property/malloc stages and one pair-appender dependency: PASS
+Traceback (most recent call last):
+  File "/Users/sanbo/Desktop/api/qbdi/.omx/static-audit-20260713/analyze_detector_scratch_producer_8746c_progress.py", line 116, in <module>
+    main()
+  File "/Users/sanbo/Desktop/api/qbdi/.omx/static-audit-20260713/analyze_detector_scratch_producer_8746c_progress.py", line 109, in main
+    require(GENERATOR,
+  File "/Users/sanbo/Desktop/api/qbdi/.omx/static-audit-20260713/analyze_detector_scratch_producer_8746c_progress.py", line 27, in require
+    raise AssertionError(f"missing {label}: {pattern}")
+AssertionError: missing recovered dependency 0xa8978: 0x000A8978:\s*\(\"JNI\ size\-method\ reader\",\s*\"recovered\"

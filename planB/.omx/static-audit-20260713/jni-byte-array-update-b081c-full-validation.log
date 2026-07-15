@@ -1,0 +1,67 @@
+=== identities ===
+2026-07-15T06:58:58+0800
+cadcbe609479d568173140511e3a38b399f3a150d25eefd1ae07e09f011d0f1e  native-reimplementation/recovered_primitives.cpp
+f4b073203cbdb201df109a7339dc7f0954bd577e6c07aaf745f031481efcb013  .omx/static-audit-20260713/arm64-function-inventory.csv
+c669673e213db0520abb81377af8ebe3decb32ec99032a6aab8c34b0341b3cda  native-reimplementation/SO_FUNCTION_COVERAGE.md
+066887eeaf852bc310a1c75940c5588187878f116289a7d539493ce620285189  .omx/static-audit-20260713/analyze_jni_byte_array_update_b081c.py
+5428cc6ca8d5d115e7451da1a5c40f44f234c5c425d7df39dfa7063d83a8ca4c  .omx/static-audit-20260713/arm64-jni-byte-array-update-b081c.md
+=== dedicated verifier: b081c ===
+cross-ABI update([B)V constants: PASS
+cross-ABI update JNI/status/cleanup flow: PASS
+C++ regression and recovered JNI coverage: PASS
+=== adjacent verifier: 9816c ===
+cross-ABI JNI class-assignability flow: PASS
+C++ regression, ownership order and recovered coverage: PASS
+=== adjacent verifier: 917a8 ===
+cross-ABI BigInteger.toByteArray constants: PASS
+cross-ABI toByteArray JNI/status/output ownership: PASS
+cross-ABI unsigned-byte allocation/copy/cleanup envelope: PASS
+C++ regressions and two-FDE recovered coverage: PASS
+=== C++ syntax ===
+C++ syntax: PASS
+=== ordinary regression/oracles ===
+recovered native primitives: PASS
+AES-256 Pixel first block: 51da6894512660bd1e9809e7c17c3898
+Bionic rand-derived Pixel IV: 3b273362218b186a73e7349775b93f11
+custom-state SHA-256 Pixel field 4: PASS
+source-built Pixel payload: 113 plaintext bytes -> 128 ciphertext bytes
+HMAC-SHA256 Pixel ciphertext tag: 32 bytes
+Pixel native result layout: 16 IV + 128 ciphertext + 32 tag = 176 bytes
+complete source-built Pixel 176-byte signature: PASS
+corrections: 2b=d49d 36=b5d3 25=cacc 05=6ee6
+SIGNATURE_HEX=123549ac1e84afbe4c96620b74fe22321ff754e352209fad235c4c83b2d4063e1560946d440193da1451cccc148c32a09bd4e5e6eec3b057551645502d01c0633cc7a4df2c63a8bd74ce36903d3e09f4b0bb3c6cfacede9ed89f40feca71810ed44d8ce4d70d952831879f740e9027e9f24719a8db8913328d32f23c158b8ac4c3b5894f6df16c09a466152bd2179e8c86fd68442db22ba1b8d24612bd10990f72b555a3fbff26a686f009db0d90ed02
+timeSeconds=1760000001 original-SO oracle exact 176-byte match: PASS
+signerCodeTrampolineDetected=false original-SO oracle exact 176-byte match: PASS
+correction05Enabled=false original-SO oracle exact 176-byte match: PASS
+empty /proc/self/maps original-SO oracle exact 176-byte match: PASS
+missing /proc/self/maps original-SO oracle exact 176-byte match: PASS
+missing both /system/lib64/libart.so and ld-android.so correction 0x2f original-SO exact 176-byte match: PASS
+invalid Java HMAC correction 0x07 original-SO exact 176-byte match: PASS
+legacy API18 invalid Java HMAC corrections 0x07/0x3c original-SO exact 176-byte match: PASS
+changed device_name/nativePlaintext original-SO oracle exact 176-byte match: PASS
+missing android_id/country/device_name original-SO oracle exact 176-byte match: PASS
+APK/package certificate mismatch correction 0x2a original-SO oracle exact 176-byte match: PASS
+/proc/self/cmdline package mismatch correction 0x09 original-SO exact 176-byte match: PASS
+missing/empty /proc/self/cmdline correction 0x34 original-SO exact 176-byte match: PASS
+nine corrections -> 16 halfwords -> 129-byte payload -> 192-byte result original-SO exact match: PASS
+17 corrections -> 24 halfwords -> 145-byte payload -> 208-byte result original-SO exact match: PASS
+=== ASan+UBSan build ===
+=== ASan+UBSan run ===
+recovered native primitives: PASS
+AES-256 Pixel first block: 51da6894512660bd1e9809e7c17c3898
+Bionic rand-derived Pixel IV: 3b273362218b186a73e7349775b93f11
+custom-state SHA-256 Pixel field 4: PASS
+source-built Pixel payload: 113 plaintext bytes -> 128 ciphertext bytes
+HMAC-SHA256 Pixel ciphertext tag: 32 bytes
+Pixel native result layout: 16 IV + 128 ciphertext + 32 tag = 176 bytes
+complete source-built Pixel 176-byte signature: PASS
+corrections: 2b=d49d 36=b5d3 25=cacc 05=6ee6
+SIGNATURE_HEX=123549ac1e84afbe4c96620b74fe22321ff754e352209fad235c4c83b2d4063e1560946d440193da1451cccc148c32a09bd4e5e6eec3b057551645502d01c0633cc7a4df2c63a8bd74ce36903d3e09f4b0bb3c6cfacede9ed89f40feca71810ed44d8ce4d70d952831879f740e9027e9f24719a8db8913328d32f23c158b8ac4c3b5894f6df16c09a466152bd2179e8c86fd68442db22ba1b8d24612bd10990f72b555a3fbff26a686f009db0d90ed02
+ASan+UBSan: PASS (LeakSanitizer disabled on macOS)
+=== frozen recovered backend ===
+=== frozen recovered backend retry ===
+{"signed":true,"version":"V4","rawSignatureHex":"3b273362218b186a73e7349775b93f1151da6894512660bd1e9809e7c17c3898a2d0c5508f89e6c3022e6c8f7b442797abef7d1d32d8a04d887d2d1bf24b19b1f9ab2e878f79e9e4403f2fbb71ee5609443039c0ce6fc355892096d63e697e9ca2794cf0628c4403e0d6e9e452c356cbf881e5aebd431e2b583b6d923875d3eb9b3b2de520ab291ca72a1f1cd661d6af510d952d14921db3ae61537b5fccc21e45554bf72a6d107816fbbf28ebd8f6f7","signatureBase64":"OyczYiGLGGpz5zSXdbk/EVHaaJRRJmC9HpgJ58F8OJii0MVQj4nmwwIubI97RCeXq+99HTLYoE2IfS0b8ksZsfmrLoePeenkQD8vu3HuVglEMDnAzm/DVYkgltY+aX6conlM8GKMRAPg1unkUsNWy/iB5a69Qx4rWDttkjh10+ubOy3lIKspHKcqHxzWYdavUQ2VLRSSHbOuYVN7X8zCHkVVS/cqbRB4Fvu/KOvY9vc=","metadata":{"signature":"OyczYiGLGGpz5zSXdbk/EVHaaJRRJmC9HpgJ58F8OJii0MVQj4nmwwIubI97RCeXq+99HTLYoE2IfS0b8ksZsfmrLoePeenkQD8vu3HuVglEMDnAzm/DVYkgltY+aX6conlM8GKMRAPg1unkUsNWy/iB5a69Qx4rWDttkjh10+ubOy3lIKspHKcqHxzWYdavUQ2VLRSSHbOuYVN7X8zCHkVVS/cqbRB4Fvu/KOvY9vc=","adj_signing_id":"1400000","algorithm":"adj8","headers_id":"9","native_version":"3.67.0"},"output":{"environment":"sandbox","app_token":"abc123","created_at":"2026-07-10T00:00:00.000+0800","gps_adid":"11111111-1111-1111-1111-111111111111","android_id":"0123456789abcdef","device_type":"phone","device_name":"Pixel 9 Pro","os_name":"android","os_version":"15","language":"zh","country":"CN","headers_id":"9","adj_signing_id":"1400000","native_version":"3.67.0","algorithm":"adj8","signature":"OyczYiGLGGpz5zSXdbk/EVHaaJRRJmC9HpgJ58F8OJii0MVQj4nmwwIubI97RCeXq+99HTLYoE2IfS0b8ksZsfmrLoePeenkQD8vu3HuVglEMDnAzm/DVYkgltY+aX6conlM8GKMRAPg1unkUsNWy/iB5a69Qx4rWDttkjh10+ubOy3lIKspHKcqHxzWYdavUQ2VLRSSHbOuYVN7X8zCHkVVS/cqbRB4Fvu/KOvY9vc="}}
+recovered C++ backend exact frozen Pixel reference match OK
+Frozen recovered backend: PASS
+=== Maven offline compile ===
+Maven offline compile: PASS

@@ -1,0 +1,58 @@
+Compiled from "SourceFile"
+class com.adjust.sdk.sig.NativeLibHelper implements com.adjust.sdk.sig.a {
+  public com.adjust.sdk.sig.NativeLibHelper();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #13                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private native byte[] nSign(android.content.Context, java.lang.Object, byte[], int);
+    descriptor: (Landroid/content/Context;Ljava/lang/Object;[BI)[B
+
+  private native void nOnResume();
+    descriptor: ()V
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: ldc           #19                 // String signer
+       2: invokestatic  #25                 // Method java/lang/System.loadLibrary:(Ljava/lang/String;)V
+       5: goto          36
+       8: astore_0
+       9: new           #29                 // class java/lang/StringBuilder
+      12: dup
+      13: aload_0
+      14: swap
+      15: ldc           #31                 // String Signer Library could not be loaded:
+      17: invokespecial #33                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      20: invokevirtual #39                 // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+      23: invokevirtual #43                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      26: invokevirtual #46                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      29: ldc           #48                 // String NativeLibHelper
+      31: swap
+      32: invokestatic  #54                 // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+      35: pop
+      36: return
+    Exception table:
+       from    to  target type
+           0     8     8   Class java/lang/UnsatisfiedLinkError
+
+  public final byte[] a(android.content.Context, java.lang.Object, byte[], int);
+    descriptor: (Landroid/content/Context;Ljava/lang/Object;[BI)[B
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iload         4
+       6: invokespecial #57                 // Method nSign:(Landroid/content/Context;Ljava/lang/Object;[BI)[B
+       9: areturn
+
+  public final void a();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #59                 // Method nOnResume:()V
+       4: return
+}

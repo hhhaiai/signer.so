@@ -1,0 +1,491 @@
+>>> .omx/static-audit-20260713/analyze_android_keystore_keypair_cluster_91428.py
+cross-ABI generateKeyPair/signature/provider constants: PASS
+cross-ABI generateKeyPair JNI/status/output ownership: PASS
+cross-ABI AndroidKeyStore/load/generate failure envelope: PASS
+C++ regressions and two-FDE recovered coverage: PASS
+>>> .omx/static-audit-20260713/analyze_android_log_routing.py
+ANDROID_LOG_ROUTING_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_api23_keystore_resolver.py
+API23_KEYSTORE_RESOLVER_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_apk_signing_block_entries_127194.py
+ARM64/x86_64 raw uint64-size + uint32-ID loop: PASS
+v2 7109871a -> +0x18, v3 f05368c0 -> +0x28: PASS
+v3.1 1b93ad61 -> +0x38 and low32(size)-4 routing: PASS
+unknown checked-ftell bound, full64(size)-4 skip and status 7: PASS
+C++ EOF/status behavior, parser routes and regression hook: PASS
+>>> .omx/static-audit-20260713/analyze_apk_signing_block_locator_1259b8.py
+ARM64/x86_64 PK 01 02 and APK Sig Block 42 decode: PASS
+EOCD+12, absolute central-directory seek and signature status 3: PASS
+-20 magic read/status 5 and -24 footer offset/size publication: PASS
+modulo-64-bit 8-size seek, duplicate header read and status 6: PASS
+C++ operation order, owner +0x08/+0x10 layout and regression hook: PASS
+>>> .omx/static-audit-20260713/analyze_apple_iphone_detector_4b020.py
+arm64 apple/iphone detector 0x4b020 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_big_integer_unsigned_bytes_917a8.py
+cross-ABI BigInteger.toByteArray constants: PASS
+cross-ABI toByteArray JNI/status/output ownership: PASS
+cross-ABI unsigned-byte allocation/copy/cleanup envelope: PASS
+C++ regressions and two-FDE recovered coverage: PASS
+>>> .omx/static-audit-20260713/analyze_build_detector_421dc.py
+arm64 build detector 0x421dc evidence: PASS
+>>> .omx/static-audit-20260713/analyze_container_ownership_cluster_1222a8_123254.py
+CONTAINER_OWNERSHIP_CLUSTER_1222A8_123254_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_container_parser_cluster_12243c_123288.py
+arm64 environment dispatcher 0x143e8 evidence: PASS
+CONTAINER_PARSER_CLUSTER_12243C_123288_STATIC_VM_OK
+>>> .omx/static-audit-20260713/analyze_context_dynamic_pair.py
+CONTEXT_DYNAMIC_PAIR_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_correction_basis_transpose_135050_full.py
+arm64/x86_64 correction-basis transpose 0x135050: PASS
+>>> .omx/static-audit-20260713/analyze_cpu_feature_constructor_139d04.py
+fixed ro.arch and exynos9810 constructor strings: PASS
+constructor gate, property prefix and aux descriptor flow: PASS
+C++ wrapper model, regression and separate recovered callee: PASS
+>>> .omx/static-audit-20260713/analyze_cpu_feature_decoder_1398cc.py
+ARM64 global gate, descriptor, feature inputs and publications: PASS
+caller-only input surface, presence gates, regression and coverage: PASS
+>>> .omx/static-audit-20260713/analyze_descriptor_batch_24444.py
+DESCRIPTOR_BATCH_24444_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_descriptor_matcher_42eb0.py
+arm64 descriptor any-match wrapper 0x42eb0 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_descriptor_predicates_23730.py
+arm64 descriptor dispatcher 0x23730 kinds 0..8: PASS
+>>> .omx/static-audit-20260713/analyze_detector_context_flag_leaves.py
+twenty exact ARM64 context+0xe0 flag-mask leaves: PASS
+three standalone ARM64 RET-only FDE leaves: PASS
+C++ address/mask mapping, no-op model and coverage guards: PASS
+>>> .omx/static-audit-20260713/analyze_detector_fanout_7ba5c.py
+arm64 detector fanout 0x7ba5c direct orchestration evidence: PASS
+>>> .omx/static-audit-20260713/analyze_detector_fixed_matcher_7bbb0.py
+arm64 detector fixed marker matcher 0x7bbb0 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_detector_jni_object_pipeline.py
+four cross-ABI FDE/caller pairs: PASS
+class/method/signature constants decoded across both ABIs: PASS
+JNI vtable surfaces and three-stage exception handling: PASS
+status split including getSensorList call/null status 18: PASS
+C++ source, regression guards and coverage entries: PASS
+>>> .omx/static-audit-20260713/analyze_detector_marker_matcher_868b4.py
+arm64/x86_64 detector marker matcher 0x868b4 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_detector_predicate_352d4.py
+arm64 detector predicate 0x352d4 and helper 0x36bfc evidence: PASS
+>>> .omx/static-audit-20260713/analyze_detector_record_filter_34f9c.py
+DETECTOR_RECORD_FILTER_34F9C_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_detector_record_stages_13dc8_14078.py
+ARM64 0x13dc8 / x86_64 0x1668d packed stage: PASS
+ARM64 0x14078 / x86_64 0x168bd loopback stage: PASS
+shared 15000ms threshold and success/failure ordering: PASS
+corrections 04/0a/32 and final masks: PASS
+>>> .omx/static-audit-20260713/analyze_detector_scratch_appender_8f56c.py
+ARM64/x86_64 FDEs and sole five-argument callers: PASS
+127-entry capacity gate and reserved all-null slot: PASS
+two independent malloc(length+1) stages and two cleanup frees: PASS
+forward raw-byte copies and NUL termination for both inputs: PASS
+success-only pair publication and ordered failure rollback: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_detector_scratch_destructor_8fb44.py
+ARM64/x86_64 FDEs, sole callers, null gate and ten free sites: PASS
+eight fixed fields, field clearing, and untouched +0x40/+0x870: PASS
+all-null sentinel loop and first-before-second slot cleanup: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_detector_scratch_failure_publication_8746c.py
+thirteen x86 helper calls and failure/success state pairs: PASS
+all thirteen flattened failure aliases and cleanup entries: PASS
+service status 0x24 and width/height status 0x1d normalization: PASS
+sensor/display status cells reach the x86_64 return value: PASS
+post-appender index increment occurs after both status outcomes: PASS
+ARM64 fixed statuses and final w20 return corroborate x86_64: PASS
+C++ exact native-status model and regressions: PASS
+sole caller and all producer exit classes use the native destructor envelope: PASS
+0x8746c function-level coverage is recovered: PASS
+>>> .omx/static-audit-20260713/analyze_detector_scratch_producer_8746c_progress.py
+cross-ABI FDE, sole caller and {JNIEnv,Context,scratch} signature: PASS
+cross-ABI 13-helper mapping and sixteen once-init locks: PASS
+thirteen property/malloc stages and one pair-appender dependency: PASS
+all direct JNI producer dependencies are recovered and explicit: PASS
+producer coverage generator entry is recovered: PASS
+>>> .omx/static-audit-20260713/analyze_detector_scratch_property_pipeline_8746c.py
+thirteen dispatcher and thirteen malloc sites per ABI: PASS
+thirteen XOR-decoded names and cross-ABI call sites: PASS
+twelve publish-previous-stage edges before calls 2..13: PASS
+shared 0x60 stack buffer and final +0x68 publication: PASS
+thirteen allocation failures clear the current field and return 2: PASS
+observation-only order, shared output pointer and 13 scratch fields: PASS
+C++ caller inputs, all 13 descriptors and failure regressions: PASS
+>>> .omx/static-audit-20260713/analyze_detector_sensor_display_pipeline_8746c.py
+cross-ABI sensor-list, size and indexed get loop inputs: PASS
+cross-ABI name/vendor UTF acquisition and pair append: PASS
+cross-ABI post-appender increment and signed index<count gate: PASS
+cross-ABI two UTF releases and seven local-ref cleanup sites: PASS
+two-sensor execution proves overwrite-without-per-iteration cleanup: PASS
+128-sensor run proves count 127, status 0x26 and display skip: PASS
+C++ success/failure model, cleanup quirk and recovered coverage: PASS
+>>> .omx/static-audit-20260713/analyze_detector_wrappers_40c70_44c38.py
+arm64 detector wrappers 0x40c70/0x44c38 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_detectors_40ffc_418e8.py
+arm64 detectors 0x40ffc/0x418e8 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_detectors_43104_44db0.py
+arm64 detectors 0x43104/0x439a8/0x442ec/0x44db0 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_detectors_456b8_47f94.py
+arm64 detectors 0x456b8/0x47f94 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_entropy_seed_12f3ac_full.py
+arm64/x86_64 entropy seed producer 0x12f3ac: PASS
+>>> .omx/static-audit-20260713/analyze_environment_dispatcher_143e8.py
+arm64 environment dispatcher 0x143e8 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_environment_probe_2c618.py
+ARM64/x86_64 FDE ranges: PASS
+cross-ABI property names and raspberry marker: PASS
+cross-ABI XOR-once initialization protocol: PASS
+cross-ABI record layout and count-to-bool return: PASS
+environment dispatcher correction 0x28 edge: PASS
+C++ implementation, regression and coverage: PASS
+>>> .omx/static-audit-20260713/analyze_environment_probe_2cc9c.py
+ARM64/x86_64 FDE ranges: PASS
+cross-ABI property names and minical/vcloud/Scorpio markers: PASS
+cross-ABI eight-string XOR-once lock protocol: PASS
+cross-ABI five-record layout and count-to-bool return: PASS
+environment dispatcher correction 0x2c edge: PASS
+C++ implementation, regression and recovered coverage: PASS
+>>> .omx/static-audit-20260713/analyze_environment_stage_f328.py
+arm64/x86_64 environment stage 0xf328 direct-orchestration evidence: PASS
+>>> .omx/static-audit-20260713/analyze_environment_stage_fce0.py
+arm64 environment stage 0xfce0 complete evidence: PASS
+>>> .omx/static-audit-20260713/analyze_expected_java_hmac.py
+EXPECTED_JAVA_HMAC_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_file_list_aliases_and_payload_1203e4_1206d0.py
+FILE_LIST_ALIASES_PAYLOAD_1203E4_1206D0_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_file_list_record_reader_11fe4c.py
+FILE_LIST_RECORD_READER_11FE4C_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_file_list_sequence_reader_12014c.py
+FILE_LIST_SEQUENCE_READER_12014C_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_final_consumer.py
+>>> .omx/static-audit-20260713/analyze_final_consumer_11da64.py
+arm64 final consumer 0x11da64 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_final_descriptors.py
+FINAL_NINE_DESCRIPTORS_STATIC_OK output=/Users/sanbo/Desktop/api/qbdi/.omx/static-audit-20260713/arm64-final-nine-descriptors.md
+>>> .omx/static-audit-20260713/analyze_fingerprint_descriptor_detector_456b8.py
+arm64 fingerprint descriptor detector 0x456b8 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_frida_server_probe_1309cc.py
+arm64 Frida-server probe 0x1309cc evidence: PASS
+>>> .omx/static-audit-20260713/analyze_generic_either_field_detector_47788.py
+arm64 generic either-field detector 0x47788 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_getline_helper_d6ed8.py
+ARM64/x86_64 FDEs, callers and 28 opaque states: PASS
+full incoming-buffer clear and 128-byte fgets loop: PASS
+newline stripping, append/EOF and NUL publication: PASS
+capacity rounding and direct realloc-failure state: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_google_phone_detector_47f94.py
+arm64 google-phone detector 0x47f94 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_hmac_fail_open.py
+HMAC_FAIL_OPEN_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_indexed_string_materializer_d1bf4.py
+ARM64 0xd1bf4..0xd2018 indexed-string evidence: PASS
+x86_64 0xbf838..0xbfb83 indexed-string evidence: PASS
+UINT32_MAX sentinel resolves to static empty string: PASS
+native index/string bounds checks: absent
+>>> .omx/static-audit-20260713/analyze_itools_detector_490f0.py
+arm64 itools detector 0x490f0 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_java_mac_producer.py
+JAVA_MAC_PRODUCER_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_java_retry_lockdown.py
+JAVA_RETRY_LOCKDOWN_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_jni_acquisition_helpers_92b24_92ddc.py
+JNI_ACQUISITION_HELPERS_92B24_92DDC_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_jni_apk_contents_signers_c2b78.py
+cross-ABI SigningInfo APK-content-signers constants: PASS
+cross-ABI APK-content-signers JNI/status/ownership flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_byte_array_elements_95110.py
+JNI_BYTE_ARRAY_ELEMENTS_95110_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_jni_byte_array_update_b081c.py
+cross-ABI update([B)V constants: PASS
+cross-ABI update JNI/status/cleanup flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_certificate_selector_1dde0.py
+cross-ABI exact direct helper set and parent FDEs: PASS
+cross-ABI status branching and SigningInfo->PackageInfo->PackageManager->packageName cleanup blocks: PASS
+cross-ABI caller six-argument/output contract: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_cipher_init_96ea8.py
+cross-ABI Cipher.init(int,Key) constants: PASS
+cross-ABI Cipher.init JNI/status/cleanup flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_class_assignable_9816c.py
+cross-ABI JNI class-assignability flow: PASS
+C++ regression, ownership order and recovered coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_display_metrics_getter_bce98.py
+cross-ABI FDEs and sole detector-producer caller: PASS
+cross-ABI getDisplayMetrics / DisplayMetrics signature: PASS
+four JNI vtable methods and three exception stages: PASS
+statuses 3/18/28, null-result rejection, cleanup and clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_jni_exception_consumer_92a20.py
+arm64 JNI exception consumer 0x92a20 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_jni_get_package_info_ba914.py
+cross-ABI PackageManager.getPackageInfo constants: PASS
+cross-ABI getPackageInfo JNI/status/ownership flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_has_multiple_signers_c4064.py
+cross-ABI SigningInfo.hasMultipleSigners constants: PASS
+cross-ABI hasMultipleSigners JNI/status/ownership flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_indexed_object_method_reader_a948c.py
+cross-ABI FDEs and sole detector-producer caller: PASS
+cross-ABI get / (I)Ljava/lang/Object; constants: PASS
+four JNI vtable methods, int index and three exception stages: PASS
+statuses 3/18/28, null-result rejection, cleanup and clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_jni_int_field_reader_b21b4.py
+cross-ABI FDEs and two detector-producer call sites: PASS
+heightPixels/widthPixels names and JNI signature I: PASS
+four JNI vtable methods and three exception-consumer calls: PASS
+statuses 3/18/28, class-null cleanup gate and output clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_jni_legacy_signatures_field_b8830.py
+cross-ABI legacy PackageInfo.signatures constants: PASS
+cross-ABI legacy signatures JNI/status/ownership flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_message_digest_digest_b0f38.py
+cross-ABI MessageDigest.digest overload constants: PASS
+cross-ABI digest JNI/status/ownership and caller flow: PASS
+original-SO MessageDigest.digest natural no-arg path: PASS
+C++ implementation, regression and recovered coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_package_manager_b3bf4.py
+cross-ABI Context.getPackageManager constants: PASS
+cross-ABI getPackageManager JNI/status/ownership flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_package_name_b3230.py
+cross-ABI Context.getPackageName constants: PASS
+cross-ABI getPackageName JNI/status/ownership flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_result_materialization.py
+JNI_RESULT_MATERIALIZATION_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_jni_signature_to_byte_array_c2248.py
+cross-ABI Signature.toByteArray constants: PASS
+cross-ABI Signature.toByteArray JNI/status/ownership flow: PASS
+original-SO Signature.toByteArray natural JNI path: PASS
+C++ shared implementation, regression and recovered coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_signing_certificate_history_c375c.py
+cross-ABI SigningInfo certificate-history constants: PASS
+cross-ABI certificate-history JNI/status/ownership flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_signing_info_field_b9424.py
+cross-ABI PackageInfo.signingInfo constants: PASS
+cross-ABI signingInfo JNI/status/ownership flow: PASS
+C++ regression and recovered JNI coverage: PASS
+>>> .omx/static-audit-20260713/analyze_jni_size_method_reader_a8978.py
+cross-ABI FDEs and sole detector-producer caller: PASS
+cross-ABI size / ()I once-decoded constants: PASS
+four JNI vtable methods and three exception-consumer calls: PASS
+statuses 3/18/28, class cleanup and final output clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_jni_string_utf_length_927c4.py
+arm64 JNI GetStringUTFLength helper 0x927c4 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_jni_system_service_getter_b5828.py
+cross-ABI FDE and sole producer caller: PASS
+Context, method and two JNI signatures decoded cross-ABI: PASS
+six JNI operations, five exception stages and two cleanup sites: PASS
+input gate, statuses 3/18/28 and result clearing: PASS
+C++ implementation, regression and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_jni_throw_exception_b1e40.py
+four-ABI XOR-once java/lang/Exception plaintext: PASS
+ARM64 once init, FindClass, status, ThrowNew and cleanup: PASS
+x86_64 FDE and JNI behavior parity: PASS
+C++ implementation, regression and coverage: PASS
+>>> .omx/static-audit-20260713/analyze_large_container_ownership_1238ec_124a20.py
+LARGE_CONTAINER_OWNERSHIP_1238EC_124A20_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_large_container_parser_123a80_124a24.py
+arm64 environment dispatcher 0x143e8 evidence: PASS
+CONTAINER_PARSER_CLUSTER_12243C_123288_STATIC_VM_OK
+LARGE_CONTAINER_PARSER_123A80_124A24_STATIC_VM_OK
+>>> .omx/static-audit-20260713/analyze_legacy_key_resolver.py
+LEGACY_KEY_RESOLVER_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_legacy_key_resolver_c9988_full.py
+arm64 legacy wrapped-key resolver 0xc9988 full evidence: PASS
+>>> .omx/static-audit-20260713/analyze_map_metadata_jni.py
+MAP_METADATA_JNI_STATIC_OK output=/Users/sanbo/Desktop/api/qbdi/.omx/static-audit-20260713/arm64-map-metadata-jni.md
+>>> .omx/static-audit-20260713/analyze_map_plaintext_materializer_11d798.py
+arm64 Map plaintext materializer 0x11d798 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_map_put_cleanup.py
+MAP_PUT_CLEANUP_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_map_remove_cleanup.py
+MAP_REMOVE_CLEANUP_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_map_selected_value_walker_11ba78.py
+arm64 JNI Map selected-value walker 0x11ba78 boundary evidence: PASS
+>>> .omx/static-audit-20260713/analyze_map_selected_value_walker_11ba78_full.py
+arm64 JNI Map selected-value walker 0x11ba78 full evidence: PASS
+>>> .omx/static-audit-20260713/analyze_mapped_file_destructor_d3d90.py
+MAPPED_FILE_DESTRUCTOR_D3D90_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_metadata_area_resolver_d313c.py
+ARM64/x86_64 FDEs, caller and 14 opaque states: PASS
+dot-separated +0x18 prefix descent: PASS
+final +0x28 exact lookup and second-string return: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_module_runtime_scaffolding_8070.py
+five exact ARM64 module runtime FDE bodies: PASS
+C++ runtime callbacks, regression and recovered coverage: PASS
+>>> .omx/static-audit-20260713/analyze_native_context_init.py
+NATIVE_CONTEXT_INIT_AUDIT_PASS
+>>> .omx/static-audit-20260713/analyze_native_result_builder_transaction.py
+NATIVE_RESULT_BUILDER_TRANSACTION_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_native_signing_context_orchestrator.py
+NATIVE_SIGNING_CONTEXT_ORCHESTRATOR_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_new_string_utf_helper_8af4.py
+arm64 reserved Map value helper 0x8af4 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_nsign_hmac_flow.py
+NSIGN_JAVA_HMAC_STATIC_OK output=/Users/sanbo/Desktop/api/qbdi/.omx/static-audit-20260713/arm64-nsign-java-hmac-flow.md
+>>> .omx/static-audit-20260713/analyze_nsign_jni_orchestrator.py
+NSIGN_JNI_ORCHESTRATOR_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_nsign_jni_orchestrator_full.py
+arm64 nSign JNI orchestrator 0xcc604 full evidence: PASS
+>>> .omx/static-audit-20260713/analyze_nsign_support_helpers.py
+NSIGN_SUPPORT_HELPERS_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_opaque_helpers.py
+>>> .omx/static-audit-20260713/analyze_owned_pointer108_check.py
+OWNED_POINTER108_CHECK_AUDIT_PASS
+>>> .omx/static-audit-20260713/analyze_owned_pointer108_producer.py
+OWNED_POINTER108_PRODUCER_AUDIT_PASS
+>>> .omx/static-audit-20260713/analyze_owned_pointer110_producer.py
+OWNED_POINTER110_PRODUCER_AUDIT_PASS
+>>> .omx/static-audit-20260713/analyze_owned_pointer_array_destructor_c8c44.py
+OWNED_POINTER_ARRAY_DESTRUCTOR_C8C44_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_owned_string_pair_d2018.py
+ARM64 0xd2018..0xd22d4 two-stage ownership evidence: PASS
+x86_64 0xbfb83..0xbfe08 two-stage ownership evidence: PASS
+stage two requires status zero: PASS
+failure cleanup order first then second: PASS
+>>> .omx/static-audit-20260713/analyze_package_suffix_helper.py
+PACKAGE_SUFFIX_HELPER_AUDIT_PASS
+>>> .omx/static-audit-20260713/analyze_packed_transition_34820.py
+ARM64 0x34820..0x34954 instruction evidence: PASS
+x86_64 0x32955..0x32a17 instruction evidence: PASS
+packed transition truth table: PASS
+>>> .omx/static-audit-20260713/analyze_packed_transition_counter_34bf4.py
+ARM64 0x34bf4..0x34f9c packed-counter evidence: PASS
+x86_64 0x32c82..0x32f48 packed-counter evidence: PASS
+counter width: uint16_t modulo 65536
+>>> .omx/static-audit-20260713/analyze_parser_owner_constructor_124c90.py
+ARM64 0x124c90..0x125074 parser-owner constructor: PASS
+x86_64 0x11cb9c..0x11cf06 constructor parity: PASS
+R_OK, decoded rb mode, status 2/1 branches: PASS
+FILE* +0x00 and +0x18/+0x28/+0x38 initialization: PASS
+allocation-failure stream leak preserved and documented: PASS
+>>> .omx/static-audit-20260713/analyze_parser_owner_destructor_125074.py
+ARM64 0x125074..0x125210 parser-owner evidence: PASS
+x86_64 0x11cf06..0x11d040 parser-owner evidence: PASS
+null owner no-op: PASS
+stream close/clear before +0x18/+0x28/+0x38/free: PASS
+>>> .omx/static-audit-20260713/analyze_path_existence_counter_1f95c.py
+PATH_EXISTENCE_COUNTER_1F95C_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_post_detector_pair_wrappers.py
+arm64 post-detector pair wrappers evidence: PASS
+>>> .omx/static-audit-20260713/analyze_post_detector_predicate_59658.py
+arm64 post-detector predicate 0x59658 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_post_detector_predicate_6c590.py
+arm64 post-detector predicate 0x6dbbc evidence: PASS
+arm64 helper 0x58498 and post-detector predicate 0x6c590 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_post_detector_predicate_6dbbc.py
+arm64 post-detector predicate 0x6dbbc evidence: PASS
+>>> .omx/static-audit-20260713/analyze_post_detector_predicate_78f68.py
+arm64 post-detector predicate 0x78f68 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_post_detector_predicates_76f2c_77f7c.py
+arm64 post-detector predicates 0x76f2c/0x77f7c evidence: PASS
+>>> .omx/static-audit-20260713/analyze_post_detector_stage_12a30.py
+arm64 post-detector stage 0x12a30 orchestration/direct evidence: PASS
+>>> .omx/static-audit-20260713/analyze_proc_maps_scanner_d78b8_full.py
+arm64 proc maps scanner 0xd78b8 full evidence: PASS
+>>> .omx/static-audit-20260713/analyze_property_info_source_d352c.py
+ARM64/x86_64 FDEs, caller and 23 opaque states: PASS
+decoded /dev/__properties__/property_info path: PASS
+access/openat/fstat/size statuses 2/8/10/12: PASS
+read-only private mmap and unchecked first-24-byte copy: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_protected_engine_algorithm_selection.py
+instructions=42732
+conditional_branches=7114
+status_exit_branches=6499
+immediate_ldr_w8_x19_status_guards=6493
+direct_call_sites=7223
+unique_direct_targets=17
+indirect_blr_calls=0
+top_branch_targets=
+  0xf214c:6499
+  0xf23c8:108
+  0x11ba64:66
+  0x119b10:22
+  0x0:3
+  0xf6180:2
+  0xf9e28:2
+  0xf205c:1
+  0x1f:1
+  0xf1f74:1
+alternate_suite_ascii_hits=
+  arm64-v8a:{}
+  armeabi-v7a:{}
+  x86:{}
+  x86_64:{}
+>>> .omx/static-audit-20260713/analyze_protected_engine_full.py
+arm64 protected engine 0xf1ec8 full static VM Pixel vector: PASS
+executed_instructions=8009752
+direct_calls=1316791
+output_bytes=176
+>>> .omx/static-audit-20260713/analyze_protected_engine_input_init.py
+arm64 protected engine 0xf1ec8 descriptor import evidence: PASS
+>>> .omx/static-audit-20260713/analyze_protected_random_helpers_full.py
+arm64 protected random helpers 0x12f298..0x12f3ac/0x134f40: PASS
+>>> .omx/static-audit-20260713/analyze_public_source_digest_check.py
+PUBLIC_SOURCE_DIGEST_CHECK_AUDIT_PASS
+>>> .omx/static-audit-20260713/analyze_public_source_list_check.py
+PUBLIC_SOURCE_LIST_CHECK_AUDIT_PASS
+>>> .omx/static-audit-20260713/analyze_public_source_list_producer.py
+PUBLIC_SOURCE_LIST_PRODUCER_AUDIT_PASS
+>>> .omx/static-audit-20260713/analyze_readable_file_descriptor_batch_23274.py
+READABLE_FILE_DESCRIPTOR_BATCH_23274_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_readable_file_reader_d6a2c.py
+READABLE_FILE_READER_D6A2C_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_record_cross_match_34954.py
+ARM64 0x34954..0x34bf4 record-match evidence: PASS
+x86_64 0x32a17..0x32c82 record-match evidence: PASS
+counter width: uint16_t modulo 65536
+>>> .omx/static-audit-20260713/analyze_recursive_metadata_destructor_d22d4.py
+ARM64/x86_64 FDEs, four callers and 21 opaque states: PASS
+0x30-byte recursive node layout and two child arrays: PASS
+depth-first array/string release and clear order: PASS
+0xd4220 content-then-outer free wrapper: PASS
+C++ implementation, regression guard and coverage entries: PASS
+>>> .omx/static-audit-20260713/analyze_recursive_metadata_parser_d28d0.py
+ARM64/x86_64 FDEs, callers and 24 opaque states: PASS
+0x1c descriptor and source-relative cursor redirects: PASS
+recursive +0x18 and pair-only +0x28 array construction: PASS
+post-success count publication and d22d4 rollback: PASS
+C++ implementation, regression guard and coverage entry: PASS
+>>> .omx/static-audit-20260713/analyze_repeated_file_parser_cluster_120858_121aac.py
+REPEATED_FILE_PARSER_CLUSTER_120858_121AAC_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_signer_code_trampoline_13063c.py
+arm64 signer-code trampoline detector 0x13063c evidence: PASS
+>>> .omx/static-audit-20260713/analyze_slice_string_materializer_d1a38.py
+ARM64 0xd1a38..0xd1bf4 slice materializer evidence: PASS
+x86_64 0xbf6d3..0xbf838 slice materializer evidence: PASS
+UINT32_MAX allocation request: 0x100000000 bytes
+>>> .omx/static-audit-20260713/analyze_substring_predicate_127a78.py
+arm64 substring predicate 0x127a78 evidence: PASS
+>>> .omx/static-audit-20260713/analyze_system_property_compatibility_d4244_d4678.py
+SYSTEM_PROPERTY_COMPATIBILITY_D4244_D4678_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_system_property_metadata_init_d3ff0.py
+SYSTEM_PROPERTY_METADATA_INIT_D3FF0_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_three_file_list_parser_121adc.py
+THREE_FILE_LIST_PARSER_121ADC_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_timestamp_log_frontend.py
+TIMESTAMP_LOG_FRONTEND_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_tracerpid_periodic_callback.py
+TRACERPID_PERIODIC_CALLBACK_STATIC_OK
+>>> .omx/static-audit-20260713/analyze_unordered_fixed_pair_matcher_87158.py
+ARM64 0x87158 / x86_64 0x881ea fixed table: PASS
+eight display-dimension pairs and width/height +0x60/+0x64 layout: PASS
+forward/reversed pair acceptance and exhausted false: PASS
+>>> .omx/static-audit-20260713/analyze_zip_eocd_cluster_125210_125770.py
+ARM64/x86_64 EOCD marker 50 4b 05 06: PASS
+0x125210/0x11d040 checked four-byte matcher: PASS
+0x125770/0x11d3b2 offsets -22..-65556: PASS
+exhaustion sentinel -65557 and stop conditions: PASS
+ALL_STATIC_ANALYZERS_PASS count=148

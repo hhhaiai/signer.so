@@ -39,3 +39,8 @@
 - 根据用户“这是一个工程、签名不是固定常量”的使用视角，新增独立 `RUNBOOK.md`：覆盖首次构建、默认/SDK30 运行、自定义 JSON/有序参数、package/certificate/key2/HMAC、输出语义、fat jar 部署、子进程/Java 集成、退出码、trace、故障排查、升级和上线检查清单；根 `README.md` 已添加入口。
 - 运行手册已验证：从 `/tmp` 执行 `run.sh --help` 成功，所有关键文件存在，CLI 选项与文档一致，Markdown code fence 成对，SDK23/30 示例由已保存的真实运行结果支撑。
 - 生成正式 Word 操作手册 `libsigner工程操作手册.docx`：包含封面、目录、快速运行、参数、输出、fat jar 部署、子进程/Java 集成、trace、故障排查、升级与上线检查。ZIP/OOXML 完整性、heading/section/style/table geometry/field/a11y 审计通过，3 张表格宽度与单元格几何一致，无占位符。QuickLook 首屏预览无明显裁切；因本机未安装 LibreOffice/`soffice`，未能执行标准全页 PNG 渲染门禁。
+
+## 2026-07-15
+
+- 启动 Phase 11：归档 `adjust/adjust_signature_sdk` GitHub Releases 的所有版本与全部 SDK 附件，目标目录为 `adjust_signature_sdk/`。
+- 将先通过 GitHub API 分页生成 release/asset 清单，再断点下载并按远端 size 做完整性核对。

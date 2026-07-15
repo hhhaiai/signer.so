@@ -1,0 +1,763 @@
+
+adjust-android-signature-3.67.0/jni/arm64-v8a/libsigner.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+000000000008fb44 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3bf48>:
+   8fb44:	d10303ff 	sub	sp, sp, #0xc0
+   8fb48:	a9067bfd 	stp	x29, x30, [sp, #96]
+   8fb4c:	a9076ffc 	stp	x28, x27, [sp, #112]
+   8fb50:	a90867fa 	stp	x26, x25, [sp, #128]
+   8fb54:	a9095ff8 	stp	x24, x23, [sp, #144]
+   8fb58:	a90a57f6 	stp	x22, x21, [sp, #160]
+   8fb5c:	a90b4ff4 	stp	x20, x19, [sp, #176]
+   8fb60:	910183fd 	add	x29, sp, #0x60
+   8fb64:	d28790e8 	mov	x8, #0x3c87                	// #15495
+   8fb68:	d28bea69 	mov	x9, #0x5f53                	// #24403
+   8fb6c:	f2b7c908 	movk	x8, #0xbe48, lsl #16
+   8fb70:	f2bc0da9 	movk	x9, #0xe06d, lsl #16
+   8fb74:	f2cbf6a8 	movk	x8, #0x5fb5, lsl #32
+   8fb78:	f2d2d8e9 	movk	x9, #0x96c7, lsl #32
+   8fb7c:	f100001f 	cmp	x0, #0x0
+   8fb80:	f2eb4968 	movk	x8, #0x5a4b, lsl #48
+   8fb84:	f2eafc29 	movk	x9, #0x57e1, lsl #48
+   8fb88:	d286a3dc 	mov	x28, #0x351e                	// #13598
+   8fb8c:	9a88013a 	csel	x26, x9, x8, eq	// eq = none
+   8fb90:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   8fb94:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   8fb98:	d29309b8 	mov	x24, #0x984d                	// #38989
+   8fb9c:	d29daef9 	mov	x25, #0xed77                	// #60791
+   8fba0:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   8fba4:	d2995ad5 	mov	x21, #0xcad6                	// #51926
+   8fba8:	d297ec3b 	mov	x27, #0xbf61                	// #48993
+   8fbac:	d284830e 	mov	x14, #0x2418                	// #9240
+   8fbb0:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   8fbb4:	d29131a9 	mov	x9, #0x898d                	// #35213
+   8fbb8:	f2b2309c 	movk	x28, #0x9184, lsl #16
+   8fbbc:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   8fbc0:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   8fbc4:	f2b28518 	movk	x24, #0x9428, lsl #16
+   8fbc8:	f2a42c59 	movk	x25, #0x2162, lsl #16
+   8fbcc:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   8fbd0:	f2b418d5 	movk	x21, #0xa0c6, lsl #16
+   8fbd4:	f2a3377b 	movk	x27, #0x19bb, lsl #16
+   8fbd8:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   8fbdc:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   8fbe0:	f2aad789 	movk	x9, #0x56bc, lsl #16
+   8fbe4:	f2c5adbc 	movk	x28, #0x2d6d, lsl #32
+   8fbe8:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   8fbec:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   8fbf0:	f2d4df78 	movk	x24, #0xa6fb, lsl #32
+   8fbf4:	f2d7a759 	movk	x25, #0xbd3a, lsl #32
+   8fbf8:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   8fbfc:	f2cb1975 	movk	x21, #0x58cb, lsl #32
+   8fc00:	f2db55bb 	movk	x27, #0xdaad, lsl #32
+   8fc04:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   8fc08:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   8fc0c:	f2d1fe89 	movk	x9, #0x8ff4, lsl #32
+   8fc10:	aa0003f3 	mov	x19, x0
+   8fc14:	f2f93cdc 	movk	x28, #0xc9e6, lsl #48
+   8fc18:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   8fc1c:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   8fc20:	f2f0d3f8 	movk	x24, #0x869f, lsl #48
+   8fc24:	f2f080d9 	movk	x25, #0x8406, lsl #48
+   8fc28:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   8fc2c:	f2f094b5 	movk	x21, #0x84a5, lsl #48
+   8fc30:	f2f139db 	movk	x27, #0x89ce, lsl #48
+   8fc34:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   8fc38:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   8fc3c:	f2f59169 	movk	x9, #0xac8b, lsl #48
+   8fc40:	aa0003f4 	mov	x20, x0
+   8fc44:	eb19013f 	cmp	x9, x25
+   8fc48:	54001f80 	b.eq	90038 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3ba54>  // b.none
+   8fc4c:	aa0903e8 	mov	x8, x9
+   8fc50:	eb15013f 	cmp	x9, x21
+   8fc54:	54002040 	b.eq	9005c <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3ba30>  // b.none
+   8fc58:	eb18011f 	cmp	x8, x24
+   8fc5c:	540021a0 	b.eq	90090 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b9fc>  // b.none
+   8fc60:	eb1b011f 	cmp	x8, x27
+   8fc64:	540022e0 	b.eq	900c0 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b9cc>  // b.none
+   8fc68:	eb0b011f 	cmp	x8, x11
+   8fc6c:	54002640 	b.eq	90134 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b958>  // b.none
+   8fc70:	eb0d011f 	cmp	x8, x13
+   8fc74:	54002740 	b.eq	9015c <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b930>  // b.none
+   8fc78:	eb0a011f 	cmp	x8, x10
+   8fc7c:	54002be0 	b.eq	901f8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b894>  // b.none
+   8fc80:	d28e0569 	mov	x9, #0x702b                	// #28715
+   8fc84:	aa1403e0 	mov	x0, x20
+   8fc88:	f2ba1109 	movk	x9, #0xd088, lsl #16
+   8fc8c:	eb0f011f 	cmp	x8, x15
+   8fc90:	f2d4ed69 	movk	x9, #0xa76b, lsl #32
+   8fc94:	f2eb7a69 	movk	x9, #0x5bd3, lsl #48
+   8fc98:	54fffd40 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8fc9c:	eb0e011f 	cmp	x8, x14
+   8fca0:	54002f20 	b.eq	90284 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b808>  // b.none
+   8fca4:	d29131ac 	mov	x12, #0x898d                	// #35213
+   8fca8:	aa1403e0 	mov	x0, x20
+   8fcac:	f2aad78c 	movk	x12, #0x56bc, lsl #16
+   8fcb0:	aa1a03e9 	mov	x9, x26
+   8fcb4:	f2d1fe8c 	movk	x12, #0x8ff4, lsl #32
+   8fcb8:	f2f5916c 	movk	x12, #0xac8b, lsl #48
+   8fcbc:	eb0c011f 	cmp	x8, x12
+   8fcc0:	54fffc00 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8fcc4:	d29ed4e9 	mov	x9, #0xf6a7                	// #63143
+   8fcc8:	f2bbe629 	movk	x9, #0xdf31, lsl #16
+   8fccc:	f2dde0a9 	movk	x9, #0xef05, lsl #32
+   8fcd0:	f2f5c7c9 	movk	x9, #0xae3e, lsl #48
+   8fcd4:	eb09011f 	cmp	x8, x9
+   8fcd8:	54003100 	b.eq	902f8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b794>  // b.none
+   8fcdc:	d29583e9 	mov	x9, #0xac1f                	// #44063
+   8fce0:	d29bf90c 	mov	x12, #0xdfc8                	// #57288
+   8fce4:	f2ae7ec9 	movk	x9, #0x73f6, lsl #16
+   8fce8:	f2b493cc 	movk	x12, #0xa49e, lsl #16
+   8fcec:	f2c9dd89 	movk	x9, #0x4eec, lsl #32
+   8fcf0:	aa1703e0 	mov	x0, x23
+   8fcf4:	f2f3fc89 	movk	x9, #0x9fe4, lsl #48
+   8fcf8:	f2d1144c 	movk	x12, #0x88a2, lsl #32
+   8fcfc:	f2f696ac 	movk	x12, #0xb4b5, lsl #48
+   8fd00:	eb0c011f 	cmp	x8, x12
+   8fd04:	54fff9e0 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8fd08:	d28f2a89 	mov	x9, #0x7954                	// #31060
+   8fd0c:	f2acf169 	movk	x9, #0x678b, lsl #16
+   8fd10:	f2d70349 	movk	x9, #0xb81a, lsl #32
+   8fd14:	f2f7d649 	movk	x9, #0xbeb2, lsl #48
+   8fd18:	eb09011f 	cmp	x8, x9
+   8fd1c:	54003280 	b.eq	9036c <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b720>  // b.none
+   8fd20:	d29583e9 	mov	x9, #0xac1f                	// #44063
+   8fd24:	d289f10c 	mov	x12, #0x4f88                	// #20360
+   8fd28:	f2ae7ec9 	movk	x9, #0x73f6, lsl #16
+   8fd2c:	f2b30fac 	movk	x12, #0x987d, lsl #16
+   8fd30:	f2c9dd89 	movk	x9, #0x4eec, lsl #32
+   8fd34:	aa1603e0 	mov	x0, x22
+   8fd38:	f2f3fc89 	movk	x9, #0x9fe4, lsl #48
+   8fd3c:	f2de9fec 	movk	x12, #0xf4ff, lsl #32
+   8fd40:	f2f80b6c 	movk	x12, #0xc05b, lsl #48
+   8fd44:	eb0c011f 	cmp	x8, x12
+   8fd48:	54fff7c0 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8fd4c:	d29be2a9 	mov	x9, #0xdf15                	// #57109
+   8fd50:	f2b11fe9 	movk	x9, #0x88ff, lsl #16
+   8fd54:	f2c7f0a9 	movk	x9, #0x3f85, lsl #32
+   8fd58:	f2f911a9 	movk	x9, #0xc88d, lsl #48
+   8fd5c:	eb09011f 	cmp	x8, x9
+   8fd60:	54003400 	b.eq	903e0 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b6ac>  // b.none
+   8fd64:	eb1c011f 	cmp	x8, x28
+   8fd68:	54003760 	b.eq	90454 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b638>  // b.none
+   8fd6c:	d292f789 	mov	x9, #0x97bc                	// #38844
+   8fd70:	d29c374c 	mov	x12, #0xe1ba                	// #57786
+   8fd74:	f2a57509 	movk	x9, #0x2ba8, lsl #16
+   8fd78:	f2b8f96c 	movk	x12, #0xc7cb, lsl #16
+   8fd7c:	f2c77889 	movk	x9, #0x3bc4, lsl #32
+   8fd80:	aa1403e0 	mov	x0, x20
+   8fd84:	f2ea04c9 	movk	x9, #0x5026, lsl #48
+   8fd88:	f2d5a4ec 	movk	x12, #0xad27, lsl #32
+   8fd8c:	f2f9568c 	movk	x12, #0xcab4, lsl #48
+   8fd90:	eb0c011f 	cmp	x8, x12
+   8fd94:	54fff560 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8fd98:	d29309a9 	mov	x9, #0x984d                	// #38989
+   8fd9c:	d289a3ec 	mov	x12, #0x4d1f                	// #19743
+   8fda0:	f2b28509 	movk	x9, #0x9428, lsl #16
+   8fda4:	f2ae0e6c 	movk	x12, #0x7073, lsl #16
+   8fda8:	f2d4df69 	movk	x9, #0xa6fb, lsl #32
+   8fdac:	aa1403e0 	mov	x0, x20
+   8fdb0:	f2f0d3e9 	movk	x9, #0x869f, lsl #48
+   8fdb4:	f2db0c0c 	movk	x12, #0xd860, lsl #32
+   8fdb8:	f2e05f8c 	movk	x12, #0x2fc, lsl #48
+   8fdbc:	eb0c011f 	cmp	x8, x12
+   8fdc0:	54fff400 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8fdc4:	d291f649 	mov	x9, #0x8fb2                	// #36786
+   8fdc8:	f2a54229 	movk	x9, #0x2a11, lsl #16
+   8fdcc:	f2c5f229 	movk	x9, #0x2f91, lsl #32
+   8fdd0:	f2e0f4a9 	movk	x9, #0x7a5, lsl #48
+   8fdd4:	eb09011f 	cmp	x8, x9
+   8fdd8:	54003560 	b.eq	90484 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b608>  // b.none
+   8fddc:	d2908dc9 	mov	x9, #0x846e                	// #33902
+   8fde0:	d29c636c 	mov	x12, #0xe31b                	// #58139
+   8fde4:	f2acb7c9 	movk	x9, #0x65be, lsl #16
+   8fde8:	f2b3986c 	movk	x12, #0x9cc3, lsl #16
+   8fdec:	f2d425a9 	movk	x9, #0xa12d, lsl #32
+   8fdf0:	aa1403e0 	mov	x0, x20
+   8fdf4:	f2e56c09 	movk	x9, #0x2b60, lsl #48
+   8fdf8:	f2c61c6c 	movk	x12, #0x30e3, lsl #32
+   8fdfc:	f2e0f8ac 	movk	x12, #0x7c5, lsl #48
+   8fe00:	eb0c011f 	cmp	x8, x12
+   8fe04:	54fff1e0 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8fe08:	d29712a9 	mov	x9, #0xb895                	// #47253
+   8fe0c:	f2ba1ae9 	movk	x9, #0xd0d7, lsl #16
+   8fe10:	f2cb6d29 	movk	x9, #0x5b69, lsl #32
+   8fe14:	f2e14c09 	movk	x9, #0xa60, lsl #48
+   8fe18:	eb09011f 	cmp	x8, x9
+   8fe1c:	540036e0 	b.eq	904f8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b594>  // b.none
+   8fe20:	d28f3589 	mov	x9, #0x79ac                	// #31148
+   8fe24:	d296910c 	mov	x12, #0xb488                	// #46216
+   8fe28:	f2b3dee9 	movk	x9, #0x9ef7, lsl #16
+   8fe2c:	f2ae536c 	movk	x12, #0x729b, lsl #16
+   8fe30:	f2cfa609 	movk	x9, #0x7d30, lsl #32
+   8fe34:	aa1403e0 	mov	x0, x20
+   8fe38:	f2ea6029 	movk	x9, #0x5301, lsl #48
+   8fe3c:	f2c7cdec 	movk	x12, #0x3e6f, lsl #32
+   8fe40:	f2e4678c 	movk	x12, #0x233c, lsl #48
+   8fe44:	eb0c011f 	cmp	x8, x12
+   8fe48:	54ffefc0 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8fe4c:	d2908dc9 	mov	x9, #0x846e                	// #33902
+   8fe50:	f2acb7c9 	movk	x9, #0x65be, lsl #16
+   8fe54:	f2d425a9 	movk	x9, #0xa12d, lsl #32
+   8fe58:	f2e56c09 	movk	x9, #0x2b60, lsl #48
+   8fe5c:	eb09011f 	cmp	x8, x9
+   8fe60:	54003860 	b.eq	9056c <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b520>  // b.none
+   8fe64:	d282cfa9 	mov	x9, #0x167d                	// #5757
+   8fe68:	d282494c 	mov	x12, #0x124a                	// #4682
+   8fe6c:	f2bb1da9 	movk	x9, #0xd8ed, lsl #16
+   8fe70:	f2b37e2c 	movk	x12, #0x9bf1, lsl #16
+   8fe74:	f2dcc969 	movk	x9, #0xe64b, lsl #32
+   8fe78:	aa1403e0 	mov	x0, x20
+   8fe7c:	f2e82d69 	movk	x9, #0x416b, lsl #48
+   8fe80:	f2cf992c 	movk	x12, #0x7cc9, lsl #32
+   8fe84:	f2e5780c 	movk	x12, #0x2bc0, lsl #48
+   8fe88:	eb0c011f 	cmp	x8, x12
+   8fe8c:	54ffeda0 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8fe90:	d28b0fe9 	mov	x9, #0x587f                	// #22655
+   8fe94:	f2adbf49 	movk	x9, #0x6dfa, lsl #16
+   8fe98:	f2cbf489 	movk	x9, #0x5fa4, lsl #32
+   8fe9c:	f2e7ede9 	movk	x9, #0x3f6f, lsl #48
+   8fea0:	eb09011f 	cmp	x8, x9
+   8fea4:	540037c0 	b.eq	9059c <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b4f0>  // b.none
+   8fea8:	d282cfa9 	mov	x9, #0x167d                	// #5757
+   8feac:	f2bb1da9 	movk	x9, #0xd8ed, lsl #16
+   8feb0:	f2dcc969 	movk	x9, #0xe64b, lsl #32
+   8feb4:	f2e82d69 	movk	x9, #0x416b, lsl #48
+   8feb8:	eb09011f 	cmp	x8, x9
+   8febc:	54003aa0 	b.eq	90610 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b47c>  // b.none
+   8fec0:	d287fe69 	mov	x9, #0x3ff3                	// #16371
+   8fec4:	d28d1b4c 	mov	x12, #0x68da                	// #26842
+   8fec8:	f2ab7ce9 	movk	x9, #0x5be7, lsl #16
+   8fecc:	f2bc55ec 	movk	x12, #0xe2af, lsl #16
+   8fed0:	f2c65de9 	movk	x9, #0x32ef, lsl #32
+   8fed4:	aa1403e0 	mov	x0, x20
+   8fed8:	f2ee1849 	movk	x9, #0x70c2, lsl #48
+   8fedc:	f2cb04cc 	movk	x12, #0x5826, lsl #32
+   8fee0:	f2e9f10c 	movk	x12, #0x4f88, lsl #48
+   8fee4:	eb0c011f 	cmp	x8, x12
+   8fee8:	54ffeac0 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8feec:	d28f3589 	mov	x9, #0x79ac                	// #31148
+   8fef0:	f2b3dee9 	movk	x9, #0x9ef7, lsl #16
+   8fef4:	f2cfa609 	movk	x9, #0x7d30, lsl #32
+   8fef8:	f2ea6029 	movk	x9, #0x5301, lsl #48
+   8fefc:	eb09011f 	cmp	x8, x9
+   8ff00:	540039c0 	b.eq	90638 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b454>  // b.none
+   8ff04:	d292f789 	mov	x9, #0x97bc                	// #38844
+   8ff08:	d28bea6c 	mov	x12, #0x5f53                	// #24403
+   8ff0c:	f2a57509 	movk	x9, #0x2ba8, lsl #16
+   8ff10:	f2bc0dac 	movk	x12, #0xe06d, lsl #16
+   8ff14:	f2c77889 	movk	x9, #0x3bc4, lsl #32
+   8ff18:	aa1403e0 	mov	x0, x20
+   8ff1c:	f2ea04c9 	movk	x9, #0x5026, lsl #48
+   8ff20:	f2d2d8ec 	movk	x12, #0x96c7, lsl #32
+   8ff24:	f2eafc2c 	movk	x12, #0x57e1, lsl #48
+   8ff28:	eb0c011f 	cmp	x8, x12
+   8ff2c:	54ffe8a0 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8ff30:	d288fd69 	mov	x9, #0x47eb                	// #18411
+   8ff34:	d29fe32c 	mov	x12, #0xff19                	// #65305
+   8ff38:	f2b5d829 	movk	x9, #0xaec1, lsl #16
+   8ff3c:	f2b31d4c 	movk	x12, #0x98ea, lsl #16
+   8ff40:	f2d54be9 	movk	x9, #0xaa5f, lsl #32
+   8ff44:	aa1403e0 	mov	x0, x20
+   8ff48:	f2f17349 	movk	x9, #0x8b9a, lsl #48
+   8ff4c:	f2c1814c 	movk	x12, #0xc0a, lsl #32
+   8ff50:	f2eb104c 	movk	x12, #0x5882, lsl #48
+   8ff54:	eb0c011f 	cmp	x8, x12
+   8ff58:	54ffe740 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8ff5c:	d28790e9 	mov	x9, #0x3c87                	// #15495
+   8ff60:	f2b7c909 	movk	x9, #0xbe48, lsl #16
+   8ff64:	f2cbf6a9 	movk	x9, #0x5fb5, lsl #32
+   8ff68:	f2eb4969 	movk	x9, #0x5a4b, lsl #48
+   8ff6c:	eb09011f 	cmp	x8, x9
+   8ff70:	54003780 	b.eq	90660 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b42c>  // b.none
+   8ff74:	d28e0569 	mov	x9, #0x702b                	// #28715
+   8ff78:	f2ba1109 	movk	x9, #0xd088, lsl #16
+   8ff7c:	f2d4ed69 	movk	x9, #0xa76b, lsl #32
+   8ff80:	f2eb7a69 	movk	x9, #0x5bd3, lsl #48
+   8ff84:	eb09011f 	cmp	x8, x9
+   8ff88:	54003840 	b.eq	90690 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b3fc>  // b.none
+   8ff8c:	d29f11e9 	mov	x9, #0xf88f                	// #63631
+   8ff90:	d286ceec 	mov	x12, #0x3677                	// #13943
+   8ff94:	f2ba1de9 	movk	x9, #0xd0ef, lsl #16
+   8ff98:	f2b2aa6c 	movk	x12, #0x9553, lsl #16
+   8ff9c:	f2d65e29 	movk	x9, #0xb2f1, lsl #32
+   8ffa0:	aa1403e0 	mov	x0, x20
+   8ffa4:	f2eea9c9 	movk	x9, #0x754e, lsl #48
+   8ffa8:	f2c2cb0c 	movk	x12, #0x1658, lsl #32
+   8ffac:	f2ec366c 	movk	x12, #0x61b3, lsl #48
+   8ffb0:	eb0c011f 	cmp	x8, x12
+   8ffb4:	54ffe460 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8ffb8:	d286a3c9 	mov	x9, #0x351e                	// #13598
+   8ffbc:	d292902c 	mov	x12, #0x9481                	// #38017
+   8ffc0:	f2b23089 	movk	x9, #0x9184, lsl #16
+   8ffc4:	f2aefd2c 	movk	x12, #0x77e9, lsl #16
+   8ffc8:	f2c5ada9 	movk	x9, #0x2d6d, lsl #32
+   8ffcc:	aa1403e0 	mov	x0, x20
+   8ffd0:	f2f93cc9 	movk	x9, #0xc9e6, lsl #48
+   8ffd4:	f2d2b94c 	movk	x12, #0x95ca, lsl #32
+   8ffd8:	f2ed0f6c 	movk	x12, #0x687b, lsl #48
+   8ffdc:	eb0c011f 	cmp	x8, x12
+   8ffe0:	54ffe300 	b.eq	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.none
+   8ffe4:	d287fe69 	mov	x9, #0x3ff3                	// #16371
+   8ffe8:	f2ab7ce9 	movk	x9, #0x5be7, lsl #16
+   8ffec:	f2c65de9 	movk	x9, #0x32ef, lsl #32
+   8fff0:	f2ee1849 	movk	x9, #0x70c2, lsl #48
+   8fff4:	eb09011f 	cmp	x8, x9
+   8fff8:	54003500 	b.eq	90698 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b3f4>  // b.none
+   8fffc:	d29f11e9 	mov	x9, #0xf88f                	// #63631
+   90000:	f2ba1de9 	movk	x9, #0xd0ef, lsl #16
+   90004:	f2d65e29 	movk	x9, #0xb2f1, lsl #32
+   90008:	f2eea9c9 	movk	x9, #0x754e, lsl #48
+   9000c:	eb09011f 	cmp	x8, x9
+   90010:	54003600 	b.eq	906d0 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b3bc>  // b.none
+   90014:	d292f78c 	mov	x12, #0x97bc                	// #38844
+   90018:	aa1403e0 	mov	x0, x20
+   9001c:	f2a5750c 	movk	x12, #0x2ba8, lsl #16
+   90020:	aa0803e9 	mov	x9, x8
+   90024:	f2c7788c 	movk	x12, #0x3bc4, lsl #32
+   90028:	f2ea04cc 	movk	x12, #0x5026, lsl #48
+   9002c:	eb0c011f 	cmp	x8, x12
+   90030:	54ffe081 	b.ne	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>  // b.any
+   90034:	140001b0 	b	906f4 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b398>
+   90038:	f85f03ac 	ldur	x12, [x29, #-16]
+   9003c:	aa1403e0 	mov	x0, x20
+   90040:	8b0c1268 	add	x8, x19, x12, lsl #4
+   90044:	f81f83ac 	stur	x12, [x29, #-8]
+   90048:	f8470d09 	ldr	x9, [x8, #112]!
+   9004c:	f100013f 	cmp	x9, #0x0
+   90050:	a90023e9 	stp	x9, x8, [sp]
+   90054:	9a8d02a9 	csel	x9, x21, x13, eq	// eq = none
+   90058:	17fffefa 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   9005c:	f85f83a8 	ldur	x8, [x29, #-8]
+   90060:	d29c3749 	mov	x9, #0xe1ba                	// #57786
+   90064:	f2b8f969 	movk	x9, #0xc7cb, lsl #16
+   90068:	f2d5a4e9 	movk	x9, #0xad27, lsl #32
+   9006c:	8b081268 	add	x8, x19, x8, lsl #4
+   90070:	f2f95689 	movk	x9, #0xcab4, lsl #48
+   90074:	f9403d16 	ldr	x22, [x8, #120]
+   90078:	d289f108 	mov	x8, #0x4f88                	// #20360
+   9007c:	f2b30fa8 	movk	x8, #0x987d, lsl #16
+   90080:	f2de9fe8 	movk	x8, #0xf4ff, lsl #32
+   90084:	f10002df 	cmp	x22, #0x0
+   90088:	f2f80b68 	movk	x8, #0xc05b, lsl #48
+   9008c:	1400018e 	b	906c4 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b3c8>
+   90090:	f9400268 	ldr	x8, [x19]
+   90094:	d29c6369 	mov	x9, #0xe31b                	// #58139
+   90098:	f2b39869 	movk	x9, #0x9cc3, lsl #16
+   9009c:	f2c61c69 	movk	x9, #0x30e3, lsl #32
+   900a0:	f9001be8 	str	x8, [sp, #48]
+   900a4:	f100011f 	cmp	x8, #0x0
+   900a8:	d28b0fe8 	mov	x8, #0x587f                	// #22655
+   900ac:	f2e0f8a9 	movk	x9, #0x7c5, lsl #48
+   900b0:	f2adbf48 	movk	x8, #0x6dfa, lsl #16
+   900b4:	f2cbf488 	movk	x8, #0x5fa4, lsl #32
+   900b8:	f2e7ede8 	movk	x8, #0x3f6f, lsl #48
+   900bc:	14000182 	b	906c4 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b3c8>
+   900c0:	f85e03a0 	ldur	x0, [x29, #-32]
+   900c4:	9402a747 	bl	139de0 <free@plt>
+   900c8:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   900cc:	d284830e 	mov	x14, #0x2418                	// #9240
+   900d0:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   900d4:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   900d8:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   900dc:	d286a3c9 	mov	x9, #0x351e                	// #13598
+   900e0:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   900e4:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   900e8:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   900ec:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   900f0:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   900f4:	f2b23089 	movk	x9, #0x9184, lsl #16
+   900f8:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   900fc:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   90100:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   90104:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   90108:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   9010c:	f2c5ada9 	movk	x9, #0x2d6d, lsl #32
+   90110:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   90114:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   90118:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   9011c:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   90120:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   90124:	aa1403e0 	mov	x0, x20
+   90128:	f2f93cc9 	movk	x9, #0xc9e6, lsl #48
+   9012c:	f9000e7f 	str	xzr, [x19, #24]
+   90130:	17fffec4 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   90134:	f9400a68 	ldr	x8, [x19, #16]
+   90138:	aa1403e0 	mov	x0, x20
+   9013c:	f9000fe8 	str	x8, [sp, #24]
+   90140:	f100011f 	cmp	x8, #0x0
+   90144:	d2824948 	mov	x8, #0x124a                	// #4682
+   90148:	f2b37e28 	movk	x8, #0x9bf1, lsl #16
+   9014c:	f2cf9928 	movk	x8, #0x7cc9, lsl #32
+   90150:	f2e57808 	movk	x8, #0x2bc0, lsl #48
+   90154:	9a8e0109 	csel	x9, x8, x14, eq	// eq = none
+   90158:	17fffeba 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   9015c:	f94003e0 	ldr	x0, [sp]
+   90160:	9402a720 	bl	139de0 <free@plt>
+   90164:	f85f83a8 	ldur	x8, [x29, #-8]
+   90168:	d286cee9 	mov	x9, #0x3677                	// #13943
+   9016c:	f2b2aa69 	movk	x9, #0x9553, lsl #16
+   90170:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   90174:	f2c2cb09 	movk	x9, #0x1658, lsl #32
+   90178:	d284830e 	mov	x14, #0x2418                	// #9240
+   9017c:	8b081268 	add	x8, x19, x8, lsl #4
+   90180:	f2ec3669 	movk	x9, #0x61b3, lsl #48
+   90184:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   90188:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   9018c:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   90190:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   90194:	f9403d17 	ldr	x23, [x8, #120]
+   90198:	d29bf908 	mov	x8, #0xdfc8                	// #57288
+   9019c:	f2b493c8 	movk	x8, #0xa49e, lsl #16
+   901a0:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   901a4:	f2d11448 	movk	x8, #0x88a2, lsl #32
+   901a8:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   901ac:	f10002ff 	cmp	x23, #0x0
+   901b0:	f2f696a8 	movk	x8, #0xb4b5, lsl #48
+   901b4:	9a880129 	csel	x9, x9, x8, eq	// eq = none
+   901b8:	f94007e8 	ldr	x8, [sp, #8]
+   901bc:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   901c0:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   901c4:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   901c8:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   901cc:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   901d0:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   901d4:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   901d8:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   901dc:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   901e0:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   901e4:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   901e8:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   901ec:	aa1403e0 	mov	x0, x20
+   901f0:	f900011f 	str	xzr, [x8]
+   901f4:	17fffe93 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   901f8:	f85f83a8 	ldur	x8, [x29, #-8]
+   901fc:	aa1403e0 	mov	x0, x20
+   90200:	8b08127c 	add	x28, x19, x8, lsl #4
+   90204:	9402a6f7 	bl	139de0 <free@plt>
+   90208:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   9020c:	d284830e 	mov	x14, #0x2418                	// #9240
+   90210:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   90214:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   90218:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   9021c:	d29f11e9 	mov	x9, #0xf88f                	// #63631
+   90220:	f9003f9f 	str	xzr, [x28, #120]
+   90224:	d286a3dc 	mov	x28, #0x351e                	// #13598
+   90228:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   9022c:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   90230:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   90234:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   90238:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   9023c:	f2ba1de9 	movk	x9, #0xd0ef, lsl #16
+   90240:	f2b2309c 	movk	x28, #0x9184, lsl #16
+   90244:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   90248:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   9024c:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   90250:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   90254:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   90258:	f2d65e29 	movk	x9, #0xb2f1, lsl #32
+   9025c:	f2c5adbc 	movk	x28, #0x2d6d, lsl #32
+   90260:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   90264:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   90268:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   9026c:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   90270:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   90274:	aa1403e0 	mov	x0, x20
+   90278:	f2eea9c9 	movk	x9, #0x754e, lsl #48
+   9027c:	f2f93cdc 	movk	x28, #0xc9e6, lsl #48
+   90280:	17fffe70 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   90284:	f9400fe0 	ldr	x0, [sp, #24]
+   90288:	9402a6d6 	bl	139de0 <free@plt>
+   9028c:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   90290:	d284830e 	mov	x14, #0x2418                	// #9240
+   90294:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   90298:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   9029c:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   902a0:	d282cfa9 	mov	x9, #0x167d                	// #5757
+   902a4:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   902a8:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   902ac:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   902b0:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   902b4:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   902b8:	f2bb1da9 	movk	x9, #0xd8ed, lsl #16
+   902bc:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   902c0:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   902c4:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   902c8:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   902cc:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   902d0:	f2dcc969 	movk	x9, #0xe64b, lsl #32
+   902d4:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   902d8:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   902dc:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   902e0:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   902e4:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   902e8:	aa1403e0 	mov	x0, x20
+   902ec:	f2e82d69 	movk	x9, #0x416b, lsl #48
+   902f0:	f9000a7f 	str	xzr, [x19, #16]
+   902f4:	17fffe53 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   902f8:	f85e83a0 	ldur	x0, [x29, #-24]
+   902fc:	9402a6b9 	bl	139de0 <free@plt>
+   90300:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   90304:	d284830e 	mov	x14, #0x2418                	// #9240
+   90308:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   9030c:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   90310:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   90314:	d28f3589 	mov	x9, #0x79ac                	// #31148
+   90318:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   9031c:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   90320:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   90324:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   90328:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   9032c:	f2b3dee9 	movk	x9, #0x9ef7, lsl #16
+   90330:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   90334:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   90338:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   9033c:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   90340:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   90344:	f2cfa609 	movk	x9, #0x7d30, lsl #32
+   90348:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   9034c:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   90350:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   90354:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   90358:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   9035c:	aa1403e0 	mov	x0, x20
+   90360:	f2ea6029 	movk	x9, #0x5301, lsl #48
+   90364:	f900067f 	str	xzr, [x19, #8]
+   90368:	17fffe36 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   9036c:	f94017e0 	ldr	x0, [sp, #40]
+   90370:	9402a69c 	bl	139de0 <free@plt>
+   90374:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   90378:	d284830e 	mov	x14, #0x2418                	// #9240
+   9037c:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   90380:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   90384:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   90388:	d287fe69 	mov	x9, #0x3ff3                	// #16371
+   9038c:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   90390:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   90394:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   90398:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   9039c:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   903a0:	f2ab7ce9 	movk	x9, #0x5be7, lsl #16
+   903a4:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   903a8:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   903ac:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   903b0:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   903b4:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   903b8:	f2c65de9 	movk	x9, #0x32ef, lsl #32
+   903bc:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   903c0:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   903c4:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   903c8:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   903cc:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   903d0:	aa1403e0 	mov	x0, x20
+   903d4:	f2ee1849 	movk	x9, #0x70c2, lsl #48
+   903d8:	f9001a7f 	str	xzr, [x19, #48]
+   903dc:	17fffe19 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   903e0:	f85d83a0 	ldur	x0, [x29, #-40]
+   903e4:	9402a67f 	bl	139de0 <free@plt>
+   903e8:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   903ec:	d284830e 	mov	x14, #0x2418                	// #9240
+   903f0:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   903f4:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   903f8:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   903fc:	d29309a9 	mov	x9, #0x984d                	// #38989
+   90400:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   90404:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   90408:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   9040c:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   90410:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   90414:	f2b28509 	movk	x9, #0x9428, lsl #16
+   90418:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   9041c:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   90420:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   90424:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   90428:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   9042c:	f2d4df69 	movk	x9, #0xa6fb, lsl #32
+   90430:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   90434:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   90438:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   9043c:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   90440:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   90444:	aa1403e0 	mov	x0, x20
+   90448:	f2f0d3e9 	movk	x9, #0x869f, lsl #48
+   9044c:	f900127f 	str	xzr, [x19, #32]
+   90450:	17fffdfc 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   90454:	f9401268 	ldr	x8, [x19, #32]
+   90458:	d289a3e9 	mov	x9, #0x4d1f                	// #19743
+   9045c:	f2ae0e69 	movk	x9, #0x7073, lsl #16
+   90460:	f2db0c09 	movk	x9, #0xd860, lsl #32
+   90464:	f81d83a8 	stur	x8, [x29, #-40]
+   90468:	f100011f 	cmp	x8, #0x0
+   9046c:	d29be2a8 	mov	x8, #0xdf15                	// #57109
+   90470:	f2e05f89 	movk	x9, #0x2fc, lsl #48
+   90474:	f2b11fe8 	movk	x8, #0x88ff, lsl #16
+   90478:	f2c7f0a8 	movk	x8, #0x3f85, lsl #32
+   9047c:	f2f911a8 	movk	x8, #0xc88d, lsl #48
+   90480:	14000091 	b	906c4 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b3c8>
+   90484:	f94013e0 	ldr	x0, [sp, #32]
+   90488:	9402a656 	bl	139de0 <free@plt>
+   9048c:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   90490:	d284830e 	mov	x14, #0x2418                	// #9240
+   90494:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   90498:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   9049c:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   904a0:	d288fd69 	mov	x9, #0x47eb                	// #18411
+   904a4:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   904a8:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   904ac:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   904b0:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   904b4:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   904b8:	f2b5d829 	movk	x9, #0xaec1, lsl #16
+   904bc:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   904c0:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   904c4:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   904c8:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   904cc:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   904d0:	f2d54be9 	movk	x9, #0xaa5f, lsl #32
+   904d4:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   904d8:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   904dc:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   904e0:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   904e4:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   904e8:	aa1403e0 	mov	x0, x20
+   904ec:	f2f17349 	movk	x9, #0x8b9a, lsl #48
+   904f0:	f9001e7f 	str	xzr, [x19, #56]
+   904f4:	17fffdd3 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   904f8:	f9400be0 	ldr	x0, [sp, #16]
+   904fc:	9402a639 	bl	139de0 <free@plt>
+   90500:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   90504:	d284830e 	mov	x14, #0x2418                	// #9240
+   90508:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   9050c:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   90510:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   90514:	d28e0569 	mov	x9, #0x702b                	// #28715
+   90518:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   9051c:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   90520:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   90524:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   90528:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   9052c:	f2ba1109 	movk	x9, #0xd088, lsl #16
+   90530:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   90534:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   90538:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   9053c:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   90540:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   90544:	f2d4ed69 	movk	x9, #0xa76b, lsl #32
+   90548:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   9054c:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   90550:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   90554:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   90558:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   9055c:	aa1403e0 	mov	x0, x20
+   90560:	f2eb7a69 	movk	x9, #0x5bd3, lsl #48
+   90564:	f9002a7f 	str	xzr, [x19, #80]
+   90568:	17fffdb6 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   9056c:	f9401a68 	ldr	x8, [x19, #48]
+   90570:	d28d1b49 	mov	x9, #0x68da                	// #26842
+   90574:	f2bc55e9 	movk	x9, #0xe2af, lsl #16
+   90578:	f2cb04c9 	movk	x9, #0x5826, lsl #32
+   9057c:	f90017e8 	str	x8, [sp, #40]
+   90580:	f100011f 	cmp	x8, #0x0
+   90584:	d28f2a88 	mov	x8, #0x7954                	// #31060
+   90588:	f2e9f109 	movk	x9, #0x4f88, lsl #48
+   9058c:	f2acf168 	movk	x8, #0x678b, lsl #16
+   90590:	f2d70348 	movk	x8, #0xb81a, lsl #32
+   90594:	f2f7d648 	movk	x8, #0xbeb2, lsl #48
+   90598:	1400004b 	b	906c4 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b3c8>
+   9059c:	f9401be0 	ldr	x0, [sp, #48]
+   905a0:	9402a610 	bl	139de0 <free@plt>
+   905a4:	d2915b2f 	mov	x15, #0x8ad9                	// #35545
+   905a8:	d284830e 	mov	x14, #0x2418                	// #9240
+   905ac:	d29d4d6d 	mov	x13, #0xea6b                	// #60011
+   905b0:	d288fd6b 	mov	x11, #0x47eb                	// #18411
+   905b4:	d29583ea 	mov	x10, #0xac1f                	// #44063
+   905b8:	d2908dc9 	mov	x9, #0x846e                	// #33902
+   905bc:	f2a396af 	movk	x15, #0x1cb5, lsl #16
+   905c0:	f2ae1f2e 	movk	x14, #0x70f9, lsl #16
+   905c4:	f2b7108d 	movk	x13, #0xb884, lsl #16
+   905c8:	f2b5d82b 	movk	x11, #0xaec1, lsl #16
+   905cc:	f2ae7eca 	movk	x10, #0x73f6, lsl #16
+   905d0:	f2acb7c9 	movk	x9, #0x65be, lsl #16
+   905d4:	f2db9d8f 	movk	x15, #0xdcec, lsl #32
+   905d8:	f2c197ae 	movk	x14, #0xcbd, lsl #32
+   905dc:	f2d6004d 	movk	x13, #0xb002, lsl #32
+   905e0:	f2d54beb 	movk	x11, #0xaa5f, lsl #32
+   905e4:	f2c9dd8a 	movk	x10, #0x4eec, lsl #32
+   905e8:	f2d425a9 	movk	x9, #0xa12d, lsl #32
+   905ec:	f2f43c0f 	movk	x15, #0xa1e0, lsl #48
+   905f0:	f2f5784e 	movk	x14, #0xabc2, lsl #48
+   905f4:	f2f1c9ed 	movk	x13, #0x8e4f, lsl #48
+   905f8:	f2f1734b 	movk	x11, #0x8b9a, lsl #48
+   905fc:	f2f3fc8a 	movk	x10, #0x9fe4, lsl #48
+   90600:	aa1403e0 	mov	x0, x20
+   90604:	f2e56c09 	movk	x9, #0x2b60, lsl #48
+   90608:	f900027f 	str	xzr, [x19]
+   9060c:	17fffd8d 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   90610:	f9402a68 	ldr	x8, [x19, #80]
+   90614:	aa1403e0 	mov	x0, x20
+   90618:	f9000be8 	str	x8, [sp, #16]
+   9061c:	f100011f 	cmp	x8, #0x0
+   90620:	d29712a8 	mov	x8, #0xb895                	// #47253
+   90624:	f2ba1ae8 	movk	x8, #0xd0d7, lsl #16
+   90628:	f2cb6d28 	movk	x8, #0x5b69, lsl #32
+   9062c:	f2e14c08 	movk	x8, #0xa60, lsl #48
+   90630:	9a8801e9 	csel	x9, x15, x8, eq	// eq = none
+   90634:	17fffd83 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   90638:	f9400e68 	ldr	x8, [x19, #24]
+   9063c:	aa1403e0 	mov	x0, x20
+   90640:	f81e03a8 	stur	x8, [x29, #-32]
+   90644:	f100011f 	cmp	x8, #0x0
+   90648:	d2929028 	mov	x8, #0x9481                	// #38017
+   9064c:	f2aefd28 	movk	x8, #0x77e9, lsl #16
+   90650:	f2d2b948 	movk	x8, #0x95ca, lsl #32
+   90654:	f2ed0f68 	movk	x8, #0x687b, lsl #48
+   90658:	9a9b0109 	csel	x9, x8, x27, eq	// eq = none
+   9065c:	17fffd79 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   90660:	f9400668 	ldr	x8, [x19, #8]
+   90664:	d2969109 	mov	x9, #0xb488                	// #46216
+   90668:	f2ae5369 	movk	x9, #0x729b, lsl #16
+   9066c:	f2c7cde9 	movk	x9, #0x3e6f, lsl #32
+   90670:	f81e83a8 	stur	x8, [x29, #-24]
+   90674:	f100011f 	cmp	x8, #0x0
+   90678:	d29ed4e8 	mov	x8, #0xf6a7                	// #63143
+   9067c:	f2e46789 	movk	x9, #0x233c, lsl #48
+   90680:	f2bbe628 	movk	x8, #0xdf31, lsl #16
+   90684:	f2dde0a8 	movk	x8, #0xef05, lsl #32
+   90688:	f2f5c7c8 	movk	x8, #0xae3e, lsl #48
+   9068c:	1400000e 	b	906c4 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b3c8>
+   90690:	f81f03bf 	stur	xzr, [x29, #-16]
+   90694:	14000012 	b	906dc <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3b3b0>
+   90698:	f9401e68 	ldr	x8, [x19, #56]
+   9069c:	d29fe329 	mov	x9, #0xff19                	// #65305
+   906a0:	f2b31d49 	movk	x9, #0x98ea, lsl #16
+   906a4:	f2c18149 	movk	x9, #0xc0a, lsl #32
+   906a8:	f90013e8 	str	x8, [sp, #32]
+   906ac:	f100011f 	cmp	x8, #0x0
+   906b0:	d291f648 	mov	x8, #0x8fb2                	// #36786
+   906b4:	f2eb1049 	movk	x9, #0x5882, lsl #48
+   906b8:	f2a54228 	movk	x8, #0x2a11, lsl #16
+   906bc:	f2c5f228 	movk	x8, #0x2f91, lsl #32
+   906c0:	f2e0f4a8 	movk	x8, #0x7a5, lsl #48
+   906c4:	9a880129 	csel	x9, x9, x8, eq	// eq = none
+   906c8:	aa1403e0 	mov	x0, x20
+   906cc:	17fffd5d 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   906d0:	f85f83a8 	ldur	x8, [x29, #-8]
+   906d4:	91000508 	add	x8, x8, #0x1
+   906d8:	f81f03a8 	stur	x8, [x29, #-16]
+   906dc:	d29daee9 	mov	x9, #0xed77                	// #60791
+   906e0:	aa1403e0 	mov	x0, x20
+   906e4:	f2a42c49 	movk	x9, #0x2162, lsl #16
+   906e8:	f2d7a749 	movk	x9, #0xbd3a, lsl #32
+   906ec:	f2f080c9 	movk	x9, #0x8406, lsl #48
+   906f0:	17fffd54 	b	8fc40 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0x3be4c>
+   906f4:	a94b4ff4 	ldp	x20, x19, [sp, #176]
+   906f8:	a94a57f6 	ldp	x22, x21, [sp, #160]
+   906fc:	a9495ff8 	ldp	x24, x23, [sp, #144]
+   90700:	a94867fa 	ldp	x26, x25, [sp, #128]
+   90704:	a9476ffc 	ldp	x28, x27, [sp, #112]
+   90708:	a9467bfd 	ldp	x29, x30, [sp, #96]
+   9070c:	910303ff 	add	sp, sp, #0xc0
+   90710:	d65f03c0 	ret

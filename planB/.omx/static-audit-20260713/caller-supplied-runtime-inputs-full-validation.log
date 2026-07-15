@@ -1,0 +1,18 @@
+2026-07-15 caller-supplied runtime input validation
+
+SOURCE_SHA256=903dc5abde8977a0b341b43cbfaf123ac38c44903562d0dd42d7e2fd8f6185c0
+JAVA_ADAPTER_SHA256=ded83992718ae03edd982abdc20abcd962eeab137f1ca41dde5e444352c67e76
+
+[PASS] c++ -std=c++17 -Wall -Wextra -Werror -fsyntax-only
+[PASS] strict CLI rejects omitted runtime fields instead of inventing defaults
+[PASS] strict CLI distinguishes explicit zero/false/empty values from missing
+[PASS] build-and-test.sh original-SO oracle matrix
+[PASS] ASan+UBSan recovered base regression, partial-input rejection and explicit-zero path
+[PASS] test-recovered-backend.sh exact frozen Pixel reference
+[PASS] mvn -o -DskipTests compile
+[PASS] mvn -o -Dtest=RecoveredNativeBackendIntegrationTest test
+       Tests run: 21, Failures: 0, Errors: 0, Skipped: 0
+[PASS] Java adapter rejects missing runtime.timeSeconds
+[PASS] Java adapter rejects missing runtime.urandomHex
+
+No network or external host access was used.

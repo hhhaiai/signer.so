@@ -48,7 +48,7 @@
           <!-- Unicorn/Unidbg 0.9.8 can crash when separate emulator lifecycles reuse one macOS ARM64 JVM. -->
           <forkCount>1</forkCount>
           <reuseForks>false</reuseForks>
-          <argLine>-XX:TieredStopAtLevel=1</argLine>
+          <argLine>-XX:TieredStopAtLevel=1 -XX:ErrorFile=${project.basedir}/../.omx/crash-diagnostics/hs_err_pid%p.log</argLine>
         </configuration>
       </plugin>
     </plugins>

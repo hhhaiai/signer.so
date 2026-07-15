@@ -1,0 +1,18 @@
+=== clang syntax ===
+CLANG_SYNTAX_PASS
+=== four-helper verifier ===
+four cross-ABI FDE/caller pairs: PASS
+class/method/signature constants decoded across both ABIs: PASS
+JNI vtable surfaces and three-stage exception handling: PASS
+status split including getSensorList call/null status 18: PASS
+C++ source, regression guards and coverage entries: PASS
+=== producer progress verifier ===
+cross-ABI FDE, sole caller and {JNIEnv,Context,scratch} signature: PASS
+cross-ABI 13-helper mapping and sixteen once-init locks: PASS
+thirteen property/malloc stages and one pair-appender dependency: PASS
+five unresolved internal producer dependencies remain explicit: PASS
+=== regression registration count ===
+regression definitions 95
+definitions called at least twice incl definition+call 95
+B5828 def/call count 2
+last regression defs ['recoveredDetectorWrapper44c38Regression', 'recoveredJniStringUtfLength927c4Regression', 'recoveredJniStringUtfChars92b24Regression', 'recoveredJniArrayLength92ddcRegression', 'recoveredJniByteArrayElements95110Regression', 'recoveredReservedMapValue8af4Regression', 'recoveredMapSelectedValueWalker11ba78Regression', 'recoveredLegacyWrappedKeyResolverC9988Regression', 'recoveredNsignOrchestratorCC604Regression', 'recoveredProcMapsFridaScannerD78b8Regression', 'recoveredSignerFlowRegression', 'protectedContainerRegression']

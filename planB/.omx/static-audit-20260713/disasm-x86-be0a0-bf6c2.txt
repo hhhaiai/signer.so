@@ -1,0 +1,1232 @@
+
+adjust-android-signature-3.67.0/jni/x86_64/libsigner.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000000be0a0 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x29f5>:
+   be0a0:	55                   	push   rbp
+   be0a1:	41 57                	push   r15
+   be0a3:	41 56                	push   r14
+   be0a5:	41 55                	push   r13
+   be0a7:	41 54                	push   r12
+   be0a9:	53                   	push   rbx
+   be0aa:	48 81 ec 08 05 00 00 	sub    rsp,0x508
+   be0b1:	48 89 b4 24 c0 00 00 	mov    QWORD PTR [rsp+0xc0],rsi
+   be0b8:	00 
+   be0b9:	48 89 7c 24 60       	mov    QWORD PTR [rsp+0x60],rdi
+   be0be:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+   be0c5:	00 00 
+   be0c7:	48 89 84 24 00 05 00 	mov    QWORD PTR [rsp+0x500],rax
+   be0ce:	00 
+   be0cf:	48 89 54 24 70       	mov    QWORD PTR [rsp+0x70],rdx
+   be0d4:	48 85 d2             	test   rdx,rdx
+   be0d7:	48 b8 2b 4e 6f 43 f6 	movabs rax,0x5f30d8f6436f4e2b
+   be0de:	d8 30 5f 
+   be0e1:	48 b9 50 bc 28 be a9 	movabs rcx,0x3ba140a9be28bc50
+   be0e8:	40 a1 3b 
+   be0eb:	48 0f 44 c8          	cmove  rcx,rax
+   be0ef:	48 89 8c 24 e8 00 00 	mov    QWORD PTR [rsp+0xe8],rcx
+   be0f6:	00 
+   be0f7:	49 be e3 9e 1b f8 fd 	movabs r14,0x1bd2befdf81b9ee3
+   be0fe:	be d2 1b 
+   be101:	48 b8 d5 b0 33 22 71 	movabs rax,0x5fcf00712233b0d5
+   be108:	00 cf 5f 
+   be10b:	89 4c 24 5c          	mov    DWORD PTR [rsp+0x5c],ecx
+   be10f:	89 4c 24 58          	mov    DWORD PTR [rsp+0x58],ecx
+   be113:	49 89 c2             	mov    r10,rax
+   be116:	48 89 54 24 48       	mov    QWORD PTR [rsp+0x48],rdx
+   be11b:	48 89 4c 24 30       	mov    QWORD PTR [rsp+0x30],rcx
+   be120:	4c 89 5c 24 28       	mov    QWORD PTR [rsp+0x28],r11
+   be125:	4c 89 4c 24 40       	mov    QWORD PTR [rsp+0x40],r9
+   be12a:	4c 89 44 24 38       	mov    QWORD PTR [rsp+0x38],r8
+   be12f:	48 89 7c 24 20       	mov    QWORD PTR [rsp+0x20],rdi
+   be134:	48 89 f3             	mov    rbx,rsi
+   be137:	4c 8b 64 24 08       	mov    r12,QWORD PTR [rsp+0x8]
+   be13c:	48 8b 6c 24 10       	mov    rbp,QWORD PTR [rsp+0x10]
+   be141:	4c 8b 7c 24 18       	mov    r15,QWORD PTR [rsp+0x18]
+   be146:	48 b8 6d bd a5 e5 0c 	movabs rax,0x8689970ce5a5bd6d
+   be14d:	97 89 86 
+   be150:	49 39 c2             	cmp    r10,rax
+   be153:	0f 84 72 10 00 00    	je     bf1cb <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3b20>
+   be159:	48 b8 63 67 77 38 87 	movabs rax,0x932da08738776763
+   be160:	a0 2d 93 
+   be163:	49 39 c2             	cmp    r10,rax
+   be166:	0f 84 db 12 00 00    	je     bf447 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3d9c>
+   be16c:	48 b8 2a 04 4d af c1 	movabs rax,0x96eeb6c1af4d042a
+   be173:	b6 ee 96 
+   be176:	49 39 c2             	cmp    r10,rax
+   be179:	0f 84 5c 0b 00 00    	je     becdb <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3630>
+   be17f:	48 b8 0c 0e 28 d1 5a 	movabs rax,0x96fb5a5ad1280e0c
+   be186:	5a fb 96 
+   be189:	49 39 c2             	cmp    r10,rax
+   be18c:	0f 84 75 0a 00 00    	je     bec07 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x355c>
+   be192:	48 b8 2d 2f 9f 35 ce 	movabs rax,0x988f0ece359f2f2d
+   be199:	0e 8f 98 
+   be19c:	49 39 c2             	cmp    r10,rax
+   be19f:	0f 84 ba 0c 00 00    	je     bee5f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x37b4>
+   be1a5:	4c 89 64 24 18       	mov    QWORD PTR [rsp+0x18],r12
+   be1aa:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be1af:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be1b4:	48 89 de             	mov    rsi,rbx
+   be1b7:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be1bc:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be1c1:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be1c6:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be1cb:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be1d0:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be1d5:	48 b8 4b 83 08 9e 65 	movabs rax,0xfdcf09659e08834b
+   be1dc:	09 cf fd 
+   be1df:	49 bd 96 41 42 b6 b3 	movabs r13,0x9e0132b3b6424196
+   be1e6:	32 01 9e 
+   be1e9:	4d 39 ea             	cmp    r10,r13
+   be1ec:	0f 84 21 ff ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be1f2:	48 b8 ad 7a c8 9a 0f 	movabs rax,0xa75a6f0f9ac87aad
+   be1f9:	6f 5a a7 
+   be1fc:	49 39 c2             	cmp    r10,rax
+   be1ff:	0f 84 f8 12 00 00    	je     bf4fd <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3e52>
+   be205:	48 b8 d5 b4 95 59 ca 	movabs rax,0xac2aa0ca5995b4d5
+   be20c:	a0 2a ac 
+   be20f:	49 39 c2             	cmp    r10,rax
+   be212:	0f 84 0e 14 00 00    	je     bf626 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f7b>
+   be218:	48 b8 27 0a 70 dd 00 	movabs rax,0xaf185300dd700a27
+   be21f:	53 18 af 
+   be222:	49 39 c2             	cmp    r10,rax
+   be225:	0f 84 5c 13 00 00    	je     bf587 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3edc>
+   be22b:	48 b8 d3 f7 5b 43 e3 	movabs rax,0xb0bb71e3435bf7d3
+   be232:	71 bb b0 
+   be235:	49 39 c2             	cmp    r10,rax
+   be238:	0f 84 10 10 00 00    	je     bf24e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3ba3>
+   be23e:	48 b8 0f a3 47 35 f3 	movabs rax,0xb29c9df33547a30f
+   be245:	9d 9c b2 
+   be248:	49 39 c2             	cmp    r10,rax
+   be24b:	0f 84 df 0d 00 00    	je     bf030 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3985>
+   be251:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be256:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be25b:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be260:	48 89 de             	mov    rsi,rbx
+   be263:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be268:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be26d:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be272:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be277:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be27c:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be281:	4c 89 f0             	mov    rax,r14
+   be284:	49 bd 2d af f8 2b 27 	movabs r13,0xbcd164272bf8af2d
+   be28b:	64 d1 bc 
+   be28e:	4d 39 ea             	cmp    r10,r13
+   be291:	0f 84 7c fe ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be297:	48 b8 c0 72 a3 8b 1a 	movabs rax,0xc0222c1a8ba372c0
+   be29e:	2c 22 c0 
+   be2a1:	49 39 c2             	cmp    r10,rax
+   be2a4:	0f 84 d7 10 00 00    	je     bf381 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3cd6>
+   be2aa:	48 b8 0b 0e 5b 1f b7 	movabs rax,0xc158b7b71f5b0e0b
+   be2b1:	b7 58 c1 
+   be2b4:	49 39 c2             	cmp    r10,rax
+   be2b7:	0f 84 09 13 00 00    	je     bf5c6 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f1b>
+   be2bd:	48 b8 62 b1 21 17 8e 	movabs rax,0xc30a4a8e1721b162
+   be2c4:	4a 0a c3 
+   be2c7:	49 39 c2             	cmp    r10,rax
+   be2ca:	0f 84 1f 09 00 00    	je     bebef <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3544>
+   be2d0:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be2d5:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be2da:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be2df:	48 8b b4 24 b0 00 00 	mov    rsi,QWORD PTR [rsp+0xb0]
+   be2e6:	00 
+   be2e7:	48 8b bc 24 b8 00 00 	mov    rdi,QWORD PTR [rsp+0xb8]
+   be2ee:	00 
+   be2ef:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be2f4:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be2f9:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be2fe:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be303:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be308:	48 b8 6d bd a5 e5 0c 	movabs rax,0x8689970ce5a5bd6d
+   be30f:	97 89 86 
+   be312:	49 bd fd ec 04 1c 83 	movabs r13,0xc8e7a3831c04ecfd
+   be319:	a3 e7 c8 
+   be31c:	4d 39 ea             	cmp    r10,r13
+   be31f:	49 be e3 9e 1b f8 fd 	movabs r14,0x1bd2befdf81b9ee3
+   be326:	be d2 1b 
+   be329:	0f 84 e4 fd ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be32f:	48 b8 f6 22 77 8d 3d 	movabs rax,0xcaa45f3d8d7722f6
+   be336:	5f a4 ca 
+   be339:	49 39 c2             	cmp    r10,rax
+   be33c:	0f 84 ad 08 00 00    	je     bebef <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3544>
+   be342:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be347:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be34c:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be351:	48 89 de             	mov    rsi,rbx
+   be354:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be359:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be35e:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be363:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be368:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be36d:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be372:	48 b8 d5 d8 9d e5 4f 	movabs rax,0xd02c834fe59dd8d5
+   be379:	83 2c d0 
+   be37c:	49 bd d5 03 5a 7c 82 	movabs r13,0xcbeb4f827c5a03d5
+   be383:	4f eb cb 
+   be386:	4d 39 ea             	cmp    r10,r13
+   be389:	0f 84 84 fd ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be38f:	49 39 c2             	cmp    r10,rax
+   be392:	0f 84 c2 08 00 00    	je     bec5a <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x35af>
+   be398:	48 b8 01 3f 6c d3 c8 	movabs rax,0xd8e551c8d36c3f01
+   be39f:	51 e5 d8 
+   be3a2:	49 39 c2             	cmp    r10,rax
+   be3a5:	0f 84 a8 0f 00 00    	je     bf353 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3ca8>
+   be3ab:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be3b0:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be3b5:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be3ba:	48 89 de             	mov    rsi,rbx
+   be3bd:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be3c2:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be3c7:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be3cc:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be3d1:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be3d6:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be3db:	48 b8 48 af 86 ed ea 	movabs rax,0x1df7beaed86af48
+   be3e2:	7b df 01 
+   be3e5:	49 bd cd 43 77 1e d1 	movabs r13,0xd9aff2d11e7743cd
+   be3ec:	f2 af d9 
+   be3ef:	4d 39 ea             	cmp    r10,r13
+   be3f2:	0f 84 1b fd ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be3f8:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be3fd:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be402:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be407:	48 89 de             	mov    rsi,rbx
+   be40a:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be40f:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be414:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be419:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be41e:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be423:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be428:	48 b8 6d bd a5 e5 0c 	movabs rax,0x8689970ce5a5bd6d
+   be42f:	97 89 86 
+   be432:	49 bd 76 17 cc a4 a4 	movabs r13,0xdca35fa4a4cc1776
+   be439:	5f a3 dc 
+   be43c:	4d 39 ea             	cmp    r10,r13
+   be43f:	0f 84 ce fc ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be445:	48 b8 79 31 77 ac f9 	movabs rax,0xdd2b1ff9ac773179
+   be44c:	1f 2b dd 
+   be44f:	49 39 c2             	cmp    r10,rax
+   be452:	0f 84 50 11 00 00    	je     bf5a8 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3efd>
+   be458:	48 b8 b5 79 69 c4 df 	movabs rax,0xde15c4dfc46979b5
+   be45f:	c4 15 de 
+   be462:	49 39 c2             	cmp    r10,rax
+   be465:	0f 84 a7 07 00 00    	je     bec12 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3567>
+   be46b:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be470:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be475:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be47a:	48 89 de             	mov    rsi,rbx
+   be47d:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be482:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be487:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be48c:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be491:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be496:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be49b:	4c 89 f0             	mov    rax,r14
+   be49e:	49 bd d3 ac dc d1 78 	movabs r13,0xe513c078d1dcacd3
+   be4a5:	c0 13 e5 
+   be4a8:	4d 39 ea             	cmp    r10,r13
+   be4ab:	0f 84 62 fc ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be4b1:	48 8b 84 24 a8 00 00 	mov    rax,QWORD PTR [rsp+0xa8]
+   be4b8:	00 
+   be4b9:	48 89 44 24 18       	mov    QWORD PTR [rsp+0x18],rax
+   be4be:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be4c3:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be4c8:	48 89 de             	mov    rsi,rbx
+   be4cb:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be4d0:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be4d5:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be4da:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be4df:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be4e4:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be4e9:	48 b8 4b 83 08 9e 65 	movabs rax,0xfdcf09659e08834b
+   be4f0:	09 cf fd 
+   be4f3:	49 bd d3 f2 f7 e0 7d 	movabs r13,0xe61e847de0f7f2d3
+   be4fa:	84 1e e6 
+   be4fd:	4d 39 ea             	cmp    r10,r13
+   be500:	0f 84 0d fc ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be506:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be50b:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be510:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be515:	48 89 de             	mov    rsi,rbx
+   be518:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be51d:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be522:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be527:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be52c:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be531:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be536:	4c 89 f0             	mov    rax,r14
+   be539:	49 bd f3 0d 4e 47 de 	movabs r13,0xe75866de474e0df3
+   be540:	66 58 e7 
+   be543:	4d 39 ea             	cmp    r10,r13
+   be546:	0f 84 c7 fb ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be54c:	48 b8 4b 83 08 9e 65 	movabs rax,0xfdcf09659e08834b
+   be553:	09 cf fd 
+   be556:	49 39 c2             	cmp    r10,rax
+   be559:	0f 84 ad 0d 00 00    	je     bf30c <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3c61>
+   be55f:	48 b8 61 4d 39 20 29 	movabs rax,0xfe92e12920394d61
+   be566:	e1 92 fe 
+   be569:	49 39 c2             	cmp    r10,rax
+   be56c:	0f 84 88 06 00 00    	je     bebfa <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x354f>
+   be572:	48 b8 48 af 86 ed ea 	movabs rax,0x1df7beaed86af48
+   be579:	7b df 01 
+   be57c:	49 39 c2             	cmp    r10,rax
+   be57f:	0f 84 82 09 00 00    	je     bef07 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x385c>
+   be585:	48 b8 67 ac 6e 50 cf 	movabs rax,0x282e2cf506eac67
+   be58c:	e2 82 02 
+   be58f:	49 39 c2             	cmp    r10,rax
+   be592:	0f 84 b9 0f 00 00    	je     bf551 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3ea6>
+   be598:	48 b8 bf ef f1 d0 8e 	movabs rax,0xc501f8ed0f1efbf
+   be59f:	1f 50 0c 
+   be5a2:	49 39 c2             	cmp    r10,rax
+   be5a5:	0f 84 fd 06 00 00    	je     beca8 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x35fd>
+   be5ab:	48 b8 5b 19 4d cb de 	movabs rax,0xdf9b1decb4d195b
+   be5b2:	b1 f9 0d 
+   be5b5:	49 39 c2             	cmp    r10,rax
+   be5b8:	0f 84 68 0e 00 00    	je     bf426 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3d7b>
+   be5be:	48 b8 4b c4 0a 99 13 	movabs rax,0x13e17013990ac44b
+   be5c5:	70 e1 13 
+   be5c8:	49 39 c2             	cmp    r10,rax
+   be5cb:	0f 84 ae 06 00 00    	je     bec7f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x35d4>
+   be5d1:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be5d6:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be5db:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be5e0:	48 89 de             	mov    rsi,rbx
+   be5e3:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be5e8:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be5ed:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be5f2:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be5f7:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be5fc:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be601:	48 b8 bf ef f1 d0 8e 	movabs rax,0xc501f8ed0f1efbf
+   be608:	1f 50 0c 
+   be60b:	4d 39 f2             	cmp    r10,r14
+   be60e:	0f 84 ff fa ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be614:	48 b8 72 70 99 84 23 	movabs rax,0x1c53132384997072
+   be61b:	13 53 1c 
+   be61e:	49 39 c2             	cmp    r10,rax
+   be621:	0f 84 7b 0e 00 00    	je     bf4a2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3df7>
+   be627:	48 b8 b6 4f 0c 15 e8 	movabs rax,0x1e7963e8150c4fb6
+   be62e:	63 79 1e 
+   be631:	49 39 c2             	cmp    r10,rax
+   be634:	0f 84 e5 07 00 00    	je     bee1f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3774>
+   be63a:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be63f:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be644:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be649:	48 89 de             	mov    rsi,rbx
+   be64c:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be651:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be656:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be65b:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be660:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be665:	48 8b 94 24 f0 00 00 	mov    rdx,QWORD PTR [rsp+0xf0]
+   be66c:	00 
+   be66d:	48 b8 9d c7 ee 13 aa 	movabs rax,0x6f2d55aa13eec79d
+   be674:	55 2d 6f 
+   be677:	49 bd 52 a3 f6 b1 c9 	movabs r13,0x253b8dc9b1f6a352
+   be67e:	8d 3b 25 
+   be681:	4d 39 ea             	cmp    r10,r13
+   be684:	0f 84 89 fa ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be68a:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be68f:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be694:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be699:	48 89 de             	mov    rsi,rbx
+   be69c:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be6a1:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be6a6:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be6ab:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be6b0:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be6b5:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be6ba:	48 b8 96 b1 3e ba c2 	movabs rax,0x29d075c2ba3eb196
+   be6c1:	75 d0 29 
+   be6c4:	49 bd ee fa 59 de bd 	movabs r13,0x26ac5cbdde59faee
+   be6cb:	5c ac 26 
+   be6ce:	4d 39 ea             	cmp    r10,r13
+   be6d1:	0f 84 3c fa ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be6d7:	49 39 c2             	cmp    r10,rax
+   be6da:	0f 84 92 06 00 00    	je     bed72 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x36c7>
+   be6e0:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be6e5:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be6ea:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be6ef:	48 89 de             	mov    rsi,rbx
+   be6f2:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be6f7:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be6fc:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be701:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be706:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be70b:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be710:	48 b8 ba c5 28 51 81 	movabs rax,0x550006815128c5ba
+   be717:	06 00 55 
+   be71a:	49 bd fc e8 ca 90 f4 	movabs r13,0x33a5ddf490cae8fc
+   be721:	dd a5 33 
+   be724:	4d 39 ea             	cmp    r10,r13
+   be727:	0f 84 e6 f9 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be72d:	48 b8 de a6 c1 dc 00 	movabs rax,0x36024800dcc1a6de
+   be734:	48 02 36 
+   be737:	49 39 c2             	cmp    r10,rax
+   be73a:	0f 84 c7 04 00 00    	je     bec07 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x355c>
+   be740:	48 b8 50 bc 28 be a9 	movabs rax,0x3ba140a9be28bc50
+   be747:	40 a1 3b 
+   be74a:	49 39 c2             	cmp    r10,rax
+   be74d:	0f 84 4a 07 00 00    	je     bee9d <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x37f2>
+   be753:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be758:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be75d:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be762:	48 89 de             	mov    rsi,rbx
+   be765:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be76a:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be76f:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be774:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be779:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be77e:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be783:	4c 89 f0             	mov    rax,r14
+   be786:	49 bd 82 8d 0c a7 ea 	movabs r13,0x43c03deaa70c8d82
+   be78d:	3d c0 43 
+   be790:	4d 39 ea             	cmp    r10,r13
+   be793:	0f 84 7a f9 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be799:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be79e:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be7a3:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be7a8:	48 89 de             	mov    rsi,rbx
+   be7ab:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be7b0:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be7b5:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be7ba:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be7bf:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be7c4:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be7c9:	48 b8 63 67 77 38 87 	movabs rax,0x932da08738776763
+   be7d0:	a0 2d 93 
+   be7d3:	49 bd 23 b3 0e c6 83 	movabs r13,0x441bef83c60eb323
+   be7da:	ef 1b 44 
+   be7dd:	4d 39 ea             	cmp    r10,r13
+   be7e0:	0f 84 2d f9 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be7e6:	48 b8 e5 ce 16 49 0d 	movabs rax,0x466ba40d4916cee5
+   be7ed:	a4 6b 46 
+   be7f0:	49 39 c2             	cmp    r10,rax
+   be7f3:	0f 84 7f 08 00 00    	je     bf078 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x39cd>
+   be7f9:	48 b8 80 ec f1 25 bc 	movabs rax,0x4bba50bc25f1ec80
+   be800:	50 ba 4b 
+   be803:	49 39 c2             	cmp    r10,rax
+   be806:	0f 84 67 0a 00 00    	je     bf273 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3bc8>
+   be80c:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be811:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be816:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be81b:	48 89 de             	mov    rsi,rbx
+   be81e:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be823:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be828:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be82d:	4c 8b 9c 24 98 00 00 	mov    r11,QWORD PTR [rsp+0x98]
+   be834:	00 
+   be835:	48 8b 8c 24 a0 00 00 	mov    rcx,QWORD PTR [rsp+0xa0]
+   be83c:	00 
+   be83d:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be842:	48 b8 ba c5 28 51 81 	movabs rax,0x550006815128c5ba
+   be849:	06 00 55 
+   be84c:	49 be f5 ee 10 e3 5b 	movabs r14,0x4c81a55be310eef5
+   be853:	a5 81 4c 
+   be856:	4d 39 f2             	cmp    r10,r14
+   be859:	49 be e3 9e 1b f8 fd 	movabs r14,0x1bd2befdf81b9ee3
+   be860:	be d2 1b 
+   be863:	0f 84 aa f8 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be869:	48 b8 4b 74 08 7e a2 	movabs rax,0x4f067aa27e08744b
+   be870:	7a 06 4f 
+   be873:	49 39 c2             	cmp    r10,rax
+   be876:	0f 84 45 05 00 00    	je     bedc1 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3716>
+   be87c:	48 b8 bc 98 47 ae e0 	movabs rax,0x503753e0ae4798bc
+   be883:	53 37 50 
+   be886:	49 39 c2             	cmp    r10,rax
+   be889:	0f 84 43 0b 00 00    	je     bf3d2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3d27>
+   be88f:	48 b8 73 e4 15 57 21 	movabs rax,0x520ea6215715e473
+   be896:	a6 0e 52 
+   be899:	49 39 c2             	cmp    r10,rax
+   be89c:	0f 84 23 06 00 00    	je     beec5 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x381a>
+   be8a2:	48 b8 ba c5 28 51 81 	movabs rax,0x550006815128c5ba
+   be8a9:	06 00 55 
+   be8ac:	49 39 c2             	cmp    r10,rax
+   be8af:	0f 84 98 04 00 00    	je     bed4d <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x36a2>
+   be8b5:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be8ba:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be8bf:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be8c4:	48 89 de             	mov    rsi,rbx
+   be8c7:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be8cc:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be8d1:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be8d6:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be8db:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be8e0:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be8e5:	48 b8 67 ac 6e 50 cf 	movabs rax,0x282e2cf506eac67
+   be8ec:	e2 82 02 
+   be8ef:	49 bd bb ec 6f 4e 0c 	movabs r13,0x5617630c4e6fecbb
+   be8f6:	63 17 56 
+   be8f9:	4d 39 ea             	cmp    r10,r13
+   be8fc:	0f 84 11 f8 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be902:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be907:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be90c:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be911:	48 89 de             	mov    rsi,rbx
+   be914:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be919:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be91e:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be923:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be928:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be92d:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be932:	48 b8 d5 d8 9d e5 4f 	movabs rax,0xd02c834fe59dd8d5
+   be939:	83 2c d0 
+   be93c:	49 bd 2c 7c 3d f8 60 	movabs r13,0x59e82660f83d7c2c
+   be943:	26 e8 59 
+   be946:	4d 39 ea             	cmp    r10,r13
+   be949:	0f 84 c4 f7 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be94f:	48 b8 10 21 37 41 e5 	movabs rax,0x5a4353e541372110
+   be956:	53 43 5a 
+   be959:	49 39 c2             	cmp    r10,rax
+   be95c:	0f 84 ad 06 00 00    	je     bf00f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3964>
+   be962:	48 b8 80 cc 19 b2 1d 	movabs rax,0x5be0461db219cc80
+   be969:	46 e0 5b 
+   be96c:	49 39 c2             	cmp    r10,rax
+   be96f:	0f 84 40 09 00 00    	je     bf2b5 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3c0a>
+   be975:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be97a:	4c 89 64 24 10       	mov    QWORD PTR [rsp+0x10],r12
+   be97f:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be984:	48 89 de             	mov    rsi,rbx
+   be987:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be98c:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   be991:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   be996:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   be99b:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   be9a0:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   be9a5:	48 b8 46 eb 53 bf 65 	movabs rax,0x77f78c65bf53eb46
+   be9ac:	8c f7 77 
+   be9af:	49 bd 29 b0 b2 48 32 	movabs r13,0x5d78403248b2b029
+   be9b6:	40 78 5d 
+   be9b9:	4d 39 ea             	cmp    r10,r13
+   be9bc:	0f 84 51 f7 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   be9c2:	48 b8 ac a6 5a 15 b6 	movabs rax,0x5e552fb6155aa6ac
+   be9c9:	2f 55 5e 
+   be9cc:	49 39 c2             	cmp    r10,rax
+   be9cf:	0f 84 1b 08 00 00    	je     bf1f0 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3b45>
+   be9d5:	48 b8 2b 4e 6f 43 f6 	movabs rax,0x5f30d8f6436f4e2b
+   be9dc:	d8 30 5f 
+   be9df:	49 39 c2             	cmp    r10,rax
+   be9e2:	0f 84 f2 06 00 00    	je     bf0da <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3a2f>
+   be9e8:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   be9ed:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   be9f2:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   be9f7:	48 89 de             	mov    rsi,rbx
+   be9fa:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   be9ff:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bea04:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bea09:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bea0e:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bea13:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bea18:	48 8b 84 24 e8 00 00 	mov    rax,QWORD PTR [rsp+0xe8]
+   bea1f:	00 
+   bea20:	49 bd d5 b0 33 22 71 	movabs r13,0x5fcf00712233b0d5
+   bea27:	00 cf 5f 
+   bea2a:	4d 39 ea             	cmp    r10,r13
+   bea2d:	0f 84 e0 f6 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bea33:	48 b8 08 2e 3d 1e 2d 	movabs rax,0x62db2a2d1e3d2e08
+   bea3a:	2a db 62 
+   bea3d:	49 39 c2             	cmp    r10,rax
+   bea40:	0f 84 f9 03 00 00    	je     bee3f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3794>
+   bea46:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bea4b:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bea50:	48 8b 84 24 90 00 00 	mov    rax,QWORD PTR [rsp+0x90]
+   bea57:	00 
+   bea58:	48 89 44 24 08       	mov    QWORD PTR [rsp+0x8],rax
+   bea5d:	48 89 de             	mov    rsi,rbx
+   bea60:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bea65:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bea6a:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bea6f:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bea74:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bea79:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bea7e:	48 b8 bf ef f1 d0 8e 	movabs rax,0xc501f8ed0f1efbf
+   bea85:	1f 50 0c 
+   bea88:	49 be c9 fa 9c 1b 2d 	movabs r14,0x654c132d1b9cfac9
+   bea8f:	13 4c 65 
+   bea92:	4d 39 f2             	cmp    r10,r14
+   bea95:	49 be e3 9e 1b f8 fd 	movabs r14,0x1bd2befdf81b9ee3
+   bea9c:	be d2 1b 
+   bea9f:	0f 84 6e f6 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   beaa5:	48 b8 60 17 8d 52 70 	movabs rax,0x6b193770528d1760
+   beaac:	37 19 6b 
+   beaaf:	49 39 c2             	cmp    r10,rax
+   beab2:	0f 84 bc 04 00 00    	je     bef74 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x38c9>
+   beab8:	48 b8 9d c7 ee 13 aa 	movabs rax,0x6f2d55aa13eec79d
+   beabf:	55 2d 6f 
+   beac2:	49 39 c2             	cmp    r10,rax
+   beac5:	0f 84 9c 06 00 00    	je     bf167 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3abc>
+   beacb:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bead0:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bead5:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   beada:	48 89 de             	mov    rsi,rbx
+   beadd:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   beae2:	4c 8b 84 24 80 00 00 	mov    r8,QWORD PTR [rsp+0x80]
+   beae9:	00 
+   beaea:	4c 8b 8c 24 88 00 00 	mov    r9,QWORD PTR [rsp+0x88]
+   beaf1:	00 
+   beaf2:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   beaf7:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   beafc:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   beb01:	48 b8 d3 f7 5b 43 e3 	movabs rax,0xb0bb71e3435bf7d3
+   beb08:	71 bb b0 
+   beb0b:	49 be 7e 09 3c f6 5b 	movabs r14,0x7656f65bf63c097e
+   beb12:	f6 56 76 
+   beb15:	4d 39 f2             	cmp    r10,r14
+   beb18:	49 be e3 9e 1b f8 fd 	movabs r14,0x1bd2befdf81b9ee3
+   beb1f:	be d2 1b 
+   beb22:	0f 84 eb f5 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   beb28:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   beb2d:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   beb32:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   beb37:	48 89 de             	mov    rsi,rbx
+   beb3a:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   beb3f:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   beb44:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   beb49:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   beb4e:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   beb53:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   beb58:	49 bd 9d 0f 45 29 85 	movabs r13,0x766c658529450f9d
+   beb5f:	65 6c 76 
+   beb62:	4d 39 ea             	cmp    r10,r13
+   beb65:	0f 84 a8 f5 ff ff    	je     be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   beb6b:	48 b8 c0 25 03 0f ff 	movabs rax,0x76af6eff0f0325c0
+   beb72:	6e af 76 
+   beb75:	49 39 c2             	cmp    r10,rax
+   beb78:	0f 84 3d 04 00 00    	je     befbb <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3910>
+   beb7e:	48 b8 46 eb 53 bf 65 	movabs rax,0x77f78c65bf53eb46
+   beb85:	8c f7 77 
+   beb88:	49 39 c2             	cmp    r10,rax
+   beb8b:	0f 84 6b 05 00 00    	je     bf0fc <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3a51>
+   beb91:	48 b8 f9 ee 42 72 b3 	movabs rax,0x7ec488b37242eef9
+   beb98:	88 c4 7e 
+   beb9b:	49 39 c2             	cmp    r10,rax
+   beb9e:	0f 84 16 05 00 00    	je     bf0ba <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3a0f>
+   beba4:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   beba9:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bebae:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bebb3:	48 89 de             	mov    rsi,rbx
+   bebb6:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bebbb:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bebc0:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bebc5:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bebca:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bebcf:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bebd4:	4c 89 d0             	mov    rax,r10
+   bebd7:	48 bb b3 7b 64 c7 99 	movabs rbx,0x1e4c6299c7647bb3
+   bebde:	62 4c 1e 
+   bebe1:	49 39 da             	cmp    r10,rbx
+   bebe4:	0f 85 29 f5 ff ff    	jne    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bebea:	e9 a3 0a 00 00       	jmp    bf692 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3fe7>
+   bebef:	48 8b 44 24 60       	mov    rax,QWORD PTR [rsp+0x60]
+   bebf4:	c7 00 02 00 00 00    	mov    DWORD PTR [rax],0x2
+   bebfa:	c7 44 24 5c 00 00 00 	mov    DWORD PTR [rsp+0x5c],0x0
+   bec01:	00 
+   bec02:	e9 4c 0a 00 00       	jmp    bf653 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3fa8>
+   bec07:	b0 01                	mov    al,0x1
+   bec09:	89 44 24 58          	mov    DWORD PTR [rsp+0x58],eax
+   bec0d:	e9 db 04 00 00       	jmp    bf0ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3a42>
+   bec12:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bec17:	49 8d 43 01          	lea    rax,[r11+0x1]
+   bec1b:	48 89 84 24 98 00 00 	mov    QWORD PTR [rsp+0x98],rax
+   bec22:	00 
+   bec23:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bec28:	48 8d 41 01          	lea    rax,[rcx+0x1]
+   bec2c:	48 89 84 24 a0 00 00 	mov    QWORD PTR [rsp+0xa0],rax
+   bec33:	00 
+   bec34:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bec39:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bec3e:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bec43:	48 89 de             	mov    rsi,rbx
+   bec46:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bec4b:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bec50:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bec55:	e9 b1 01 00 00       	jmp    bee0b <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3760>
+   bec5a:	31 c0                	xor    eax,eax
+   bec5c:	b1 01                	mov    cl,0x1
+   bec5e:	f0 0f b0 0d 3a 04 08 	lock cmpxchg BYTE PTR [rip+0x8043a],cl        # 13f0a0 <write@plt+0xc520>
+   bec65:	00 
+   bec66:	48 b8 2c 7c 3d f8 60 	movabs rax,0x59e82660f83d7c2c
+   bec6d:	26 e8 59 
+   bec70:	48 b9 08 2e 3d 1e 2d 	movabs rcx,0x62db2a2d1e3d2e08
+   bec77:	2a db 62 
+   bec7a:	e9 6e 09 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   bec7f:	48 8d 84 24 00 01 00 	lea    rax,[rsp+0x100]
+   bec86:	00 
+   bec87:	48 39 84 24 d8 00 00 	cmp    QWORD PTR [rsp+0xd8],rax
+   bec8e:	00 
+   bec8f:	48 b8 ac a6 5a 15 b6 	movabs rax,0x5e552fb6155aa6ac
+   bec96:	2f 55 5e 
+   bec99:	48 b9 2d af f8 2b 27 	movabs rcx,0xbcd164272bf8af2d
+   beca0:	64 d1 bc 
+   beca3:	e9 45 09 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   beca8:	48 8d bc 24 00 01 00 	lea    rdi,[rsp+0x100]
+   becaf:	00 
+   becb0:	be 00 04 00 00       	mov    esi,0x400
+   becb5:	48 8b 54 24 68       	mov    rdx,QWORD PTR [rsp+0x68]
+   becba:	e8 e1 3b 07 00       	call   1328a0 <fgets@plt>
+   becbf:	48 85 c0             	test   rax,rax
+   becc2:	48 b8 e5 ce 16 49 0d 	movabs rax,0x466ba40d4916cee5
+   becc9:	a4 6b 46 
+   beccc:	48 b9 29 b0 b2 48 32 	movabs rcx,0x5d78403248b2b029
+   becd3:	40 78 5d 
+   becd6:	e9 12 09 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   becdb:	ba 00 04 00 00       	mov    edx,0x400
+   bece0:	4c 8d ac 24 00 01 00 	lea    r13,[rsp+0x100]
+   bece7:	00 
+   bece8:	4c 89 ef             	mov    rdi,r13
+   beceb:	31 f6                	xor    esi,esi
+   beced:	e8 4e 3b 07 00       	call   132840 <memset@plt>
+   becf2:	4c 89 ef             	mov    rdi,r13
+   becf5:	be 00 04 00 00       	mov    esi,0x400
+   becfa:	48 8b 54 24 68       	mov    rdx,QWORD PTR [rsp+0x68]
+   becff:	e8 9c 3b 07 00       	call   1328a0 <fgets@plt>
+   bed04:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bed09:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bed0e:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bed13:	48 89 de             	mov    rsi,rbx
+   bed16:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bed1b:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bed20:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bed25:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bed2a:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bed2f:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bed34:	31 c0                	xor    eax,eax
+   bed36:	48 89 84 24 90 00 00 	mov    QWORD PTR [rsp+0x90],rax
+   bed3d:	00 
+   bed3e:	48 b8 c9 fa 9c 1b 2d 	movabs rax,0x654c132d1b9cfac9
+   bed45:	13 4c 65 
+   bed48:	e9 c6 f3 ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bed4d:	31 c0                	xor    eax,eax
+   bed4f:	b1 01                	mov    cl,0x1
+   bed51:	f0 0f b0 0d 4d 03 08 	lock cmpxchg BYTE PTR [rip+0x8034d],cl        # 13f0a6 <write@plt+0xc526>
+   bed58:	00 
+   bed59:	48 b8 fc e8 ca 90 f4 	movabs rax,0x33a5ddf490cae8fc
+   bed60:	dd a5 33 
+   bed63:	48 b9 f9 ee 42 72 b3 	movabs rcx,0x7ec488b37242eef9
+   bed6a:	88 c4 7e 
+   bed6d:	e9 7b 08 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   bed72:	c6 05 29 03 08 00 00 	mov    BYTE PTR [rip+0x80329],0x0        # 13f0a2 <write@plt+0xc522>
+   bed79:	8a 0b                	mov    cl,BYTE PTR [rbx]
+   bed7b:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bed80:	8a 07                	mov    al,BYTE PTR [rdi]
+   bed82:	88 44 24 56          	mov    BYTE PTR [rsp+0x56],al
+   bed86:	38 c1                	cmp    cl,al
+   bed88:	48 b8 0f a3 47 35 f3 	movabs rax,0xb29c9df33547a30f
+   bed8f:	9d 9c b2 
+   bed92:	48 ba 5b 19 4d cb de 	movabs rdx,0xdf9b1decb4d195b
+   bed99:	b1 f9 0d 
+   bed9c:	48 0f 45 c2          	cmovne rax,rdx
+   beda0:	88 4c 24 57          	mov    BYTE PTR [rsp+0x57],cl
+   beda4:	84 c9                	test   cl,cl
+   beda6:	48 0f 44 c2          	cmove  rax,rdx
+   bedaa:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bedaf:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bedb4:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bedb9:	48 89 de             	mov    rsi,rbx
+   bedbc:	e9 47 08 00 00       	jmp    bf608 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f5d>
+   bedc1:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bedc6:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bedcb:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bedd0:	48 89 de             	mov    rsi,rbx
+   bedd3:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bedd8:	48 8d 05 f8 f4 07 00 	lea    rax,[rip+0x7f4f8]        # 13e2d7 <write@plt+0xb757>
+   beddf:	48 89 84 24 a0 00 00 	mov    QWORD PTR [rsp+0xa0],rax
+   bede6:	00 
+   bede7:	48 8d 84 24 00 01 00 	lea    rax,[rsp+0x100]
+   bedee:	00 
+   bedef:	48 89 84 24 98 00 00 	mov    QWORD PTR [rsp+0x98],rax
+   bedf6:	00 
+   bedf7:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bedfc:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bee01:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bee06:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bee0b:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bee10:	48 b8 f5 ee 10 e3 5b 	movabs rax,0x4c81a55be310eef5
+   bee17:	a5 81 4c 
+   bee1a:	e9 f4 f2 ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bee1f:	80 3d 7d 02 08 00 00 	cmp    BYTE PTR [rip+0x8027d],0x0        # 13f0a3 <write@plt+0xc523>
+   bee26:	48 b8 ad 7a c8 9a 0f 	movabs rax,0xa75a6f0f9ac87aad
+   bee2d:	6f 5a a7 
+   bee30:	48 b9 ee fa 59 de bd 	movabs rcx,0x26ac5cbdde59faee
+   bee37:	5c ac 26 
+   bee3a:	e9 63 07 00 00       	jmp    bf5a2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3ef7>
+   bee3f:	80 3d 5b 02 08 00 00 	cmp    BYTE PTR [rip+0x8025b],0x0        # 13f0a1 <write@plt+0xc521>
+   bee46:	48 b8 bc 98 47 ae e0 	movabs rax,0x503753e0ae4798bc
+   bee4d:	53 37 50 
+   bee50:	48 b9 bb ec 6f 4e 0c 	movabs rcx,0x5617630c4e6fecbb
+   bee57:	63 17 56 
+   bee5a:	e9 43 07 00 00       	jmp    bf5a2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3ef7>
+   bee5f:	48 83 a4 24 f8 00 00 	and    QWORD PTR [rsp+0xf8],0x0
+   bee66:	00 00 
+   bee68:	48 8b 7c 24 60       	mov    rdi,QWORD PTR [rsp+0x60]
+   bee6d:	48 8d b4 24 00 01 00 	lea    rsi,[rsp+0x100]
+   bee74:	00 
+   bee75:	48 8d 94 24 f8 00 00 	lea    rdx,[rsp+0xf8]
+   bee7c:	00 
+   bee7d:	e8 11 d2 ff ff       	call   bc093 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x9e8>
+   bee82:	84 c0                	test   al,al
+   bee84:	48 b8 61 4d 39 20 29 	movabs rax,0xfe92e12920394d61
+   bee8b:	e1 92 fe 
+   bee8e:	48 b9 0b 0e 5b 1f b7 	movabs rcx,0xc158b7b71f5b0e0b
+   bee95:	b7 58 c1 
+   bee98:	e9 05 07 00 00       	jmp    bf5a2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3ef7>
+   bee9d:	48 8b 7c 24 70       	mov    rdi,QWORD PTR [rsp+0x70]
+   beea2:	6a 04                	push   0x4
+   beea4:	5e                   	pop    rsi
+   beea5:	e8 b6 39 07 00       	call   132860 <access@plt>
+   beeaa:	85 c0                	test   eax,eax
+   beeac:	48 b8 0c 0e 28 d1 5a 	movabs rax,0x96fb5a5ad1280e0c
+   beeb3:	5a fb 96 
+   beeb6:	48 b9 d5 03 5a 7c 82 	movabs rcx,0xcbeb4f827c5a03d5
+   beebd:	4f eb cb 
+   beec0:	e9 28 07 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   beec5:	49 8d 54 24 01       	lea    rdx,[r12+0x1]
+   beeca:	48 8b 44 24 78       	mov    rax,QWORD PTR [rsp+0x78]
+   beecf:	48 8b 8c 24 e0 00 00 	mov    rcx,QWORD PTR [rsp+0xe0]
+   beed6:	00 
+   beed7:	4a 89 0c e0          	mov    QWORD PTR [rax+r12*8],rcx
+   beedb:	48 89 94 24 a8 00 00 	mov    QWORD PTR [rsp+0xa8],rdx
+   beee2:	00 
+   beee3:	48 81 fa 00 04 00 00 	cmp    rdx,0x400
+   beeea:	48 b8 d3 f2 f7 e0 7d 	movabs rax,0xe61e847de0f7f2d3
+   beef1:	84 1e e6 
+   beef4:	48 b9 60 17 8d 52 70 	movabs rcx,0x6b193770528d1760
+   beefb:	37 19 6b 
+   beefe:	48 0f 43 c1          	cmovae rax,rcx
+   bef02:	e9 ea 06 00 00       	jmp    bf5f1 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f46>
+   bef07:	c6 05 98 01 08 00 00 	mov    BYTE PTR [rip+0x80198],0x0        # 13f0a6 <write@plt+0xc526>
+   bef0e:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bef13:	41 8a 0b             	mov    cl,BYTE PTR [r11]
+   bef16:	4c 8b 54 24 30       	mov    r10,QWORD PTR [rsp+0x30]
+   bef1b:	41 8a 02             	mov    al,BYTE PTR [r10]
+   bef1e:	88 44 24 54          	mov    BYTE PTR [rsp+0x54],al
+   bef22:	38 c1                	cmp    cl,al
+   bef24:	48 b8 b5 79 69 c4 df 	movabs rax,0xde15c4dfc46979b5
+   bef2b:	c4 15 de 
+   bef2e:	48 ba 10 21 37 41 e5 	movabs rdx,0x5a4353e541372110
+   bef35:	53 43 5a 
+   bef38:	48 0f 45 c2          	cmovne rax,rdx
+   bef3c:	88 4c 24 55          	mov    BYTE PTR [rsp+0x55],cl
+   bef40:	84 c9                	test   cl,cl
+   bef42:	48 0f 44 c2          	cmove  rax,rdx
+   bef46:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bef4b:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bef50:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bef55:	48 89 de             	mov    rsi,rbx
+   bef58:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bef5d:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bef62:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bef67:	4c 89 d1             	mov    rcx,r10
+   bef6a:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bef6f:	e9 9f f1 ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bef74:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bef79:	48 8b 84 24 a8 00 00 	mov    rax,QWORD PTR [rsp+0xa8]
+   bef80:	00 
+   bef81:	48 89 44 24 10       	mov    QWORD PTR [rsp+0x10],rax
+   bef86:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bef8b:	48 89 de             	mov    rsi,rbx
+   bef8e:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bef93:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bef98:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bef9d:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   befa2:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   befa7:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   befac:	48 b8 46 eb 53 bf 65 	movabs rax,0x77f78c65bf53eb46
+   befb3:	8c f7 77 
+   befb6:	e9 58 f1 ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   befbb:	80 35 13 f3 07 00 6b 	xor    BYTE PTR [rip+0x7f313],0x6b        # 13e2d5 <write@plt+0xb755>
+   befc2:	80 35 0d f3 07 00 6b 	xor    BYTE PTR [rip+0x7f30d],0x6b        # 13e2d6 <write@plt+0xb756>
+   befc9:	c6 05 d5 00 08 00 01 	mov    BYTE PTR [rip+0x800d5],0x1        # 13f0a5 <write@plt+0xc525>
+   befd0:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   befd5:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   befda:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   befdf:	48 89 de             	mov    rsi,rbx
+   befe2:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   befe7:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   befec:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   beff1:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   beff6:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   beffb:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf000:	48 b8 63 67 77 38 87 	movabs rax,0x932da08738776763
+   bf007:	a0 2d 93 
+   bf00a:	e9 04 f1 ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf00f:	8a 44 24 54          	mov    al,BYTE PTR [rsp+0x54]
+   bf013:	38 44 24 55          	cmp    BYTE PTR [rsp+0x55],al
+   bf017:	48 b8 2d 2f 9f 35 ce 	movabs rax,0x988f0ece359f2f2d
+   bf01e:	0e 8f 98 
+   bf021:	48 b9 d3 ac dc d1 78 	movabs rcx,0xe513c078d1dcacd3
+   bf028:	c0 13 e5 
+   bf02b:	e9 bd 05 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   bf030:	48 8d 43 01          	lea    rax,[rbx+0x1]
+   bf034:	48 89 84 24 b0 00 00 	mov    QWORD PTR [rsp+0xb0],rax
+   bf03b:	00 
+   bf03c:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf041:	48 8d 47 01          	lea    rax,[rdi+0x1]
+   bf045:	48 89 84 24 b8 00 00 	mov    QWORD PTR [rsp+0xb8],rax
+   bf04c:	00 
+   bf04d:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf052:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf057:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf05c:	48 89 de             	mov    rsi,rbx
+   bf05f:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf064:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf069:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf06e:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf073:	e9 c2 01 00 00       	jmp    bf23a <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3b8f>
+   bf078:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf07d:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf082:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf087:	48 89 de             	mov    rsi,rbx
+   bf08a:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf08f:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf094:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf099:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf09e:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf0a3:	48 8d 94 24 00 01 00 	lea    rdx,[rsp+0x100]
+   bf0aa:	00 
+   bf0ab:	48 b8 9d c7 ee 13 aa 	movabs rax,0x6f2d55aa13eec79d
+   bf0b2:	55 2d 6f 
+   bf0b5:	e9 59 f0 ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf0ba:	80 3d e6 ff 07 00 00 	cmp    BYTE PTR [rip+0x7ffe6],0x0        # 13f0a7 <write@plt+0xc527>
+   bf0c1:	48 b8 72 70 99 84 23 	movabs rax,0x1c53132384997072
+   bf0c8:	13 53 1c 
+   bf0cb:	48 b9 cd 43 77 1e d1 	movabs rcx,0xd9aff2d11e7743cd
+   bf0d2:	f2 af d9 
+   bf0d5:	e9 c8 04 00 00       	jmp    bf5a2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3ef7>
+   bf0da:	48 8b 44 24 60       	mov    rax,QWORD PTR [rsp+0x60]
+   bf0df:	c7 00 03 00 00 00    	mov    DWORD PTR [rax],0x3
+   bf0e5:	c7 44 24 58 00 00 00 	mov    DWORD PTR [rsp+0x58],0x0
+   bf0ec:	00 
+   bf0ed:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf0f2:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf0f7:	e9 a1 02 00 00       	jmp    bf39d <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3cf2>
+   bf0fc:	6a 01                	push   0x1
+   bf0fe:	5f                   	pop    rdi
+   bf0ff:	6a 10                	push   0x10
+   bf101:	5e                   	pop    rsi
+   bf102:	e8 79 37 07 00       	call   132880 <calloc@plt>
+   bf107:	48 89 84 24 d0 00 00 	mov    QWORD PTR [rsp+0xd0],rax
+   bf10e:	00 
+   bf10f:	48 85 c0             	test   rax,rax
+   bf112:	48 b8 d5 b4 95 59 ca 	movabs rax,0xac2aa0ca5995b4d5
+   bf119:	a0 2a ac 
+   bf11c:	48 b9 f6 22 77 8d 3d 	movabs rcx,0xcaa45f3d8d7722f6
+   bf123:	5f a4 ca 
+   bf126:	48 0f 44 c1          	cmove  rax,rcx
+   bf12a:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf12f:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf134:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf139:	48 89 de             	mov    rsi,rbx
+   bf13c:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf141:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf146:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf14b:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf150:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf155:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf15a:	48 89 ac 24 c8 00 00 	mov    QWORD PTR [rsp+0xc8],rbp
+   bf161:	00 
+   bf162:	e9 ac ef ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf167:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf16c:	80 3a 00             	cmp    BYTE PTR [rdx],0x0
+   bf16f:	48 b8 52 a3 f6 b1 c9 	movabs rax,0x253b8dc9b1f6a352
+   bf176:	8d 3b 25 
+   bf179:	48 b9 4b c4 0a 99 13 	movabs rcx,0x13e17013990ac44b
+   bf180:	70 e1 13 
+   bf183:	48 0f 44 c1          	cmove  rax,rcx
+   bf187:	48 8d 4a 01          	lea    rcx,[rdx+0x1]
+   bf18b:	48 89 8c 24 f0 00 00 	mov    QWORD PTR [rsp+0xf0],rcx
+   bf192:	00 
+   bf193:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf198:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf19d:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf1a2:	48 89 94 24 d8 00 00 	mov    QWORD PTR [rsp+0xd8],rdx
+   bf1a9:	00 
+   bf1aa:	48 89 de             	mov    rsi,rbx
+   bf1ad:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf1b2:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf1b7:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf1bc:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf1c1:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf1c6:	e9 48 ef ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf1cb:	31 c0                	xor    eax,eax
+   bf1cd:	b1 01                	mov    cl,0x1
+   bf1cf:	f0 0f b0 0d cb fe 07 	lock cmpxchg BYTE PTR [rip+0x7fecb],cl        # 13f0a2 <write@plt+0xc522>
+   bf1d6:	00 
+   bf1d7:	48 b8 76 17 cc a4 a4 	movabs rax,0xdca35fa4a4cc1776
+   bf1de:	5f a3 dc 
+   bf1e1:	48 b9 b6 4f 0c 15 e8 	movabs rcx,0x1e7963e8150c4fb6
+   bf1e8:	63 79 1e 
+   bf1eb:	e9 fd 03 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   bf1f0:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf1f5:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf1fa:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf1ff:	48 89 de             	mov    rsi,rbx
+   bf202:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf207:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf20c:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf211:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf216:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf21b:	48 8d 05 b1 f0 07 00 	lea    rax,[rip+0x7f0b1]        # 13e2d3 <write@plt+0xb753>
+   bf222:	48 89 84 24 b8 00 00 	mov    QWORD PTR [rsp+0xb8],rax
+   bf229:	00 
+   bf22a:	48 8d 84 24 00 01 00 	lea    rax,[rsp+0x100]
+   bf231:	00 
+   bf232:	48 89 84 24 b0 00 00 	mov    QWORD PTR [rsp+0xb0],rax
+   bf239:	00 
+   bf23a:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf23f:	48 b8 fd ec 04 1c 83 	movabs rax,0xc8e7a3831c04ecfd
+   bf246:	a3 e7 c8 
+   bf249:	e9 c5 ee ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf24e:	31 c0                	xor    eax,eax
+   bf250:	b1 01                	mov    cl,0x1
+   bf252:	f0 0f b0 0d 4a fe 07 	lock cmpxchg BYTE PTR [rip+0x7fe4a],cl        # 13f0a4 <write@plt+0xc524>
+   bf259:	00 
+   bf25a:	48 b8 9d 0f 45 29 85 	movabs rax,0x766c658529450f9d
+   bf261:	65 6c 76 
+   bf264:	48 b9 27 0a 70 dd 00 	movabs rcx,0xaf185300dd700a27
+   bf26b:	53 18 af 
+   bf26e:	e9 7a 03 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   bf273:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf278:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf27d:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf282:	48 89 de             	mov    rsi,rbx
+   bf285:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf28a:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf28f:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf294:	48 8d 05 3a f0 07 00 	lea    rax,[rip+0x7f03a]        # 13e2d5 <write@plt+0xb755>
+   bf29b:	48 89 84 24 88 00 00 	mov    QWORD PTR [rsp+0x88],rax
+   bf2a2:	00 
+   bf2a3:	48 8d 84 24 00 01 00 	lea    rax,[rsp+0x100]
+   bf2aa:	00 
+   bf2ab:	48 89 84 24 80 00 00 	mov    QWORD PTR [rsp+0x80],rax
+   bf2b2:	00 
+   bf2b3:	eb 39                	jmp    bf2ee <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3c43>
+   bf2b5:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf2ba:	49 8d 40 01          	lea    rax,[r8+0x1]
+   bf2be:	48 89 84 24 80 00 00 	mov    QWORD PTR [rsp+0x80],rax
+   bf2c5:	00 
+   bf2c6:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf2cb:	49 8d 41 01          	lea    rax,[r9+0x1]
+   bf2cf:	48 89 84 24 88 00 00 	mov    QWORD PTR [rsp+0x88],rax
+   bf2d6:	00 
+   bf2d7:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf2dc:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf2e1:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf2e6:	48 89 de             	mov    rsi,rbx
+   bf2e9:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf2ee:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf2f3:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf2f8:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf2fd:	48 b8 7e 09 3c f6 5b 	movabs rax,0x7656f65bf63c097e
+   bf304:	f6 56 76 
+   bf307:	e9 07 ee ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf30c:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf311:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf316:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf31b:	48 89 de             	mov    rsi,rbx
+   bf31e:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf323:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf328:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf32d:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf332:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf337:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf33c:	4c 89 bc 24 90 00 00 	mov    QWORD PTR [rsp+0x90],r15
+   bf343:	00 
+   bf344:	48 b8 c9 fa 9c 1b 2d 	movabs rax,0x654c132d1b9cfac9
+   bf34b:	13 4c 65 
+   bf34e:	e9 c0 ed ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf353:	bf 00 04 00 00       	mov    edi,0x400
+   bf358:	6a 08                	push   0x8
+   bf35a:	5e                   	pop    rsi
+   bf35b:	e8 20 35 07 00       	call   132880 <calloc@plt>
+   bf360:	48 89 44 24 78       	mov    QWORD PTR [rsp+0x78],rax
+   bf365:	48 85 c0             	test   rax,rax
+   bf368:	48 b8 2a 04 4d af c1 	movabs rax,0x96eeb6c1af4d042a
+   bf36f:	b6 ee 96 
+   bf372:	48 b9 62 b1 21 17 8e 	movabs rcx,0xc30a4a8e1721b162
+   bf379:	4a 0a c3 
+   bf37c:	e9 6c 02 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   bf381:	48 8b 7c 24 68       	mov    rdi,QWORD PTR [rsp+0x68]
+   bf386:	e8 05 35 07 00       	call   132890 <fclose@plt>
+   bf38b:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf390:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf395:	8b 44 24 5c          	mov    eax,DWORD PTR [rsp+0x5c]
+   bf399:	89 44 24 58          	mov    DWORD PTR [rsp+0x58],eax
+   bf39d:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf3a2:	48 89 de             	mov    rsi,rbx
+   bf3a5:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf3aa:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf3af:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf3b4:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf3b9:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf3be:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf3c3:	48 b8 b3 7b 64 c7 99 	movabs rax,0x1e4c6299c7647bb3
+   bf3ca:	62 4c 1e 
+   bf3cd:	e9 41 ed ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf3d2:	80 35 f8 ee 07 00 92 	xor    BYTE PTR [rip+0x7eef8],0x92        # 13e2d1 <write@plt+0xb751>
+   bf3d9:	80 35 f2 ee 07 00 92 	xor    BYTE PTR [rip+0x7eef2],0x92        # 13e2d2 <write@plt+0xb752>
+   bf3e0:	c6 05 ba fc 07 00 01 	mov    BYTE PTR [rip+0x7fcba],0x1        # 13f0a1 <write@plt+0xc521>
+   bf3e7:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf3ec:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf3f1:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf3f6:	48 89 de             	mov    rsi,rbx
+   bf3f9:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf3fe:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf403:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf408:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf40d:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf412:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf417:	48 b8 67 ac 6e 50 cf 	movabs rax,0x282e2cf506eac67
+   bf41e:	e2 82 02 
+   bf421:	e9 ed ec ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf426:	8a 44 24 56          	mov    al,BYTE PTR [rsp+0x56]
+   bf42a:	38 44 24 57          	cmp    BYTE PTR [rsp+0x57],al
+   bf42e:	48 b8 80 ec f1 25 bc 	movabs rax,0x4bba50bc25f1ec80
+   bf435:	50 ba 4b 
+   bf438:	48 b9 f3 0d 4e 47 de 	movabs rcx,0xe75866de474e0df3
+   bf43f:	66 58 e7 
+   bf442:	e9 a6 01 00 00       	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   bf447:	c6 05 56 fc 07 00 00 	mov    BYTE PTR [rip+0x7fc56],0x0        # 13f0a4 <write@plt+0xc524>
+   bf44e:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf453:	41 8a 08             	mov    cl,BYTE PTR [r8]
+   bf456:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf45b:	41 8a 01             	mov    al,BYTE PTR [r9]
+   bf45e:	88 44 24 52          	mov    BYTE PTR [rsp+0x52],al
+   bf462:	38 c1                	cmp    cl,al
+   bf464:	48 b8 80 cc 19 b2 1d 	movabs rax,0x5be0461db219cc80
+   bf46b:	46 e0 5b 
+   bf46e:	48 ba 79 31 77 ac f9 	movabs rdx,0xdd2b1ff9ac773179
+   bf475:	1f 2b dd 
+   bf478:	48 0f 45 c2          	cmovne rax,rdx
+   bf47c:	88 4c 24 53          	mov    BYTE PTR [rsp+0x53],cl
+   bf480:	84 c9                	test   cl,cl
+   bf482:	48 0f 44 c2          	cmove  rax,rdx
+   bf486:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf48b:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf490:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf495:	48 89 de             	mov    rsi,rbx
+   bf498:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf49d:	e9 70 01 00 00       	jmp    bf612 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f67>
+   bf4a2:	80 35 2e ee 07 00 ec 	xor    BYTE PTR [rip+0x7ee2e],0xec        # 13e2d7 <write@plt+0xb757>
+   bf4a9:	80 35 28 ee 07 00 ec 	xor    BYTE PTR [rip+0x7ee28],0xec        # 13e2d8 <write@plt+0xb758>
+   bf4b0:	80 35 22 ee 07 00 ec 	xor    BYTE PTR [rip+0x7ee22],0xec        # 13e2d9 <write@plt+0xb759>
+   bf4b7:	c6 05 e9 fb 07 00 01 	mov    BYTE PTR [rip+0x7fbe9],0x1        # 13f0a7 <write@plt+0xc527>
+   bf4be:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf4c3:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf4c8:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf4cd:	48 89 de             	mov    rsi,rbx
+   bf4d0:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf4d5:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf4da:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf4df:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf4e4:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf4e9:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf4ee:	48 b8 48 af 86 ed ea 	movabs rax,0x1df7beaed86af48
+   bf4f5:	7b df 01 
+   bf4f8:	e9 16 ec ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf4fd:	80 35 cf ed 07 00 15 	xor    BYTE PTR [rip+0x7edcf],0x15        # 13e2d3 <write@plt+0xb753>
+   bf504:	80 35 c9 ed 07 00 15 	xor    BYTE PTR [rip+0x7edc9],0x15        # 13e2d4 <write@plt+0xb754>
+   bf50b:	c6 05 91 fb 07 00 01 	mov    BYTE PTR [rip+0x7fb91],0x1        # 13f0a3 <write@plt+0xc523>
+   bf512:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf517:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf51c:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf521:	48 89 de             	mov    rsi,rbx
+   bf524:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf529:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf52e:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf533:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf538:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf53d:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf542:	48 b8 96 b1 3e ba c2 	movabs rax,0x29d075c2ba3eb196
+   bf549:	75 d0 29 
+   bf54c:	e9 c2 eb ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf551:	c6 05 48 fb 07 00 00 	mov    BYTE PTR [rip+0x7fb48],0x0        # 13f0a0 <write@plt+0xc520>
+   bf558:	48 8b 7c 24 70       	mov    rdi,QWORD PTR [rsp+0x70]
+   bf55d:	48 8d 35 6d ed 07 00 	lea    rsi,[rip+0x7ed6d]        # 13e2d1 <write@plt+0xb751>
+   bf564:	e8 57 33 07 00       	call   1328c0 <fopen@plt>
+   bf569:	48 89 44 24 68       	mov    QWORD PTR [rsp+0x68],rax
+   bf56e:	48 85 c0             	test   rax,rax
+   bf571:	48 b8 01 3f 6c d3 c8 	movabs rax,0xd8e551c8d36c3f01
+   bf578:	51 e5 d8 
+   bf57b:	48 b9 de a6 c1 dc 00 	movabs rcx,0x36024800dcc1a6de
+   bf582:	48 02 36 
+   bf585:	eb 66                	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   bf587:	80 3d 17 fb 07 00 00 	cmp    BYTE PTR [rip+0x7fb17],0x0        # 13f0a5 <write@plt+0xc525>
+   bf58e:	48 b8 c0 25 03 0f ff 	movabs rax,0x76af6eff0f0325c0
+   bf595:	6e af 76 
+   bf598:	48 b9 23 b3 0e c6 83 	movabs rcx,0x441bef83c60eb323
+   bf59f:	ef 1b 44 
+   bf5a2:	48 0f 45 c1          	cmovne rax,rcx
+   bf5a6:	eb 49                	jmp    bf5f1 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f46>
+   bf5a8:	8a 44 24 52          	mov    al,BYTE PTR [rsp+0x52]
+   bf5ac:	38 44 24 53          	cmp    BYTE PTR [rsp+0x53],al
+   bf5b0:	48 b8 4b 74 08 7e a2 	movabs rax,0x4f067aa27e08744b
+   bf5b7:	7a 06 4f 
+   bf5ba:	48 b9 82 8d 0c a7 ea 	movabs rcx,0x43c03deaa70c8d82
+   bf5c1:	3d c0 43 
+   bf5c4:	eb 27                	jmp    bf5ed <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x3f42>
+   bf5c6:	48 8b 84 24 f8 00 00 	mov    rax,QWORD PTR [rsp+0xf8]
+   bf5cd:	00 
+   bf5ce:	48 89 84 24 e0 00 00 	mov    QWORD PTR [rsp+0xe0],rax
+   bf5d5:	00 
+   bf5d6:	48 85 c0             	test   rax,rax
+   bf5d9:	48 b8 73 e4 15 57 21 	movabs rax,0x520ea6215715e473
+   bf5e0:	a6 0e 52 
+   bf5e3:	48 b9 96 41 42 b6 b3 	movabs rcx,0x9e0132b3b6424196
+   bf5ea:	32 01 9e 
+   bf5ed:	48 0f 44 c1          	cmove  rax,rcx
+   bf5f1:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf5f6:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf5fb:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf600:	48 89 de             	mov    rsi,rbx
+   bf603:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf608:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf60d:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf612:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf617:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf61c:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf621:	e9 ed ea ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf626:	48 8b 8c 24 d0 00 00 	mov    rcx,QWORD PTR [rsp+0xd0]
+   bf62d:	00 
+   bf62e:	48 8b 84 24 c8 00 00 	mov    rax,QWORD PTR [rsp+0xc8]
+   bf635:	00 
+   bf636:	48 89 01             	mov    QWORD PTR [rcx],rax
+   bf639:	48 8b 44 24 78       	mov    rax,QWORD PTR [rsp+0x78]
+   bf63e:	48 89 41 08          	mov    QWORD PTR [rcx+0x8],rax
+   bf642:	48 8b 84 24 c0 00 00 	mov    rax,QWORD PTR [rsp+0xc0]
+   bf649:	00 
+   bf64a:	48 89 08             	mov    QWORD PTR [rax],rcx
+   bf64d:	b0 01                	mov    al,0x1
+   bf64f:	89 44 24 5c          	mov    DWORD PTR [rsp+0x5c],eax
+   bf653:	4c 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],r15
+   bf658:	48 89 6c 24 10       	mov    QWORD PTR [rsp+0x10],rbp
+   bf65d:	4c 89 64 24 08       	mov    QWORD PTR [rsp+0x8],r12
+   bf662:	48 89 de             	mov    rsi,rbx
+   bf665:	48 8b 7c 24 20       	mov    rdi,QWORD PTR [rsp+0x20]
+   bf66a:	4c 8b 44 24 38       	mov    r8,QWORD PTR [rsp+0x38]
+   bf66f:	4c 8b 4c 24 40       	mov    r9,QWORD PTR [rsp+0x40]
+   bf674:	4c 8b 5c 24 28       	mov    r11,QWORD PTR [rsp+0x28]
+   bf679:	48 8b 4c 24 30       	mov    rcx,QWORD PTR [rsp+0x30]
+   bf67e:	48 8b 54 24 48       	mov    rdx,QWORD PTR [rsp+0x48]
+   bf683:	48 b8 c0 72 a3 8b 1a 	movabs rax,0xc0222c1a8ba372c0
+   bf68a:	2c 22 c0 
+   bf68d:	e9 81 ea ff ff       	jmp    be113 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x2a68>
+   bf692:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+   bf699:	00 00 
+   bf69b:	48 3b 84 24 00 05 00 	cmp    rax,QWORD PTR [rsp+0x500]
+   bf6a2:	00 
+   bf6a3:	75 18                	jne    bf6bd <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x4012>
+   bf6a5:	8b 44 24 58          	mov    eax,DWORD PTR [rsp+0x58]
+   bf6a9:	24 01                	and    al,0x1
+   bf6ab:	48 81 c4 08 05 00 00 	add    rsp,0x508
+   bf6b2:	5b                   	pop    rbx
+   bf6b3:	41 5c                	pop    r12
+   bf6b5:	41 5d                	pop    r13
+   bf6b7:	41 5e                	pop    r14
+   bf6b9:	41 5f                	pop    r15
+   bf6bb:	5d                   	pop    rbp
+   bf6bc:	c3                   	ret
+   bf6bd:	e8 5e 31 07 00       	call   132820 <__stack_chk_fail@plt>

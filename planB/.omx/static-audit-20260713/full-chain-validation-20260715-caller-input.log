@@ -1,0 +1,61 @@
+# caller-supplied detector input validation
+2026-07-15 03:24:43 +0800
+ee20226c41184e1fbb3b7e38f61800df4e08a6937c04b150dc2a96c69b899bbc  native-reimplementation/recovered_primitives.cpp
+thirteen dispatcher and thirteen malloc sites per ABI: PASS
+thirteen XOR-decoded names and cross-ABI call sites: PASS
+twelve publish-previous-stage edges before calls 2..13: PASS
+shared 0x60 stack buffer and final +0x68 publication: PASS
+thirteen allocation failures clear the current field and return 2: PASS
+observation-only order, shared output pointer and 13 scratch fields: PASS
+C++ caller inputs, all 13 descriptors and failure regressions: PASS
+cross-ABI FDE, sole caller and {JNIEnv,Context,scratch} signature: PASS
+cross-ABI 13-helper mapping and sixteen once-init locks: PASS
+thirteen property/malloc stages and one pair-appender dependency: PASS
+all direct JNI producer dependencies are recovered and explicit: PASS
+cross-ABI FDEs and sole detector-producer caller: PASS
+cross-ABI get / (I)Ljava/lang/Object; constants: PASS
+four JNI vtable methods, int index and three exception stages: PASS
+statuses 3/18/28, null-result rejection, cleanup and clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+cross-ABI FDEs and sole detector-producer caller: PASS
+cross-ABI getDisplayMetrics / DisplayMetrics signature: PASS
+four JNI vtable methods and three exception stages: PASS
+statuses 3/18/28, null-result rejection, cleanup and clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+four cross-ABI FDE/caller pairs: PASS
+class/method/signature constants decoded across both ABIs: PASS
+JNI vtable surfaces and three-stage exception handling: PASS
+status split including getSensorList call/null status 18: PASS
+C++ source, regression guards and coverage entries: PASS
+cross-ABI FDE and sole producer caller: PASS
+Context, method and two JNI signatures decoded cross-ABI: PASS
+six JNI operations, five exception stages and two cleanup sites: PASS
+input gate, statuses 3/18/28 and result clearing: PASS
+C++ implementation, regression and coverage entry: PASS
+recovered native primitives: PASS
+AES-256 Pixel first block: 51da6894512660bd1e9809e7c17c3898
+Bionic rand-derived Pixel IV: 3b273362218b186a73e7349775b93f11
+custom-state SHA-256 Pixel field 4: PASS
+source-built Pixel payload: 113 plaintext bytes -> 128 ciphertext bytes
+HMAC-SHA256 Pixel ciphertext tag: 32 bytes
+Pixel native result layout: 16 IV + 128 ciphertext + 32 tag = 176 bytes
+complete source-built Pixel 176-byte signature: PASS
+corrections: 2b=d49d 36=b5d3 25=cacc 05=6ee6
+SIGNATURE_HEX=123549ac1e84afbe4c96620b74fe22321ff754e352209fad235c4c83b2d4063e1560946d440193da1451cccc148c32a09bd4e5e6eec3b057551645502d01c0633cc7a4df2c63a8bd74ce36903d3e09f4b0bb3c6cfacede9ed89f40feca71810ed44d8ce4d70d952831879f740e9027e9f24719a8db8913328d32f23c158b8ac4c3b5894f6df16c09a466152bd2179e8c86fd68442db22ba1b8d24612bd10990f72b555a3fbff26a686f009db0d90ed02
+timeSeconds=1760000001 original-SO oracle exact 176-byte match: PASS
+signerCodeTrampolineDetected=false original-SO oracle exact 176-byte match: PASS
+correction05Enabled=false original-SO oracle exact 176-byte match: PASS
+empty /proc/self/maps original-SO oracle exact 176-byte match: PASS
+missing /proc/self/maps original-SO oracle exact 176-byte match: PASS
+missing both /system/lib64/libart.so and ld-android.so correction 0x2f original-SO exact 176-byte match: PASS
+invalid Java HMAC correction 0x07 original-SO exact 176-byte match: PASS
+legacy API18 invalid Java HMAC corrections 0x07/0x3c original-SO exact 176-byte match: PASS
+changed device_name/nativePlaintext original-SO oracle exact 176-byte match: PASS
+missing android_id/country/device_name original-SO oracle exact 176-byte match: PASS
+APK/package certificate mismatch correction 0x2a original-SO oracle exact 176-byte match: PASS
+/proc/self/cmdline package mismatch correction 0x09 original-SO exact 176-byte match: PASS
+missing/empty /proc/self/cmdline correction 0x34 original-SO exact 176-byte match: PASS
+nine corrections -> 16 halfwords -> 129-byte payload -> 192-byte result original-SO exact match: PASS
+17 corrections -> 24 halfwords -> 145-byte payload -> 208-byte result original-SO exact match: PASS
+bool regression definitions: 97
+main direct regression guards: 92

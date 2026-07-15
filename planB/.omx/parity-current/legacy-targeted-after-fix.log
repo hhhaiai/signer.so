@@ -1,0 +1,79 @@
+loaded libsigner.so base=0x12340000 size=0x148000
+[main]V/SignerInstance: Signing all the parameters begin: 2026-07-13T20:10:03.882+0800
+[main]V/SignerInstance: Calling native begin: 2026-07-13T20:10:03.887+0800
+[main]V/SignerInstance: Calling native end  : 2026-07-13T20:10:17.678+0800
+[main]V/SignerInstance: Signing all the parameters end  : 2026-07-13T20:10:17.678+0800
+[main]V/SignerInstance: Signing all the parameters begin: 2026-07-13T20:10:17.694+0800
+[main]V/SignerInstance: Calling native begin: 2026-07-13T20:10:17.698+0800
+[main]V/SignerInstance: Calling native end  : 2026-07-13T20:10:17.729+0800
+[main]V/SignerInstance: Signing all the parameters end  : 2026-07-13T20:10:17.729+0800
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project unidbg-adjust-runner: 
+[ERROR] 
+[ERROR] Please refer to /Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] ExecutionException The forked VM terminated without properly saying goodbye. VM crash or System.exit called?
+[ERROR] Command was /bin/sh -c cd '/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner' && '/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/bin/java' '-XX:TieredStopAtLevel=1' '-XX:ErrorFile=/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/../.omx/crash-diagnostics/hs_err_pid%p.log' '-jar' '/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire/surefirebooter-20260713201001639_3.jar' '/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire' '2026-07-13T20-10-01_468-jvmRun1' 'surefire-20260713201001639_1tmp' 'surefire_0-20260713201001639_2tmp'
+[ERROR] Error occurred in starting fork, check output in log
+[ERROR] Process Exit Code: 134
+[ERROR] Crashed tests:
+[ERROR] local.LegacyAndroidApiNativeIntegrationTest
+[ERROR] org.apache.maven.surefire.booter.SurefireBooterForkException: ExecutionException The forked VM terminated without properly saying goodbye. VM crash or System.exit called?
+[ERROR] Command was /bin/sh -c cd '/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner' && '/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/bin/java' '-XX:TieredStopAtLevel=1' '-XX:ErrorFile=/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/../.omx/crash-diagnostics/hs_err_pid%p.log' '-jar' '/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire/surefirebooter-20260713201001639_3.jar' '/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire' '2026-07-13T20-10-01_468-jvmRun1' 'surefire-20260713201001639_1tmp' 'surefire_0-20260713201001639_2tmp'
+[ERROR] Error occurred in starting fork, check output in log
+[ERROR] Process Exit Code: 134
+[ERROR] Crashed tests:
+[ERROR] local.LegacyAndroidApiNativeIntegrationTest
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.awaitResultsDone(ForkStarter.java:456)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.runSuitesForkPerTestSet(ForkStarter.java:418)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:297)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:250)
+[ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeProvider(AbstractSurefireMojo.java:1241)
+[ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeAfterPreconditionsChecked(AbstractSurefireMojo.java:1090)
+[ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.execute(AbstractSurefireMojo.java:910)
+[ERROR] 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:126)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2(MojoExecutor.java:328)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute(MojoExecutor.java:316)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:212)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:174)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.access$000(MojoExecutor.java:75)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor$1.run(MojoExecutor.java:162)
+[ERROR] 	at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute(DefaultMojosExecutionStrategy.java:39)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:159)
+[ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:105)
+[ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:73)
+[ERROR] 	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:53)
+[ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:118)
+[ERROR] 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:261)
+[ERROR] 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:173)
+[ERROR] 	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:101)
+[ERROR] 	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:919)
+[ERROR] 	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:285)
+[ERROR] 	at org.apache.maven.cli.MavenCli.main(MavenCli.java:207)
+[ERROR] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ERROR] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[ERROR] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ERROR] 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:255)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:201)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:361)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:314)
+[ERROR] Caused by: org.apache.maven.surefire.booter.SurefireBooterForkException: The forked VM terminated without properly saying goodbye. VM crash or System.exit called?
+[ERROR] Command was /bin/sh -c cd '/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner' && '/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/bin/java' '-XX:TieredStopAtLevel=1' '-XX:ErrorFile=/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/../.omx/crash-diagnostics/hs_err_pid%p.log' '-jar' '/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire/surefirebooter-20260713201001639_3.jar' '/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire' '2026-07-13T20-10-01_468-jvmRun1' 'surefire-20260713201001639_1tmp' 'surefire_0-20260713201001639_2tmp'
+[ERROR] Error occurred in starting fork, check output in log
+[ERROR] Process Exit Code: 134
+[ERROR] Crashed tests:
+[ERROR] local.LegacyAndroidApiNativeIntegrationTest
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.fork(ForkStarter.java:643)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.lambda$null$7(ForkStarter.java:401)
+[ERROR] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[ERROR] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[ERROR] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[ERROR] 	at java.base/java.lang.Thread.run(Thread.java:834)
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

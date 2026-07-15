@@ -1,0 +1,50 @@
+
+adjust-android-signature-3.67.0/jni/arm64-v8a/libsigner.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000008070 <.text>:
+   14338: f9407008     	ldr	x8, [x0, #0xe0]
+   1433c: d2808209     	mov	x9, #0x410              // =1040
+   14340: f2e00089     	movk	x9, #0x4, lsl #48
+   14344: aa090108     	orr	x8, x8, x9
+   14348: f9007008     	str	x8, [x0, #0xe0]
+   1434c: d65f03c0     	ret
+   14350: f9407008     	ldr	x8, [x0, #0xe0]
+   14354: d2800209     	mov	x9, #0x10               // =16
+   14358: f2e00089     	movk	x9, #0x4, lsl #48
+   1435c: aa090108     	orr	x8, x8, x9
+   14360: f9007008     	str	x8, [x0, #0xe0]
+   14364: d65f03c0     	ret
+   14368: f9407008     	ldr	x8, [x0, #0xe0]
+   1436c: d2808009     	mov	x9, #0x400              // =1024
+   14370: f2e00089     	movk	x9, #0x4, lsl #48
+   14374: aa090108     	orr	x8, x8, x9
+   14378: f9007008     	str	x8, [x0, #0xe0]
+   1437c: d65f03c0     	ret
+   14380: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+   14384: f9000bf3     	str	x19, [sp, #0x10]
+   14388: 910003fd     	mov	x29, sp
+   1438c: aa0003f3     	mov	x19, x0
+   14390: 91008000     	add	x0, x0, #0x20
+   14394: 52800641     	mov	w1, #0x32               // =50
+   14398: 9404843d     	bl	0x13548c <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x68e88>
+   1439c: f9407268     	ldr	x8, [x19, #0xe0]
+   143a0: b2400108     	orr	x8, x8, #0x1
+   143a4: f9007268     	str	x8, [x19, #0xe0]
+   143a8: f9400bf3     	ldr	x19, [sp, #0x10]
+   143ac: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+   143b0: d65f03c0     	ret
+   143b4: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+   143b8: f9000bf3     	str	x19, [sp, #0x10]
+   143bc: 910003fd     	mov	x29, sp
+   143c0: aa0003f3     	mov	x19, x0
+   143c4: 91008000     	add	x0, x0, #0x20
+   143c8: 52800641     	mov	w1, #0x32               // =50
+   143cc: 94048430     	bl	0x13548c <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x68e88>
+   143d0: f9407268     	ldr	x8, [x19, #0xe0]
+   143d4: b2400108     	orr	x8, x8, #0x1
+   143d8: f9007268     	str	x8, [x19, #0xe0]
+   143dc: f9400bf3     	ldr	x19, [sp, #0x10]
+   143e0: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+   143e4: d65f03c0     	ret

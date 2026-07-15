@@ -1,0 +1,1059 @@
+
+adjust-android-signature-3.67.0/jni/x86_64/libsigner.so:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+000000000000e780 <.text>:
+   bac80: 8d 65 d8                     	leal	-0x28(%rbp), %esp
+   bac83: 5b                           	popq	%rbx
+   bac84: 41 5c                        	popq	%r12
+   bac86: 41 5d                        	popq	%r13
+   bac88: 41 5e                        	popq	%r14
+   bac8a: 41 5f                        	popq	%r15
+   bac8c: 5d                           	popq	%rbp
+   bac8d: c3                           	retq
+   bac8e: e8 8d 7b 07 00               	callq	0x132820 <__stack_chk_fail@plt>
+   bac93: cc                           	int3
+   bac94: cc                           	int3
+   bac95: cc                           	int3
+   bac96: cc                           	int3
+   bac97: cc                           	int3
+   bac98: cc                           	int3
+   bac99: cc                           	int3
+   bac9a: cc                           	int3
+   bac9b: cc                           	int3
+   bac9c: cc                           	int3
+   bac9d: cc                           	int3
+   bac9e: cc                           	int3
+   bac9f: cc                           	int3
+   baca0: 31 c0                        	xorl	%eax, %eax
+   baca2: c3                           	retq
+
+00000000000baca3 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume>:
+   baca3: e9 8b 6f 00 00               	jmp	0xc1c33 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6588>
+   baca8: 55                           	pushq	%rbp
+   baca9: 41 57                        	pushq	%r15
+   bacab: 41 56                        	pushq	%r14
+   bacad: 41 55                        	pushq	%r13
+   bacaf: 41 54                        	pushq	%r12
+   bacb1: 53                           	pushq	%rbx
+   bacb2: 48 83 ec 18                  	subq	$0x18, %rsp
+   bacb6: 48 89 d3                     	movq	%rdx, %rbx
+   bacb9: 48 89 34 24                  	movq	%rsi, (%rsp)
+   bacbd: 49 89 fe                     	movq	%rdi, %r14
+   bacc0: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bacc9: 48 89 44 24 10               	movq	%rax, 0x10(%rsp)
+   bacce: 49 bd f3 2b ef 22 c0 61 72 57	movabsq	$0x577261c022ef2bf3, %r13 # imm = 0x577261C022EF2BF3
+   bacd8: 48 8d 44 24 0c               	leaq	0xc(%rsp), %rax
+   bacdd: 83 20 00                     	andl	$0x0, (%rax)
+   bace0: 48 89 d7                     	movq	%rdx, %rdi
+   bace3: e8 d6 b1 f5 ff               	callq	0x15ebe <.text+0x773e>
+   bace8: 48 bd dd 95 db 78 02 9e 21 11	movabsq	$0x11219e0278db95dd, %rbp # imm = 0x11219E0278DB95DD
+   bacf2: 49 bc bb 95 34 ae 0b e9 42 a8	movabsq	$-0x57bd16f451cb6a45, %r12 # imm = 0xA842E90BAE3495BB
+   bacfc: 49 bf b9 2e a0 ad 24 09 92 fa	movabsq	$-0x56df6db525fd147, %r15 # imm = 0xFA920924ADA02EB9
+   bad06: 48 89 e8                     	movq	%rbp, %rax
+   bad09: 4c 39 e0                     	cmpq	%r12, %rax
+   bad0c: 74 3b                        	je	0xbad49 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xa6>
+   bad0e: 4c 39 f8                     	cmpq	%r15, %rax
+   bad11: 74 29                        	je	0xbad3c <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x99>
+   bad13: 4c 39 e8                     	cmpq	%r13, %rax
+   bad16: 74 36                        	je	0xbad4e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xab>
+   bad18: 48 39 e8                     	cmpq	%rbp, %rax
+   bad1b: 75 ec                        	jne	0xbad09 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x66>
+   bad1d: 4c 89 f7                     	movq	%r14, %rdi
+   bad20: 48 8d 74 24 0c               	leaq	0xc(%rsp), %rsi
+   bad25: 48 8b 14 24                  	movq	(%rsp), %rdx
+   bad29: 48 89 d9                     	movq	%rbx, %rcx
+   bad2c: e8 ca 83 f5 ff               	callq	0x130fb <.text+0x497b>
+   bad31: 84 c0                        	testb	%al, %al
+   bad33: 4c 89 f8                     	movq	%r15, %rax
+   bad36: 49 0f 45 c4                  	cmovneq	%r12, %rax
+   bad3a: eb cd                        	jmp	0xbad09 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x66>
+   bad3c: 48 89 df                     	movq	%rbx, %rdi
+   bad3f: e8 39 b1 f5 ff               	callq	0x15e7d <.text+0x76fd>
+   bad44: 83 64 24 0c 00               	andl	$0x0, 0xc(%rsp)
+   bad49: 4c 89 e8                     	movq	%r13, %rax
+   bad4c: eb bb                        	jmp	0xbad09 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x66>
+   bad4e: 48 8d 7c 24 0c               	leaq	0xc(%rsp), %rdi
+   bad53: 4c 89 f6                     	movq	%r14, %rsi
+   bad56: 48 89 da                     	movq	%rbx, %rdx
+   bad59: e8 fe ba fd ff               	callq	0x9685c <.text+0x880dc>
+   bad5e: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bad67: 48 3b 44 24 10               	cmpq	0x10(%rsp), %rax
+   bad6c: 75 0f                        	jne	0xbad7d <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xda>
+   bad6e: 48 83 c4 18                  	addq	$0x18, %rsp
+   bad72: 5b                           	popq	%rbx
+   bad73: 41 5c                        	popq	%r12
+   bad75: 41 5d                        	popq	%r13
+   bad77: 41 5e                        	popq	%r14
+   bad79: 41 5f                        	popq	%r15
+   bad7b: 5d                           	popq	%rbp
+   bad7c: c3                           	retq
+   bad7d: e8 9e 7a 07 00               	callq	0x132820 <__stack_chk_fail@plt>
+   bad82: 55                           	pushq	%rbp
+   bad83: 41 57                        	pushq	%r15
+   bad85: 41 56                        	pushq	%r14
+   bad87: 41 55                        	pushq	%r13
+   bad89: 41 54                        	pushq	%r12
+   bad8b: 53                           	pushq	%rbx
+   bad8c: 48 83 ec 38                  	subq	$0x38, %rsp
+   bad90: 48 89 cb                     	movq	%rcx, %rbx
+   bad93: 48 89 54 24 20               	movq	%rdx, 0x20(%rsp)
+   bad98: 48 89 74 24 08               	movq	%rsi, 0x8(%rsp)
+   bad9d: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bada6: 48 89 44 24 30               	movq	%rax, 0x30(%rsp)
+   badab: 49 bf c8 94 f8 ac f9 2b b7 01	movabsq	$0x1b72bf9acf894c8, %r15 # imm = 0x1B72BF9ACF894C8
+   badb5: 48 8d 44 24 2c               	leaq	0x2c(%rsp), %rax
+   badba: 83 20 00                     	andl	$0x0, (%rax)
+   badbd: 48 89 3c 24                  	movq	%rdi, (%rsp)
+   badc1: 48 89 ce                     	movq	%rcx, %rsi
+   badc4: e8 41 3a f5 ff               	callq	0xe80a <.text+0x8a>
+   badc9: 48 8d 83 10 01 00 00         	leaq	0x110(%rbx), %rax
+   badd0: 48 89 44 24 18               	movq	%rax, 0x18(%rsp)
+   badd5: 48 8d 83 08 01 00 00         	leaq	0x108(%rbx), %rax
+   baddc: 48 89 44 24 10               	movq	%rax, 0x10(%rsp)
+   bade1: 48 b9 48 ed 83 6d bc cc 2d 4f	movabsq	$0x4f2dccbc6d83ed48, %rcx # imm = 0x4F2DCCBC6D83ED48
+   badeb: 49 bd 0a be fd 30 cb c7 1b d1	movabsq	$-0x2ee43834cf0241f6, %r13 # imm = 0xD11BC7CB30FDBE0A
+   badf5: 48 bd 65 16 56 a9 96 15 1e ee	movabsq	$-0x11e1ea6956a9e99b, %rbp # imm = 0xEE1E1596A9561665
+   badff: 49 be fc 76 9a 66 22 18 30 23	movabsq	$0x23301822669a76fc, %r14 # imm = 0x23301822669A76FC
+   bae09: 49 bc 55 39 1c 12 15 01 99 2b	movabsq	$0x2b990115121c3955, %r12 # imm = 0x2B990115121C3955
+   bae13: 4c 39 e9                     	cmpq	%r13, %rcx
+   bae16: 0f 84 62 01 00 00            	je	0xbaf7e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x2db>
+   bae1c: 48 89 c8                     	movq	%rcx, %rax
+   bae1f: 48 39 e9                     	cmpq	%rbp, %rcx
+   bae22: 0f 84 b1 00 00 00            	je	0xbaed9 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x236>
+   bae28: 4c 39 f8                     	cmpq	%r15, %rax
+   bae2b: 0f 84 24 01 00 00            	je	0xbaf55 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x2b2>
+   bae31: 4c 39 f0                     	cmpq	%r14, %rax
+   bae34: 0f 84 d9 00 00 00            	je	0xbaf13 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x270>
+   bae3a: 4c 89 f9                     	movq	%r15, %rcx
+   bae3d: 4c 39 e0                     	cmpq	%r12, %rax
+   bae40: 74 d1                        	je	0xbae13 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x170>
+   bae42: 48 b9 1c a3 2d 84 b6 f6 24 47	movabsq	$0x4724f6b6842da31c, %rcx # imm = 0x4724F6B6842DA31C
+   bae4c: 48 39 c8                     	cmpq	%rcx, %rax
+   bae4f: 74 69                        	je	0xbaeba <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x217>
+   bae51: 48 b9 48 ed 83 6d bc cc 2d 4f	movabsq	$0x4f2dccbc6d83ed48, %rcx # imm = 0x4F2DCCBC6D83ED48
+   bae5b: 48 39 c8                     	cmpq	%rcx, %rax
+   bae5e: 74 2a                        	je	0xbae8a <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x1e7>
+   bae60: 48 b9 67 3e a0 b8 7e a2 62 5f	movabsq	$0x5f62a27eb8a03e67, %rcx # imm = 0x5F62A27EB8A03E67
+   bae6a: 48 39 c8                     	cmpq	%rcx, %rax
+   bae6d: 0f 84 8b 00 00 00            	je	0xbaefe <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x25b>
+   bae73: 48 89 c1                     	movq	%rax, %rcx
+   bae76: 48 ba 7a 42 d0 11 d8 18 d8 a1	movabsq	$-0x5e27e727ee2fbd86, %rdx # imm = 0xA1D818D811D0427A
+   bae80: 48 39 d0                     	cmpq	%rdx, %rax
+   bae83: 75 8e                        	jne	0xbae13 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x170>
+   bae85: e9 28 01 00 00               	jmp	0xbafb2 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x30f>
+   bae8a: 48 8b 3c 24                  	movq	(%rsp), %rdi
+   bae8e: 48 8d 74 24 2c               	leaq	0x2c(%rsp), %rsi
+   bae93: 48 89 da                     	movq	%rbx, %rdx
+   bae96: 48 8b 4c 24 08               	movq	0x8(%rsp), %rcx
+   bae9b: 4c 8b 44 24 20               	movq	0x20(%rsp), %r8
+   baea0: e8 9f 76 f5 ff               	callq	0x12544 <.text+0x3dc4>
+   baea5: 84 c0                        	testb	%al, %al
+   baea7: 48 b9 67 3e a0 b8 7e a2 62 5f	movabsq	$0x5f62a27eb8a03e67, %rcx # imm = 0x5F62A27EB8A03E67
+   baeb1: 49 0f 45 cc                  	cmovneq	%r12, %rcx
+   baeb5: e9 59 ff ff ff               	jmp	0xbae13 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x170>
+   baeba: 48 89 df                     	movq	%rbx, %rdi
+   baebd: e8 d9 68 f5 ff               	callq	0x1179b <.text+0x301b>
+   baec2: 48 89 df                     	movq	%rbx, %rdi
+   baec5: e8 6a 70 f5 ff               	callq	0x11f34 <.text+0x37b4>
+   baeca: 48 b9 7a 42 d0 11 d8 18 d8 a1	movabsq	$-0x5e27e727ee2fbd86, %rcx # imm = 0xA1D818D811D0427A
+   baed4: e9 3a ff ff ff               	jmp	0xbae13 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x170>
+   baed9: 48 89 df                     	movq	%rbx, %rdi
+   baedc: e8 8f 68 f5 ff               	callq	0x11770 <.text+0x2ff0>
+   baee1: 48 89 df                     	movq	%rbx, %rdi
+   baee4: e8 0c 6d f5 ff               	callq	0x11bf5 <.text+0x3475>
+   baee9: 48 89 df                     	movq	%rbx, %rdi
+   baeec: e8 28 76 f5 ff               	callq	0x12519 <.text+0x3d99>
+   baef1: 48 89 df                     	movq	%rbx, %rdi
+   baef4: e8 90 68 f5 ff               	callq	0x11789 <.text+0x3009>
+   baef9: e9 90 00 00 00               	jmp	0xbaf8e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x2eb>
+   baefe: 48 89 df                     	movq	%rbx, %rdi
+   baf01: e8 34 81 f5 ff               	callq	0x1303a <.text+0x48ba>
+   baf06: 83 64 24 2c 00               	andl	$0x0, 0x2c(%rsp)
+   baf0b: 4c 89 f9                     	movq	%r15, %rcx
+   baf0e: e9 00 ff ff ff               	jmp	0xbae13 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x170>
+   baf13: 48 89 df                     	movq	%rbx, %rdi
+   baf16: e8 a1 62 f5 ff               	callq	0x111bc <.text+0x2a3c>
+   baf1b: 48 8b 8b 08 01 00 00         	movq	0x108(%rbx), %rcx
+   baf22: 48 8d 7c 24 2c               	leaq	0x2c(%rsp), %rdi
+   baf27: 48 8b 34 24                  	movq	(%rsp), %rsi
+   baf2b: 48 8b 54 24 08               	movq	0x8(%rsp), %rdx
+   baf30: 4c 8b 44 24 18               	movq	0x18(%rsp), %r8
+   baf35: e8 a9 e0 f5 ff               	callq	0x18fe3 <.text+0xa863>
+   baf3a: 83 7c 24 2c 00               	cmpl	$0x0, 0x2c(%rsp)
+   baf3f: 4c 89 e9                     	movq	%r13, %rcx
+   baf42: 48 b8 1c a3 2d 84 b6 f6 24 47	movabsq	$0x4724f6b6842da31c, %rax # imm = 0x4724F6B6842DA31C
+   baf4c: 48 0f 44 c8                  	cmoveq	%rax, %rcx
+   baf50: e9 be fe ff ff               	jmp	0xbae13 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x170>
+   baf55: 48 8d 7c 24 2c               	leaq	0x2c(%rsp), %rdi
+   baf5a: 48 8b 34 24                  	movq	(%rsp), %rsi
+   baf5e: 48 8b 54 24 08               	movq	0x8(%rsp), %rdx
+   baf63: 48 8b 4c 24 10               	movq	0x10(%rsp), %rcx
+   baf68: e8 06 d5 f5 ff               	callq	0x18473 <.text+0x9cf3>
+   baf6d: 83 7c 24 2c 00               	cmpl	$0x0, 0x2c(%rsp)
+   baf72: 48 89 e9                     	movq	%rbp, %rcx
+   baf75: 49 0f 44 ce                  	cmoveq	%r14, %rcx
+   baf79: e9 95 fe ff ff               	jmp	0xbae13 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x170>
+   baf7e: 48 89 df                     	movq	%rbx, %rdi
+   baf81: e8 6f 6c f5 ff               	callq	0x11bf5 <.text+0x3475>
+   baf86: 48 89 df                     	movq	%rbx, %rdi
+   baf89: e8 8b 75 f5 ff               	callq	0x12519 <.text+0x3d99>
+   baf8e: 48 89 df                     	movq	%rbx, %rdi
+   baf91: e8 78 6c f5 ff               	callq	0x11c0e <.text+0x348e>
+   baf96: 48 89 df                     	movq	%rbx, %rdi
+   baf99: e8 94 75 f5 ff               	callq	0x12532 <.text+0x3db2>
+   baf9e: 83 64 24 2c 00               	andl	$0x0, 0x2c(%rsp)
+   bafa3: 48 b9 7a 42 d0 11 d8 18 d8 a1	movabsq	$-0x5e27e727ee2fbd86, %rcx # imm = 0xA1D818D811D0427A
+   bafad: e9 61 fe ff ff               	jmp	0xbae13 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x170>
+   bafb2: 48 89 df                     	movq	%rbx, %rdi
+   bafb5: e8 99 c4 f5 ff               	callq	0x17453 <.text+0x8cd3>
+   bafba: 48 8b 3c 24                  	movq	(%rsp), %rdi
+   bafbe: 48 89 de                     	movq	%rbx, %rsi
+   bafc1: e8 0f c6 f5 ff               	callq	0x175d5 <.text+0x8e55>
+   bafc6: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bafcf: 48 3b 44 24 30               	cmpq	0x30(%rsp), %rax
+   bafd4: 75 0f                        	jne	0xbafe5 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x342>
+   bafd6: 48 83 c4 38                  	addq	$0x38, %rsp
+   bafda: 5b                           	popq	%rbx
+   bafdb: 41 5c                        	popq	%r12
+   bafdd: 41 5d                        	popq	%r13
+   bafdf: 41 5e                        	popq	%r14
+   bafe1: 41 5f                        	popq	%r15
+   bafe3: 5d                           	popq	%rbp
+   bafe4: c3                           	retq
+   bafe5: e8 36 78 07 00               	callq	0x132820 <__stack_chk_fail@plt>
+   bafea: e9 71 bb f5 ff               	jmp	0x16b60 <.text+0x83e0>
+   bafef: 55                           	pushq	%rbp
+   baff0: 41 57                        	pushq	%r15
+   baff2: 41 56                        	pushq	%r14
+   baff4: 41 55                        	pushq	%r13
+   baff6: 41 54                        	pushq	%r12
+   baff8: 53                           	pushq	%rbx
+   baff9: 48 81 ec a8 01 00 00         	subq	$0x1a8, %rsp            # imm = 0x1A8
+   bb000: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bb009: 48 89 84 24 a0 01 00 00      	movq	%rax, 0x1a0(%rsp)
+   bb011: 48 8b 0f                     	movq	(%rdi), %rcx
+   bb014: 48 8b 47 08                  	movq	0x8(%rdi), %rax
+   bb018: 48 8b 10                     	movq	(%rax), %rdx
+   bb01b: 48 8b 47 10                  	movq	0x10(%rdi), %rax
+   bb01f: 48 8b 30                     	movq	(%rax), %rsi
+   bb022: 48 8b 47 18                  	movq	0x18(%rdi), %rax
+   bb026: 4c 8b 00                     	movq	(%rax), %r8
+   bb029: 48 8b 47 20                  	movq	0x20(%rdi), %rax
+   bb02d: 8b 00                        	movl	(%rax), %eax
+   bb02f: 4c 8d 7c 24 74               	leaq	0x74(%rsp), %r15
+   bb034: 41 83 27 00                  	andl	$0x0, (%r15)
+   bb038: 49 be be ec 72 7e 6e 82 06 ee	movabsq	$-0x11f97d91818d1342, %r14 # imm = 0xEE06826E7E72ECBE
+   bb042: 89 44 24 0c                  	movl	%eax, 0xc(%rsp)
+   bb046: 85 c0                        	testl	%eax, %eax
+   bb048: 49 bc 25 6c bb 14 3f ed 49 ad	movabsq	$-0x52b612c0eb4493db, %r12 # imm = 0xAD49ED3F14BB6C25
+   bb052: 49 bd 42 6d 23 10 b1 b4 90 bd	movabsq	$-0x426f4b4eefdc92be, %r13 # imm = 0xBD90B4B110236D42
+   bb05c: 4c 89 ed                     	movq	%r13, %rbp
+   bb05f: 49 0f 4e ec                  	cmovleq	%r12, %rbp
+   bb063: 4c 89 44 24 38               	movq	%r8, 0x38(%rsp)
+   bb068: 4d 85 c0                     	testq	%r8, %r8
+   bb06b: 49 0f 44 ec                  	cmoveq	%r12, %rbp
+   bb06f: 48 89 74 24 40               	movq	%rsi, 0x40(%rsp)
+   bb074: 48 85 f6                     	testq	%rsi, %rsi
+   bb077: 49 0f 44 ec                  	cmoveq	%r12, %rbp
+   bb07b: 48 89 54 24 18               	movq	%rdx, 0x18(%rsp)
+   bb080: 48 85 d2                     	testq	%rdx, %rdx
+   bb083: 49 0f 44 ec                  	cmoveq	%r12, %rbp
+   bb087: 48 89 4c 24 20               	movq	%rcx, 0x20(%rsp)
+   bb08c: 48 85 c9                     	testq	%rcx, %rcx
+   bb08f: 49 0f 44 ec                  	cmoveq	%r12, %rbp
+   bb093: 48 b9 1b 05 78 c8 3f cd 2b c9	movabsq	$-0x36d432c03787fae5, %rcx # imm = 0xC92BCD3FC878051B
+   bb09d: 48 be ba c8 98 20 06 d9 2d b3	movabsq	$-0x4cd226f9df673746, %rsi # imm = 0xB32DD9062098C8BA
+   bb0a7: 48 bf a2 ba 49 ea 34 4f 23 be	movabsq	$-0x41dcb0cb15b6455e, %rdi # imm = 0xBE234F34EA49BAA2
+   bb0b1: 48 bb 98 ce f3 71 7e 67 98 45	movabsq	$0x4598677e71f3ce98, %rbx # imm = 0x4598677E71F3CE98
+   bb0bb: 48 89 c8                     	movq	%rcx, %rax
+   bb0be: 4c 89 f1                     	movq	%r14, %rcx
+   bb0c1: 48 ba a5 e7 cf 78 48 52 9c 96	movabsq	$-0x6963adb78730185b, %rdx # imm = 0x969C524878CFE7A5
+   bb0cb: 48 39 d0                     	cmpq	%rdx, %rax
+   bb0ce: 74 eb                        	je	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb0d0: 48 b9 82 48 52 ed 62 c0 d8 55	movabsq	$0x55d8c062ed524882, %rcx # imm = 0x55D8C062ED524882
+   bb0da: 48 ba dd 78 19 f0 5d b4 36 9c	movabsq	$-0x63c94ba20fe68723, %rdx # imm = 0x9C36B45DF01978DD
+   bb0e4: 48 39 d0                     	cmpq	%rdx, %rax
+   bb0e7: 74 d2                        	je	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb0e9: 48 b9 7b be d4 74 f9 4e 3f a4	movabsq	$-0x5bc0b1068b2b4185, %rcx # imm = 0xA43F4EF974D4BE7B
+   bb0f3: 48 39 c8                     	cmpq	%rcx, %rax
+   bb0f6: 0f 84 6f 01 00 00            	je	0xbb26b <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x5c8>
+   bb0fc: 4c 39 e0                     	cmpq	%r12, %rax
+   bb0ff: 0f 84 2c 01 00 00            	je	0xbb231 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x58e>
+   bb105: 48 39 f0                     	cmpq	%rsi, %rax
+   bb108: 0f 84 ee 03 00 00            	je	0xbb4fc <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x859>
+   bb10e: 4c 39 e8                     	cmpq	%r13, %rax
+   bb111: 0f 84 ab 03 00 00            	je	0xbb4c2 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x81f>
+   bb117: 48 39 f8                     	cmpq	%rdi, %rax
+   bb11a: 0f 84 15 01 00 00            	je	0xbb235 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x592>
+   bb120: 48 89 e9                     	movq	%rbp, %rcx
+   bb123: 48 ba 1b 05 78 c8 3f cd 2b c9	movabsq	$-0x36d432c03787fae5, %rdx # imm = 0xC92BCD3FC878051B
+   bb12d: 48 39 d0                     	cmpq	%rdx, %rax
+   bb130: 74 89                        	je	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb132: 48 b9 3c fd 05 e7 cb dc ea dc	movabsq	$-0x2315233418fa02c4, %rcx # imm = 0xDCEADCCBE705FD3C
+   bb13c: 48 39 c8                     	cmpq	%rcx, %rax
+   bb13f: 0f 84 1d 03 00 00            	je	0xbb462 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x7bf>
+   bb145: 48 b9 7b be d4 74 f9 4e 3f a4	movabsq	$-0x5bc0b1068b2b4185, %rcx # imm = 0xA43F4EF974D4BE7B
+   bb14f: 48 ba db be 00 54 44 ce 30 e3	movabsq	$-0x1ccf31bbabff4125, %rdx # imm = 0xE330CE445400BEDB
+   bb159: 48 39 d0                     	cmpq	%rdx, %rax
+   bb15c: 0f 84 59 ff ff ff            	je	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb162: 4c 39 f0                     	cmpq	%r14, %rax
+   bb165: 0f 84 80 01 00 00            	je	0xbb2eb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x648>
+   bb16b: 48 b9 a8 8f c1 3f bb 00 54 fc	movabsq	$-0x3abff44c03e7058, %rcx # imm = 0xFC5400BB3FC18FA8
+   bb175: 48 39 c8                     	cmpq	%rcx, %rax
+   bb178: 0f 84 46 02 00 00            	je	0xbb3c4 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x721>
+   bb17e: 48 b9 be a2 25 27 fd e1 20 72	movabsq	$0x7220e1fd2725a2be, %rcx # imm = 0x7220E1FD2725A2BE
+   bb188: 48 ba 4f 3f a7 d6 08 d1 d4 fe	movabsq	$-0x12b2ef72958c0b1, %rdx # imm = 0xFED4D108D6A73F4F
+   bb192: 48 39 d0                     	cmpq	%rdx, %rax
+   bb195: 0f 84 20 ff ff ff            	je	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb19b: 48 b9 04 ee 6e 80 ad f5 2e 0c	movabsq	$0xc2ef5ad806eee04, %rcx # imm = 0xC2EF5AD806EEE04
+   bb1a5: 48 39 c8                     	cmpq	%rcx, %rax
+   bb1a8: 0f 84 83 00 00 00            	je	0xbb231 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x58e>
+   bb1ae: 48 b9 f7 c6 ba 0c 6b 1c 06 2f	movabsq	$0x2f061c6b0cbac6f7, %rcx # imm = 0x2F061C6B0CBAC6F7
+   bb1b8: 48 39 c8                     	cmpq	%rcx, %rax
+   bb1bb: 0f 84 44 02 00 00            	je	0xbb405 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x762>
+   bb1c1: 48 b9 03 24 9e 5a d4 b0 1e 39	movabsq	$0x391eb0d45a9e2403, %rcx # imm = 0x391EB0D45A9E2403
+   bb1cb: 48 39 c8                     	cmpq	%rcx, %rax
+   bb1ce: 0f 84 d4 00 00 00            	je	0xbb2a8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x605>
+   bb1d4: 48 b9 64 e0 bc b9 af a5 78 3a	movabsq	$0x3a78a5afb9bce064, %rcx # imm = 0x3A78A5AFB9BCE064
+   bb1de: 48 39 c8                     	cmpq	%rcx, %rax
+   bb1e1: 0f 84 ce 00 00 00            	je	0xbb2b5 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x612>
+   bb1e7: 48 39 d8                     	cmpq	%rbx, %rax
+   bb1ea: 0f 84 01 02 00 00            	je	0xbb3f1 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x74e>
+   bb1f0: 48 b9 82 48 52 ed 62 c0 d8 55	movabsq	$0x55d8c062ed524882, %rcx # imm = 0x55D8C062ED524882
+   bb1fa: 48 39 c8                     	cmpq	%rcx, %rax
+   bb1fd: 0f 84 39 02 00 00            	je	0xbb43c <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x799>
+   bb203: 48 b9 be a2 25 27 fd e1 20 72	movabsq	$0x7220e1fd2725a2be, %rcx # imm = 0x7220E1FD2725A2BE
+   bb20d: 48 39 c8                     	cmpq	%rcx, %rax
+   bb210: 0f 84 81 01 00 00            	je	0xbb397 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x6f4>
+   bb216: 48 89 c1                     	movq	%rax, %rcx
+   bb219: 48 ba f4 2f 9f 62 f3 d6 66 2c	movabsq	$0x2c66d6f3629f2ff4, %rdx # imm = 0x2C66D6F3629F2FF4
+   bb223: 48 39 d0                     	cmpq	%rdx, %rax
+   bb226: 0f 85 8f fe ff ff            	jne	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb22c: e9 58 03 00 00               	jmp	0xbb589 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x8e6>
+   bb231: 31 c0                        	xorl	%eax, %eax
+   bb233: eb 5f                        	jmp	0xbb294 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x5f1>
+   bb235: 48 8b 7c 24 60               	movq	0x60(%rsp), %rdi
+   bb23a: e8 d1 75 07 00               	callq	0x132810 <free@plt>
+   bb23f: 48 bf a2 ba 49 ea 34 4f 23 be	movabsq	$-0x41dcb0cb15b6455e, %rdi # imm = 0xBE234F34EA49BAA2
+   bb249: 48 be ba c8 98 20 06 d9 2d b3	movabsq	$-0x4cd226f9df673746, %rsi # imm = 0xB32DD9062098C8BA
+   bb253: 48 83 a4 24 80 01 00 00 00   	andq	$0x0, 0x180(%rsp)
+   bb25c: 48 b9 be a2 25 27 fd e1 20 72	movabsq	$0x7220e1fd2725a2be, %rcx # imm = 0x7220E1FD2725A2BE
+   bb266: e9 50 fe ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb26b: 48 8b bc 24 98 01 00 00      	movq	0x198(%rsp), %rdi
+   bb273: e8 98 75 07 00               	callq	0x132810 <free@plt>
+   bb278: 48 bf a2 ba 49 ea 34 4f 23 be	movabsq	$-0x41dcb0cb15b6455e, %rdi # imm = 0xBE234F34EA49BAA2
+   bb282: 48 be ba c8 98 20 06 d9 2d b3	movabsq	$-0x4cd226f9df673746, %rsi # imm = 0xB32DD9062098C8BA
+   bb28c: 48 8b 84 24 90 00 00 00      	movq	0x90(%rsp), %rax
+   bb294: 48 89 44 24 10               	movq	%rax, 0x10(%rsp)
+   bb299: 48 b9 f4 2f 9f 62 f3 d6 66 2c	movabsq	$0x2c66d6f3629f2ff4, %rcx # imm = 0x2C66D6F3629F2FF4
+   bb2a3: e9 13 fe ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb2a8: 83 64 24 74 00               	andl	$0x0, 0x74(%rsp)
+   bb2ad: 4c 89 f1                     	movq	%r14, %rcx
+   bb2b0: e9 06 fe ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb2b5: 48 8b 7c 24 58               	movq	0x58(%rsp), %rdi
+   bb2ba: e8 51 75 07 00               	callq	0x132810 <free@plt>
+   bb2bf: 48 bf a2 ba 49 ea 34 4f 23 be	movabsq	$-0x41dcb0cb15b6455e, %rdi # imm = 0xBE234F34EA49BAA2
+   bb2c9: 48 be ba c8 98 20 06 d9 2d b3	movabsq	$-0x4cd226f9df673746, %rsi # imm = 0xB32DD9062098C8BA
+   bb2d3: 48 83 a4 24 88 01 00 00 00   	andq	$0x0, 0x188(%rsp)
+   bb2dc: 48 b9 7b be d4 74 f9 4e 3f a4	movabsq	$-0x5bc0b1068b2b4185, %rcx # imm = 0xA43F4EF974D4BE7B
+   bb2e6: e9 d0 fd ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb2eb: 4d 89 fd                     	movq	%r15, %r13
+   bb2ee: 4c 8b 7c 24 20               	movq	0x20(%rsp), %r15
+   bb2f3: 4c 89 ff                     	movq	%r15, %rdi
+   bb2f6: 4d 89 e6                     	movq	%r12, %r14
+   bb2f9: 4c 8b 64 24 18               	movq	0x18(%rsp), %r12
+   bb2fe: 4c 89 e6                     	movq	%r12, %rsi
+   bb301: 48 8d 5c 24 78               	leaq	0x78(%rsp), %rbx
+   bb306: 48 89 da                     	movq	%rbx, %rdx
+   bb309: e8 9a f9 ff ff               	callq	0xbaca8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x5>
+   bb30e: 4c 89 ff                     	movq	%r15, %rdi
+   bb311: 4c 89 e6                     	movq	%r12, %rsi
+   bb314: 4d 89 f4                     	movq	%r14, %r12
+   bb317: 48 8b 54 24 38               	movq	0x38(%rsp), %rdx
+   bb31c: 48 89 d9                     	movq	%rbx, %rcx
+   bb31f: e8 5e fa ff ff               	callq	0xbad82 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xdf>
+   bb324: 48 89 df                     	movq	%rbx, %rdi
+   bb327: e8 34 b8 f5 ff               	callq	0x16b60 <.text+0x83e0>
+   bb32c: 48 89 df                     	movq	%rbx, %rdi
+   bb32f: e8 f2 7d 00 00               	callq	0xc3126 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7a7b>
+   bb334: 48 89 df                     	movq	%rbx, %rdi
+   bb337: e8 18 7d f5 ff               	callq	0x13054 <.text+0x48d4>
+   bb33c: 4c 89 ff                     	movq	%r15, %rdi
+   bb33f: 4d 89 ef                     	movq	%r13, %r15
+   bb342: 49 bd 42 6d 23 10 b1 b4 90 bd	movabsq	$-0x426f4b4eefdc92be, %r13 # imm = 0xBD90B4B110236D42
+   bb34c: 49 be be ec 72 7e 6e 82 06 ee	movabsq	$-0x11f97d91818d1342, %r14 # imm = 0xEE06826E7E72ECBE
+   bb356: 4c 89 fe                     	movq	%r15, %rsi
+   bb359: 48 89 da                     	movq	%rbx, %rdx
+   bb35c: 48 bb 98 ce f3 71 7e 67 98 45	movabsq	$0x4598677e71f3ce98, %rbx # imm = 0x4598677E71F3CE98
+   bb366: e8 13 ae 05 00               	callq	0x11617e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x5aad3>
+   bb36b: 48 bf a2 ba 49 ea 34 4f 23 be	movabsq	$-0x41dcb0cb15b6455e, %rdi # imm = 0xBE234F34EA49BAA2
+   bb375: 48 be ba c8 98 20 06 d9 2d b3	movabsq	$-0x4cd226f9df673746, %rsi # imm = 0xB32DD9062098C8BA
+   bb37f: 84 c0                        	testb	%al, %al
+   bb381: 48 89 d9                     	movq	%rbx, %rcx
+   bb384: 48 b8 dd 78 19 f0 5d b4 36 9c	movabsq	$-0x63c94ba20fe68723, %rax # imm = 0x9C36B45DF01978DD
+   bb38e: 48 0f 45 c8                  	cmovneq	%rax, %rcx
+   bb392: e9 24 fd ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb397: 48 8b 84 24 88 01 00 00      	movq	0x188(%rsp), %rax
+   bb39f: 48 89 44 24 58               	movq	%rax, 0x58(%rsp)
+   bb3a4: 48 85 c0                     	testq	%rax, %rax
+   bb3a7: 48 b9 64 e0 bc b9 af a5 78 3a	movabsq	$0x3a78a5afb9bce064, %rcx # imm = 0x3A78A5AFB9BCE064
+   bb3b1: 48 b8 db be 00 54 44 ce 30 e3	movabsq	$-0x1ccf31bbabff4125, %rax # imm = 0xE330CE445400BEDB
+   bb3bb: 48 0f 44 c8                  	cmoveq	%rax, %rcx
+   bb3bf: e9 f7 fc ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb3c4: 48 8b 4c 24 48               	movq	0x48(%rsp), %rcx
+   bb3c9: c6 01 00                     	movb	$0x0, (%rcx)
+   bb3cc: 48 8b 44 24 50               	movq	0x50(%rsp), %rax
+   bb3d1: 48 ff c8                     	decq	%rax
+   bb3d4: 48 89 44 24 28               	movq	%rax, 0x28(%rsp)
+   bb3d9: 48 8d 41 01                  	leaq	0x1(%rcx), %rax
+   bb3dd: 48 89 44 24 30               	movq	%rax, 0x30(%rsp)
+   bb3e2: 48 b9 f7 c6 ba 0c 6b 1c 06 2f	movabsq	$0x2f061c6b0cbac6f7, %rcx # imm = 0x2F061C6B0CBAC6F7
+   bb3ec: e9 ca fc ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb3f1: 83 64 24 74 00               	andl	$0x0, 0x74(%rsp)
+   bb3f6: 48 b9 82 48 52 ed 62 c0 d8 55	movabsq	$0x55d8c062ed524882, %rcx # imm = 0x55D8C062ED524882
+   bb400: e9 b6 fc ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb405: 48 8b 54 24 28               	movq	0x28(%rsp), %rdx
+   bb40a: 48 85 d2                     	testq	%rdx, %rdx
+   bb40d: 48 b9 a8 8f c1 3f bb 00 54 fc	movabsq	$-0x3abff44c03e7058, %rcx # imm = 0xFC5400BB3FC18FA8
+   bb417: 48 b8 3c fd 05 e7 cb dc ea dc	movabsq	$-0x2315233418fa02c4, %rax # imm = 0xDCEADCCBE705FD3C
+   bb421: 48 0f 44 c8                  	cmoveq	%rax, %rcx
+   bb425: 48 89 d0                     	movq	%rdx, %rax
+   bb428: 48 89 54 24 50               	movq	%rdx, 0x50(%rsp)
+   bb42d: 48 8b 44 24 30               	movq	0x30(%rsp), %rax
+   bb432: 48 89 44 24 48               	movq	%rax, 0x48(%rsp)
+   bb437: e9 7f fc ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb43c: 48 8b 84 24 80 01 00 00      	movq	0x180(%rsp), %rax
+   bb444: 48 89 44 24 60               	movq	%rax, 0x60(%rsp)
+   bb449: 48 85 c0                     	testq	%rax, %rax
+   bb44c: 48 89 f9                     	movq	%rdi, %rcx
+   bb44f: 48 b8 4f 3f a7 d6 08 d1 d4 fe	movabsq	$-0x12b2ef72958c0b1, %rax # imm = 0xFED4D108D6A73F4F
+   bb459: 48 0f 44 c8                  	cmoveq	%rax, %rcx
+   bb45d: e9 59 fc ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb462: 8b 7c 24 0c                  	movl	0xc(%rsp), %edi
+   bb466: e8 90 65 00 00               	callq	0xc19fb <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6350>
+   bb46b: 8b 8c 24 84 00 00 00         	movl	0x84(%rsp), %ecx
+   bb472: 4c 89 ff                     	movq	%r15, %rdi
+   bb475: 48 8b 74 24 20               	movq	0x20(%rsp), %rsi
+   bb47a: 48 8b 54 24 18               	movq	0x18(%rsp), %rdx
+   bb47f: 4c 8d 84 24 68 01 00 00      	leaq	0x168(%rsp), %r8
+   bb487: e8 d2 7e f6 ff               	callq	0x2335e <.text+0x14bde>
+   bb48c: 48 bf a2 ba 49 ea 34 4f 23 be	movabsq	$-0x41dcb0cb15b6455e, %rdi # imm = 0xBE234F34EA49BAA2
+   bb496: 48 be ba c8 98 20 06 d9 2d b3	movabsq	$-0x4cd226f9df673746, %rsi # imm = 0xB32DD9062098C8BA
+   bb4a0: 83 7c 24 74 00               	cmpl	$0x0, 0x74(%rsp)
+   bb4a5: 48 b9 03 24 9e 5a d4 b0 1e 39	movabsq	$0x391eb0d45a9e2403, %rcx # imm = 0x391EB0D45A9E2403
+   bb4af: 48 b8 a5 e7 cf 78 48 52 9c 96	movabsq	$-0x6963adb78730185b, %rax # imm = 0x969C524878CFE7A5
+   bb4b9: 48 0f 44 c8                  	cmoveq	%rax, %rcx
+   bb4bd: e9 f9 fb ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb4c2: 4c 89 ff                     	movq	%r15, %rdi
+   bb4c5: e8 ee 00 00 00               	callq	0xbb5b8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x915>
+   bb4ca: 48 bf a2 ba 49 ea 34 4f 23 be	movabsq	$-0x41dcb0cb15b6455e, %rdi # imm = 0xBE234F34EA49BAA2
+   bb4d4: 48 be ba c8 98 20 06 d9 2d b3	movabsq	$-0x4cd226f9df673746, %rsi # imm = 0xB32DD9062098C8BA
+   bb4de: 83 7c 24 74 00               	cmpl	$0x0, 0x74(%rsp)
+   bb4e3: f2 0f 11 44 24 68            	movsd	%xmm0, 0x68(%rsp)
+   bb4e9: 48 b9 04 ee 6e 80 ad f5 2e 0c	movabsq	$0xc2ef5ad806eee04, %rcx # imm = 0xC2EF5AD806EEE04
+   bb4f3: 48 0f 44 ce                  	cmoveq	%rsi, %rcx
+   bb4f7: e9 bf fb ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb4fc: ba 20 01 00 00               	movl	$0x120, %edx            # imm = 0x120
+   bb501: 48 8d bc 24 80 00 00 00      	leaq	0x80(%rsp), %rdi
+   bb509: 31 f6                        	xorl	%esi, %esi
+   bb50b: e8 30 73 07 00               	callq	0x132840 <memset@plt>
+   bb510: f2 0f 10 44 24 68            	movsd	0x68(%rsp), %xmm0
+   bb516: f2 0f 11 44 24 78            	movsd	%xmm0, 0x78(%rsp)
+   bb51c: 8b 44 24 0c                  	movl	0xc(%rsp), %eax
+   bb520: 89 84 24 84 00 00 00         	movl	%eax, 0x84(%rsp)
+   bb527: 48 8b 44 24 40               	movq	0x40(%rsp), %rax
+   bb52c: 48 89 84 24 88 00 00 00      	movq	%rax, 0x88(%rsp)
+   bb534: 48 8d bc 24 98 00 00 00      	leaq	0x98(%rsp), %rdi
+   bb53c: e8 1d 38 07 00               	callq	0x12ed5e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x736b3>
+   bb541: 48 bf a2 ba 49 ea 34 4f 23 be	movabsq	$-0x41dcb0cb15b6455e, %rdi # imm = 0xBE234F34EA49BAA2
+   bb54b: 48 be ba c8 98 20 06 d9 2d b3	movabsq	$-0x4cd226f9df673746, %rsi # imm = 0xB32DD9062098C8BA
+   bb555: 83 a4 24 68 01 00 00 00      	andl	$0x0, 0x168(%rsp)
+   bb55d: 83 a4 24 78 01 00 00 00      	andl	$0x0, 0x178(%rsp)
+   bb565: 48 8d 84 24 68 01 00 00      	leaq	0x168(%rsp), %rax
+   bb56d: 48 89 44 24 30               	movq	%rax, 0x30(%rsp)
+   bb572: 6a 14                        	pushq	$0x14
+   bb574: 58                           	popq	%rax
+   bb575: 48 89 44 24 28               	movq	%rax, 0x28(%rsp)
+   bb57a: 48 b9 f7 c6 ba 0c 6b 1c 06 2f	movabsq	$0x2f061c6b0cbac6f7, %rcx # imm = 0x2F061C6B0CBAC6F7
+   bb584: e9 32 fb ff ff               	jmp	0xbb0bb <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x418>
+   bb589: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bb592: 48 3b 84 24 a0 01 00 00      	cmpq	0x1a0(%rsp), %rax
+   bb59a: 75 17                        	jne	0xbb5b3 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x910>
+   bb59c: 48 8b 44 24 10               	movq	0x10(%rsp), %rax
+   bb5a1: 48 81 c4 a8 01 00 00         	addq	$0x1a8, %rsp            # imm = 0x1A8
+   bb5a8: 5b                           	popq	%rbx
+   bb5a9: 41 5c                        	popq	%r12
+   bb5ab: 41 5d                        	popq	%r13
+   bb5ad: 41 5e                        	popq	%r14
+   bb5af: 41 5f                        	popq	%r15
+   bb5b1: 5d                           	popq	%rbp
+   bb5b2: c3                           	retq
+   bb5b3: e8 68 72 07 00               	callq	0x132820 <__stack_chk_fail@plt>
+   bb5b8: 41 56                        	pushq	%r14
+   bb5ba: 53                           	pushq	%rbx
+   bb5bb: 48 83 ec 18                  	subq	$0x18, %rsp
+   bb5bf: 48 89 fb                     	movq	%rdi, %rbx
+   bb5c2: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bb5cb: 48 89 44 24 10               	movq	%rax, 0x10(%rsp)
+   bb5d0: 49 89 e6                     	movq	%rsp, %r14
+   bb5d3: 31 ff                        	xorl	%edi, %edi
+   bb5d5: 4c 89 f6                     	movq	%r14, %rsi
+   bb5d8: e8 03 73 07 00               	callq	0x1328e0 <clock_gettime@plt>
+   bb5dd: f2 49 0f 2a 0e               	cvtsi2sdq	(%r14), %xmm1
+   bb5e2: f2 49 0f 2a 46 08            	cvtsi2sdq	0x8(%r14), %xmm0
+   bb5e8: f2 0f 5e 05 10 8b f4 ff      	divsd	-0xb74f0(%rip), %xmm0   # 0x4100
+   bb5f0: f2 0f 59 0d 18 8b f4 ff      	mulsd	-0xb74e8(%rip), %xmm1   # 0x4110
+   bb5f8: 48 85 db                     	testq	%rbx, %rbx
+   bb5fb: 48 b9 0e 2e 26 fa 0d b2 0a 84	movabsq	$-0x7bf54df205d9d1f2, %rcx # imm = 0x840AB20DFA262E0E
+   bb605: 48 ba d8 ea 6f ae a3 11 ee 68	movabsq	$0x68ee11a3ae6fead8, %rdx # imm = 0x68EE11A3AE6FEAD8
+   bb60f: 48 89 d6                     	movq	%rdx, %rsi
+   bb612: 48 0f 44 f1                  	cmoveq	%rcx, %rsi
+   bb616: 85 c0                        	testl	%eax, %eax
+   bb618: 48 b8 0d 38 ba 0f 13 39 dc ab	movabsq	$-0x5423c6ecf045c7f3, %rax # imm = 0xABDC39130FBA380D
+   bb622: 48 bf 70 fb 90 79 0d 21 0a 49	movabsq	$0x490a210d7990fb70, %rdi # imm = 0x490A210D7990FB70
+   bb62c: 49 89 f8                     	movq	%rdi, %r8
+   bb62f: 4c 0f 44 c0                  	cmoveq	%rax, %r8
+   bb633: f2 0f 58 c8                  	addsd	%xmm0, %xmm1
+   bb637: 49 b9 0f 59 29 fa 5e ff 6c 18	movabsq	$0x186cff5efa29590f, %r9 # imm = 0x186CFF5EFA29590F
+   bb641: 49 ba b5 32 df 83 e4 7d 1b 86	movabsq	$-0x79e4821b7c20cd4b, %r10 # imm = 0x861B7DE483DF32B5
+   bb64b: 4d 89 cb                     	movq	%r9, %r11
+   bb64e: 49 39 cb                     	cmpq	%rcx, %r11
+   bb651: 74 24                        	je	0xbb677 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9d4>
+   bb653: 4d 39 d3                     	cmpq	%r10, %r11
+   bb656: 74 36                        	je	0xbb68e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9eb>
+   bb658: 49 39 c3                     	cmpq	%rax, %r11
+   bb65b: 74 23                        	je	0xbb680 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9dd>
+   bb65d: 4d 39 cb                     	cmpq	%r9, %r11
+   bb660: 74 27                        	je	0xbb689 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9e6>
+   bb662: 49 39 d3                     	cmpq	%rdx, %r11
+   bb665: 74 0a                        	je	0xbb671 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9ce>
+   bb667: 49 39 fb                     	cmpq	%rdi, %r11
+   bb66a: 75 e2                        	jne	0xbb64e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9ab>
+   bb66c: 49 89 f3                     	movq	%rsi, %r11
+   bb66f: eb dd                        	jmp	0xbb64e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9ab>
+   bb671: c7 03 0e 00 00 00            	movl	$0xe, (%rbx)
+   bb677: 66 0f 57 c0                  	xorpd	%xmm0, %xmm0
+   bb67b: 4d 89 d3                     	movq	%r10, %r11
+   bb67e: eb ce                        	jmp	0xbb64e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9ab>
+   bb680: 66 0f 28 c1                  	movapd	%xmm1, %xmm0
+   bb684: 4d 89 d3                     	movq	%r10, %r11
+   bb687: eb c5                        	jmp	0xbb64e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9ab>
+   bb689: 4d 89 c3                     	movq	%r8, %r11
+   bb68c: eb c0                        	jmp	0xbb64e <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x9ab>
+   bb68e: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bb697: 48 3b 44 24 10               	cmpq	0x10(%rsp), %rax
+   bb69c: 75 08                        	jne	0xbb6a6 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0xa03>
+   bb69e: 48 83 c4 18                  	addq	$0x18, %rsp
+   bb6a2: 5b                           	popq	%rbx
+   bb6a3: 41 5e                        	popq	%r14
+   bb6a5: c3                           	retq
+   bb6a6: e8 75 71 07 00               	callq	0x132820 <__stack_chk_fail@plt>
+
+00000000000bb6ab <Java_com_adjust_sdk_sig_NativeLibHelper_nSign>:
+   bb6ab: 55                           	pushq	%rbp
+   bb6ac: 48 89 e5                     	movq	%rsp, %rbp
+   bb6af: 41 57                        	pushq	%r15
+   bb6b1: 41 56                        	pushq	%r14
+   bb6b3: 41 55                        	pushq	%r13
+   bb6b5: 41 54                        	pushq	%r12
+   bb6b7: 53                           	pushq	%rbx
+   bb6b8: 48 81 ec a8 00 00 00         	subq	$0xa8, %rsp
+   bb6bf: 44 89 4d b4                  	movl	%r9d, -0x4c(%rbp)
+   bb6c3: 4c 89 85 78 ff ff ff         	movq	%r8, -0x88(%rbp)
+   bb6ca: 48 89 4d a8                  	movq	%rcx, -0x58(%rbp)
+   bb6ce: 48 89 55 80                  	movq	%rdx, -0x80(%rbp)
+   bb6d2: 48 89 7d 88                  	movq	%rdi, -0x78(%rbp)
+   bb6d6: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bb6df: 48 89 45 d0                  	movq	%rax, -0x30(%rbp)
+   bb6e3: 49 bd 23 7a 3d 50 45 17 93 e6	movabsq	$-0x196ce8baafc285dd, %r13 # imm = 0xE6931745503D7A23
+   bb6ed: 49 b8 e5 0b 21 28 64 ad 52 da	movabsq	$-0x25ad529bd7def41b, %r8 # imm = 0xDA52AD6428210BE5
+   bb6f7: 49 b9 26 e2 82 d5 2c 9b 53 d6	movabsq	$-0x29ac64d32a7d1dda, %r9 # imm = 0xD6539B2CD582E226
+   bb701: 49 ba dc 34 e5 0c 24 19 19 ca	movabsq	$-0x35e6e6dbf31acb24, %r10 # imm = 0xCA1919240CE534DC
+   bb70b: 49 bb b3 9b a1 c2 c1 96 c9 c1	movabsq	$-0x3e36693e3d5e644d, %r11 # imm = 0xC1C996C1C2A19BB3
+   bb715: 48 bf a0 8c 1e 49 5d 28 de 95	movabsq	$-0x6a21d7a2b6e17360, %rdi # imm = 0x95DE285D491E8CA0
+   bb71f: 48 89 fe                     	movq	%rdi, %rsi
+   bb722: 4c 89 ef                     	movq	%r13, %rdi
+   bb725: 49 bc 29 8e c9 3a ae b8 fd 85	movabsq	$-0x7a024751c53671d7, %r12 # imm = 0x85FDB8AE3AC98E29
+   bb72f: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb732: 74 eb                        	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb734: 48 89 d3                     	movq	%rdx, %rbx
+   bb737: 49 89 cf                     	movq	%rcx, %r15
+   bb73a: 41 89 c6                     	movl	%eax, %r14d
+   bb73d: 48 b8 1e 15 24 f8 66 05 79 94	movabsq	$-0x6b86fa9907dbeae2, %rax # imm = 0x94790566F824151E
+   bb747: 48 39 c6                     	cmpq	%rax, %rsi
+   bb74a: 0f 84 53 03 00 00            	je	0xbbaa3 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x3f8>
+   bb750: 44 89 f0                     	movl	%r14d, %eax
+   bb753: 4c 89 f9                     	movq	%r15, %rcx
+   bb756: 48 89 da                     	movq	%rbx, %rdx
+   bb759: 48 bf c5 87 5a 16 d2 c3 6d a5	movabsq	$-0x5a923c2de9a5783b, %rdi # imm = 0xA56DC3D2165A87C5
+   bb763: 49 bc a0 8c 1e 49 5d 28 de 95	movabsq	$-0x6a21d7a2b6e17360, %r12 # imm = 0x95DE285D491E8CA0
+   bb76d: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb770: 74 ad                        	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb772: 48 b8 ff f4 15 3b 6d 64 68 99	movabsq	$-0x66979b92c4ea0b01, %rax # imm = 0x9968646D3B15F4FF
+   bb77c: 48 39 c6                     	cmpq	%rax, %rsi
+   bb77f: 0f 84 90 08 00 00            	je	0xbc015 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x96a>
+   bb785: 48 b8 29 ba 56 c7 11 e6 7e a1	movabsq	$-0x5e8119ee38a945d7, %rax # imm = 0xA17EE611C756BA29
+   bb78f: 48 39 c6                     	cmpq	%rax, %rsi
+   bb792: 0f 84 bb 05 00 00            	je	0xbbd53 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6a8>
+   bb798: 48 b8 c5 87 5a 16 d2 c3 6d a5	movabsq	$-0x5a923c2de9a5783b, %rax # imm = 0xA56DC3D2165A87C5
+   bb7a2: 48 39 c6                     	cmpq	%rax, %rsi
+   bb7a5: 0f 84 83 06 00 00            	je	0xbbe2e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x783>
+   bb7ab: 44 89 f0                     	movl	%r14d, %eax
+   bb7ae: 4c 89 f9                     	movq	%r15, %rcx
+   bb7b1: 48 89 da                     	movq	%rbx, %rdx
+   bb7b4: 48 bf 4a e9 77 1d c7 6b f5 3e	movabsq	$0x3ef56bc71d77e94a, %rdi # imm = 0x3EF56BC71D77E94A
+   bb7be: 49 bc d0 2a aa e4 90 1c 03 a7	movabsq	$-0x58fce36f1b55d530, %r12 # imm = 0xA7031C90E4AA2AD0
+   bb7c8: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb7cb: 0f 84 4e ff ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb7d1: 48 bf e7 5a 3b b2 7c 80 36 ae	movabsq	$-0x51c97f834dc4a519, %rdi # imm = 0xAE36807CB23B5AE7
+   bb7db: 48 39 fe                     	cmpq	%rdi, %rsi
+   bb7de: 0f 84 b6 07 00 00            	je	0xbbf9a <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x8ef>
+   bb7e4: 44 89 f0                     	movl	%r14d, %eax
+   bb7e7: 4c 89 f9                     	movq	%r15, %rcx
+   bb7ea: 48 89 da                     	movq	%rbx, %rdx
+   bb7ed: 49 bc 2a 0b 63 e6 d8 c6 af b3	movabsq	$-0x4c503927199cf4d6, %r12 # imm = 0xB3AFC6D8E6630B2A
+   bb7f7: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb7fa: 0f 84 1f ff ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb800: 44 89 f0                     	movl	%r14d, %eax
+   bb803: 4c 89 f9                     	movq	%r15, %rcx
+   bb806: 48 89 da                     	movq	%rbx, %rdx
+   bb809: 4c 89 cf                     	movq	%r9, %rdi
+   bb80c: 49 bc 82 0d a7 b8 7e 93 6d b6	movabsq	$-0x49926c814758f27e, %r12 # imm = 0xB66D937EB8A70D82
+   bb816: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb819: 0f 84 00 ff ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb81f: 48 b8 26 3f 89 92 60 cf 28 ba	movabsq	$-0x45d7309f6d76c0da, %rax # imm = 0xBA28CF6092893F26
+   bb829: 48 39 c6                     	cmpq	%rax, %rsi
+   bb82c: 0f 84 1e 07 00 00            	je	0xbbf50 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x8a5>
+   bb832: 48 b8 16 94 0f f0 64 da be bc	movabsq	$-0x4341259b0ff06bea, %rax # imm = 0xBCBEDA64F00F9416
+   bb83c: 48 39 c6                     	cmpq	%rax, %rsi
+   bb83f: 0f 84 82 05 00 00            	je	0xbbdc7 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x71c>
+   bb845: 48 b8 31 13 eb 2d e7 76 79 bd	movabsq	$-0x42868918d214eccf, %rax # imm = 0xBD7976E72DEB1331
+   bb84f: 48 39 c6                     	cmpq	%rax, %rsi
+   bb852: 0f 84 ea 02 00 00            	je	0xbbb42 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x497>
+   bb858: 44 89 f0                     	movl	%r14d, %eax
+   bb85b: 48 8b 4d 98                  	movq	-0x68(%rbp), %rcx
+   bb85f: 48 8b 55 a0                  	movq	-0x60(%rbp), %rdx
+   bb863: 4c 89 d7                     	movq	%r10, %rdi
+   bb866: 4c 39 de                     	cmpq	%r11, %rsi
+   bb869: 0f 84 b0 fe ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb86f: 4c 39 d6                     	cmpq	%r10, %rsi
+   bb872: 0f 84 4b 02 00 00            	je	0xbbac3 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x418>
+   bb878: 48 b8 c1 50 f3 08 9f e8 ca cd	movabsq	$-0x32351760f70caf3f, %rax # imm = 0xCDCAE89F08F350C1
+   bb882: 48 39 c6                     	cmpq	%rax, %rsi
+   bb885: 0f 84 ee 06 00 00            	je	0xbbf79 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x8ce>
+   bb88b: 4c 39 ce                     	cmpq	%r9, %rsi
+   bb88e: 0f 84 09 04 00 00            	je	0xbbc9d <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x5f2>
+   bb894: 48 b8 b1 32 8a 01 8f 50 64 d8	movabsq	$-0x279baf70fe75cd4f, %rax # imm = 0xD864508F018A32B1
+   bb89e: 48 39 c6                     	cmpq	%rax, %rsi
+   bb8a1: 0f 84 ac 05 00 00            	je	0xbbe53 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7a8>
+   bb8a7: 4c 39 c6                     	cmpq	%r8, %rsi
+   bb8aa: 0f 84 38 02 00 00            	je	0xbbae8 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x43d>
+   bb8b0: 44 89 f0                     	movl	%r14d, %eax
+   bb8b3: 4c 89 f9                     	movq	%r15, %rcx
+   bb8b6: 48 89 da                     	movq	%rbx, %rdx
+   bb8b9: 4c 89 c7                     	movq	%r8, %rdi
+   bb8bc: 49 bc fc e0 5a 70 74 ff 1e db	movabsq	$-0x24e1008b8fa51f04, %r12 # imm = 0xDB1EFF74705AE0FC
+   bb8c6: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb8c9: 0f 84 50 fe ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb8cf: 4c 39 ee                     	cmpq	%r13, %rsi
+   bb8d2: 0f 84 46 06 00 00            	je	0xbbf1e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x873>
+   bb8d8: 48 b8 22 74 78 fb 19 9b 94 ea	movabsq	$-0x156b64e604878bde, %rax # imm = 0xEA949B19FB787422
+   bb8e2: 48 39 c6                     	cmpq	%rax, %rsi
+   bb8e5: 0f 84 fb 05 00 00            	je	0xbbee6 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x83b>
+   bb8eb: 48 b8 df 06 01 c1 b4 27 11 eb	movabsq	$-0x14eed84b3efef921, %rax # imm = 0xEB1127B4C10106DF
+   bb8f5: 48 39 c6                     	cmpq	%rax, %rsi
+   bb8f8: 0f 84 ff 05 00 00            	je	0xbbefd <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x852>
+   bb8fe: 44 89 f0                     	movl	%r14d, %eax
+   bb901: 4c 89 f9                     	movq	%r15, %rcx
+   bb904: 48 89 da                     	movq	%rbx, %rdx
+   bb907: 48 bf c5 87 5a 16 d2 c3 6d a5	movabsq	$-0x5a923c2de9a5783b, %rdi # imm = 0xA56DC3D2165A87C5
+   bb911: 49 bc 5e 48 9f 81 3c 6c fb ed	movabsq	$-0x120493c37e60b7a2, %r12 # imm = 0xEDFB6C3C819F485E
+   bb91b: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb91e: 0f 84 fb fd ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb924: 48 b8 92 19 d3 ba ec 28 51 f1	movabsq	$-0xeaed713452ce66e, %rax # imm = 0xF15128ECBAD31992
+   bb92e: 48 39 c6                     	cmpq	%rax, %rsi
+   bb931: 0f 84 d7 04 00 00            	je	0xbbe0e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x763>
+   bb937: 48 b8 74 c4 d3 7d 2f 5c e0 05	movabsq	$0x5e05c2f7dd3c474, %rax # imm = 0x5E05C2F7DD3C474
+   bb941: 48 39 c6                     	cmpq	%rax, %rsi
+   bb944: 0f 84 29 05 00 00            	je	0xbbe73 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x7c8>
+   bb94a: 44 89 f0                     	movl	%r14d, %eax
+   bb94d: 4c 89 f9                     	movq	%r15, %rcx
+   bb950: 48 89 da                     	movq	%rbx, %rdx
+   bb953: 48 bf 5d 59 88 be 81 12 35 fa	movabsq	$-0x5caed7e4177a6a3, %rdi # imm = 0xFA351281BE88595D
+   bb95d: 49 bc 59 5c 5d a2 fc e3 68 23	movabsq	$0x2368e3fca25d5c59, %r12 # imm = 0x2368E3FCA25D5C59
+   bb967: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb96a: 0f 84 af fd ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb970: 44 89 f0                     	movl	%r14d, %eax
+   bb973: 4c 89 f9                     	movq	%r15, %rcx
+   bb976: 48 89 da                     	movq	%rbx, %rdx
+   bb979: 4c 89 ef                     	movq	%r13, %rdi
+   bb97c: 49 bc 50 30 d8 07 4a 46 ca 2d	movabsq	$0x2dca464a07d83050, %r12 # imm = 0x2DCA464A07D83050
+   bb986: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb989: 0f 84 90 fd ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb98f: 44 89 f0                     	movl	%r14d, %eax
+   bb992: 4c 89 f9                     	movq	%r15, %rcx
+   bb995: 48 89 da                     	movq	%rbx, %rdx
+   bb998: 4c 89 d7                     	movq	%r10, %rdi
+   bb99b: 49 bc a7 cf dc f5 45 06 b9 32	movabsq	$0x32b90645f5dccfa7, %r12 # imm = 0x32B90645F5DCCFA7
+   bb9a5: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb9a8: 0f 84 71 fd ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb9ae: 44 89 f0                     	movl	%r14d, %eax
+   bb9b1: 4c 89 f9                     	movq	%r15, %rcx
+   bb9b4: 48 89 da                     	movq	%rbx, %rdx
+   bb9b7: 48 bf 4a e9 77 1d c7 6b f5 3e	movabsq	$0x3ef56bc71d77e94a, %rdi # imm = 0x3EF56BC71D77E94A
+   bb9c1: 49 bc 73 0c 94 3d 2a c2 fa 36	movabsq	$0x36fac22a3d940c73, %r12 # imm = 0x36FAC22A3D940C73
+   bb9cb: 4c 39 e6                     	cmpq	%r12, %rsi
+   bb9ce: 0f 84 4b fd ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bb9d4: 48 b8 4a e9 77 1d c7 6b f5 3e	movabsq	$0x3ef56bc71d77e94a, %rax # imm = 0x3EF56BC71D77E94A
+   bb9de: 48 39 c6                     	cmpq	%rax, %rsi
+   bb9e1: 0f 84 bb 03 00 00            	je	0xbbda2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6f7>
+   bb9e7: 44 89 f0                     	movl	%r14d, %eax
+   bb9ea: 4c 89 f9                     	movq	%r15, %rcx
+   bb9ed: 48 89 da                     	movq	%rbx, %rdx
+   bb9f0: 48 bf 31 13 eb 2d e7 76 79 bd	movabsq	$-0x42868918d214eccf, %rdi # imm = 0xBD7976E72DEB1331
+   bb9fa: 49 bc fb bd b6 ca c1 7c b8 4c	movabsq	$0x4cb87cc1cab6bdfb, %r12 # imm = 0x4CB87CC1CAB6BDFB
+   bba04: 4c 39 e6                     	cmpq	%r12, %rsi
+   bba07: 0f 84 12 fd ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bba0d: 48 b8 ab 60 d5 9b e7 a5 66 50	movabsq	$0x5066a5e79bd560ab, %rax # imm = 0x5066A5E79BD560AB
+   bba17: 48 39 c6                     	cmpq	%rax, %rsi
+   bba1a: 0f 84 d8 02 00 00            	je	0xbbcf8 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x64d>
+   bba20: 48 b8 d3 5a 09 7b fe f9 06 5b	movabsq	$0x5b06f9fe7b095ad3, %rax # imm = 0x5B06F9FE7B095AD3
+   bba2a: 48 39 c6                     	cmpq	%rax, %rsi
+   bba2d: 0f 84 e8 00 00 00            	je	0xbbb1b <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x470>
+   bba33: 8a 45 ce                     	movb	-0x32(%rbp), %al
+   bba36: 4c 89 f9                     	movq	%r15, %rcx
+   bba39: 48 89 da                     	movq	%rbx, %rdx
+   bba3c: 48 bf 74 c4 d3 7d 2f 5c e0 05	movabsq	$0x5e05c2f7dd3c474, %rdi # imm = 0x5E05C2F7DD3C474
+   bba46: 49 bc 8d 7f 7f 35 1e 25 bc 65	movabsq	$0x65bc251e357f7f8d, %r12 # imm = 0x65BC251E357F7F8D
+   bba50: 4c 39 e6                     	cmpq	%r12, %rsi
+   bba53: 0f 84 c6 fc ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bba59: 44 89 f0                     	movl	%r14d, %eax
+   bba5c: 4c 89 f9                     	movq	%r15, %rcx
+   bba5f: 48 89 da                     	movq	%rbx, %rdx
+   bba62: 48 bf ab 60 d5 9b e7 a5 66 50	movabsq	$0x5066a5e79bd560ab, %rdi # imm = 0x5066A5E79BD560AB
+   bba6c: 49 bc 40 60 87 c6 48 30 1f 7d	movabsq	$0x7d1f3048c6876040, %r12 # imm = 0x7D1F3048C6876040
+   bba76: 4c 39 e6                     	cmpq	%r12, %rsi
+   bba79: 0f 84 a0 fc ff ff            	je	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bba7f: 44 89 f0                     	movl	%r14d, %eax
+   bba82: 4c 89 f9                     	movq	%r15, %rcx
+   bba85: 48 89 da                     	movq	%rbx, %rdx
+   bba88: 48 89 f7                     	movq	%rsi, %rdi
+   bba8b: 48 bb 5d 59 88 be 81 12 35 fa	movabsq	$-0x5caed7e4177a6a3, %rbx # imm = 0xFA351281BE88595D
+   bba95: 48 39 de                     	cmpq	%rbx, %rsi
+   bba98: 0f 85 81 fc ff ff            	jne	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bba9e: e9 ba 05 00 00               	jmp	0xbc05d <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9b2>
+   bbaa3: 80 3d f5 35 08 00 00         	cmpb	$0x0, 0x835f5(%rip)     # 0x13f09f
+   bbaaa: 48 bf ff f4 15 3b 6d 64 68 99	movabsq	$-0x66979b92c4ea0b01, %rdi # imm = 0x9968646D3B15F4FF
+   bbab4: 48 b8 82 0d a7 b8 7e 93 6d b6	movabsq	$-0x49926c814758f27e, %rax # imm = 0xB66D937EB8A70D82
+   bbabe: e9 55 04 00 00               	jmp	0xbbf18 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x86d>
+   bbac3: 31 c0                        	xorl	%eax, %eax
+   bbac5: b1 01                        	movb	$0x1, %cl
+   bbac7: f0                           	lock
+   bbac8: 0f b0 0d cb 35 08 00         	cmpxchgb	%cl, 0x835cb(%rip)      # 0x13f09a
+   bbacf: 48 bf a7 cf dc f5 45 06 b9 32	movabsq	$0x32b90645f5dccfa7, %rdi # imm = 0x32B90645F5DCCFA7
+   bbad9: 48 b8 b1 32 8a 01 8f 50 64 d8	movabsq	$-0x279baf70fe75cd4f, %rax # imm = 0xD864508F018A32B1
+   bbae3: e9 56 04 00 00               	jmp	0xbbf3e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x893>
+   bbae8: c6 05 ab 35 08 00 00         	movb	$0x0, 0x835ab(%rip)     # 0x13f09a
+   bbaef: 41 8a 07                     	movb	(%r15), %al
+   bbaf2: 3a 03                        	cmpb	(%rbx), %al
+   bbaf4: 48 bf c1 50 f3 08 9f e8 ca cd	movabsq	$-0x32351760f70caf3f, %rdi # imm = 0xCDCAE89F08F350C1
+   bbafe: 48 b9 8d 7f 7f 35 1e 25 bc 65	movabsq	$0x65bc251e357f7f8d, %rcx # imm = 0x65BC251E357F7F8D
+   bbb08: 48 0f 45 f9                  	cmovneq	%rcx, %rdi
+   bbb0c: 0f 95 45 ce                  	setne	-0x32(%rbp)
+   bbb10: 84 c0                        	testb	%al, %al
+   bbb12: 48 0f 44 f9                  	cmoveq	%rcx, %rdi
+   bbb16: e9 27 04 00 00               	jmp	0xbbf42 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x897>
+   bbb1b: 48 8b 45 c0                  	movq	-0x40(%rbp), %rax
+   bbb1f: 48 8b 00                     	movq	(%rax), %rax
+   bbb22: 48 89 45 98                  	movq	%rax, -0x68(%rbp)
+   bbb26: 44 89 f0                     	movl	%r14d, %eax
+   bbb29: 4c 89 f9                     	movq	%r15, %rcx
+   bbb2c: 48 89 da                     	movq	%rbx, %rdx
+   bbb2f: 48 8d 35 3a 27 08 00         	leaq	0x8273a(%rip), %rsi     # 0x13e270
+   bbb36: 48 89 75 a0                  	movq	%rsi, -0x60(%rbp)
+   bbb3a: 4c 89 df                     	movq	%r11, %rdi
+   bbb3d: e9 dd fb ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbb42: c6 05 4f 35 08 00 00         	movb	$0x0, 0x8354f(%rip)     # 0x13f098
+   bbb49: 48 89 e0                     	movq	%rsp, %rax
+   bbb4c: 48 8d 48 f0                  	leaq	-0x10(%rax), %rcx
+   bbb50: 48 89 4d c0                  	movq	%rcx, -0x40(%rbp)
+   bbb54: 48 89 cc                     	movq	%rcx, %rsp
+   bbb57: 48 89 e1                     	movq	%rsp, %rcx
+   bbb5a: 48 8d 51 f0                  	leaq	-0x10(%rcx), %rdx
+   bbb5e: 48 89 95 50 ff ff ff         	movq	%rdx, -0xb0(%rbp)
+   bbb65: 48 89 d4                     	movq	%rdx, %rsp
+   bbb68: 48 89 e2                     	movq	%rsp, %rdx
+   bbb6b: 48 8d 72 f0                  	leaq	-0x10(%rdx), %rsi
+   bbb6f: 48 89 b5 58 ff ff ff         	movq	%rsi, -0xa8(%rbp)
+   bbb76: 48 89 f4                     	movq	%rsi, %rsp
+   bbb79: 48 89 e6                     	movq	%rsp, %rsi
+   bbb7c: 48 8d 7e f0                  	leaq	-0x10(%rsi), %rdi
+   bbb80: 48 89 bd 60 ff ff ff         	movq	%rdi, -0xa0(%rbp)
+   bbb87: 48 89 fc                     	movq	%rdi, %rsp
+   bbb8a: 48 89 e7                     	movq	%rsp, %rdi
+   bbb8d: 4c 8d 4f f0                  	leaq	-0x10(%rdi), %r9
+   bbb91: 4c 89 4d b8                  	movq	%r9, -0x48(%rbp)
+   bbb95: 49 89 f8                     	movq	%rdi, %r8
+   bbb98: 48 89 bd 68 ff ff ff         	movq	%rdi, -0x98(%rbp)
+   bbb9f: 4c 89 cc                     	movq	%r9, %rsp
+   bbba2: 49 89 e5                     	movq	%rsp, %r13
+   bbba5: 49 8d 7d d0                  	leaq	-0x30(%r13), %rdi
+   bbba9: 48 89 bd 48 ff ff ff         	movq	%rdi, -0xb8(%rbp)
+   bbbb0: 48 89 fc                     	movq	%rdi, %rsp
+   bbbb3: 48 89 e7                     	movq	%rsp, %rdi
+   bbbb6: 48 89 bd 70 ff ff ff         	movq	%rdi, -0x90(%rbp)
+   bbbbd: 4c 8d 67 f0                  	leaq	-0x10(%rdi), %r12
+   bbbc1: 4c 89 e4                     	movq	%r12, %rsp
+   bbbc4: 48 8b 7d 80                  	movq	-0x80(%rbp), %rdi
+   bbbc8: 48 89 78 f0                  	movq	%rdi, -0x10(%rax)
+   bbbcc: 48 8b 45 a8                  	movq	-0x58(%rbp), %rax
+   bbbd0: 48 89 41 f0                  	movq	%rax, -0x10(%rcx)
+   bbbd4: 48 8b 85 78 ff ff ff         	movq	-0x88(%rbp), %rax
+   bbbdb: 48 89 42 f0                  	movq	%rax, -0x10(%rdx)
+   bbbdf: 8b 45 b4                     	movl	-0x4c(%rbp), %eax
+   bbbe2: 89 46 f0                     	movl	%eax, -0x10(%rsi)
+   bbbe5: 41 83 60 f0 00               	andl	$0x0, -0x10(%r8)
+   bbbea: e8 44 60 00 00               	callq	0xc1c33 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6588>
+   bbbef: 48 8b 75 88                  	movq	-0x78(%rbp), %rsi
+   bbbf3: 49 89 75 d0                  	movq	%rsi, -0x30(%r13)
+   bbbf7: 48 8b 45 c0                  	movq	-0x40(%rbp), %rax
+   bbbfb: 49 89 45 d8                  	movq	%rax, -0x28(%r13)
+   bbbff: 48 8b 85 50 ff ff ff         	movq	-0xb0(%rbp), %rax
+   bbc06: 49 89 45 e0                  	movq	%rax, -0x20(%r13)
+   bbc0a: 48 8b 85 58 ff ff ff         	movq	-0xa8(%rbp), %rax
+   bbc11: 49 89 45 e8                  	movq	%rax, -0x18(%r13)
+   bbc15: 48 8b 85 60 ff ff ff         	movq	-0xa0(%rbp), %rax
+   bbc1c: 49 89 45 f0                  	movq	%rax, -0x10(%r13)
+   bbc20: 49 bd 23 7a 3d 50 45 17 93 e6	movabsq	$-0x196ce8baafc285dd, %r13 # imm = 0xE6931745503D7A23
+   bbc2a: 48 8b 85 70 ff ff ff         	movq	-0x90(%rbp), %rax
+   bbc31: 48 83 60 f0 00               	andq	$0x0, -0x10(%rax)
+   bbc36: 48 8b 7d b8                  	movq	-0x48(%rbp), %rdi
+   bbc3a: 48 8b 55 a8                  	movq	-0x58(%rbp), %rdx
+   bbc3e: 48 8d 0d 1b 26 08 00         	leaq	0x8261b(%rip), %rcx     # 0x13e260
+   bbc45: 4c 89 65 c0                  	movq	%r12, -0x40(%rbp)
+   bbc49: 4d 89 e0                     	movq	%r12, %r8
+   bbc4c: e8 af c4 fe ff               	callq	0xa8100 <.text+0x99980>
+   bbc51: 49 bb b3 9b a1 c2 c1 96 c9 c1	movabsq	$-0x3e36693e3d5e644d, %r11 # imm = 0xC1C996C1C2A19BB3
+   bbc5b: 49 ba dc 34 e5 0c 24 19 19 ca	movabsq	$-0x35e6e6dbf31acb24, %r10 # imm = 0xCA1919240CE534DC
+   bbc65: 49 b9 26 e2 82 d5 2c 9b 53 d6	movabsq	$-0x29ac64d32a7d1dda, %r9 # imm = 0xD6539B2CD582E226
+   bbc6f: 49 b8 e5 0b 21 28 64 ad 52 da	movabsq	$-0x25ad529bd7def41b, %r8 # imm = 0xDA52AD6428210BE5
+   bbc79: 48 8b 85 68 ff ff ff         	movq	-0x98(%rbp), %rax
+   bbc80: 83 78 f0 00                  	cmpl	$0x0, -0x10(%rax)
+   bbc84: 48 bf 22 74 78 fb 19 9b 94 ea	movabsq	$-0x156b64e604878bde, %rdi # imm = 0xEA949B19FB787422
+   bbc8e: 48 b8 d3 5a 09 7b fe f9 06 5b	movabsq	$0x5b06f9fe7b095ad3, %rax # imm = 0x5B06F9FE7B095AD3
+   bbc98: e9 a1 02 00 00               	jmp	0xbbf3e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x893>
+   bbc9d: c6 05 fa 33 08 00 00         	movb	$0x0, 0x833fa(%rip)     # 0x13f09e
+   bbca4: 48 8d 3d 05 26 08 00         	leaq	0x82605(%rip), %rdi     # 0x13e2b0
+   bbcab: f2 0f 10 85 40 ff ff ff      	movsd	-0xc0(%rbp), %xmm0
+   bbcb3: e8 3c da 06 00               	callq	0x1296f4 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6e049>
+   bbcb8: 49 bb b3 9b a1 c2 c1 96 c9 c1	movabsq	$-0x3e36693e3d5e644d, %r11 # imm = 0xC1C996C1C2A19BB3
+   bbcc2: 49 ba dc 34 e5 0c 24 19 19 ca	movabsq	$-0x35e6e6dbf31acb24, %r10 # imm = 0xCA1919240CE534DC
+   bbccc: 49 b9 26 e2 82 d5 2c 9b 53 d6	movabsq	$-0x29ac64d32a7d1dda, %r9 # imm = 0xD6539B2CD582E226
+   bbcd6: 49 b8 e5 0b 21 28 64 ad 52 da	movabsq	$-0x25ad529bd7def41b, %r8 # imm = 0xDA52AD6428210BE5
+   bbce0: 44 89 f0                     	movl	%r14d, %eax
+   bbce3: 4c 89 f9                     	movq	%r15, %rcx
+   bbce6: 48 89 da                     	movq	%rbx, %rdx
+   bbce9: 48 bf 5d 59 88 be 81 12 35 fa	movabsq	$-0x5caed7e4177a6a3, %rdi # imm = 0xFA351281BE88595D
+   bbcf3: e9 27 fa ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbcf8: c6 05 9d 33 08 00 00         	movb	$0x0, 0x8339d(%rip)     # 0x13f09c
+   bbcff: 48 8d 3d 7a 25 08 00         	leaq	0x8257a(%rip), %rdi     # 0x13e280
+   bbd06: f2 0f 10 85 38 ff ff ff      	movsd	-0xc8(%rbp), %xmm0
+   bbd0e: e8 e1 d9 06 00               	callq	0x1296f4 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x6e049>
+   bbd13: 49 bb b3 9b a1 c2 c1 96 c9 c1	movabsq	$-0x3e36693e3d5e644d, %r11 # imm = 0xC1C996C1C2A19BB3
+   bbd1d: 49 ba dc 34 e5 0c 24 19 19 ca	movabsq	$-0x35e6e6dbf31acb24, %r10 # imm = 0xCA1919240CE534DC
+   bbd27: 49 b9 26 e2 82 d5 2c 9b 53 d6	movabsq	$-0x29ac64d32a7d1dda, %r9 # imm = 0xD6539B2CD582E226
+   bbd31: 49 b8 e5 0b 21 28 64 ad 52 da	movabsq	$-0x25ad529bd7def41b, %r8 # imm = 0xDA52AD6428210BE5
+   bbd3b: 44 89 f0                     	movl	%r14d, %eax
+   bbd3e: 4c 89 f9                     	movq	%r15, %rcx
+   bbd41: 48 89 da                     	movq	%rbx, %rdx
+   bbd44: 48 bf e7 5a 3b b2 7c 80 36 ae	movabsq	$-0x51c97f834dc4a519, %rdi # imm = 0xAE36807CB23B5AE7
+   bbd4e: e9 cc f9 ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbd53: 0f 28 05 26 25 08 00         	movaps	0x82526(%rip), %xmm0    # 0x13e280
+   bbd5a: 0f 28 0d 9f 74 f4 ff         	movaps	-0xb8b61(%rip), %xmm1   # 0x3200
+   bbd61: 0f 57 c1                     	xorps	%xmm1, %xmm0
+   bbd64: 0f 29 05 15 25 08 00         	movaps	%xmm0, 0x82515(%rip)    # 0x13e280
+   bbd6b: 0f 28 05 1e 25 08 00         	movaps	0x8251e(%rip), %xmm0    # 0x13e290
+   bbd72: 0f 57 c1                     	xorps	%xmm1, %xmm0
+   bbd75: 0f 29 05 14 25 08 00         	movaps	%xmm0, 0x82514(%rip)    # 0x13e290
+   bbd7c: 80 35 1d 25 08 00 d8         	xorb	$-0x28, 0x8251d(%rip)   # 0x13e2a0
+   bbd83: c6 05 13 33 08 00 01         	movb	$0x1, 0x83313(%rip)     # 0x13f09d
+   bbd8a: 44 89 f0                     	movl	%r14d, %eax
+   bbd8d: 4c 89 f9                     	movq	%r15, %rcx
+   bbd90: 48 89 da                     	movq	%rbx, %rdx
+   bbd93: 48 bf ab 60 d5 9b e7 a5 66 50	movabsq	$0x5066a5e79bd560ab, %rdi # imm = 0x5066A5E79BD560AB
+   bbd9d: e9 7d f9 ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbda2: 31 c0                        	xorl	%eax, %eax
+   bbda4: b1 01                        	movb	$0x1, %cl
+   bbda6: f0                           	lock
+   bbda7: 0f b0 0d ee 32 08 00         	cmpxchgb	%cl, 0x832ee(%rip)      # 0x13f09c
+   bbdae: 48 bf 73 0c 94 3d 2a c2 fa 36	movabsq	$0x36fac22a3d940c73, %rdi # imm = 0x36FAC22A3D940C73
+   bbdb8: 48 b8 df 06 01 c1 b4 27 11 eb	movabsq	$-0x14eed84b3efef921, %rax # imm = 0xEB1127B4C10106DF
+   bbdc2: e9 77 01 00 00               	jmp	0xbbf3e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x893>
+   bbdc7: 48 b8 1b 1b 1b 1b 1b 1b 1b 1b	movabsq	$0x1b1b1b1b1b1b1b1b, %rax # imm = 0x1B1B1B1B1B1B1B1B
+   bbdd1: 48 31 05 88 24 08 00         	xorq	%rax, 0x82488(%rip)     # 0x13e260
+   bbdd8: f2 0f 10 05 88 24 08 00      	movsd	0x82488(%rip), %xmm0    # 0x13e268
+   bbde0: 0f 57 05 09 7e f4 ff         	xorps	-0xb81f7(%rip), %xmm0   # 0x3bf0
+   bbde7: f3 0f 11 05 79 24 08 00      	movss	%xmm0, 0x82479(%rip)    # 0x13e268
+   bbdef: c6 05 a3 32 08 00 01         	movb	$0x1, 0x832a3(%rip)     # 0x13f099
+   bbdf6: 44 89 f0                     	movl	%r14d, %eax
+   bbdf9: 4c 89 f9                     	movq	%r15, %rcx
+   bbdfc: 48 89 da                     	movq	%rbx, %rdx
+   bbdff: 48 bf 31 13 eb 2d e7 76 79 bd	movabsq	$-0x42868918d214eccf, %rdi # imm = 0xBD7976E72DEB1331
+   bbe09: e9 11 f9 ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbe0e: 80 3d 84 32 08 00 00         	cmpb	$0x0, 0x83284(%rip)     # 0x13f099
+   bbe15: 48 bf 16 94 0f f0 64 da be bc	movabsq	$-0x4341259b0ff06bea, %rdi # imm = 0xBCBEDA64F00F9416
+   bbe1f: 48 b8 fb bd b6 ca c1 7c b8 4c	movabsq	$0x4cb87cc1cab6bdfb, %rax # imm = 0x4CB87CC1CAB6BDFB
+   bbe29: e9 ea 00 00 00               	jmp	0xbbf18 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x86d>
+   bbe2e: 31 c0                        	xorl	%eax, %eax
+   bbe30: b1 01                        	movb	$0x1, %cl
+   bbe32: f0                           	lock
+   bbe33: 0f b0 0d 5e 32 08 00         	cmpxchgb	%cl, 0x8325e(%rip)      # 0x13f098
+   bbe3a: 48 bf 5e 48 9f 81 3c 6c fb ed	movabsq	$-0x120493c37e60b7a2, %rdi # imm = 0xEDFB6C3C819F485E
+   bbe44: 48 b8 92 19 d3 ba ec 28 51 f1	movabsq	$-0xeaed713452ce66e, %rax # imm = 0xF15128ECBAD31992
+   bbe4e: e9 eb 00 00 00               	jmp	0xbbf3e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x893>
+   bbe53: 80 3d 41 32 08 00 00         	cmpb	$0x0, 0x83241(%rip)     # 0x13f09b
+   bbe5a: 48 bf 26 3f 89 92 60 cf 28 ba	movabsq	$-0x45d7309f6d76c0da, %rdi # imm = 0xBA28CF6092893F26
+   bbe64: 48 b8 fc e0 5a 70 74 ff 1e db	movabsq	$-0x24e1008b8fa51f04, %rax # imm = 0xDB1EFF74705AE0FC
+   bbe6e: e9 a5 00 00 00               	jmp	0xbbf18 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x86d>
+   bbe73: 4c 8b 65 b8                  	movq	-0x48(%rbp), %r12
+   bbe77: 4c 89 e7                     	movq	%r12, %rdi
+   bbe7a: e8 39 f7 ff ff               	callq	0xbb5b8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x915>
+   bbe7f: 49 bb b3 9b a1 c2 c1 96 c9 c1	movabsq	$-0x3e36693e3d5e644d, %r11 # imm = 0xC1C996C1C2A19BB3
+   bbe89: 49 ba dc 34 e5 0c 24 19 19 ca	movabsq	$-0x35e6e6dbf31acb24, %r10 # imm = 0xCA1919240CE534DC
+   bbe93: 49 b9 26 e2 82 d5 2c 9b 53 d6	movabsq	$-0x29ac64d32a7d1dda, %r9 # imm = 0xD6539B2CD582E226
+   bbe9d: 49 b8 e5 0b 21 28 64 ad 52 da	movabsq	$-0x25ad529bd7def41b, %r8 # imm = 0xDA52AD6428210BE5
+   bbea7: f2 0f 11 85 38 ff ff ff      	movsd	%xmm0, -0xc8(%rbp)
+   bbeaf: 41 f6 c6 01                  	testb	$0x1, %r14b
+   bbeb3: 48 bf d0 2a aa e4 90 1c 03 a7	movabsq	$-0x58fce36f1b55d530, %rdi # imm = 0xA7031C90E4AA2AD0
+   bbebd: 48 b8 2a 0b 63 e6 d8 c6 af b3	movabsq	$-0x4c503927199cf4d6, %rax # imm = 0xB3AFC6D8E6630B2A
+   bbec7: 48 0f 45 f8                  	cmovneq	%rax, %rdi
+   bbecb: 41 83 3c 24 00               	cmpl	$0x0, (%r12)
+   bbed0: 48 0f 45 f8                  	cmovneq	%rax, %rdi
+   bbed4: 44 89 f0                     	movl	%r14d, %eax
+   bbed7: 4c 89 f9                     	movq	%r15, %rcx
+   bbeda: 48 89 da                     	movq	%rbx, %rdx
+   bbedd: 44 88 75 cf                  	movb	%r14b, -0x31(%rbp)
+   bbee1: e9 39 f8 ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbee6: b0 01                        	movb	$0x1, %al
+   bbee8: 4c 89 f9                     	movq	%r15, %rcx
+   bbeeb: 48 89 da                     	movq	%rbx, %rdx
+   bbeee: 48 bf 74 c4 d3 7d 2f 5c e0 05	movabsq	$0x5e05c2f7dd3c474, %rdi # imm = 0x5E05C2F7DD3C474
+   bbef8: e9 22 f8 ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbefd: 80 3d 99 31 08 00 00         	cmpb	$0x0, 0x83199(%rip)     # 0x13f09d
+   bbf04: 48 bf 29 ba 56 c7 11 e6 7e a1	movabsq	$-0x5e8119ee38a945d7, %rdi # imm = 0xA17EE611C756BA29
+   bbf0e: 48 b8 40 60 87 c6 48 30 1f 7d	movabsq	$0x7d1f3048c6876040, %rax # imm = 0x7D1F3048C6876040
+   bbf18: 48 0f 45 f8                  	cmovneq	%rax, %rdi
+   bbf1c: eb 24                        	jmp	0xbbf42 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x897>
+   bbf1e: 31 c0                        	xorl	%eax, %eax
+   bbf20: b1 01                        	movb	$0x1, %cl
+   bbf22: f0                           	lock
+   bbf23: 0f b0 0d 74 31 08 00         	cmpxchgb	%cl, 0x83174(%rip)      # 0x13f09e
+   bbf2a: 48 bf 50 30 d8 07 4a 46 ca 2d	movabsq	$0x2dca464a07d83050, %rdi # imm = 0x2DCA464A07D83050
+   bbf34: 48 b8 1e 15 24 f8 66 05 79 94	movabsq	$-0x6b86fa9907dbeae2, %rax # imm = 0x94790566F824151E
+   bbf3e: 48 0f 44 f8                  	cmoveq	%rax, %rdi
+   bbf42: 44 89 f0                     	movl	%r14d, %eax
+   bbf45: 4c 89 f9                     	movq	%r15, %rcx
+   bbf48: 48 89 da                     	movq	%rbx, %rdx
+   bbf4b: e9 cf f7 ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbf50: 48 b8 5d 5d 5d 5d 5d 5d 5d 5d	movabsq	$0x5d5d5d5d5d5d5d5d, %rax # imm = 0x5D5D5D5D5D5D5D5D
+   bbf5a: 48 31 05 0f 23 08 00         	xorq	%rax, 0x8230f(%rip)     # 0x13e270
+   bbf61: c6 05 33 31 08 00 01         	movb	$0x1, 0x83133(%rip)     # 0x13f09b
+   bbf68: 44 89 f0                     	movl	%r14d, %eax
+   bbf6b: 4c 89 f9                     	movq	%r15, %rcx
+   bbf6e: 48 89 da                     	movq	%rbx, %rdx
+   bbf71: 4c 89 c7                     	movq	%r8, %rdi
+   bbf74: e9 a6 f7 ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbf79: 49 8d 47 01                  	leaq	0x1(%r15), %rax
+   bbf7d: 48 89 45 98                  	movq	%rax, -0x68(%rbp)
+   bbf81: 48 8d 43 01                  	leaq	0x1(%rbx), %rax
+   bbf85: 48 89 45 a0                  	movq	%rax, -0x60(%rbp)
+   bbf89: 44 89 f0                     	movl	%r14d, %eax
+   bbf8c: 4c 89 f9                     	movq	%r15, %rcx
+   bbf8f: 48 89 da                     	movq	%rbx, %rdx
+   bbf92: 4c 89 df                     	movq	%r11, %rdi
+   bbf95: e9 85 f7 ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bbf9a: 48 8b bd 48 ff ff ff         	movq	-0xb8(%rbp), %rdi
+   bbfa1: e8 49 f0 ff ff               	callq	0xbafef <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x34c>
+   bbfa6: 48 89 45 90                  	movq	%rax, -0x70(%rbp)
+   bbfaa: 4c 8b 65 b8                  	movq	-0x48(%rbp), %r12
+   bbfae: 41 83 24 24 00               	andl	$0x0, (%r12)
+   bbfb3: 4c 89 e7                     	movq	%r12, %rdi
+   bbfb6: e8 fd f5 ff ff               	callq	0xbb5b8 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume+0x915>
+   bbfbb: 49 bb b3 9b a1 c2 c1 96 c9 c1	movabsq	$-0x3e36693e3d5e644d, %r11 # imm = 0xC1C996C1C2A19BB3
+   bbfc5: 49 ba dc 34 e5 0c 24 19 19 ca	movabsq	$-0x35e6e6dbf31acb24, %r10 # imm = 0xCA1919240CE534DC
+   bbfcf: 49 b9 26 e2 82 d5 2c 9b 53 d6	movabsq	$-0x29ac64d32a7d1dda, %r9 # imm = 0xD6539B2CD582E226
+   bbfd9: 49 b8 e5 0b 21 28 64 ad 52 da	movabsq	$-0x25ad529bd7def41b, %r8 # imm = 0xDA52AD6428210BE5
+   bbfe3: f6 45 cf 01                  	testb	$0x1, -0x31(%rbp)
+   bbfe7: 48 bf 29 8e c9 3a ae b8 fd 85	movabsq	$-0x7a024751c53671d7, %rdi # imm = 0x85FDB8AE3AC98E29
+   bbff1: 48 b8 59 5c 5d a2 fc e3 68 23	movabsq	$0x2368e3fca25d5c59, %rax # imm = 0x2368E3FCA25D5C59
+   bbffb: 48 0f 45 f8                  	cmovneq	%rax, %rdi
+   bbfff: 41 83 3c 24 00               	cmpl	$0x0, (%r12)
+   bc004: 48 0f 45 f8                  	cmovneq	%rax, %rdi
+   bc008: f2 0f 11 85 40 ff ff ff      	movsd	%xmm0, -0xc0(%rbp)
+   bc010: e9 2d ff ff ff               	jmp	0xbbf42 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x897>
+   bc015: 0f 28 05 94 22 08 00         	movaps	0x82294(%rip), %xmm0    # 0x13e2b0
+   bc01c: 0f 28 0d 9d 7d f4 ff         	movaps	-0xb8263(%rip), %xmm1   # 0x3dc0
+   bc023: 0f 57 c1                     	xorps	%xmm1, %xmm0
+   bc026: 0f 29 05 83 22 08 00         	movaps	%xmm0, 0x82283(%rip)    # 0x13e2b0
+   bc02d: 0f 28 05 8c 22 08 00         	movaps	0x8228c(%rip), %xmm0    # 0x13e2c0
+   bc034: 0f 57 c1                     	xorps	%xmm1, %xmm0
+   bc037: 0f 29 05 82 22 08 00         	movaps	%xmm0, 0x82282(%rip)    # 0x13e2c0
+   bc03e: 80 35 8b 22 08 00 82         	xorb	$-0x7e, 0x8228b(%rip)   # 0x13e2d0
+   bc045: c6 05 53 30 08 00 01         	movb	$0x1, 0x83053(%rip)     # 0x13f09f
+   bc04c: 44 89 f0                     	movl	%r14d, %eax
+   bc04f: 4c 89 f9                     	movq	%r15, %rcx
+   bc052: 48 89 da                     	movq	%rbx, %rdx
+   bc055: 4c 89 cf                     	movq	%r9, %rdi
+   bc058: e9 c2 f6 ff ff               	jmp	0xbb71f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x74>
+   bc05d: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   bc066: 48 3b 45 d0                  	cmpq	-0x30(%rbp), %rax
+   bc06a: 75 13                        	jne	0xbc07f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x9d4>
+   bc06c: 48 8b 45 90                  	movq	-0x70(%rbp), %rax
+   bc070: 48 8d 65 d8                  	leaq	-0x28(%rbp), %rsp
+   bc074: 5b                           	popq	%rbx
+   bc075: 41 5c                        	popq	%r12
+   bc077: 41 5d                        	popq	%r13
+   bc079: 41 5e                        	popq	%r14
+   bc07b: 41 5f                        	popq	%r15
+   bc07d: 5d                           	popq	%rbp
+   bc07e: c3                           	retq
+   bc07f: e8 9c 67 07 00               	callq	0x132820 <__stack_chk_fail@plt>
+   bc084: cc                           	int3
+   bc085: cc                           	int3
+   bc086: cc                           	int3
+   bc087: cc                           	int3
+   bc088: cc                           	int3
+   bc089: cc                           	int3
+   bc08a: cc                           	int3
+   bc08b: cc                           	int3
+   bc08c: cc                           	int3
+   bc08d: cc                           	int3
+   bc08e: cc                           	int3
+   bc08f: cc                           	int3
+   bc090: 31 c0                        	xorl	%eax, %eax
+   bc092: c3                           	retq
+   bc093: 55                           	pushq	%rbp
+   bc094: 41 57                        	pushq	%r15
+   bc096: 41 56                        	pushq	%r14
+   bc098: 41 55                        	pushq	%r13
+   bc09a: 41 54                        	pushq	%r12
+   bc09c: 53                           	pushq	%rbx
+   bc09d: 48 81 ec 28 02 00 00         	subq	$0x228, %rsp            # imm = 0x228
+   bc0a4: 48 89 94 24 68 01 00 00      	movq	%rdx, 0x168(%rsp)
+   bc0ac: 48 89 bc 24 b8 00 00 00      	movq	%rdi, 0xb8(%rsp)
+   bc0b4: 48 bf dd 95 db 78 02 9e 21 11	movabsq	$0x11219e0278db95dd, %rdi # imm = 0x11219E0278DB95DD
+   bc0be: 48 89 44 24 08               	movq	%rax, 0x8(%rsp)
+   bc0c3: 89 4c 24 64                  	movl	%ecx, 0x64(%rsp)
+   bc0c7: 48 89 8c 24 a8 00 00 00      	movq	%rcx, 0xa8(%rsp)
+   bc0cf: 48 89 b4 24 c0 00 00 00      	movq	%rsi, 0xc0(%rsp)
+   bc0d7: 48 89 f1                     	movq	%rsi, %rcx
+   bc0da: 48 89 fe                     	movq	%rdi, %rsi
+   bc0dd: 4c 89 5c 24 48               	movq	%r11, 0x48(%rsp)
+   bc0e2: 4c 89 54 24 38               	movq	%r10, 0x38(%rsp)
+   bc0e7: 4c 89 4c 24 40               	movq	%r9, 0x40(%rsp)
+   bc0ec: 4c 8b 74 24 10               	movq	0x10(%rsp), %r14
+   bc0f1: 48 8b 5c 24 18               	movq	0x18(%rsp), %rbx
+   bc0f6: 4c 8b 64 24 20               	movq	0x20(%rsp), %r12
+   bc0fb: 48 8b 54 24 08               	movq	0x8(%rsp), %rdx

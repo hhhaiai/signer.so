@@ -1,0 +1,167 @@
+   111bc: 55                           	pushq	%rbp
+   111bd: 41 57                        	pushq	%r15
+   111bf: 41 56                        	pushq	%r14
+   111c1: 41 55                        	pushq	%r13
+   111c3: 41 54                        	pushq	%r12
+   111c5: 53                           	pushq	%rbx
+   111c6: 48 83 ec 58                  	subq	$0x58, %rsp
+   111ca: 48 89 fb                     	movq	%rdi, %rbx
+   111cd: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   111d6: 48 89 44 24 50               	movq	%rax, 0x50(%rsp)
+   111db: 49 bd c0 72 a3 8b 1a 2c 22 c0	movabsq	$-0x3fddd3e5745c8d40, %r13 # imm = 0xC0222C1A8BA372C0
+   111e5: 49 bf f9 ee 42 72 b3 88 c4 7e	movabsq	$0x7ec488b37242eef9, %r15 # imm = 0x7EC488B37242EEF9
+   111ef: 48 bd ee fa 59 de bd 5c ac 26	movabsq	$0x26ac5cbdde59faee, %rbp # imm = 0x26AC5CBDDE59FAEE
+   111f9: 4c 8d 64 24 4c               	leaq	0x4c(%rsp), %r12
+   111fe: 41 83 24 24 00               	andl	$0x0, (%r12)
+   11203: 4c 8d 74 24 40               	leaq	0x40(%rsp), %r14
+   11208: 49 83 26 00                  	andq	$0x0, (%r14)
+   1120c: f2 0f 10 05 f4 2e ff ff      	movsd	-0xd10c(%rip), %xmm0    # 0x4108
+   11214: e8 00 03 00 00               	callq	0x11519 <.text+0x2d99>
+   11219: 4c 89 e7                     	movq	%r12, %rdi
+   1121c: 4c 89 f6                     	movq	%r14, %rsi
+   1121f: e8 e5 76 00 00               	callq	0x18909 <.text+0xa189>
+   11224: 48 89 5c 24 08               	movq	%rbx, 0x8(%rsp)
+   11229: 48 8d 43 20                  	leaq	0x20(%rbx), %rax
+   1122d: 48 89 44 24 20               	movq	%rax, 0x20(%rsp)
+   11232: 41 83 3c 24 00               	cmpl	$0x0, (%r12)
+   11237: 49 be d5 b4 95 59 ca a0 2a ac	movabsq	$-0x53d55f35a66a4b2b, %r14 # imm = 0xAC2AA0CA5995B4D5
+   11241: 49 bc f6 22 77 8d 3d 5f a4 ca	movabsq	$-0x355ba0c27288dd0a, %r12 # imm = 0xCAA45F3D8D7722F6
+   1124b: 4c 89 e0                     	movq	%r12, %rax
+   1124e: 49 0f 44 c6                  	cmoveq	%r14, %rax
+   11252: 48 89 44 24 38               	movq	%rax, 0x38(%rsp)
+   11257: 48 b9 46 eb 53 bf 65 8c f7 77	movabsq	$0x77f78c65bf53eb46, %rcx # imm = 0x77F78C65BF53EB46
+   11261: 48 be 27 0a 70 dd 00 53 18 af	movabsq	$-0x50e7acff228ff5d9, %rsi # imm = 0xAF185300DD700A27
+   1126b: 48 bf b3 7b 64 c7 99 62 4c 1e	movabsq	$0x1e4c6299c7647bb3, %rdi # imm = 0x1E4C6299C7647BB3
+   11275: 49 b8 b6 4f 0c 15 e8 63 79 1e	movabsq	$0x1e7963e8150c4fb6, %r8 # imm = 0x1E7963E8150C4FB6
+   1127f: 49 b9 23 b3 0e c6 83 ef 1b 44	movabsq	$0x441bef83c60eb323, %r9 # imm = 0x441BEF83C60EB323
+   11289: 49 ba bb ec 6f 4e 0c 63 17 56	movabsq	$0x5617630c4e6fecbb, %r10 # imm = 0x5617630C4E6FECBB
+   11293: 4c 39 f1                     	cmpq	%r14, %rcx
+   11296: 0f 84 8a 01 00 00            	je	0x11426 <.text+0x2ca6>
+   1129c: 48 89 c8                     	movq	%rcx, %rax
+   1129f: 4c 89 f9                     	movq	%r15, %rcx
+   112a2: 48 39 f0                     	cmpq	%rsi, %rax
+   112a5: 74 ec                        	je	0x11293 <.text+0x2b13>
+   112a7: 4c 39 e8                     	cmpq	%r13, %rax
+   112aa: 0f 84 85 00 00 00            	je	0x11335 <.text+0x2bb5>
+   112b0: 4c 89 f9                     	movq	%r15, %rcx
+   112b3: 4c 39 e0                     	cmpq	%r12, %rax
+   112b6: 74 db                        	je	0x11293 <.text+0x2b13>
+   112b8: 48 39 f8                     	cmpq	%rdi, %rax
+   112bb: 0f 84 de 01 00 00            	je	0x1149f <.text+0x2d1f>
+   112c1: 4c 39 c0                     	cmpq	%r8, %rax
+   112c4: 0f 84 ad 00 00 00            	je	0x11377 <.text+0x2bf7>
+   112ca: 48 39 e8                     	cmpq	%rbp, %rax
+   112cd: 0f 84 42 01 00 00            	je	0x11415 <.text+0x2c95>
+   112d3: 48 b9 cd 43 77 1e d1 f2 af d9	movabsq	$-0x26500d2ee188bc33, %rcx # imm = 0xD9AFF2D11E7743CD
+   112dd: 4c 39 c8                     	cmpq	%r9, %rax
+   112e0: 74 b1                        	je	0x11293 <.text+0x2b13>
+   112e2: 48 89 e9                     	movq	%rbp, %rcx
+   112e5: 4c 39 d0                     	cmpq	%r10, %rax
+   112e8: 74 a9                        	je	0x11293 <.text+0x2b13>
+   112ea: 48 b9 08 2e 3d 1e 2d 2a db 62	movabsq	$0x62db2a2d1e3d2e08, %rcx # imm = 0x62DB2A2D1E3D2E08
+   112f4: 48 39 c8                     	cmpq	%rcx, %rax
+   112f7: 0f 84 c4 01 00 00            	je	0x114c1 <.text+0x2d41>
+   112fd: 48 8b 4c 24 38               	movq	0x38(%rsp), %rcx
+   11302: 48 ba 46 eb 53 bf 65 8c f7 77	movabsq	$0x77f78c65bf53eb46, %rdx # imm = 0x77F78C65BF53EB46
+   1130c: 48 39 d0                     	cmpq	%rdx, %rax
+   1130f: 74 82                        	je	0x11293 <.text+0x2b13>
+   11311: 4c 39 f8                     	cmpq	%r15, %rax
+   11314: 0f 84 b0 00 00 00            	je	0x113ca <.text+0x2c4a>
+   1131a: 48 89 c1                     	movq	%rax, %rcx
+   1131d: 48 ba cd 43 77 1e d1 f2 af d9	movabsq	$-0x26500d2ee188bc33, %rdx # imm = 0xD9AFF2D11E7743CD
+   11327: 48 39 d0                     	cmpq	%rdx, %rax
+   1132a: 0f 85 63 ff ff ff            	jne	0x11293 <.text+0x2b13>
+   11330: e9 a0 01 00 00               	jmp	0x114d5 <.text+0x2d55>
+   11335: 4c 8b 5c 24 18               	movq	0x18(%rsp), %r11
+   1133a: 41 8a 13                     	movb	(%r11), %dl
+   1133d: 48 8b 5c 24 10               	movq	0x10(%rsp), %rbx
+   11342: 8a 03                        	movb	(%rbx), %al
+   11344: 88 44 24 06                  	movb	%al, 0x6(%rsp)
+   11348: 38 c2                        	cmpb	%al, %dl
+   1134a: 48 89 f9                     	movq	%rdi, %rcx
+   1134d: 48 b8 08 2e 3d 1e 2d 2a db 62	movabsq	$0x62db2a2d1e3d2e08, %rax # imm = 0x62DB2A2D1E3D2E08
+   11357: 48 0f 45 c8                  	cmovneq	%rax, %rcx
+   1135b: 88 54 24 07                  	movb	%dl, 0x7(%rsp)
+   1135f: 84 d2                        	testb	%dl, %dl
+   11361: 48 0f 44 c8                  	cmoveq	%rax, %rcx
+   11365: 4c 89 d8                     	movq	%r11, %rax
+   11368: 4c 89 5c 24 30               	movq	%r11, 0x30(%rsp)
+   1136d: 48 89 5c 24 28               	movq	%rbx, 0x28(%rsp)
+   11372: e9 1c ff ff ff               	jmp	0x11293 <.text+0x2b13>
+   11377: 48 8b 7c 24 20               	movq	0x20(%rsp), %rdi
+   1137c: 6a 09                        	pushq	$0x9
+   1137e: 5e                           	popq	%rsi
+   1137f: e8 29 e2 11 00               	callq	0x12f5ad <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x73f02>
+   11384: 49 ba bb ec 6f 4e 0c 63 17 56	movabsq	$0x5617630c4e6fecbb, %r10 # imm = 0x5617630C4E6FECBB
+   1138e: 49 b9 23 b3 0e c6 83 ef 1b 44	movabsq	$0x441bef83c60eb323, %r9 # imm = 0x441BEF83C60EB323
+   11398: 49 b8 b6 4f 0c 15 e8 63 79 1e	movabsq	$0x1e7963e8150c4fb6, %r8 # imm = 0x1E7963E8150C4FB6
+   113a2: 48 bf b3 7b 64 c7 99 62 4c 1e	movabsq	$0x1e4c6299c7647bb3, %rdi # imm = 0x1E4C6299C7647BB3
+   113ac: 48 be 27 0a 70 dd 00 53 18 af	movabsq	$-0x50e7acff228ff5d9, %rsi # imm = 0xAF185300DD700A27
+   113b6: 48 8b 44 24 08               	movq	0x8(%rsp), %rax
+   113bb: 80 88 e0 00 00 00 01         	orb	$0x1, 0xe0(%rax)
+   113c2: 48 89 e9                     	movq	%rbp, %rcx
+   113c5: e9 c9 fe ff ff               	jmp	0x11293 <.text+0x2b13>
+   113ca: 48 8b 7c 24 08               	movq	0x8(%rsp), %rdi
+   113cf: e8 9c 03 00 00               	callq	0x11770 <.text+0x2ff0>
+   113d4: 49 ba bb ec 6f 4e 0c 63 17 56	movabsq	$0x5617630c4e6fecbb, %r10 # imm = 0x5617630C4E6FECBB
+   113de: 49 b9 23 b3 0e c6 83 ef 1b 44	movabsq	$0x441bef83c60eb323, %r9 # imm = 0x441BEF83C60EB323
+   113e8: 49 b8 b6 4f 0c 15 e8 63 79 1e	movabsq	$0x1e7963e8150c4fb6, %r8 # imm = 0x1E7963E8150C4FB6
+   113f2: 48 bf b3 7b 64 c7 99 62 4c 1e	movabsq	$0x1e4c6299c7647bb3, %rdi # imm = 0x1E4C6299C7647BB3
+   113fc: 48 be 27 0a 70 dd 00 53 18 af	movabsq	$-0x50e7acff228ff5d9, %rsi # imm = 0xAF185300DD700A27
+   11406: 48 b9 cd 43 77 1e d1 f2 af d9	movabsq	$-0x26500d2ee188bc33, %rcx # imm = 0xD9AFF2D11E7743CD
+   11410: e9 7e fe ff ff               	jmp	0x11293 <.text+0x2b13>
+   11415: 83 7c 24 4c 00               	cmpl	$0x0, 0x4c(%rsp)
+   1141a: 48 89 f1                     	movq	%rsi, %rcx
+   1141d: 49 0f 44 c9                  	cmoveq	%r9, %rcx
+   11421: e9 6d fe ff ff               	jmp	0x11293 <.text+0x2b13>
+   11426: f2 0f 10 05 da 2c ff ff      	movsd	-0xd326(%rip), %xmm0    # 0x4108
+   1142e: 4d 89 e7                     	movq	%r12, %r15
+   11431: 4d 89 f4                     	movq	%r14, %r12
+   11434: 49 89 ee                     	movq	%rbp, %r14
+   11437: 4c 89 ed                     	movq	%r13, %rbp
+   1143a: 48 8b 5c 24 08               	movq	0x8(%rsp), %rbx
+   1143f: 48 89 df                     	movq	%rbx, %rdi
+   11442: e8 d2 00 00 00               	callq	0x11519 <.text+0x2d99>
+   11447: 49 ba bb ec 6f 4e 0c 63 17 56	movabsq	$0x5617630c4e6fecbb, %r10 # imm = 0x5617630C4E6FECBB
+   11451: 49 b9 23 b3 0e c6 83 ef 1b 44	movabsq	$0x441bef83c60eb323, %r9 # imm = 0x441BEF83C60EB323
+   1145b: 49 b8 b6 4f 0c 15 e8 63 79 1e	movabsq	$0x1e7963e8150c4fb6, %r8 # imm = 0x1E7963E8150C4FB6
+   11465: 48 bf b3 7b 64 c7 99 62 4c 1e	movabsq	$0x1e4c6299c7647bb3, %rdi # imm = 0x1E4C6299C7647BB3
+   1146f: 48 be 27 0a 70 dd 00 53 18 af	movabsq	$-0x50e7acff228ff5d9, %rsi # imm = 0xAF185300DD700A27
+   11479: 48 8b 83 08 01 00 00         	movq	0x108(%rbx), %rax
+   11480: 48 89 44 24 18               	movq	%rax, 0x18(%rsp)
+   11485: 4c 89 f5                     	movq	%r14, %rbp
+   11488: 4d 89 e6                     	movq	%r12, %r14
+   1148b: 4d 89 fc                     	movq	%r15, %r12
+   1148e: 49 bf f9 ee 42 72 b3 88 c4 7e	movabsq	$0x7ec488b37242eef9, %r15 # imm = 0x7EC488B37242EEF9
+   11498: 48 8b 44 24 40               	movq	0x40(%rsp), %rax
+   1149d: eb 15                        	jmp	0x114b4 <.text+0x2d34>
+   1149f: 48 8b 44 24 30               	movq	0x30(%rsp), %rax
+   114a4: 48 ff c0                     	incq	%rax
+   114a7: 48 89 44 24 18               	movq	%rax, 0x18(%rsp)
+   114ac: 48 8b 44 24 28               	movq	0x28(%rsp), %rax
+   114b1: 48 ff c0                     	incq	%rax
+   114b4: 48 89 44 24 10               	movq	%rax, 0x10(%rsp)
+   114b9: 4c 89 e9                     	movq	%r13, %rcx
+   114bc: e9 d2 fd ff ff               	jmp	0x11293 <.text+0x2b13>
+   114c1: 8a 44 24 06                  	movb	0x6(%rsp), %al
+   114c5: 38 44 24 07                  	cmpb	%al, 0x7(%rsp)
+   114c9: 4c 89 c1                     	movq	%r8, %rcx
+   114cc: 49 0f 44 ca                  	cmoveq	%r10, %rcx
+   114d0: e9 be fd ff ff               	jmp	0x11293 <.text+0x2b13>
+   114d5: 48 b8 00 02 00 00 00 00 10 00	movabsq	$0x10000000000200, %rax # imm = 0x10000000000200
+   114df: 48 8b 4c 24 08               	movq	0x8(%rsp), %rcx
+   114e4: 48 09 81 e0 00 00 00         	orq	%rax, 0xe0(%rcx)
+   114eb: 48 8b 7c 24 40               	movq	0x40(%rsp), %rdi
+   114f0: e8 1b 13 12 00               	callq	0x132810 <free@plt>
+   114f5: 64 48 8b 04 25 28 00 00 00   	movq	%fs:0x28, %rax
+   114fe: 48 3b 44 24 50               	cmpq	0x50(%rsp), %rax
+   11503: 75 0f                        	jne	0x11514 <.text+0x2d94>
+   11505: 48 83 c4 58                  	addq	$0x58, %rsp
+   11509: 5b                           	popq	%rbx
+   1150a: 41 5c                        	popq	%r12
+   1150c: 41 5d                        	popq	%r13
+   1150e: 41 5e                        	popq	%r14
+   11510: 41 5f                        	popq	%r15
+   11512: 5d                           	popq	%rbp
+   11513: c3                           	retq
+   11514: e8 07 13 12 00               	callq	0x132820 <__stack_chk_fail@plt>

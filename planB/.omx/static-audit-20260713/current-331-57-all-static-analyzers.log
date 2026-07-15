@@ -1,0 +1,448 @@
+source_sha256=34ef7bb1c5667289338d9995e202e01eb44bb3b5eecadfba31778836247ffb80
+=== 1/138 analyze_android_keystore_keypair_cluster_91428.py rc=0 seconds=1.002 ===
+cross-ABI generateKeyPair/signature/provider constants: PASS
+cross-ABI generateKeyPair JNI/status/output ownership: PASS
+cross-ABI AndroidKeyStore/load/generate failure envelope: PASS
+C++ regressions and two-FDE recovered coverage: PASS
+=== 2/138 analyze_android_log_routing.py rc=0 seconds=0.061 ===
+ANDROID_LOG_ROUTING_STATIC_OK
+=== 3/138 analyze_api23_keystore_resolver.py rc=0 seconds=1.044 ===
+API23_KEYSTORE_RESOLVER_STATIC_OK
+=== 4/138 analyze_apk_signing_block_entries_127194.py rc=0 seconds=0.108 ===
+ARM64/x86_64 raw uint64-size + uint32-ID loop: PASS
+v2 7109871a -> +0x18, v3 f05368c0 -> +0x28: PASS
+v3.1 1b93ad61 -> +0x38 and low32(size)-4 routing: PASS
+unknown checked-ftell bound, full64(size)-4 skip and status 7: PASS
+C++ EOF/status behavior, parser routes and regression hook: PASS
+=== 5/138 analyze_apk_signing_block_locator_1259b8.py rc=0 seconds=0.109 ===
+ARM64/x86_64 PK 01 02 and APK Sig Block 42 decode: PASS
+EOCD+12, absolute central-directory seek and signature status 3: PASS
+-20 magic read/status 5 and -24 footer offset/size publication: PASS
+modulo-64-bit 8-size seek, duplicate header read and status 6: PASS
+C++ operation order, owner +0x08/+0x10 layout and regression hook: PASS
+=== 6/138 analyze_apple_iphone_detector_4b020.py rc=0 seconds=6.063 ===
+arm64 apple/iphone detector 0x4b020 evidence: PASS
+=== 7/138 analyze_big_integer_unsigned_bytes_917a8.py rc=0 seconds=1.176 ===
+cross-ABI BigInteger.toByteArray constants: PASS
+cross-ABI toByteArray JNI/status/output ownership: PASS
+cross-ABI unsigned-byte allocation/copy/cleanup envelope: PASS
+C++ regressions and two-FDE recovered coverage: PASS
+=== 8/138 analyze_build_detector_421dc.py rc=0 seconds=0.029 ===
+arm64 build detector 0x421dc evidence: PASS
+=== 9/138 analyze_container_ownership_cluster_1222a8_123254.py rc=0 seconds=0.880 ===
+CONTAINER_OWNERSHIP_CLUSTER_1222A8_123254_STATIC_OK
+=== 10/138 analyze_container_parser_cluster_12243c_123288.py rc=0 seconds=0.866 ===
+arm64 environment dispatcher 0x143e8 evidence: PASS
+CONTAINER_PARSER_CLUSTER_12243C_123288_STATIC_VM_OK
+=== 11/138 analyze_context_dynamic_pair.py rc=0 seconds=1.170 ===
+CONTEXT_DYNAMIC_PAIR_STATIC_OK
+=== 12/138 analyze_correction_basis_transpose_135050_full.py rc=0 seconds=0.242 ===
+arm64/x86_64 correction-basis transpose 0x135050: PASS
+=== 13/138 analyze_cpu_feature_constructor_139d04.py rc=0 seconds=0.074 ===
+fixed ro.arch and exynos9810 constructor strings: PASS
+constructor gate, property prefix and aux descriptor flow: PASS
+C++ wrapper model, regression and separate recovered callee: PASS
+=== 14/138 analyze_cpu_feature_decoder_1398cc.py rc=0 seconds=0.064 ===
+ARM64 global gate, descriptor, feature inputs and publications: PASS
+caller-only input surface, presence gates, regression and coverage: PASS
+=== 15/138 analyze_descriptor_batch_24444.py rc=0 seconds=0.057 ===
+DESCRIPTOR_BATCH_24444_STATIC_OK
+=== 16/138 analyze_descriptor_matcher_42eb0.py rc=0 seconds=0.028 ===
+arm64 descriptor any-match wrapper 0x42eb0 evidence: PASS
+=== 17/138 analyze_descriptor_predicates_23730.py rc=0 seconds=1.411 ===
+arm64 descriptor dispatcher 0x23730 kinds 0..8: PASS
+=== 18/138 analyze_detector_context_flag_leaves.py rc=0 seconds=1.439 ===
+twenty exact ARM64 context+0xe0 flag-mask leaves: PASS
+three standalone ARM64 RET-only FDE leaves: PASS
+C++ address/mask mapping, no-op model and coverage guards: PASS
+=== 19/138 analyze_detector_fanout_7ba5c.py rc=0 seconds=0.028 ===
+arm64 detector fanout 0x7ba5c direct orchestration evidence: PASS
+=== 20/138 analyze_detector_fixed_matcher_7bbb0.py rc=0 seconds=0.032 ===
+arm64 detector fixed marker matcher 0x7bbb0 evidence: PASS
+=== 21/138 analyze_detector_jni_object_pipeline.py rc=0 seconds=1.174 ===
+four cross-ABI FDE/caller pairs: PASS
+class/method/signature constants decoded across both ABIs: PASS
+JNI vtable surfaces and three-stage exception handling: PASS
+status split including getSensorList call/null status 18: PASS
+C++ source, regression guards and coverage entries: PASS
+=== 22/138 analyze_detector_marker_matcher_868b4.py rc=0 seconds=0.026 ===
+arm64/x86_64 detector marker matcher 0x868b4 evidence: PASS
+=== 23/138 analyze_detector_predicate_352d4.py rc=0 seconds=1.457 ===
+arm64 detector predicate 0x352d4 and helper 0x36bfc evidence: PASS
+=== 24/138 analyze_detector_record_filter_34f9c.py rc=0 seconds=11.792 ===
+DETECTOR_RECORD_FILTER_34F9C_STATIC_OK
+=== 25/138 analyze_detector_record_stages_13dc8_14078.py rc=0 seconds=0.084 ===
+ARM64 0x13dc8 / x86_64 0x1668d packed stage: PASS
+ARM64 0x14078 / x86_64 0x168bd loopback stage: PASS
+shared 15000ms threshold and success/failure ordering: PASS
+corrections 04/0a/32 and final masks: PASS
+=== 26/138 analyze_detector_scratch_appender_8f56c.py rc=0 seconds=0.460 ===
+ARM64/x86_64 FDEs and sole five-argument callers: PASS
+127-entry capacity gate and reserved all-null slot: PASS
+two independent malloc(length+1) stages and two cleanup frees: PASS
+forward raw-byte copies and NUL termination for both inputs: PASS
+success-only pair publication and ordered failure rollback: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 27/138 analyze_detector_scratch_destructor_8fb44.py rc=0 seconds=0.080 ===
+ARM64/x86_64 FDEs, sole callers, null gate and ten free sites: PASS
+eight fixed fields, field clearing, and untouched +0x40/+0x870: PASS
+all-null sentinel loop and first-before-second slot cleanup: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 28/138 analyze_detector_scratch_failure_publication_8746c.py rc=0 seconds=0.627 ===
+thirteen x86 helper calls and failure/success state pairs: PASS
+all thirteen flattened failure aliases and cleanup entries: PASS
+service status 0x24 and width/height status 0x1d normalization: PASS
+sensor/display status cells reach the x86_64 return value: PASS
+post-appender index increment occurs after both status outcomes: PASS
+ARM64 fixed statuses and final w20 return corroborate x86_64: PASS
+C++ exact native-status model and regressions: PASS
+sole caller and all producer exit classes use the native destructor envelope: PASS
+0x8746c function-level coverage is recovered: PASS
+=== 29/138 analyze_detector_scratch_producer_8746c_progress.py rc=0 seconds=0.157 ===
+cross-ABI FDE, sole caller and {JNIEnv,Context,scratch} signature: PASS
+cross-ABI 13-helper mapping and sixteen once-init locks: PASS
+thirteen property/malloc stages and one pair-appender dependency: PASS
+all direct JNI producer dependencies are recovered and explicit: PASS
+producer coverage generator entry is recovered: PASS
+=== 30/138 analyze_detector_scratch_property_pipeline_8746c.py rc=0 seconds=0.144 ===
+thirteen dispatcher and thirteen malloc sites per ABI: PASS
+thirteen XOR-decoded names and cross-ABI call sites: PASS
+twelve publish-previous-stage edges before calls 2..13: PASS
+shared 0x60 stack buffer and final +0x68 publication: PASS
+thirteen allocation failures clear the current field and return 2: PASS
+observation-only order, shared output pointer and 13 scratch fields: PASS
+C++ caller inputs, all 13 descriptors and failure regressions: PASS
+=== 31/138 analyze_detector_sensor_display_pipeline_8746c.py rc=0 seconds=0.136 ===
+cross-ABI sensor-list, size and indexed get loop inputs: PASS
+cross-ABI name/vendor UTF acquisition and pair append: PASS
+cross-ABI post-appender increment and signed index<count gate: PASS
+cross-ABI two UTF releases and seven local-ref cleanup sites: PASS
+two-sensor execution proves overwrite-without-per-iteration cleanup: PASS
+128-sensor run proves count 127, status 0x26 and display skip: PASS
+C++ success/failure model, cleanup quirk and recovered coverage: PASS
+=== 32/138 analyze_detector_wrappers_40c70_44c38.py rc=0 seconds=0.027 ===
+arm64 detector wrappers 0x40c70/0x44c38 evidence: PASS
+=== 33/138 analyze_detectors_40ffc_418e8.py rc=0 seconds=0.028 ===
+arm64 detectors 0x40ffc/0x418e8 evidence: PASS
+=== 34/138 analyze_detectors_43104_44db0.py rc=0 seconds=0.028 ===
+arm64 detectors 0x43104/0x439a8/0x442ec/0x44db0 evidence: PASS
+=== 35/138 analyze_detectors_456b8_47f94.py rc=0 seconds=0.028 ===
+arm64 detectors 0x456b8/0x47f94 evidence: PASS
+=== 36/138 analyze_entropy_seed_12f3ac_full.py rc=0 seconds=0.366 ===
+arm64/x86_64 entropy seed producer 0x12f3ac: PASS
+=== 37/138 analyze_environment_dispatcher_143e8.py rc=0 seconds=0.197 ===
+arm64 environment dispatcher 0x143e8 evidence: PASS
+=== 38/138 analyze_environment_probe_2c618.py rc=0 seconds=0.049 ===
+ARM64/x86_64 FDE ranges: PASS
+cross-ABI property names and raspberry marker: PASS
+cross-ABI XOR-once initialization protocol: PASS
+cross-ABI record layout and count-to-bool return: PASS
+environment dispatcher correction 0x28 edge: PASS
+C++ implementation, regression and coverage: PASS
+=== 39/138 analyze_environment_probe_2cc9c.py rc=0 seconds=0.061 ===
+ARM64/x86_64 FDE ranges: PASS
+cross-ABI property names and minical/vcloud/Scorpio markers: PASS
+cross-ABI eight-string XOR-once lock protocol: PASS
+cross-ABI five-record layout and count-to-bool return: PASS
+environment dispatcher correction 0x2c edge: PASS
+C++ implementation, regression and recovered coverage: PASS
+=== 40/138 analyze_environment_stage_f328.py rc=0 seconds=0.032 ===
+arm64/x86_64 environment stage 0xf328 direct-orchestration evidence: PASS
+=== 41/138 analyze_environment_stage_fce0.py rc=0 seconds=0.042 ===
+arm64 environment stage 0xfce0 complete evidence: PASS
+=== 42/138 analyze_expected_java_hmac.py rc=0 seconds=0.174 ===
+EXPECTED_JAVA_HMAC_STATIC_OK
+=== 43/138 analyze_file_list_aliases_and_payload_1203e4_1206d0.py rc=0 seconds=0.572 ===
+FILE_LIST_ALIASES_PAYLOAD_1203E4_1206D0_STATIC_OK
+=== 44/138 analyze_file_list_record_reader_11fe4c.py rc=0 seconds=0.204 ===
+FILE_LIST_RECORD_READER_11FE4C_STATIC_OK
+=== 45/138 analyze_file_list_sequence_reader_12014c.py rc=0 seconds=0.201 ===
+FILE_LIST_SEQUENCE_READER_12014C_STATIC_OK
+=== 46/138 analyze_final_consumer.py rc=0 seconds=0.039 ===
+=== 47/138 analyze_final_consumer_11da64.py rc=0 seconds=0.171 ===
+arm64 final consumer 0x11da64 evidence: PASS
+=== 48/138 analyze_final_descriptors.py rc=0 seconds=0.194 ===
+FINAL_NINE_DESCRIPTORS_STATIC_OK output=/Users/sanbo/Desktop/api/qbdi/.omx/static-audit-20260713/arm64-final-nine-descriptors.md
+=== 49/138 analyze_fingerprint_descriptor_detector_456b8.py rc=0 seconds=0.028 ===
+arm64 fingerprint descriptor detector 0x456b8 evidence: PASS
+=== 50/138 analyze_frida_server_probe_1309cc.py rc=0 seconds=0.031 ===
+arm64 Frida-server probe 0x1309cc evidence: PASS
+=== 51/138 analyze_generic_either_field_detector_47788.py rc=0 seconds=0.027 ===
+arm64 generic either-field detector 0x47788 evidence: PASS
+=== 52/138 analyze_getline_helper_d6ed8.py rc=0 seconds=0.657 ===
+ARM64/x86_64 FDEs, callers and 28 opaque states: PASS
+full incoming-buffer clear and 128-byte fgets loop: PASS
+newline stripping, append/EOF and NUL publication: PASS
+capacity rounding and direct realloc-failure state: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 53/138 analyze_google_phone_detector_47f94.py rc=0 seconds=0.031 ===
+arm64 google-phone detector 0x47f94 evidence: PASS
+=== 54/138 analyze_hmac_fail_open.py rc=0 seconds=0.418 ===
+HMAC_FAIL_OPEN_STATIC_OK
+=== 55/138 analyze_indexed_string_materializer_d1bf4.py rc=0 seconds=0.051 ===
+ARM64 0xd1bf4..0xd2018 indexed-string evidence: PASS
+x86_64 0xbf838..0xbfb83 indexed-string evidence: PASS
+UINT32_MAX sentinel resolves to static empty string: PASS
+native index/string bounds checks: absent
+=== 56/138 analyze_itools_detector_490f0.py rc=0 seconds=0.029 ===
+arm64 itools detector 0x490f0 evidence: PASS
+=== 57/138 analyze_java_mac_producer.py rc=0 seconds=0.935 ===
+JAVA_MAC_PRODUCER_STATIC_OK
+=== 58/138 analyze_java_retry_lockdown.py rc=0 seconds=0.026 ===
+JAVA_RETRY_LOCKDOWN_STATIC_OK
+=== 59/138 analyze_jni_acquisition_helpers_92b24_92ddc.py rc=0 seconds=0.381 ===
+JNI_ACQUISITION_HELPERS_92B24_92DDC_STATIC_OK
+=== 60/138 analyze_jni_byte_array_elements_95110.py rc=0 seconds=1.161 ===
+JNI_BYTE_ARRAY_ELEMENTS_95110_STATIC_OK
+=== 61/138 analyze_jni_byte_array_update_b081c.py rc=0 seconds=0.899 ===
+cross-ABI update([B)V constants: PASS
+cross-ABI update JNI/status/cleanup flow: PASS
+C++ regression and recovered JNI coverage: PASS
+=== 62/138 analyze_jni_cipher_init_96ea8.py rc=0 seconds=0.904 ===
+cross-ABI Cipher.init(int,Key) constants: PASS
+cross-ABI Cipher.init JNI/status/cleanup flow: PASS
+C++ regression and recovered JNI coverage: PASS
+=== 63/138 analyze_jni_class_assignable_9816c.py rc=0 seconds=0.880 ===
+cross-ABI JNI class-assignability flow: PASS
+C++ regression, ownership order and recovered coverage: PASS
+=== 64/138 analyze_jni_display_metrics_getter_bce98.py rc=0 seconds=0.604 ===
+cross-ABI FDEs and sole detector-producer caller: PASS
+cross-ABI getDisplayMetrics / DisplayMetrics signature: PASS
+four JNI vtable methods and three exception stages: PASS
+statuses 3/18/28, null-result rejection, cleanup and clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 65/138 analyze_jni_exception_consumer_92a20.py rc=0 seconds=0.027 ===
+arm64 JNI exception consumer 0x92a20 evidence: PASS
+=== 66/138 analyze_jni_indexed_object_method_reader_a948c.py rc=0 seconds=0.612 ===
+cross-ABI FDEs and sole detector-producer caller: PASS
+cross-ABI get / (I)Ljava/lang/Object; constants: PASS
+four JNI vtable methods, int index and three exception stages: PASS
+statuses 3/18/28, null-result rejection, cleanup and clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 67/138 analyze_jni_int_field_reader_b21b4.py rc=0 seconds=0.712 ===
+cross-ABI FDEs and two detector-producer call sites: PASS
+heightPixels/widthPixels names and JNI signature I: PASS
+four JNI vtable methods and three exception-consumer calls: PASS
+statuses 3/18/28, class-null cleanup gate and output clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 68/138 analyze_jni_result_materialization.py rc=0 seconds=15.489 ===
+JNI_RESULT_MATERIALIZATION_STATIC_OK
+=== 69/138 analyze_jni_signing_info_field_b9424.py rc=0 seconds=1.020 ===
+cross-ABI PackageInfo.signingInfo constants: PASS
+cross-ABI signingInfo JNI/status/ownership flow: PASS
+C++ regression and recovered JNI coverage: PASS
+=== 70/138 analyze_jni_size_method_reader_a8978.py rc=0 seconds=0.689 ===
+cross-ABI FDEs and sole detector-producer caller: PASS
+cross-ABI size / ()I once-decoded constants: PASS
+four JNI vtable methods and three exception-consumer calls: PASS
+statuses 3/18/28, class cleanup and final output clearing: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 71/138 analyze_jni_string_utf_length_927c4.py rc=0 seconds=0.034 ===
+arm64 JNI GetStringUTFLength helper 0x927c4 evidence: PASS
+=== 72/138 analyze_jni_system_service_getter_b5828.py rc=0 seconds=0.348 ===
+cross-ABI FDE and sole producer caller: PASS
+Context, method and two JNI signatures decoded cross-ABI: PASS
+six JNI operations, five exception stages and two cleanup sites: PASS
+input gate, statuses 3/18/28 and result clearing: PASS
+C++ implementation, regression and coverage entry: PASS
+=== 73/138 analyze_jni_throw_exception_b1e40.py rc=0 seconds=0.095 ===
+four-ABI XOR-once java/lang/Exception plaintext: PASS
+ARM64 once init, FindClass, status, ThrowNew and cleanup: PASS
+x86_64 FDE and JNI behavior parity: PASS
+C++ implementation, regression and coverage: PASS
+=== 74/138 analyze_large_container_ownership_1238ec_124a20.py rc=0 seconds=0.750 ===
+LARGE_CONTAINER_OWNERSHIP_1238EC_124A20_STATIC_OK
+=== 75/138 analyze_large_container_parser_123a80_124a24.py rc=0 seconds=0.956 ===
+arm64 environment dispatcher 0x143e8 evidence: PASS
+CONTAINER_PARSER_CLUSTER_12243C_123288_STATIC_VM_OK
+LARGE_CONTAINER_PARSER_123A80_124A24_STATIC_VM_OK
+=== 76/138 analyze_legacy_key_resolver.py rc=0 seconds=0.142 ===
+LEGACY_KEY_RESOLVER_STATIC_OK
+=== 77/138 analyze_legacy_key_resolver_c9988_full.py rc=0 seconds=1.293 ===
+arm64 legacy wrapped-key resolver 0xc9988 full evidence: PASS
+=== 78/138 analyze_map_metadata_jni.py rc=0 seconds=0.284 ===
+MAP_METADATA_JNI_STATIC_OK output=/Users/sanbo/Desktop/api/qbdi/.omx/static-audit-20260713/arm64-map-metadata-jni.md
+=== 79/138 analyze_map_plaintext_materializer_11d798.py rc=0 seconds=0.030 ===
+arm64 Map plaintext materializer 0x11d798 evidence: PASS
+=== 80/138 analyze_map_put_cleanup.py rc=0 seconds=5.670 ===
+MAP_PUT_CLEANUP_STATIC_OK
+=== 81/138 analyze_map_remove_cleanup.py rc=0 seconds=6.299 ===
+MAP_REMOVE_CLEANUP_STATIC_OK
+=== 82/138 analyze_map_selected_value_walker_11ba78.py rc=0 seconds=0.028 ===
+arm64 JNI Map selected-value walker 0x11ba78 boundary evidence: PASS
+=== 83/138 analyze_map_selected_value_walker_11ba78_full.py rc=0 seconds=148.084 ===
+arm64 JNI Map selected-value walker 0x11ba78 full evidence: PASS
+=== 84/138 analyze_mapped_file_destructor_d3d90.py rc=0 seconds=0.141 ===
+MAPPED_FILE_DESTRUCTOR_D3D90_STATIC_OK
+=== 85/138 analyze_metadata_area_resolver_d313c.py rc=0 seconds=0.583 ===
+ARM64/x86_64 FDEs, caller and 14 opaque states: PASS
+dot-separated +0x18 prefix descent: PASS
+final +0x28 exact lookup and second-string return: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 86/138 analyze_module_runtime_scaffolding_8070.py rc=0 seconds=0.038 ===
+five exact ARM64 module runtime FDE bodies: PASS
+C++ runtime callbacks, regression and recovered coverage: PASS
+=== 87/138 analyze_native_context_init.py rc=0 seconds=0.061 ===
+NATIVE_CONTEXT_INIT_AUDIT_PASS
+=== 88/138 analyze_native_result_builder_transaction.py rc=0 seconds=0.202 ===
+NATIVE_RESULT_BUILDER_TRANSACTION_STATIC_OK
+=== 89/138 analyze_native_signing_context_orchestrator.py rc=0 seconds=0.480 ===
+NATIVE_SIGNING_CONTEXT_ORCHESTRATOR_STATIC_OK
+=== 90/138 analyze_new_string_utf_helper_8af4.py rc=0 seconds=3.533 ===
+arm64 reserved Map value helper 0x8af4 evidence: PASS
+=== 91/138 analyze_nsign_hmac_flow.py rc=0 seconds=0.512 ===
+NSIGN_JAVA_HMAC_STATIC_OK output=/Users/sanbo/Desktop/api/qbdi/.omx/static-audit-20260713/arm64-nsign-java-hmac-flow.md
+=== 92/138 analyze_nsign_jni_orchestrator.py rc=0 seconds=0.071 ===
+NSIGN_JNI_ORCHESTRATOR_STATIC_OK
+=== 93/138 analyze_nsign_jni_orchestrator_full.py rc=0 seconds=1.155 ===
+arm64 nSign JNI orchestrator 0xcc604 full evidence: PASS
+=== 94/138 analyze_nsign_support_helpers.py rc=0 seconds=0.046 ===
+NSIGN_SUPPORT_HELPERS_STATIC_OK
+=== 95/138 analyze_opaque_helpers.py rc=0 seconds=0.313 ===
+=== 96/138 analyze_owned_pointer108_check.py rc=0 seconds=0.038 ===
+OWNED_POINTER108_CHECK_AUDIT_PASS
+=== 97/138 analyze_owned_pointer108_producer.py rc=0 seconds=0.042 ===
+OWNED_POINTER108_PRODUCER_AUDIT_PASS
+=== 98/138 analyze_owned_pointer110_producer.py rc=0 seconds=0.039 ===
+OWNED_POINTER110_PRODUCER_AUDIT_PASS
+=== 99/138 analyze_owned_pointer_array_destructor_c8c44.py rc=0 seconds=0.131 ===
+OWNED_POINTER_ARRAY_DESTRUCTOR_C8C44_STATIC_OK
+=== 100/138 analyze_owned_string_pair_d2018.py rc=0 seconds=0.043 ===
+ARM64 0xd2018..0xd22d4 two-stage ownership evidence: PASS
+x86_64 0xbfb83..0xbfe08 two-stage ownership evidence: PASS
+stage two requires status zero: PASS
+failure cleanup order first then second: PASS
+=== 101/138 analyze_package_suffix_helper.py rc=0 seconds=0.029 ===
+PACKAGE_SUFFIX_HELPER_AUDIT_PASS
+=== 102/138 analyze_packed_transition_34820.py rc=0 seconds=0.040 ===
+ARM64 0x34820..0x34954 instruction evidence: PASS
+x86_64 0x32955..0x32a17 instruction evidence: PASS
+packed transition truth table: PASS
+=== 103/138 analyze_packed_transition_counter_34bf4.py rc=0 seconds=0.041 ===
+ARM64 0x34bf4..0x34f9c packed-counter evidence: PASS
+x86_64 0x32c82..0x32f48 packed-counter evidence: PASS
+counter width: uint16_t modulo 65536
+=== 104/138 analyze_parser_owner_constructor_124c90.py rc=0 seconds=0.523 ===
+ARM64 0x124c90..0x125074 parser-owner constructor: PASS
+x86_64 0x11cb9c..0x11cf06 constructor parity: PASS
+R_OK, decoded rb mode, status 2/1 branches: PASS
+FILE* +0x00 and +0x18/+0x28/+0x38 initialization: PASS
+allocation-failure stream leak preserved and documented: PASS
+=== 105/138 analyze_parser_owner_destructor_125074.py rc=0 seconds=1.193 ===
+ARM64 0x125074..0x125210 parser-owner evidence: PASS
+x86_64 0x11cf06..0x11d040 parser-owner evidence: PASS
+null owner no-op: PASS
+stream close/clear before +0x18/+0x28/+0x38/free: PASS
+=== 106/138 analyze_path_existence_counter_1f95c.py rc=0 seconds=0.053 ===
+PATH_EXISTENCE_COUNTER_1F95C_STATIC_OK
+=== 107/138 analyze_post_detector_pair_wrappers.py rc=0 seconds=26.086 ===
+arm64 post-detector pair wrappers evidence: PASS
+=== 108/138 analyze_post_detector_predicate_59658.py rc=0 seconds=1.762 ===
+arm64 post-detector predicate 0x59658 evidence: PASS
+=== 109/138 analyze_post_detector_predicate_6c590.py rc=0 seconds=2.651 ===
+arm64 post-detector predicate 0x6dbbc evidence: PASS
+arm64 helper 0x58498 and post-detector predicate 0x6c590 evidence: PASS
+=== 110/138 analyze_post_detector_predicate_6dbbc.py rc=0 seconds=1.180 ===
+arm64 post-detector predicate 0x6dbbc evidence: PASS
+=== 111/138 analyze_post_detector_predicate_78f68.py rc=0 seconds=14.126 ===
+arm64 post-detector predicate 0x78f68 evidence: PASS
+=== 112/138 analyze_post_detector_predicates_76f2c_77f7c.py rc=0 seconds=0.813 ===
+arm64 post-detector predicates 0x76f2c/0x77f7c evidence: PASS
+=== 113/138 analyze_post_detector_stage_12a30.py rc=0 seconds=0.072 ===
+arm64 post-detector stage 0x12a30 orchestration/direct evidence: PASS
+=== 114/138 analyze_proc_maps_scanner_d78b8_full.py rc=0 seconds=6.688 ===
+arm64 proc maps scanner 0xd78b8 full evidence: PASS
+=== 115/138 analyze_property_info_source_d352c.py rc=0 seconds=1.096 ===
+ARM64/x86_64 FDEs, caller and 23 opaque states: PASS
+decoded /dev/__properties__/property_info path: PASS
+access/openat/fstat/size statuses 2/8/10/12: PASS
+read-only private mmap and unchecked first-24-byte copy: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 116/138 analyze_protected_engine_algorithm_selection.py rc=0 seconds=0.237 ===
+instructions=42732
+conditional_branches=7114
+status_exit_branches=6499
+immediate_ldr_w8_x19_status_guards=6493
+direct_call_sites=7223
+unique_direct_targets=17
+indirect_blr_calls=0
+top_branch_targets=
+  0xf214c:6499
+  0xf23c8:108
+  0x11ba64:66
+  0x119b10:22
+  0x0:3
+  0xf6180:2
+  0xf9e28:2
+  0xf205c:1
+  0x1f:1
+  0xf1f74:1
+alternate_suite_ascii_hits=
+  arm64-v8a:{}
+  armeabi-v7a:{}
+  x86:{}
+  x86_64:{}
+=== 117/138 analyze_protected_engine_full.py rc=0 seconds=15.792 ===
+arm64 protected engine 0xf1ec8 full static VM Pixel vector: PASS
+executed_instructions=8009752
+direct_calls=1316791
+output_bytes=176
+=== 118/138 analyze_protected_engine_input_init.py rc=0 seconds=0.173 ===
+arm64 protected engine 0xf1ec8 descriptor import evidence: PASS
+=== 119/138 analyze_protected_random_helpers_full.py rc=0 seconds=0.281 ===
+arm64 protected random helpers 0x12f298..0x12f3ac/0x134f40: PASS
+=== 120/138 analyze_public_source_digest_check.py rc=0 seconds=0.029 ===
+PUBLIC_SOURCE_DIGEST_CHECK_AUDIT_PASS
+=== 121/138 analyze_public_source_list_check.py rc=0 seconds=0.040 ===
+PUBLIC_SOURCE_LIST_CHECK_AUDIT_PASS
+=== 122/138 analyze_public_source_list_producer.py rc=0 seconds=0.035 ===
+PUBLIC_SOURCE_LIST_PRODUCER_AUDIT_PASS
+=== 123/138 analyze_readable_file_descriptor_batch_23274.py rc=0 seconds=1.763 ===
+READABLE_FILE_DESCRIPTOR_BATCH_23274_STATIC_OK
+=== 124/138 analyze_readable_file_reader_d6a2c.py rc=0 seconds=0.174 ===
+READABLE_FILE_READER_D6A2C_STATIC_OK
+=== 125/138 analyze_record_cross_match_34954.py rc=0 seconds=0.044 ===
+ARM64 0x34954..0x34bf4 record-match evidence: PASS
+x86_64 0x32a17..0x32c82 record-match evidence: PASS
+counter width: uint16_t modulo 65536
+=== 126/138 analyze_recursive_metadata_destructor_d22d4.py rc=0 seconds=0.622 ===
+ARM64/x86_64 FDEs, four callers and 21 opaque states: PASS
+0x30-byte recursive node layout and two child arrays: PASS
+depth-first array/string release and clear order: PASS
+0xd4220 content-then-outer free wrapper: PASS
+C++ implementation, regression guard and coverage entries: PASS
+=== 127/138 analyze_recursive_metadata_parser_d28d0.py rc=0 seconds=1.599 ===
+ARM64/x86_64 FDEs, callers and 24 opaque states: PASS
+0x1c descriptor and source-relative cursor redirects: PASS
+recursive +0x18 and pair-only +0x28 array construction: PASS
+post-success count publication and d22d4 rollback: PASS
+C++ implementation, regression guard and coverage entry: PASS
+=== 128/138 analyze_repeated_file_parser_cluster_120858_121aac.py rc=0 seconds=1.642 ===
+REPEATED_FILE_PARSER_CLUSTER_120858_121AAC_STATIC_OK
+=== 129/138 analyze_signer_code_trampoline_13063c.py rc=0 seconds=0.038 ===
+arm64 signer-code trampoline detector 0x13063c evidence: PASS
+=== 130/138 analyze_slice_string_materializer_d1a38.py rc=0 seconds=0.040 ===
+ARM64 0xd1a38..0xd1bf4 slice materializer evidence: PASS
+x86_64 0xbf6d3..0xbf838 slice materializer evidence: PASS
+UINT32_MAX allocation request: 0x100000000 bytes
+=== 131/138 analyze_substring_predicate_127a78.py rc=0 seconds=0.027 ===
+arm64 substring predicate 0x127a78 evidence: PASS
+=== 132/138 analyze_system_property_compatibility_d4244_d4678.py rc=0 seconds=0.200 ===
+SYSTEM_PROPERTY_COMPATIBILITY_D4244_D4678_STATIC_OK
+=== 133/138 analyze_system_property_metadata_init_d3ff0.py rc=0 seconds=0.211 ===
+SYSTEM_PROPERTY_METADATA_INIT_D3FF0_STATIC_OK
+=== 134/138 analyze_three_file_list_parser_121adc.py rc=0 seconds=0.203 ===
+THREE_FILE_LIST_PARSER_121ADC_STATIC_OK
+=== 135/138 analyze_timestamp_log_frontend.py rc=0 seconds=0.111 ===
+TIMESTAMP_LOG_FRONTEND_STATIC_OK
+=== 136/138 analyze_tracerpid_periodic_callback.py rc=0 seconds=0.085 ===
+TRACERPID_PERIODIC_CALLBACK_STATIC_OK
+=== 137/138 analyze_unordered_fixed_pair_matcher_87158.py rc=0 seconds=0.104 ===
+ARM64 0x87158 / x86_64 0x881ea fixed table: PASS
+eight display-dimension pairs and width/height +0x60/+0x64 layout: PASS
+forward/reversed pair acceptance and exhausted false: PASS
+=== 138/138 analyze_zip_eocd_cluster_125210_125770.py rc=0 seconds=0.108 ===
+ARM64/x86_64 EOCD marker 50 4b 05 06: PASS
+0x125210/0x11d040 checked four-byte matcher: PASS
+0x125770/0x11d3b2 offsets -22..-65556: PASS
+exhaustion sentinel -65557 and stop conditions: PASS

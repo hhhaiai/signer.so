@@ -1,0 +1,1389 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0xa) at pc=0x0000000185107050, pid=61370, tid=4611
+#
+# JRE version: Java(TM) SE Runtime Environment 18.9 (11.0.16.1+1) (build 11.0.16.1+1-LTS-1)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM 18.9 (11.0.16.1+1-LTS-1, mixed mode, tiered, compressed oops, g1 gc, bsd-aarch64)
+# Problematic frame:
+# C  [libsystem_platform.dylib+0x3050]  __bzero+0x20
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:TieredStopAtLevel=1 -XX:ErrorFile=/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/../.omx/crash-diagnostics/hs_err_pid%p.log /Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire/surefirebooter-20260715074239321_3.jar /Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire 2026-07-15T07-42-39_161-jvmRun1 surefire-20260715074239321_1tmp surefire_0-20260715074239321_2tmp
+
+Host: Macmini9,1 arm64 1 MHz, 8 cores, 16G, Darwin 25.5.0
+Time: Wed Jul 15 07:42:56 2026 CST elapsed time: 16.689353 seconds (0d 0h 0m 16s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000013100f000):  JavaThread "main" [_thread_in_native, id=4611, stack(0x000000016fdd4000,0x000000016ffd7000)]
+
+Stack: [0x000000016fdd4000,0x000000016ffd7000],  sp=0x000000016ffd2730,  free space=2041k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libsystem_platform.dylib+0x3050]  __bzero+0x20
+C  [libsystem_malloc.dylib+0x1c80]  szone_malloc_should_clear+0xa8
+C  [libunicorn_java.dylib+0x5454]  g_malloc0+0x30
+C  [libunicorn_java.dylib+0x1ebd8]  tcg_malloc_internal_aarch64+0x30
+C  [libunicorn_java.dylib+0x1f534]  tcg_malloc_aarch64+0x6c
+C  [libunicorn_java.dylib+0xce6b8]  tcg_func_start_aarch64+0xb4
+C  [libunicorn_java.dylib+0xcb94c]  cpu_arm_gen_code_aarch64+0x38
+C  [libunicorn_java.dylib+0xcb6d8]  tb_gen_code_aarch64+0x130
+C  [libunicorn_java.dylib+0xcd9c4]  tb_find_slow_aarch64+0x1b4
+C  [libunicorn_java.dylib+0xcd1dc]  tb_find_fast_aarch64+0xf0
+C  [libunicorn_java.dylib+0xccdf8]  cpu_arm_exec_aarch64+0x544
+C  [libunicorn_java.dylib+0xdb6c4]  tcg_cpu_exec_aarch64+0x20
+C  [libunicorn_java.dylib+0xdb58c]  tcg_exec_all_aarch64+0x64
+C  [libunicorn_java.dylib+0xdb4d4]  qemu_tcg_cpu_loop+0x34
+C  [libunicorn_java.dylib+0xdb404]  resume_all_vcpus_aarch64+0x80
+C  [libunicorn_java.dylib+0xdb358]  vm_start_aarch64+0x18
+C  [libunicorn_java.dylib+0x17dfe4]  uc_emu_start+0x1c0
+C  [libunicorn_java.dylib+0x1b04]  Java_unicorn_Unicorn_emu_1start+0xa4
+j  unicorn.Unicorn.emu_start(JJJJ)V+0
+j  com.github.unidbg.arm.backend.UnicornBackend.emu_start(JJJJ)V+10
+j  com.github.unidbg.AbstractEmulator.emulate(JJ)Ljava/lang/Number;+131
+j  com.github.unidbg.thread.Function64.run(Lcom/github/unidbg/AbstractEmulator;)Ljava/lang/Number;+88
+j  com.github.unidbg.thread.MainTask.dispatch(Lcom/github/unidbg/AbstractEmulator;)Ljava/lang/Number;+19
+j  com.github.unidbg.thread.UniThreadDispatcher.run(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Number;+337
+j  com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(Lcom/github/unidbg/thread/MainTask;)Ljava/lang/Number;+25
+j  com.github.unidbg.AbstractEmulator.runMainForResult(Lcom/github/unidbg/thread/MainTask;)Ljava/lang/Number;+25
+j  com.github.unidbg.arm.AbstractARM64Emulator.eFunc(J[Ljava/lang/Number;)Ljava/lang/Number;+21
+j  com.github.unidbg.Module.emulateFunction(Lcom/github/unidbg/Emulator;J[Ljava/lang/Object;)Ljava/lang/Number;+242
+j  com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(Lcom/github/unidbg/Emulator;Lcom/github/unidbg/linux/android/dvm/VM;Lcom/github/unidbg/linux/android/dvm/DvmClass;Lcom/github/unidbg/linux/android/dvm/DvmObject;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Number;+302
+j  com.github.unidbg.linux.android.dvm.DvmObject.callJniMethodObject(Lcom/github/unidbg/Emulator;Ljava/lang/String;[Ljava/lang/Object;)Lcom/github/unidbg/linux/android/dvm/DvmObject;+29
+j  local.AdjustSignatureRunner.signNative(Landroid/content/Context;Ljava/util/Map;[BI)[B+69
+j  com.adjust.sdk.sig.NativeLibHelper.nSign(Landroid/content/Context;Ljava/lang/Object;[BI)[B+106
+j  com.adjust.sdk.sig.NativeLibHelper.a(Landroid/content/Context;Ljava/lang/Object;[BI)[B+6
+j  com.adjust.sdk.sig.d.a(Landroid/content/Context;Lcom/adjust/sdk/sig/c;Lcom/adjust/sdk/sig/a;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V+316
+j  com.adjust.sdk.sig.Signer.sign(Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V+25
+j  local.SignerEngine.sign(Llocal/SignerRequest;)Llocal/SignerResult;+49
+j  local.SignerEngine.signOnce(Ljava/io/File;Llocal/DeviceProfile;Llocal/SignerRequest;)Llocal/SignerResult;+12
+j  local.SignerOneClick.run(Ljava/io/File;Ljava/lang/String;Ljava/io/File;)Ljava/lang/String;+57
+j  local.RecoveredNativeBackendIntegrationTest.runV3OnlyCertificateCase(ZZ)Ljava/lang/String;+158
+j  local.RecoveredNativeBackendIntegrationTest.v3OnlyApkCertificateCorrectionExactlyMatchesOriginalSo()V+14
+v  ~StubRoutines::call_stub
+V  [libjvm.dylib+0x315f24]  JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, Thread*)+0x224
+V  [libjvm.dylib+0x58bacc]  invoke(InstanceKlass*, methodHandle const&, Handle, bool, objArrayHandle, BasicType, objArrayHandle, bool, Thread*)+0x498
+V  [libjvm.dylib+0x58b5d8]  Reflection::invoke_method(oopDesc*, Handle, objArrayHandle, Thread*)+0x114
+V  [libjvm.dylib+0x3b68dc]  JVM_InvokeMethod+0x288
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0 java.base@11.0.16.1
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+100 java.base@11.0.16.1
+j  jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6 java.base@11.0.16.1
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+59 java.base@11.0.16.1
+j  org.junit.platform.commons.util.ReflectionUtils.invokeMethod(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+42
+j  org.junit.jupiter.engine.execution.MethodInvocation.proceed()Ljava/lang/Object;+16
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed()Ljava/lang/Object;+8
+j  org.junit.jupiter.engine.extension.TimeoutExtension.intercept(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/TimeoutDuration;Lorg/junit/jupiter/engine/extension/TimeoutExtension$TimeoutProvider;)Ljava/lang/Object;+28
+j  org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/TimeoutExtension$TimeoutProvider;)Ljava/lang/Object;+31
+j  org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)V+9
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor$$Lambda$188.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)V+5
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall$VoidMethodInterceptorCall;Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)Ljava/lang/Void;+6
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall$$Lambda$189.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)Ljava/lang/Object;+9
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+6
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$$Lambda$367.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+14
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed()Ljava/lang/Object;+12
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+1
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/engine/execution/InvocationInterceptorChain$InterceptorCall;Ljava/util/List;)Ljava/lang/Object;+24
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InvocationInterceptorChain$InterceptorCall;)Ljava/lang/Object;+31
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall;)Ljava/lang/Object;+15
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(Ljava/lang/reflect/Method;Ljava/lang/Object;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall;)Ljava/lang/Object;+55
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;)V+28
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor$$Lambda$389.execute()V+12
+J 2133 c1 org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V (20 bytes) @ 0x0000000140ad42ac [0x0000000140ad4240+0x000000000000006c]
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$DynamicTestExecutor;)V+21
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$DynamicTestExecutor;)Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;+44
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$DynamicTestExecutor;)Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6()V+79
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$289.execute()V+4
+J 2133 c1 org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V (20 bytes) @ 0x0000000140ad42ac [0x0000000140ad4240+0x000000000000006c]
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$288.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$287.execute()V+4
+J 2133 c1 org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V (20 bytes) @ 0x0000000140ad42ac [0x0000000140ad4240+0x000000000000006c]
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda$293.accept(Ljava/lang/Object;)V+4
+j  java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V+46 java.base@11.0.16.1
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(Ljava/util/List;)V+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6()V+116
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$289.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$288.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$287.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda$293.accept(Ljava/lang/Object;)V+4
+j  java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V+46 java.base@11.0.16.1
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(Ljava/util/List;)V+6
+...<more frames>...
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  unicorn.Unicorn.emu_start(JJJJ)V+0
+j  com.github.unidbg.arm.backend.UnicornBackend.emu_start(JJJJ)V+10
+j  com.github.unidbg.AbstractEmulator.emulate(JJ)Ljava/lang/Number;+131
+j  com.github.unidbg.thread.Function64.run(Lcom/github/unidbg/AbstractEmulator;)Ljava/lang/Number;+88
+j  com.github.unidbg.thread.MainTask.dispatch(Lcom/github/unidbg/AbstractEmulator;)Ljava/lang/Number;+19
+j  com.github.unidbg.thread.UniThreadDispatcher.run(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Number;+337
+j  com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(Lcom/github/unidbg/thread/MainTask;)Ljava/lang/Number;+25
+j  com.github.unidbg.AbstractEmulator.runMainForResult(Lcom/github/unidbg/thread/MainTask;)Ljava/lang/Number;+25
+j  com.github.unidbg.arm.AbstractARM64Emulator.eFunc(J[Ljava/lang/Number;)Ljava/lang/Number;+21
+j  com.github.unidbg.Module.emulateFunction(Lcom/github/unidbg/Emulator;J[Ljava/lang/Object;)Ljava/lang/Number;+242
+j  com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(Lcom/github/unidbg/Emulator;Lcom/github/unidbg/linux/android/dvm/VM;Lcom/github/unidbg/linux/android/dvm/DvmClass;Lcom/github/unidbg/linux/android/dvm/DvmObject;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Number;+302
+j  com.github.unidbg.linux.android.dvm.DvmObject.callJniMethodObject(Lcom/github/unidbg/Emulator;Ljava/lang/String;[Ljava/lang/Object;)Lcom/github/unidbg/linux/android/dvm/DvmObject;+29
+j  local.AdjustSignatureRunner.signNative(Landroid/content/Context;Ljava/util/Map;[BI)[B+69
+j  com.adjust.sdk.sig.NativeLibHelper.nSign(Landroid/content/Context;Ljava/lang/Object;[BI)[B+106
+j  com.adjust.sdk.sig.NativeLibHelper.a(Landroid/content/Context;Ljava/lang/Object;[BI)[B+6
+j  com.adjust.sdk.sig.d.a(Landroid/content/Context;Lcom/adjust/sdk/sig/c;Lcom/adjust/sdk/sig/a;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V+316
+j  com.adjust.sdk.sig.Signer.sign(Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V+25
+j  local.SignerEngine.sign(Llocal/SignerRequest;)Llocal/SignerResult;+49
+j  local.SignerEngine.signOnce(Ljava/io/File;Llocal/DeviceProfile;Llocal/SignerRequest;)Llocal/SignerResult;+12
+j  local.SignerOneClick.run(Ljava/io/File;Ljava/lang/String;Ljava/io/File;)Ljava/lang/String;+57
+j  local.RecoveredNativeBackendIntegrationTest.runV3OnlyCertificateCase(ZZ)Ljava/lang/String;+158
+j  local.RecoveredNativeBackendIntegrationTest.v3OnlyApkCertificateCorrectionExactlyMatchesOriginalSo()V+14
+v  ~StubRoutines::call_stub
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0 java.base@11.0.16.1
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+100 java.base@11.0.16.1
+j  jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6 java.base@11.0.16.1
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+59 java.base@11.0.16.1
+j  org.junit.platform.commons.util.ReflectionUtils.invokeMethod(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+42
+j  org.junit.jupiter.engine.execution.MethodInvocation.proceed()Ljava/lang/Object;+16
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed()Ljava/lang/Object;+8
+j  org.junit.jupiter.engine.extension.TimeoutExtension.intercept(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/TimeoutDuration;Lorg/junit/jupiter/engine/extension/TimeoutExtension$TimeoutProvider;)Ljava/lang/Object;+28
+j  org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/TimeoutExtension$TimeoutProvider;)Ljava/lang/Object;+31
+j  org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)V+9
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor$$Lambda$188.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)V+5
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall$VoidMethodInterceptorCall;Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)Ljava/lang/Void;+6
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall$$Lambda$189.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)Ljava/lang/Object;+9
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+6
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$$Lambda$367.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+14
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed()Ljava/lang/Object;+12
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+1
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/engine/execution/InvocationInterceptorChain$InterceptorCall;Ljava/util/List;)Ljava/lang/Object;+24
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InvocationInterceptorChain$InterceptorCall;)Ljava/lang/Object;+31
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall;)Ljava/lang/Object;+15
+j  org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(Ljava/lang/reflect/Method;Ljava/lang/Object;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InterceptingExecutableInvoker$ReflectiveInterceptorCall;)Ljava/lang/Object;+55
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;)V+28
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor$$Lambda$389.execute()V+12
+J 2133 c1 org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V (20 bytes) @ 0x0000000140ad42ac [0x0000000140ad4240+0x000000000000006c]
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$DynamicTestExecutor;)V+21
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$DynamicTestExecutor;)Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;+44
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$DynamicTestExecutor;)Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6()V+79
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$289.execute()V+4
+J 2133 c1 org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V (20 bytes) @ 0x0000000140ad42ac [0x0000000140ad4240+0x000000000000006c]
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$288.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$287.execute()V+4
+J 2133 c1 org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V (20 bytes) @ 0x0000000140ad42ac [0x0000000140ad4240+0x000000000000006c]
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda$293.accept(Ljava/lang/Object;)V+4
+j  java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V+46 java.base@11.0.16.1
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(Ljava/util/List;)V+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6()V+116
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$289.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$288.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$287.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda$293.accept(Ljava/lang/Object;)V+4
+j  java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V+46 java.base@11.0.16.1
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(Ljava/util/List;)V+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6()V+116
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$289.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$288.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$287.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(Lorg/junit/platform/engine/support/hierarchical/HierarchicalTestExecutorService$TestTask;)Ljava/util/concurrent/Future;+1
+j  org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute()Ljava/util/concurrent/Future;+74
+j  org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(Lorg/junit/platform/engine/ExecutionRequest;)V+31
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/engine/TestDescriptor;Lorg/junit/platform/engine/EngineExecutionListener;Lorg/junit/platform/engine/ConfigurationParameters;Lorg/junit/platform/engine/TestEngine;)V+24
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/launcher/core/LauncherDiscoveryResult;Lorg/junit/platform/engine/EngineExecutionListener;)V+115
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/launcher/core/InternalTestPlan;Lorg/junit/platform/engine/EngineExecutionListener;Lorg/junit/platform/launcher/TestExecutionListener;)V+55
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(Lorg/junit/platform/launcher/core/InternalTestPlan;Lorg/junit/platform/launcher/TestExecutionListener;)V+6
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator$$Lambda$239.accept(Ljava/lang/Object;)V+12
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(Lorg/junit/platform/engine/ConfigurationParameters;Lorg/junit/platform/launcher/core/ListenerRegistry;Ljava/util/function/Consumer;)V+51
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/launcher/core/InternalTestPlan;[Lorg/junit/platform/launcher/TestExecutionListener;)V+23
+j  org.junit.platform.launcher.core.DefaultLauncher.execute(Lorg/junit/platform/launcher/core/InternalTestPlan;[Lorg/junit/platform/launcher/TestExecutionListener;)V+6
+j  org.junit.platform.launcher.core.DefaultLauncher.execute(Lorg/junit/platform/launcher/LauncherDiscoveryRequest;[Lorg/junit/platform/launcher/TestExecutionListener;)V+34
+j  org.junit.platform.launcher.core.DelegatingLauncher.execute(Lorg/junit/platform/launcher/LauncherDiscoveryRequest;[Lorg/junit/platform/launcher/TestExecutionListener;)V+6
+j  org.apache.maven.surefire.junitplatform.LazyLauncher.execute(Lorg/junit/platform/launcher/LauncherDiscoveryRequest;[Lorg/junit/platform/launcher/TestExecutionListener;)V+6
+j  org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(Lorg/apache/maven/surefire/api/util/TestsToRun;Lorg/apache/maven/surefire/junitplatform/RunListenerAdapter;)V+70
+j  org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(Lorg/apache/maven/surefire/api/util/TestsToRun;Lorg/apache/maven/surefire/junitplatform/RunListenerAdapter;)V+3
+j  org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(Ljava/lang/Object;)Lorg/apache/maven/surefire/api/suite/RunResult;+78
+j  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess()V+8
+j  org.apache.maven.surefire.booter.ForkedBooter.execute()V+1
+j  org.apache.maven.surefire.booter.ForkedBooter.run(Lorg/apache/maven/surefire/booter/ForkedBooter;[Ljava/lang/String;)V+27
+j  org.apache.maven.surefire.booter.ForkedBooter.main([Ljava/lang/String;)V+10
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 10 (SIGBUS), si_code: 1 (BUS_ADRALN), si_addr: 0x0000000160008000
+
+Register to memory mapping:
+
+ x0=0x0000000160008000 points into unknown readable memory: 0x350003f4b85f4274 | 74 42 5f b8 f4 03 00 35
+ x1=0x0 is NULL
+ x2=0x0000000000010000 is an unknown value
+ x3=0x0000000160008000 points into unknown readable memory: 0x350003f4b85f4274 | 74 42 5f b8 f4 03 00 35
+ x4=0x0000000184f0a450: szone_malloc_type_calloc+0 in /usr/lib/system/libsystem_malloc.dylib at 0x0000000184ef0000
+ x5=0x0000000000000007 is an unknown value
+ x6=0x000000016ffd2730 is pointing into the stack for thread: 0x000000013100f000
+ x7=0x000000000000003f is an unknown value
+ x8=0x0000000000001203 is an unknown value
+ x9=0x0000000000001203 is an unknown value
+x10=0x0000000000018000 is an unknown value
+x11=0x0000000005ffa000 is an unknown value
+x12=0x0000000000009de5 is an unknown value
+x13=0x0000000160000028 points into unknown readable memory: 0x000081ee00000002 | 02 00 00 00 ee 81 00 00
+x14=0x0000000000000002 is an unknown value
+x15=0x00000000ffff81ee is an unknown value
+x16=0x0000000185107090: _platform_memset+0 in /usr/lib/system/libsystem_platform.dylib at 0x0000000185104000
+x17=0x00000001f28bd158 points into unknown readable memory: 0x0000000185107090 | 90 70 10 85 01 00 00 00
+x18=0x00000006cd67de75 is pointing into object: [B 
+{0x00000006cd67de58} - klass: {type array byte}
+ - length: 14
+x19=0x0000000100135400 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+x20=0x0000000000000002 is an unknown value
+x21=0x0000000000008c18 is an unknown value
+x22=0x00000001000e4680 points into unknown readable memory: 0x0000000300000000 | 00 00 00 00 03 00 00 00
+x23=0x0000000000000001 is an unknown value
+x24=0x0000000000000001 is an unknown value
+x25=0x0000000160008000 points into unknown readable memory: 0x350003f4b85f4274 | 74 42 5f b8 f4 03 00 35
+x26=0x0000000120961f90 is pointing into metadata
+x27=0x0 is NULL
+x28=0x000000016ffd70e0 points into unknown readable memory: 0x000000016ffd7000 | 00 70 fd 6f 01 00 00 00
+
+
+Registers:
+ x0=0x0000000160008000  x1=0x0000000000000000  x2=0x0000000000010000  x3=0x0000000160008000
+ x4=0x0000000184f0a450  x5=0x0000000000000007  x6=0x000000016ffd2730  x7=0x000000000000003f
+ x8=0x0000000000001203  x9=0x0000000000001203 x10=0x0000000000018000 x11=0x0000000005ffa000
+x12=0x0000000000009de5 x13=0x0000000160000028 x14=0x0000000000000002 x15=0x00000000ffff81ee
+x16=0x0000000185107090 x17=0x00000001f28bd158 x18=0x00000006cd67de75 x19=0x0000000100135400
+x20=0x0000000000000002 x21=0x0000000000008c18 x22=0x00000001000e4680 x23=0x0000000000000001
+x24=0x0000000000000001 x25=0x0000000160008000 x26=0x0000000120961f90 x27=0x0000000000000000
+x28=0x000000016ffd70e0  fp=0x000000016ffd27b0  lr=0x0000000184ef7704  sp=0x000000016ffd2730
+pc=0x0000000185107050 cpsr=0x0000000020001000
+Top of Stack: (sp=0x000000016ffd2730)
+0x000000016ffd2730:   0000000012002c00 c241f9e1253b00c8
+0x000000016ffd2740:   000000016ffd27b0 00000001262fbfd8
+0x000000016ffd2750:   0000000150098000 00000000261f5ba8
+0x000000016ffd2760:   000000013100f000 0000000000000000
+0x000000016ffd2770:   0000000120961f90 0000000126382000
+0x000000016ffd2780:   000000016ffd2dc8 00000001000e4000
+0x000000016ffd2790:   00000007ffff0000 0000000000008c18
+0x000000016ffd27a0:   0000000000000001 00000001000e0000
+0x000000016ffd27b0:   000000016ffd27f0 0000000184ef1c80
+0x000000016ffd27c0:   000000016ffd2dc8 000000001240c604
+0x000000016ffd27d0:   00000007ffff0000 0000000000000000
+0x000000016ffd27e0:   0000000000000000 000000013100f350
+0x000000016ffd27f0:   000000016ffd2820 00000001261d5454
+0x000000016ffd2800:   000000013100f000 0000000000000000
+0x000000016ffd2810:   0000000000008c18 0000000126382000
+0x000000016ffd2820:   000000016ffd2860 00000001261eebd8
+0x000000016ffd2830:   00000007ffff0000 0000000000000000
+0x000000016ffd2840:   0000000128020000 00008c083100f350
+0x000000016ffd2850:   0000000150098000 0000000128020010
+0x000000016ffd2860:   000000016ffd28a0 00000001261ef534
+0x000000016ffd2870:   000000016ffd28a0 000000012802ac18
+0x000000016ffd2880:   0000000128022010 00008c0800000000
+0x000000016ffd2890:   0000000150098000 0000000128020010
+0x000000016ffd28a0:   000000016ffd28c0 000000012629e6b8
+0x000000016ffd28b0:   000000016ffd28e0 0000000150098000
+0x000000016ffd28c0:   000000016ffd2910 000000012629b94c
+0x000000016ffd28d0:   000000000000b008 00000002261ebc88
+0x000000016ffd28e0:   000000010000000b 0000000150098000
+0x000000016ffd28f0:   000000016ffd2994 00000001509d07a0
+0x000000016ffd2900:   0000000150030228 0000000012002d44
+0x000000016ffd2910:   000000016ffd29a0 000000012629b6d8
+0x000000016ffd2920:   000000016ffd29a0 000000000000b008 
+
+Instructions: (pc=0x0000000185107050)
+0x0000000185106f50:   38 00 00 94 13 01 00 b4 a8 0c 36 d0 08 81 01 91
+0x0000000185106f60:   f0 03 08 aa d0 d8 e1 f2 f1 03 13 aa 1f 21 03 d5
+0x0000000185106f70:   11 01 00 f9 fd 7b 41 a9 f4 4f c2 a8 ff 0f 5f d6
+0x0000000185106f80:   7f 23 03 d5 f6 57 bd a9 f4 4f 01 a9 fd 7b 02 a9
+0x0000000185106f90:   fd 83 00 91 f3 03 01 aa f4 03 00 aa e0 03 01 aa
+0x0000000185106fa0:   c8 f6 ff 97 14 03 00 b4 f5 03 00 aa 80 02 40 f9
+0x0000000185106fb0:   20 03 00 b4 c3 f6 ff 97 1f 00 15 eb e3 01 00 54
+0x0000000185106fc0:   88 02 40 f9 55 01 00 b4 e9 03 15 aa ea 03 08 aa
+0x0000000185106fd0:   eb 03 13 aa 4c 15 40 38 6d 15 40 38 9f 01 0d 6b
+0x0000000185106fe0:   c1 00 00 54 29 05 00 f1 61 ff ff 54 09 69 75 38
+0x0000000185106ff0:   3f f5 00 71 c0 00 00 54 80 8e 40 f8 c0 fd ff b5
+0x0000000185107000:   05 00 00 14 00 00 80 d2 03 00 00 14 08 01 15 8b
+0x0000000185107010:   00 05 00 91 fd 7b 42 a9 f4 4f 41 a9 f6 57 c3 a8
+0x0000000185107020:   ff 0f 5f d6 00 00 00 00 00 00 00 00 00 00 00 00
+0x0000000185107030:   e2 03 01 aa 00 1c 20 6e 21 00 01 ca e3 03 00 aa
+0x0000000185107040:   5f 00 01 f1 03 08 00 54 5f 20 40 f1 83 05 00 54
+0x0000000185107050:   00 00 00 ac 00 00 01 ac 03 00 01 91 63 e4 7a 92
+0x0000000185107060:   42 00 00 8b 64 00 01 91 42 00 04 eb a9 00 00 54
+0x0000000185107070:   23 74 0b d5 63 00 01 91 42 00 01 f1 a8 ff ff 54
+0x0000000185107080:   63 00 02 8b 60 00 00 ac 60 00 01 ac c0 03 5f d6
+0x0000000185107090:   21 1c 40 92 e3 c3 00 b2 21 7c 03 9b 20 0c 08 4e
+0x00000001851070a0:   e3 03 00 aa 5f 00 01 f1 e3 04 00 54 5f 20 40 f1
+0x00000001851070b0:   63 02 00 54 e1 fc ff b4 00 00 00 ac 00 00 01 ac
+0x00000001851070c0:   03 00 01 91 63 e4 7a 92 42 00 00 8b 64 00 01 91
+0x00000001851070d0:   42 00 04 eb c9 00 00 54 60 00 00 ac 60 00 01 ac
+0x00000001851070e0:   63 00 01 91 42 00 01 f1 88 ff ff 54 63 00 02 8b
+0x00000001851070f0:   60 00 00 ac 60 00 01 ac c0 03 5f d6 00 00 00 ad
+0x0000000185107100:   00 00 01 ad 03 00 01 91 63 e4 7a 92 42 00 00 8b
+0x0000000185107110:   64 00 01 91 42 00 04 eb c9 00 00 54 60 00 00 ad
+0x0000000185107120:   60 00 01 ad 63 00 01 91 42 00 01 f1 88 ff ff 54
+0x0000000185107130:   63 00 02 8b 60 00 00 ad 60 00 01 ad c0 03 5f d6
+0x0000000185107140:   61 84 00 f8 42 20 00 f1 c2 ff ff 54 42 20 00 b1 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x0000000012002c00 is an unknown value
+stack at sp + 1 slots: 0xc241f9e1253b00c8 is an unknown value
+stack at sp + 2 slots: 0x000000016ffd27b0 is pointing into the stack for thread: 0x000000013100f000
+stack at sp + 3 slots: 0x00000001262fbfd8: arm_cpu_handle_mmu_fault_aarch64+0xc0 in /private/var/folders/nb/5152sbd52g33d8yx_bpkhzvw0000gn/T/nativelib-loader_953662431092133877/libunicorn_java.dylib at 0x00000001261d0000
+stack at sp + 4 slots: 0x0000000150098000 points into unknown readable memory: 0x0000000128022010 | 10 20 02 28 01 00 00 00
+stack at sp + 5 slots: 0x00000000261f5ba8 is an unknown value
+stack at sp + 6 slots: 0x000000013100f000 is a thread
+stack at sp + 7 slots: 0x0 is NULL
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000000120e39d50, length=11, elements={
+0x000000013100f000, 0x000000013115c800, 0x000000013115f000, 0x0000000131171800,
+0x0000000131174800, 0x0000000131175800, 0x0000000131176000, 0x0000000131207000,
+0x0000000131323800, 0x0000000131324800, 0x00000001170e1800
+}
+
+Java Threads: ( => current thread )
+=>0x000000013100f000 JavaThread "main" [_thread_in_native, id=4611, stack(0x000000016fdd4000,0x000000016ffd7000)]
+  0x000000013115c800 JavaThread "Reference Handler" daemon [_thread_blocked, id=16643, stack(0x0000000170c28000,0x0000000170e2b000)]
+  0x000000013115f000 JavaThread "Finalizer" daemon [_thread_blocked, id=20739, stack(0x0000000170e34000,0x0000000171037000)]
+  0x0000000131171800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=21763, stack(0x0000000171158000,0x000000017135b000)]
+  0x0000000131174800 JavaThread "Service Thread" daemon [_thread_blocked, id=22275, stack(0x0000000171364000,0x0000000171567000)]
+  0x0000000131175800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=23043, stack(0x0000000171570000,0x0000000171773000)]
+  0x0000000131176000 JavaThread "Sweeper thread" daemon [_thread_blocked, id=32003, stack(0x000000017177c000,0x000000017197f000)]
+  0x0000000131207000 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=30979, stack(0x0000000171b94000,0x0000000171d97000)]
+  0x0000000131323800 JavaThread "surefire-forkedjvm-stream-flusher" daemon [_thread_blocked, id=30723, stack(0x0000000171da0000,0x0000000171fa3000)]
+  0x0000000131324800 JavaThread "surefire-forkedjvm-command-thread" daemon [_thread_in_native, id=30211, stack(0x0000000171fac000,0x00000001721af000)]
+  0x00000001170e1800 JavaThread "process reaper" daemon [_thread_blocked, id=28163, stack(0x0000000172bf4000,0x0000000172c2b000)]
+
+Other Threads:
+  0x0000000131152800 VMThread "VM Thread" [stack: 0x0000000170a1c000,0x0000000170c1f000] [id=16387]
+  0x0000000131106800 WatcherThread [stack: 0x0000000171988000,0x0000000171b8b000] [id=31747]
+  0x0000000131019800 GCTaskThread "GC Thread#0" [stack: 0x000000016ffe0000,0x00000001701e3000] [id=12035]
+  0x0000000121009800 GCTaskThread "GC Thread#1" [stack: 0x00000001721b8000,0x00000001723bb000] [id=24579]
+  0x000000012100a800 GCTaskThread "GC Thread#2" [stack: 0x00000001723c4000,0x00000001725c7000] [id=24835]
+  0x000000012100b000 GCTaskThread "GC Thread#3" [stack: 0x00000001725d0000,0x00000001727d3000] [id=25347]
+  0x000000012100c000 GCTaskThread "GC Thread#4" [stack: 0x00000001727dc000,0x00000001729df000] [id=29187]
+  0x000000012100c800 GCTaskThread "GC Thread#5" [stack: 0x00000001729e8000,0x0000000172beb000] [id=25603]
+  0x000000013105a000 ConcurrentGCThread "G1 Main Marker" [stack: 0x00000001701ec000,0x00000001703ef000] [id=12291]
+  0x000000013105a800 ConcurrentGCThread "G1 Conc#0" [stack: 0x00000001703f8000,0x00000001705fb000] [id=15363]
+  0x0000000121b1b800 ConcurrentGCThread "G1 Conc#1" [stack: 0x0000000172c34000,0x0000000172e37000] [id=25859]
+  0x00000001310fb800 ConcurrentGCThread "G1 Refine#0" [stack: 0x0000000170604000,0x0000000170807000] [id=15107]
+  0x00000001310fc000 ConcurrentGCThread "G1 Young RemSet Sampling" [stack: 0x0000000170810000,0x0000000170a13000] [id=14595]
+
+Threads with active compile tasks:
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x00000006c0000000, size: 4096 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 0
+Compressed class space size: 1073741824 Address: 0x0000000800000000
+
+Heap:
+ garbage-first heap   total 262144K, used 70502K [0x00000006c0000000, 0x00000007c0000000)
+  region size 1024K, 50 young (51200K), 7 survivors (7168K)
+ Metaspace       used 21630K, capacity 22558K, committed 22784K, reserved 1069056K
+  class space    used 2600K, capacity 2989K, committed 3072K, reserved 1048576K
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, A=archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x00000006c0000000, 0x00000006c0015800, 0x00000006c0100000|  8%| O|  |TAMS 0x00000006c0015800, 0x00000006c0000000| Untracked 
+|   1|0x00000006c0100000, 0x00000006c0200000, 0x00000006c0200000|100%|HS|  |TAMS 0x00000006c0100000, 0x00000006c0100000| Complete 
+|   2|0x00000006c0200000, 0x00000006c0300000, 0x00000006c0300000|100%|HS|  |TAMS 0x00000006c0200000, 0x00000006c0200000| Complete 
+|   3|0x00000006c0300000, 0x00000006c0400000, 0x00000006c0400000|100%|HS|  |TAMS 0x00000006c0300000, 0x00000006c0300000| Complete 
+|   4|0x00000006c0400000, 0x00000006c0500000, 0x00000006c0500000|100%|HS|  |TAMS 0x00000006c0400000, 0x00000006c0400000| Complete 
+|   5|0x00000006c0500000, 0x00000006c0600000, 0x00000006c0600000|100%|HS|  |TAMS 0x00000006c0500000, 0x00000006c0500000| Complete 
+|   6|0x00000006c0600000, 0x00000006c0700000, 0x00000006c0700000|100%|HC|  |TAMS 0x00000006c0600000, 0x00000006c0600000| Complete 
+|   7|0x00000006c0700000, 0x00000006c0800000, 0x00000006c0800000|100%|HC|  |TAMS 0x00000006c0700000, 0x00000006c0700000| Complete 
+|   8|0x00000006c0800000, 0x00000006c0900000, 0x00000006c0900000|100%|HC|  |TAMS 0x00000006c0800000, 0x00000006c0800000| Complete 
+|   9|0x00000006c0900000, 0x00000006c0a00000, 0x00000006c0a00000|100%|HC|  |TAMS 0x00000006c0900000, 0x00000006c0900000| Complete 
+|  10|0x00000006c0a00000, 0x00000006c0b00000, 0x00000006c0b00000|100%|HC|  |TAMS 0x00000006c0a00000, 0x00000006c0a00000| Complete 
+|  11|0x00000006c0b00000, 0x00000006c0c00000, 0x00000006c0c00000|100%|HC|  |TAMS 0x00000006c0b00000, 0x00000006c0b00000| Complete 
+|  12|0x00000006c0c00000, 0x00000006c0d00000, 0x00000006c0d00000|100%|HC|  |TAMS 0x00000006c0c00000, 0x00000006c0c00000| Complete 
+|  13|0x00000006c0d00000, 0x00000006c0e00000, 0x00000006c0e00000|100%|HC|  |TAMS 0x00000006c0d00000, 0x00000006c0d00000| Complete 
+|  14|0x00000006c0e00000, 0x00000006c0f00000, 0x00000006c0f00000|100%|HC|  |TAMS 0x00000006c0e00000, 0x00000006c0e00000| Complete 
+|  15|0x00000006c0f00000, 0x00000006c1000000, 0x00000006c1000000|100%|HC|  |TAMS 0x00000006c0f00000, 0x00000006c0f00000| Complete 
+|  16|0x00000006c1000000, 0x00000006c1100000, 0x00000006c1100000|100%|HS|  |TAMS 0x00000006c1000000, 0x00000006c1000000| Complete 
+|  17|0x00000006c1100000, 0x00000006c1200000, 0x00000006c1200000|100%|HC|  |TAMS 0x00000006c1100000, 0x00000006c1100000| Complete 
+|  18|0x00000006c1200000, 0x00000006c1300000, 0x00000006c1300000|100%|HS|  |TAMS 0x00000006c1200000, 0x00000006c1200000| Complete 
+|  19|0x00000006c1300000, 0x00000006c1400000, 0x00000006c1400000|100%|HS|  |TAMS 0x00000006c1300000, 0x00000006c1300000| Complete 
+|  20|0x00000006c1400000, 0x00000006c1500000, 0x00000006c1500000|100%|HS|  |TAMS 0x00000006c1400000, 0x00000006c1400000| Complete 
+|  21|0x00000006c1500000, 0x00000006c1600000, 0x00000006c1600000|100%|HS|  |TAMS 0x00000006c1500000, 0x00000006c1500000| Complete 
+|  22|0x00000006c1600000, 0x00000006c1600000, 0x00000006c1700000|  0%| F|  |TAMS 0x00000006c1600000, 0x00000006c1600000| Untracked 
+|  23|0x00000006c1700000, 0x00000006c1700000, 0x00000006c1800000|  0%| F|  |TAMS 0x00000006c1700000, 0x00000006c1700000| Untracked 
+|  24|0x00000006c1800000, 0x00000006c1800000, 0x00000006c1900000|  0%| F|  |TAMS 0x00000006c1800000, 0x00000006c1800000| Untracked 
+|  25|0x00000006c1900000, 0x00000006c1900000, 0x00000006c1a00000|  0%| F|  |TAMS 0x00000006c1900000, 0x00000006c1900000| Untracked 
+|  26|0x00000006c1a00000, 0x00000006c1a00000, 0x00000006c1b00000|  0%| F|  |TAMS 0x00000006c1a00000, 0x00000006c1a00000| Untracked 
+|  27|0x00000006c1b00000, 0x00000006c1b00000, 0x00000006c1c00000|  0%| F|  |TAMS 0x00000006c1b00000, 0x00000006c1b00000| Untracked 
+|  28|0x00000006c1c00000, 0x00000006c1c00000, 0x00000006c1d00000|  0%| F|  |TAMS 0x00000006c1c00000, 0x00000006c1c00000| Untracked 
+|  29|0x00000006c1d00000, 0x00000006c1d00000, 0x00000006c1e00000|  0%| F|  |TAMS 0x00000006c1d00000, 0x00000006c1d00000| Untracked 
+|  30|0x00000006c1e00000, 0x00000006c1e00000, 0x00000006c1f00000|  0%| F|  |TAMS 0x00000006c1e00000, 0x00000006c1e00000| Untracked 
+|  31|0x00000006c1f00000, 0x00000006c1f00000, 0x00000006c2000000|  0%| F|  |TAMS 0x00000006c1f00000, 0x00000006c1f00000| Untracked 
+|  32|0x00000006c2000000, 0x00000006c2000000, 0x00000006c2100000|  0%| F|  |TAMS 0x00000006c2000000, 0x00000006c2000000| Untracked 
+|  33|0x00000006c2100000, 0x00000006c2100000, 0x00000006c2200000|  0%| F|  |TAMS 0x00000006c2100000, 0x00000006c2100000| Untracked 
+|  34|0x00000006c2200000, 0x00000006c2200000, 0x00000006c2300000|  0%| F|  |TAMS 0x00000006c2200000, 0x00000006c2200000| Untracked 
+|  35|0x00000006c2300000, 0x00000006c2300000, 0x00000006c2400000|  0%| F|  |TAMS 0x00000006c2300000, 0x00000006c2300000| Untracked 
+|  36|0x00000006c2400000, 0x00000006c2400000, 0x00000006c2500000|  0%| F|  |TAMS 0x00000006c2400000, 0x00000006c2400000| Untracked 
+|  37|0x00000006c2500000, 0x00000006c2500000, 0x00000006c2600000|  0%| F|  |TAMS 0x00000006c2500000, 0x00000006c2500000| Untracked 
+|  38|0x00000006c2600000, 0x00000006c2600000, 0x00000006c2700000|  0%| F|  |TAMS 0x00000006c2600000, 0x00000006c2600000| Untracked 
+|  39|0x00000006c2700000, 0x00000006c2700000, 0x00000006c2800000|  0%| F|  |TAMS 0x00000006c2700000, 0x00000006c2700000| Untracked 
+|  40|0x00000006c2800000, 0x00000006c2800000, 0x00000006c2900000|  0%| F|  |TAMS 0x00000006c2800000, 0x00000006c2800000| Untracked 
+|  41|0x00000006c2900000, 0x00000006c2900000, 0x00000006c2a00000|  0%| F|  |TAMS 0x00000006c2900000, 0x00000006c2900000| Untracked 
+|  42|0x00000006c2a00000, 0x00000006c2a00000, 0x00000006c2b00000|  0%| F|  |TAMS 0x00000006c2a00000, 0x00000006c2a00000| Untracked 
+|  43|0x00000006c2b00000, 0x00000006c2b00000, 0x00000006c2c00000|  0%| F|  |TAMS 0x00000006c2b00000, 0x00000006c2b00000| Untracked 
+|  44|0x00000006c2c00000, 0x00000006c2c00000, 0x00000006c2d00000|  0%| F|  |TAMS 0x00000006c2c00000, 0x00000006c2c00000| Untracked 
+|  45|0x00000006c2d00000, 0x00000006c2d00000, 0x00000006c2e00000|  0%| F|  |TAMS 0x00000006c2d00000, 0x00000006c2d00000| Untracked 
+|  46|0x00000006c2e00000, 0x00000006c2e00000, 0x00000006c2f00000|  0%| F|  |TAMS 0x00000006c2e00000, 0x00000006c2e00000| Untracked 
+|  47|0x00000006c2f00000, 0x00000006c2f00000, 0x00000006c3000000|  0%| F|  |TAMS 0x00000006c2f00000, 0x00000006c2f00000| Untracked 
+|  48|0x00000006c3000000, 0x00000006c3000000, 0x00000006c3100000|  0%| F|  |TAMS 0x00000006c3000000, 0x00000006c3000000| Untracked 
+|  49|0x00000006c3100000, 0x00000006c3100000, 0x00000006c3200000|  0%| F|  |TAMS 0x00000006c3100000, 0x00000006c3100000| Untracked 
+|  50|0x00000006c3200000, 0x00000006c3200000, 0x00000006c3300000|  0%| F|  |TAMS 0x00000006c3200000, 0x00000006c3200000| Untracked 
+|  51|0x00000006c3300000, 0x00000006c3300000, 0x00000006c3400000|  0%| F|  |TAMS 0x00000006c3300000, 0x00000006c3300000| Untracked 
+|  52|0x00000006c3400000, 0x00000006c3400000, 0x00000006c3500000|  0%| F|  |TAMS 0x00000006c3400000, 0x00000006c3400000| Untracked 
+|  53|0x00000006c3500000, 0x00000006c3500000, 0x00000006c3600000|  0%| F|  |TAMS 0x00000006c3500000, 0x00000006c3500000| Untracked 
+|  54|0x00000006c3600000, 0x00000006c3600000, 0x00000006c3700000|  0%| F|  |TAMS 0x00000006c3600000, 0x00000006c3600000| Untracked 
+|  55|0x00000006c3700000, 0x00000006c3700000, 0x00000006c3800000|  0%| F|  |TAMS 0x00000006c3700000, 0x00000006c3700000| Untracked 
+|  56|0x00000006c3800000, 0x00000006c3800000, 0x00000006c3900000|  0%| F|  |TAMS 0x00000006c3800000, 0x00000006c3800000| Untracked 
+|  57|0x00000006c3900000, 0x00000006c3900000, 0x00000006c3a00000|  0%| F|  |TAMS 0x00000006c3900000, 0x00000006c3900000| Untracked 
+|  58|0x00000006c3a00000, 0x00000006c3a00000, 0x00000006c3b00000|  0%| F|  |TAMS 0x00000006c3a00000, 0x00000006c3a00000| Untracked 
+|  59|0x00000006c3b00000, 0x00000006c3b00000, 0x00000006c3c00000|  0%| F|  |TAMS 0x00000006c3b00000, 0x00000006c3b00000| Untracked 
+|  60|0x00000006c3c00000, 0x00000006c3c00000, 0x00000006c3d00000|  0%| F|  |TAMS 0x00000006c3c00000, 0x00000006c3c00000| Untracked 
+|  61|0x00000006c3d00000, 0x00000006c3d00000, 0x00000006c3e00000|  0%| F|  |TAMS 0x00000006c3d00000, 0x00000006c3d00000| Untracked 
+|  62|0x00000006c3e00000, 0x00000006c3e00000, 0x00000006c3f00000|  0%| F|  |TAMS 0x00000006c3e00000, 0x00000006c3e00000| Untracked 
+|  63|0x00000006c3f00000, 0x00000006c3f00000, 0x00000006c4000000|  0%| F|  |TAMS 0x00000006c3f00000, 0x00000006c3f00000| Untracked 
+|  64|0x00000006c4000000, 0x00000006c4000000, 0x00000006c4100000|  0%| F|  |TAMS 0x00000006c4000000, 0x00000006c4000000| Untracked 
+|  65|0x00000006c4100000, 0x00000006c4100000, 0x00000006c4200000|  0%| F|  |TAMS 0x00000006c4100000, 0x00000006c4100000| Untracked 
+|  66|0x00000006c4200000, 0x00000006c4200000, 0x00000006c4300000|  0%| F|  |TAMS 0x00000006c4200000, 0x00000006c4200000| Untracked 
+|  67|0x00000006c4300000, 0x00000006c4300000, 0x00000006c4400000|  0%| F|  |TAMS 0x00000006c4300000, 0x00000006c4300000| Untracked 
+|  68|0x00000006c4400000, 0x00000006c4400000, 0x00000006c4500000|  0%| F|  |TAMS 0x00000006c4400000, 0x00000006c4400000| Untracked 
+|  69|0x00000006c4500000, 0x00000006c4500000, 0x00000006c4600000|  0%| F|  |TAMS 0x00000006c4500000, 0x00000006c4500000| Untracked 
+|  70|0x00000006c4600000, 0x00000006c4600000, 0x00000006c4700000|  0%| F|  |TAMS 0x00000006c4600000, 0x00000006c4600000| Untracked 
+|  71|0x00000006c4700000, 0x00000006c4700000, 0x00000006c4800000|  0%| F|  |TAMS 0x00000006c4700000, 0x00000006c4700000| Untracked 
+|  72|0x00000006c4800000, 0x00000006c4800000, 0x00000006c4900000|  0%| F|  |TAMS 0x00000006c4800000, 0x00000006c4800000| Untracked 
+|  73|0x00000006c4900000, 0x00000006c4900000, 0x00000006c4a00000|  0%| F|  |TAMS 0x00000006c4900000, 0x00000006c4900000| Untracked 
+|  74|0x00000006c4a00000, 0x00000006c4a00000, 0x00000006c4b00000|  0%| F|  |TAMS 0x00000006c4a00000, 0x00000006c4a00000| Untracked 
+|  75|0x00000006c4b00000, 0x00000006c4b00000, 0x00000006c4c00000|  0%| F|  |TAMS 0x00000006c4b00000, 0x00000006c4b00000| Untracked 
+|  76|0x00000006c4c00000, 0x00000006c4c00000, 0x00000006c4d00000|  0%| F|  |TAMS 0x00000006c4c00000, 0x00000006c4c00000| Untracked 
+|  77|0x00000006c4d00000, 0x00000006c4d00000, 0x00000006c4e00000|  0%| F|  |TAMS 0x00000006c4d00000, 0x00000006c4d00000| Untracked 
+|  78|0x00000006c4e00000, 0x00000006c4e00000, 0x00000006c4f00000|  0%| F|  |TAMS 0x00000006c4e00000, 0x00000006c4e00000| Untracked 
+|  79|0x00000006c4f00000, 0x00000006c4f00000, 0x00000006c5000000|  0%| F|  |TAMS 0x00000006c4f00000, 0x00000006c4f00000| Untracked 
+|  80|0x00000006c5000000, 0x00000006c5000000, 0x00000006c5100000|  0%| F|  |TAMS 0x00000006c5000000, 0x00000006c5000000| Untracked 
+|  81|0x00000006c5100000, 0x00000006c5100000, 0x00000006c5200000|  0%| F|  |TAMS 0x00000006c5100000, 0x00000006c5100000| Untracked 
+|  82|0x00000006c5200000, 0x00000006c5200000, 0x00000006c5300000|  0%| F|  |TAMS 0x00000006c5200000, 0x00000006c5200000| Untracked 
+|  83|0x00000006c5300000, 0x00000006c5300000, 0x00000006c5400000|  0%| F|  |TAMS 0x00000006c5300000, 0x00000006c5300000| Untracked 
+|  84|0x00000006c5400000, 0x00000006c5400000, 0x00000006c5500000|  0%| F|  |TAMS 0x00000006c5400000, 0x00000006c5400000| Untracked 
+|  85|0x00000006c5500000, 0x00000006c5500000, 0x00000006c5600000|  0%| F|  |TAMS 0x00000006c5500000, 0x00000006c5500000| Untracked 
+|  86|0x00000006c5600000, 0x00000006c5600000, 0x00000006c5700000|  0%| F|  |TAMS 0x00000006c5600000, 0x00000006c5600000| Untracked 
+|  87|0x00000006c5700000, 0x00000006c5700000, 0x00000006c5800000|  0%| F|  |TAMS 0x00000006c5700000, 0x00000006c5700000| Untracked 
+|  88|0x00000006c5800000, 0x00000006c5800000, 0x00000006c5900000|  0%| F|  |TAMS 0x00000006c5800000, 0x00000006c5800000| Untracked 
+|  89|0x00000006c5900000, 0x00000006c5900000, 0x00000006c5a00000|  0%| F|  |TAMS 0x00000006c5900000, 0x00000006c5900000| Untracked 
+|  90|0x00000006c5a00000, 0x00000006c5a00000, 0x00000006c5b00000|  0%| F|  |TAMS 0x00000006c5a00000, 0x00000006c5a00000| Untracked 
+|  91|0x00000006c5b00000, 0x00000006c5b00000, 0x00000006c5c00000|  0%| F|  |TAMS 0x00000006c5b00000, 0x00000006c5b00000| Untracked 
+|  92|0x00000006c5c00000, 0x00000006c5c00000, 0x00000006c5d00000|  0%| F|  |TAMS 0x00000006c5c00000, 0x00000006c5c00000| Untracked 
+|  93|0x00000006c5d00000, 0x00000006c5d00000, 0x00000006c5e00000|  0%| F|  |TAMS 0x00000006c5d00000, 0x00000006c5d00000| Untracked 
+|  94|0x00000006c5e00000, 0x00000006c5e00000, 0x00000006c5f00000|  0%| F|  |TAMS 0x00000006c5e00000, 0x00000006c5e00000| Untracked 
+|  95|0x00000006c5f00000, 0x00000006c5f00000, 0x00000006c6000000|  0%| F|  |TAMS 0x00000006c5f00000, 0x00000006c5f00000| Untracked 
+|  96|0x00000006c6000000, 0x00000006c6000000, 0x00000006c6100000|  0%| F|  |TAMS 0x00000006c6000000, 0x00000006c6000000| Untracked 
+|  97|0x00000006c6100000, 0x00000006c6100000, 0x00000006c6200000|  0%| F|  |TAMS 0x00000006c6100000, 0x00000006c6100000| Untracked 
+|  98|0x00000006c6200000, 0x00000006c6200000, 0x00000006c6300000|  0%| F|  |TAMS 0x00000006c6200000, 0x00000006c6200000| Untracked 
+|  99|0x00000006c6300000, 0x00000006c6300000, 0x00000006c6400000|  0%| F|  |TAMS 0x00000006c6300000, 0x00000006c6300000| Untracked 
+| 100|0x00000006c6400000, 0x00000006c6400000, 0x00000006c6500000|  0%| F|  |TAMS 0x00000006c6400000, 0x00000006c6400000| Untracked 
+| 101|0x00000006c6500000, 0x00000006c6500000, 0x00000006c6600000|  0%| F|  |TAMS 0x00000006c6500000, 0x00000006c6500000| Untracked 
+| 102|0x00000006c6600000, 0x00000006c6600000, 0x00000006c6700000|  0%| F|  |TAMS 0x00000006c6600000, 0x00000006c6600000| Untracked 
+| 103|0x00000006c6700000, 0x00000006c6700000, 0x00000006c6800000|  0%| F|  |TAMS 0x00000006c6700000, 0x00000006c6700000| Untracked 
+| 104|0x00000006c6800000, 0x00000006c6800000, 0x00000006c6900000|  0%| F|  |TAMS 0x00000006c6800000, 0x00000006c6800000| Untracked 
+| 105|0x00000006c6900000, 0x00000006c6900000, 0x00000006c6a00000|  0%| F|  |TAMS 0x00000006c6900000, 0x00000006c6900000| Untracked 
+| 106|0x00000006c6a00000, 0x00000006c6a00000, 0x00000006c6b00000|  0%| F|  |TAMS 0x00000006c6a00000, 0x00000006c6a00000| Untracked 
+| 107|0x00000006c6b00000, 0x00000006c6b00000, 0x00000006c6c00000|  0%| F|  |TAMS 0x00000006c6b00000, 0x00000006c6b00000| Untracked 
+| 108|0x00000006c6c00000, 0x00000006c6c00000, 0x00000006c6d00000|  0%| F|  |TAMS 0x00000006c6c00000, 0x00000006c6c00000| Untracked 
+| 109|0x00000006c6d00000, 0x00000006c6d00000, 0x00000006c6e00000|  0%| F|  |TAMS 0x00000006c6d00000, 0x00000006c6d00000| Untracked 
+| 110|0x00000006c6e00000, 0x00000006c6e00000, 0x00000006c6f00000|  0%| F|  |TAMS 0x00000006c6e00000, 0x00000006c6e00000| Untracked 
+| 111|0x00000006c6f00000, 0x00000006c6f00000, 0x00000006c7000000|  0%| F|  |TAMS 0x00000006c6f00000, 0x00000006c6f00000| Untracked 
+| 112|0x00000006c7000000, 0x00000006c7000000, 0x00000006c7100000|  0%| F|  |TAMS 0x00000006c7000000, 0x00000006c7000000| Untracked 
+| 113|0x00000006c7100000, 0x00000006c7100000, 0x00000006c7200000|  0%| F|  |TAMS 0x00000006c7100000, 0x00000006c7100000| Untracked 
+| 114|0x00000006c7200000, 0x00000006c7200000, 0x00000006c7300000|  0%| F|  |TAMS 0x00000006c7200000, 0x00000006c7200000| Untracked 
+| 115|0x00000006c7300000, 0x00000006c7300000, 0x00000006c7400000|  0%| F|  |TAMS 0x00000006c7300000, 0x00000006c7300000| Untracked 
+| 116|0x00000006c7400000, 0x00000006c7400000, 0x00000006c7500000|  0%| F|  |TAMS 0x00000006c7400000, 0x00000006c7400000| Untracked 
+| 117|0x00000006c7500000, 0x00000006c7500000, 0x00000006c7600000|  0%| F|  |TAMS 0x00000006c7500000, 0x00000006c7500000| Untracked 
+| 118|0x00000006c7600000, 0x00000006c7600000, 0x00000006c7700000|  0%| F|  |TAMS 0x00000006c7600000, 0x00000006c7600000| Untracked 
+| 119|0x00000006c7700000, 0x00000006c7700000, 0x00000006c7800000|  0%| F|  |TAMS 0x00000006c7700000, 0x00000006c7700000| Untracked 
+| 120|0x00000006c7800000, 0x00000006c7800000, 0x00000006c7900000|  0%| F|  |TAMS 0x00000006c7800000, 0x00000006c7800000| Untracked 
+| 121|0x00000006c7900000, 0x00000006c7900000, 0x00000006c7a00000|  0%| F|  |TAMS 0x00000006c7900000, 0x00000006c7900000| Untracked 
+| 122|0x00000006c7a00000, 0x00000006c7a00000, 0x00000006c7b00000|  0%| F|  |TAMS 0x00000006c7a00000, 0x00000006c7a00000| Untracked 
+| 123|0x00000006c7b00000, 0x00000006c7b00000, 0x00000006c7c00000|  0%| F|  |TAMS 0x00000006c7b00000, 0x00000006c7b00000| Untracked 
+| 124|0x00000006c7c00000, 0x00000006c7c00000, 0x00000006c7d00000|  0%| F|  |TAMS 0x00000006c7c00000, 0x00000006c7c00000| Untracked 
+| 125|0x00000006c7d00000, 0x00000006c7d00000, 0x00000006c7e00000|  0%| F|  |TAMS 0x00000006c7d00000, 0x00000006c7d00000| Untracked 
+| 126|0x00000006c7e00000, 0x00000006c7e00000, 0x00000006c7f00000|  0%| F|  |TAMS 0x00000006c7e00000, 0x00000006c7e00000| Untracked 
+| 127|0x00000006c7f00000, 0x00000006c7f00000, 0x00000006c8000000|  0%| F|  |TAMS 0x00000006c7f00000, 0x00000006c7f00000| Untracked 
+| 128|0x00000006c8000000, 0x00000006c8000000, 0x00000006c8100000|  0%| F|  |TAMS 0x00000006c8000000, 0x00000006c8000000| Untracked 
+| 129|0x00000006c8100000, 0x00000006c8100000, 0x00000006c8200000|  0%| F|  |TAMS 0x00000006c8100000, 0x00000006c8100000| Untracked 
+| 130|0x00000006c8200000, 0x00000006c8200000, 0x00000006c8300000|  0%| F|  |TAMS 0x00000006c8200000, 0x00000006c8200000| Untracked 
+| 131|0x00000006c8300000, 0x00000006c8300000, 0x00000006c8400000|  0%| F|  |TAMS 0x00000006c8300000, 0x00000006c8300000| Untracked 
+| 132|0x00000006c8400000, 0x00000006c8400000, 0x00000006c8500000|  0%| F|  |TAMS 0x00000006c8400000, 0x00000006c8400000| Untracked 
+| 133|0x00000006c8500000, 0x00000006c8500000, 0x00000006c8600000|  0%| F|  |TAMS 0x00000006c8500000, 0x00000006c8500000| Untracked 
+| 134|0x00000006c8600000, 0x00000006c86c42b0, 0x00000006c8700000| 76%| S|CS|TAMS 0x00000006c8600000, 0x00000006c8600000| Complete 
+| 135|0x00000006c8700000, 0x00000006c8800000, 0x00000006c8800000|100%| S|CS|TAMS 0x00000006c8700000, 0x00000006c8700000| Complete 
+| 136|0x00000006c8800000, 0x00000006c8900000, 0x00000006c8900000|100%| S|CS|TAMS 0x00000006c8800000, 0x00000006c8800000| Complete 
+| 137|0x00000006c8900000, 0x00000006c8a00000, 0x00000006c8a00000|100%| S|CS|TAMS 0x00000006c8900000, 0x00000006c8900000| Complete 
+| 138|0x00000006c8a00000, 0x00000006c8b00000, 0x00000006c8b00000|100%| S|CS|TAMS 0x00000006c8a00000, 0x00000006c8a00000| Complete 
+| 139|0x00000006c8b00000, 0x00000006c8c00000, 0x00000006c8c00000|100%| S|CS|TAMS 0x00000006c8b00000, 0x00000006c8b00000| Complete 
+| 140|0x00000006c8c00000, 0x00000006c8d00000, 0x00000006c8d00000|100%| S|CS|TAMS 0x00000006c8c00000, 0x00000006c8c00000| Complete 
+| 141|0x00000006c8d00000, 0x00000006c8d00000, 0x00000006c8e00000|  0%| F|  |TAMS 0x00000006c8d00000, 0x00000006c8d00000| Untracked 
+| 142|0x00000006c8e00000, 0x00000006c8e00000, 0x00000006c8f00000|  0%| F|  |TAMS 0x00000006c8e00000, 0x00000006c8e00000| Untracked 
+| 143|0x00000006c8f00000, 0x00000006c8f00000, 0x00000006c9000000|  0%| F|  |TAMS 0x00000006c8f00000, 0x00000006c8f00000| Untracked 
+| 144|0x00000006c9000000, 0x00000006c9000000, 0x00000006c9100000|  0%| F|  |TAMS 0x00000006c9000000, 0x00000006c9000000| Untracked 
+| 145|0x00000006c9100000, 0x00000006c9100000, 0x00000006c9200000|  0%| F|  |TAMS 0x00000006c9100000, 0x00000006c9100000| Untracked 
+| 146|0x00000006c9200000, 0x00000006c9200000, 0x00000006c9300000|  0%| F|  |TAMS 0x00000006c9200000, 0x00000006c9200000| Untracked 
+| 147|0x00000006c9300000, 0x00000006c9300000, 0x00000006c9400000|  0%| F|  |TAMS 0x00000006c9300000, 0x00000006c9300000| Untracked 
+| 148|0x00000006c9400000, 0x00000006c9400000, 0x00000006c9500000|  0%| F|  |TAMS 0x00000006c9400000, 0x00000006c9400000| Untracked 
+| 149|0x00000006c9500000, 0x00000006c9500000, 0x00000006c9600000|  0%| F|  |TAMS 0x00000006c9500000, 0x00000006c9500000| Untracked 
+| 150|0x00000006c9600000, 0x00000006c9600000, 0x00000006c9700000|  0%| F|  |TAMS 0x00000006c9600000, 0x00000006c9600000| Untracked 
+| 151|0x00000006c9700000, 0x00000006c9700000, 0x00000006c9800000|  0%| F|  |TAMS 0x00000006c9700000, 0x00000006c9700000| Untracked 
+| 152|0x00000006c9800000, 0x00000006c9800000, 0x00000006c9900000|  0%| F|  |TAMS 0x00000006c9800000, 0x00000006c9800000| Untracked 
+| 153|0x00000006c9900000, 0x00000006c9900000, 0x00000006c9a00000|  0%| F|  |TAMS 0x00000006c9900000, 0x00000006c9900000| Untracked 
+| 154|0x00000006c9a00000, 0x00000006c9a00000, 0x00000006c9b00000|  0%| F|  |TAMS 0x00000006c9a00000, 0x00000006c9a00000| Untracked 
+| 155|0x00000006c9b00000, 0x00000006c9b00000, 0x00000006c9c00000|  0%| F|  |TAMS 0x00000006c9b00000, 0x00000006c9b00000| Untracked 
+| 156|0x00000006c9c00000, 0x00000006c9c00000, 0x00000006c9d00000|  0%| F|  |TAMS 0x00000006c9c00000, 0x00000006c9c00000| Untracked 
+| 157|0x00000006c9d00000, 0x00000006c9d00000, 0x00000006c9e00000|  0%| F|  |TAMS 0x00000006c9d00000, 0x00000006c9d00000| Untracked 
+| 158|0x00000006c9e00000, 0x00000006c9e00000, 0x00000006c9f00000|  0%| F|  |TAMS 0x00000006c9e00000, 0x00000006c9e00000| Untracked 
+| 159|0x00000006c9f00000, 0x00000006c9f00000, 0x00000006ca000000|  0%| F|  |TAMS 0x00000006c9f00000, 0x00000006c9f00000| Untracked 
+| 160|0x00000006ca000000, 0x00000006ca000000, 0x00000006ca100000|  0%| F|  |TAMS 0x00000006ca000000, 0x00000006ca000000| Untracked 
+| 161|0x00000006ca100000, 0x00000006ca100000, 0x00000006ca200000|  0%| F|  |TAMS 0x00000006ca100000, 0x00000006ca100000| Untracked 
+| 162|0x00000006ca200000, 0x00000006ca200000, 0x00000006ca300000|  0%| F|  |TAMS 0x00000006ca200000, 0x00000006ca200000| Untracked 
+| 163|0x00000006ca300000, 0x00000006ca300000, 0x00000006ca400000|  0%| F|  |TAMS 0x00000006ca300000, 0x00000006ca300000| Untracked 
+| 164|0x00000006ca400000, 0x00000006ca400000, 0x00000006ca500000|  0%| F|  |TAMS 0x00000006ca400000, 0x00000006ca400000| Untracked 
+| 165|0x00000006ca500000, 0x00000006ca500000, 0x00000006ca600000|  0%| F|  |TAMS 0x00000006ca500000, 0x00000006ca500000| Untracked 
+| 166|0x00000006ca600000, 0x00000006ca600000, 0x00000006ca700000|  0%| F|  |TAMS 0x00000006ca600000, 0x00000006ca600000| Untracked 
+| 167|0x00000006ca700000, 0x00000006ca700000, 0x00000006ca800000|  0%| F|  |TAMS 0x00000006ca700000, 0x00000006ca700000| Untracked 
+| 168|0x00000006ca800000, 0x00000006ca800000, 0x00000006ca900000|  0%| F|  |TAMS 0x00000006ca800000, 0x00000006ca800000| Untracked 
+| 169|0x00000006ca900000, 0x00000006ca900000, 0x00000006caa00000|  0%| F|  |TAMS 0x00000006ca900000, 0x00000006ca900000| Untracked 
+| 170|0x00000006caa00000, 0x00000006caa00000, 0x00000006cab00000|  0%| F|  |TAMS 0x00000006caa00000, 0x00000006caa00000| Untracked 
+| 171|0x00000006cab00000, 0x00000006cab00000, 0x00000006cac00000|  0%| F|  |TAMS 0x00000006cab00000, 0x00000006cab00000| Untracked 
+| 172|0x00000006cac00000, 0x00000006cac00000, 0x00000006cad00000|  0%| F|  |TAMS 0x00000006cac00000, 0x00000006cac00000| Untracked 
+| 173|0x00000006cad00000, 0x00000006cad00000, 0x00000006cae00000|  0%| F|  |TAMS 0x00000006cad00000, 0x00000006cad00000| Untracked 
+| 174|0x00000006cae00000, 0x00000006cae00000, 0x00000006caf00000|  0%| F|  |TAMS 0x00000006cae00000, 0x00000006cae00000| Untracked 
+| 175|0x00000006caf00000, 0x00000006caf00000, 0x00000006cb000000|  0%| F|  |TAMS 0x00000006caf00000, 0x00000006caf00000| Untracked 
+| 176|0x00000006cb000000, 0x00000006cb000000, 0x00000006cb100000|  0%| F|  |TAMS 0x00000006cb000000, 0x00000006cb000000| Untracked 
+| 177|0x00000006cb100000, 0x00000006cb100000, 0x00000006cb200000|  0%| F|  |TAMS 0x00000006cb100000, 0x00000006cb100000| Untracked 
+| 178|0x00000006cb200000, 0x00000006cb200000, 0x00000006cb300000|  0%| F|  |TAMS 0x00000006cb200000, 0x00000006cb200000| Untracked 
+| 179|0x00000006cb300000, 0x00000006cb300000, 0x00000006cb400000|  0%| F|  |TAMS 0x00000006cb300000, 0x00000006cb300000| Untracked 
+| 180|0x00000006cb400000, 0x00000006cb400000, 0x00000006cb500000|  0%| F|  |TAMS 0x00000006cb400000, 0x00000006cb400000| Untracked 
+| 181|0x00000006cb500000, 0x00000006cb500000, 0x00000006cb600000|  0%| F|  |TAMS 0x00000006cb500000, 0x00000006cb500000| Untracked 
+| 182|0x00000006cb600000, 0x00000006cb600000, 0x00000006cb700000|  0%| F|  |TAMS 0x00000006cb600000, 0x00000006cb600000| Untracked 
+| 183|0x00000006cb700000, 0x00000006cb700000, 0x00000006cb800000|  0%| F|  |TAMS 0x00000006cb700000, 0x00000006cb700000| Untracked 
+| 184|0x00000006cb800000, 0x00000006cb800000, 0x00000006cb900000|  0%| F|  |TAMS 0x00000006cb800000, 0x00000006cb800000| Untracked 
+| 185|0x00000006cb900000, 0x00000006cb900000, 0x00000006cba00000|  0%| F|  |TAMS 0x00000006cb900000, 0x00000006cb900000| Untracked 
+| 186|0x00000006cba00000, 0x00000006cba00000, 0x00000006cbb00000|  0%| F|  |TAMS 0x00000006cba00000, 0x00000006cba00000| Untracked 
+| 187|0x00000006cbb00000, 0x00000006cbb00000, 0x00000006cbc00000|  0%| F|  |TAMS 0x00000006cbb00000, 0x00000006cbb00000| Untracked 
+| 188|0x00000006cbc00000, 0x00000006cbc00000, 0x00000006cbd00000|  0%| F|  |TAMS 0x00000006cbc00000, 0x00000006cbc00000| Untracked 
+| 189|0x00000006cbd00000, 0x00000006cbd00000, 0x00000006cbe00000|  0%| F|  |TAMS 0x00000006cbd00000, 0x00000006cbd00000| Untracked 
+| 190|0x00000006cbe00000, 0x00000006cbe00000, 0x00000006cbf00000|  0%| F|  |TAMS 0x00000006cbe00000, 0x00000006cbe00000| Untracked 
+| 191|0x00000006cbf00000, 0x00000006cbf00000, 0x00000006cc000000|  0%| F|  |TAMS 0x00000006cbf00000, 0x00000006cbf00000| Untracked 
+| 192|0x00000006cc000000, 0x00000006cc000000, 0x00000006cc100000|  0%| F|  |TAMS 0x00000006cc000000, 0x00000006cc000000| Untracked 
+| 193|0x00000006cc100000, 0x00000006cc100000, 0x00000006cc200000|  0%| F|  |TAMS 0x00000006cc100000, 0x00000006cc100000| Untracked 
+| 194|0x00000006cc200000, 0x00000006cc200000, 0x00000006cc300000|  0%| F|  |TAMS 0x00000006cc200000, 0x00000006cc200000| Untracked 
+| 195|0x00000006cc300000, 0x00000006cc300000, 0x00000006cc400000|  0%| F|  |TAMS 0x00000006cc300000, 0x00000006cc300000| Untracked 
+| 196|0x00000006cc400000, 0x00000006cc400000, 0x00000006cc500000|  0%| F|  |TAMS 0x00000006cc400000, 0x00000006cc400000| Untracked 
+| 197|0x00000006cc500000, 0x00000006cc500000, 0x00000006cc600000|  0%| F|  |TAMS 0x00000006cc500000, 0x00000006cc500000| Untracked 
+| 198|0x00000006cc600000, 0x00000006cc600000, 0x00000006cc700000|  0%| F|  |TAMS 0x00000006cc600000, 0x00000006cc600000| Untracked 
+| 199|0x00000006cc700000, 0x00000006cc700000, 0x00000006cc800000|  0%| F|  |TAMS 0x00000006cc700000, 0x00000006cc700000| Untracked 
+| 200|0x00000006cc800000, 0x00000006cc800000, 0x00000006cc900000|  0%| F|  |TAMS 0x00000006cc800000, 0x00000006cc800000| Untracked 
+| 201|0x00000006cc900000, 0x00000006cc900000, 0x00000006cca00000|  0%| F|  |TAMS 0x00000006cc900000, 0x00000006cc900000| Untracked 
+| 202|0x00000006cca00000, 0x00000006cca00000, 0x00000006ccb00000|  0%| F|  |TAMS 0x00000006cca00000, 0x00000006cca00000| Untracked 
+| 203|0x00000006ccb00000, 0x00000006ccb00000, 0x00000006ccc00000|  0%| F|  |TAMS 0x00000006ccb00000, 0x00000006ccb00000| Untracked 
+| 204|0x00000006ccc00000, 0x00000006ccc00000, 0x00000006ccd00000|  0%| F|  |TAMS 0x00000006ccc00000, 0x00000006ccc00000| Untracked 
+| 205|0x00000006ccd00000, 0x00000006ccd00000, 0x00000006cce00000|  0%| F|  |TAMS 0x00000006ccd00000, 0x00000006ccd00000| Untracked 
+| 206|0x00000006cce00000, 0x00000006cce00000, 0x00000006ccf00000|  0%| F|  |TAMS 0x00000006cce00000, 0x00000006cce00000| Untracked 
+| 207|0x00000006ccf00000, 0x00000006ccf00000, 0x00000006cd000000|  0%| F|  |TAMS 0x00000006ccf00000, 0x00000006ccf00000| Untracked 
+| 208|0x00000006cd000000, 0x00000006cd000000, 0x00000006cd100000|  0%| F|  |TAMS 0x00000006cd000000, 0x00000006cd000000| Untracked 
+| 209|0x00000006cd100000, 0x00000006cd100000, 0x00000006cd200000|  0%| F|  |TAMS 0x00000006cd100000, 0x00000006cd100000| Untracked 
+| 210|0x00000006cd200000, 0x00000006cd200000, 0x00000006cd300000|  0%| F|  |TAMS 0x00000006cd200000, 0x00000006cd200000| Untracked 
+| 211|0x00000006cd300000, 0x00000006cd300000, 0x00000006cd400000|  0%| F|  |TAMS 0x00000006cd300000, 0x00000006cd300000| Untracked 
+| 212|0x00000006cd400000, 0x00000006cd400000, 0x00000006cd500000|  0%| F|  |TAMS 0x00000006cd400000, 0x00000006cd400000| Untracked 
+| 213|0x00000006cd500000, 0x00000006cd578138, 0x00000006cd600000| 46%| E|  |TAMS 0x00000006cd500000, 0x00000006cd500000| Complete 
+| 214|0x00000006cd600000, 0x00000006cd6caa18, 0x00000006cd700000| 79%| E|  |TAMS 0x00000006cd600000, 0x00000006cd600000| Complete 
+| 215|0x00000006cd700000, 0x00000006cd800000, 0x00000006cd800000|100%| E|CS|TAMS 0x00000006cd700000, 0x00000006cd700000| Complete 
+| 216|0x00000006cd800000, 0x00000006cd900000, 0x00000006cd900000|100%| E|CS|TAMS 0x00000006cd800000, 0x00000006cd800000| Complete 
+| 217|0x00000006cd900000, 0x00000006cda00000, 0x00000006cda00000|100%| E|CS|TAMS 0x00000006cd900000, 0x00000006cd900000| Complete 
+| 218|0x00000006cda00000, 0x00000006cdb00000, 0x00000006cdb00000|100%| E|CS|TAMS 0x00000006cda00000, 0x00000006cda00000| Complete 
+| 219|0x00000006cdb00000, 0x00000006cdc00000, 0x00000006cdc00000|100%| E|CS|TAMS 0x00000006cdb00000, 0x00000006cdb00000| Complete 
+| 220|0x00000006cdc00000, 0x00000006cdd00000, 0x00000006cdd00000|100%| E|CS|TAMS 0x00000006cdc00000, 0x00000006cdc00000| Complete 
+| 221|0x00000006cdd00000, 0x00000006cde00000, 0x00000006cde00000|100%| E|CS|TAMS 0x00000006cdd00000, 0x00000006cdd00000| Complete 
+| 222|0x00000006cde00000, 0x00000006cdf00000, 0x00000006cdf00000|100%| E|CS|TAMS 0x00000006cde00000, 0x00000006cde00000| Complete 
+| 223|0x00000006cdf00000, 0x00000006ce000000, 0x00000006ce000000|100%| E|CS|TAMS 0x00000006cdf00000, 0x00000006cdf00000| Complete 
+| 224|0x00000006ce000000, 0x00000006ce100000, 0x00000006ce100000|100%| E|CS|TAMS 0x00000006ce000000, 0x00000006ce000000| Complete 
+| 225|0x00000006ce100000, 0x00000006ce200000, 0x00000006ce200000|100%| E|CS|TAMS 0x00000006ce100000, 0x00000006ce100000| Complete 
+| 226|0x00000006ce200000, 0x00000006ce300000, 0x00000006ce300000|100%| E|CS|TAMS 0x00000006ce200000, 0x00000006ce200000| Complete 
+| 227|0x00000006ce300000, 0x00000006ce400000, 0x00000006ce400000|100%| E|CS|TAMS 0x00000006ce300000, 0x00000006ce300000| Complete 
+| 228|0x00000006ce400000, 0x00000006ce500000, 0x00000006ce500000|100%| E|CS|TAMS 0x00000006ce400000, 0x00000006ce400000| Complete 
+| 229|0x00000006ce500000, 0x00000006ce600000, 0x00000006ce600000|100%| E|CS|TAMS 0x00000006ce500000, 0x00000006ce500000| Complete 
+| 230|0x00000006ce600000, 0x00000006ce700000, 0x00000006ce700000|100%| E|CS|TAMS 0x00000006ce600000, 0x00000006ce600000| Complete 
+| 231|0x00000006ce700000, 0x00000006ce800000, 0x00000006ce800000|100%| E|CS|TAMS 0x00000006ce700000, 0x00000006ce700000| Complete 
+| 232|0x00000006ce800000, 0x00000006ce900000, 0x00000006ce900000|100%| E|CS|TAMS 0x00000006ce800000, 0x00000006ce800000| Complete 
+| 233|0x00000006ce900000, 0x00000006cea00000, 0x00000006cea00000|100%| E|CS|TAMS 0x00000006ce900000, 0x00000006ce900000| Complete 
+| 234|0x00000006cea00000, 0x00000006ceb00000, 0x00000006ceb00000|100%| E|CS|TAMS 0x00000006cea00000, 0x00000006cea00000| Complete 
+| 235|0x00000006ceb00000, 0x00000006cec00000, 0x00000006cec00000|100%| E|CS|TAMS 0x00000006ceb00000, 0x00000006ceb00000| Complete 
+| 236|0x00000006cec00000, 0x00000006ced00000, 0x00000006ced00000|100%| E|CS|TAMS 0x00000006cec00000, 0x00000006cec00000| Complete 
+| 237|0x00000006ced00000, 0x00000006cee00000, 0x00000006cee00000|100%| E|CS|TAMS 0x00000006ced00000, 0x00000006ced00000| Complete 
+| 238|0x00000006cee00000, 0x00000006cef00000, 0x00000006cef00000|100%| E|CS|TAMS 0x00000006cee00000, 0x00000006cee00000| Complete 
+| 239|0x00000006cef00000, 0x00000006cf000000, 0x00000006cf000000|100%| E|CS|TAMS 0x00000006cef00000, 0x00000006cef00000| Complete 
+| 240|0x00000006cf000000, 0x00000006cf100000, 0x00000006cf100000|100%| E|CS|TAMS 0x00000006cf000000, 0x00000006cf000000| Complete 
+| 241|0x00000006cf100000, 0x00000006cf200000, 0x00000006cf200000|100%| E|CS|TAMS 0x00000006cf100000, 0x00000006cf100000| Complete 
+| 242|0x00000006cf200000, 0x00000006cf300000, 0x00000006cf300000|100%| E|CS|TAMS 0x00000006cf200000, 0x00000006cf200000| Complete 
+| 243|0x00000006cf300000, 0x00000006cf400000, 0x00000006cf400000|100%| E|CS|TAMS 0x00000006cf300000, 0x00000006cf300000| Complete 
+| 244|0x00000006cf400000, 0x00000006cf500000, 0x00000006cf500000|100%| E|CS|TAMS 0x00000006cf400000, 0x00000006cf400000| Complete 
+| 245|0x00000006cf500000, 0x00000006cf600000, 0x00000006cf600000|100%| E|CS|TAMS 0x00000006cf500000, 0x00000006cf500000| Complete 
+| 246|0x00000006cf600000, 0x00000006cf700000, 0x00000006cf700000|100%| E|CS|TAMS 0x00000006cf600000, 0x00000006cf600000| Complete 
+| 247|0x00000006cf700000, 0x00000006cf800000, 0x00000006cf800000|100%| E|CS|TAMS 0x00000006cf700000, 0x00000006cf700000| Complete 
+| 248|0x00000006cf800000, 0x00000006cf900000, 0x00000006cf900000|100%| E|CS|TAMS 0x00000006cf800000, 0x00000006cf800000| Complete 
+| 249|0x00000006cf900000, 0x00000006cfa00000, 0x00000006cfa00000|100%| E|CS|TAMS 0x00000006cf900000, 0x00000006cf900000| Complete 
+| 250|0x00000006cfa00000, 0x00000006cfb00000, 0x00000006cfb00000|100%| E|CS|TAMS 0x00000006cfa00000, 0x00000006cfa00000| Complete 
+| 251|0x00000006cfb00000, 0x00000006cfc00000, 0x00000006cfc00000|100%| E|CS|TAMS 0x00000006cfb00000, 0x00000006cfb00000| Complete 
+| 252|0x00000006cfc00000, 0x00000006cfd00000, 0x00000006cfd00000|100%| E|CS|TAMS 0x00000006cfc00000, 0x00000006cfc00000| Complete 
+| 253|0x00000006cfd00000, 0x00000006cfe00000, 0x00000006cfe00000|100%| E|CS|TAMS 0x00000006cfd00000, 0x00000006cfd00000| Complete 
+| 254|0x00000006cfe00000, 0x00000006cff00000, 0x00000006cff00000|100%| E|CS|TAMS 0x00000006cfe00000, 0x00000006cfe00000| Complete 
+| 255|0x00000006cff00000, 0x00000006d0000000, 0x00000006d0000000|100%| E|CS|TAMS 0x00000006cff00000, 0x00000006cff00000| Complete 
+
+Card table byte_map: [0x000000010d55c000,0x000000010dd5c000] _byte_map_base: 0x0000000109f5c000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x0000000131049450, (CMBitMap*) 0x0000000131049418
+ Prev Bits: [0x000000011255c000, 0x000000011655c000)
+ Next Bits: [0x000000010e55c000, 0x000000011255c000)
+
+Polling page: 0x0000000100140000
+
+Metaspace:
+
+Usage:
+  Non-class:     19.11 MB capacity,    18.58 MB ( 97%) used,   443.79 KB (  2%) free+waste,    95.06 KB ( <1%) overhead. 
+      Class:      2.92 MB capacity,     2.54 MB ( 87%) used,   337.12 KB ( 11%) free+waste,    51.69 KB (  2%) overhead. 
+       Both:     22.03 MB capacity,    21.12 MB ( 96%) used,   780.91 KB (  3%) free+waste,   146.75 KB ( <1%) overhead. 
+
+Virtual space:
+  Non-class space:       20.00 MB reserved,      19.25 MB ( 96%) committed 
+      Class space:        1.00 GB reserved,       3.00 MB ( <1%) committed 
+             Both:        1.02 GB reserved,      22.25 MB (  2%) committed 
+
+Chunk freelists:
+   Non-Class:  0 bytes
+       Class:  0 bytes
+        Both:  0 bytes
+
+CodeHeap 'non-profiled nmethods': size=238384Kb used=4910Kb max_used=4910Kb free=233473Kb
+ bounds [0x0000000140734000, 0x0000000140c04000, 0x000000014f000000]
+CodeHeap 'non-nmethods': size=7376Kb used=1082Kb max_used=1082Kb free=6293Kb
+ bounds [0x0000000140000000, 0x0000000140270000, 0x0000000140734000]
+ total_blobs=3249 nmethods=2741 adapters=437
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (10 events):
+Event: 16.633 Thread 0x0000000131175800 2818       1       com.github.unidbg.AbstractEmulator::is32Bit (14 bytes)
+Event: 16.633 Thread 0x0000000131175800 nmethod 2818 0x0000000140bfdd90 code [0x0000000140bfdf00, 0x0000000140bfe050]
+Event: 16.649 Thread 0x0000000131175800 2819       1       com.github.unidbg.AbstractEmulator::getThreadDispatcher (5 bytes)
+Event: 16.649 Thread 0x0000000131175800 nmethod 2819 0x0000000140bfe110 code [0x0000000140bfe280, 0x0000000140bfe3d0]
+Event: 16.651 Thread 0x0000000131175800 2820       1       com.github.unidbg.spi.AbstractLoader::getStackPoint (5 bytes)
+Event: 16.651 Thread 0x0000000131175800 nmethod 2820 0x0000000140bfe490 code [0x0000000140bfe600, 0x0000000140bfe750]
+Event: 16.657 Thread 0x0000000131175800 2821       1       java.util.TreeMap::put (247 bytes)
+Event: 16.658 Thread 0x0000000131175800 nmethod 2821 0x0000000140bfe810 code [0x0000000140bfea80, 0x0000000140bff4f0]
+Event: 16.679 Thread 0x0000000131175800 2822       1       java.lang.Math::max (12 bytes)
+Event: 16.679 Thread 0x0000000131175800 nmethod 2822 0x0000000140bff890 code [0x0000000140bffa00, 0x0000000140bffb10]
+
+GC Heap History (4 events):
+Event: 0.233 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 262144K, used 23552K [0x00000006c0000000, 0x00000007c0000000)
+  region size 1024K, 24 young (24576K), 0 survivors (0K)
+ Metaspace       used 11929K, capacity 12447K, committed 12672K, reserved 1060864K
+  class space    used 1357K, capacity 1546K, committed 1664K, reserved 1048576K
+}
+Event: 0.234 GC heap after
+{Heap after GC invocations=1 (full 0):
+ garbage-first heap   total 262144K, used 3158K [0x00000006c0000000, 0x00000007c0000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 11929K, capacity 12447K, committed 12672K, reserved 1060864K
+  class space    used 1357K, capacity 1546K, committed 1664K, reserved 1048576K
+}
+Event: 1.826 GC heap before
+{Heap before GC invocations=1 (full 0):
+ garbage-first heap   total 262144K, used 119894K [0x00000006c0000000, 0x00000007c0000000)
+  region size 1024K, 115 young (117760K), 3 survivors (3072K)
+ Metaspace       used 20402K, capacity 21156K, committed 21248K, reserved 1067008K
+  class space    used 2394K, capacity 2727K, committed 2816K, reserved 1048576K
+}
+Event: 1.830 GC heap after
+{Heap after GC invocations=2 (full 0):
+ garbage-first heap   total 262144K, used 7014K [0x00000006c0000000, 0x00000007c0000000)
+  region size 1024K, 7 young (7168K), 7 survivors (7168K)
+ Metaspace       used 20402K, capacity 21156K, committed 21248K, reserved 1067008K
+  class space    used 2394K, capacity 2727K, committed 2816K, reserved 1048576K
+}
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 2.856 Thread 0x000000013100f000 Exception <a 'java/lang/NoSuchMethodError'{0x00000006cfbb04d0}: java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)I> (0x00000006cfbb04d0) thrown at [open/src/hotspot/share/
+Event: 2.856 Thread 0x000000013100f000 Exception <a 'java/lang/IncompatibleClassChangeError'{0x00000006cfbb94e0}: Found class java.lang.Object, but interface was expected> (0x00000006cfbb94e0) thrown at [open/src/hotspot/share/interpreter/linkResolver.cpp, line 838]
+Event: 2.856 Thread 0x000000013100f000 Exception <a 'java/lang/NoSuchMethodError'{0x00000006cfbbc7e8}: java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(Ljava/lang/Object;Ljava/lang/Object;)V> (0x00000006cfbbc7e8) thrown at [open/src/hotspot/share/interpreter/linkResolver.cpp, line 7
+Event: 3.024 Thread 0x000000013100f000 Exception <a 'java/lang/NoSuchMethodError'{0x00000006cf171858}: java.lang.invoke.Invokers$Holder.linkToTargetMethod(Ljava/lang/Object;ILjava/lang/Object;)Ljava/lang/Object;> (0x00000006cf171858) thrown at [open/src/hotspot/share/interpreter/linkResolver.c
+Event: 13.800 Thread 0x000000013100f000 Exception <a 'java/lang/NoSuchMethodError'{0x00000006ce882dd0}: java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lan
+Event: 13.801 Thread 0x000000013100f000 Exception <a 'java/lang/NoSuchMethodError'{0x00000006ce8915e8}: java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lan
+Event: 13.801 Thread 0x000000013100f000 Exception <a 'java/lang/NoSuchMethodError'{0x00000006ce89fa80}: java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(Ljava/lang/Object;Ljava/lang/Object;IIIIIII)Ljava/lang/Object;> (0x00000006ce89fa80) thrown at [open/src/hotspot/share/interpreter/lin
+Event: 13.801 Thread 0x000000013100f000 Exception <a 'java/lang/NoSuchMethodError'{0x00000006ce8a3610}: java.lang.invoke.DelegatingMethodHandle$Holder.reinvoke_L(Ljava/lang/Object;IIIIIII)Ljava/lang/Object;> (0x00000006ce8a3610) thrown at [open/src/hotspot/share/interpreter/linkResolver.cpp, li
+Event: 16.480 Thread 0x000000013100f000 Exception <a 'sun/nio/fs/UnixException'{0x00000006ce064ec8}> (0x00000006ce064ec8) thrown at [open/src/hotspot/share/prims/jni.cpp, line 611]
+Event: 16.485 Thread 0x000000013100f000 Exception <a 'sun/nio/fs/UnixException'{0x00000006ce06ac88}> (0x00000006ce06ac88) thrown at [open/src/hotspot/share/prims/jni.cpp, line 611]
+
+Events (10 events):
+Event: 16.461 Thread 0x000000013100f000 DEOPT PACKING pc=0x0000000140a76d34 sp=0x000000016ffd3100
+Event: 16.461 Thread 0x000000013100f000 DEOPT UNPACKING pc=0x0000000140022dfc sp=0x000000016ffd2eb0 mode 3
+Event: 16.461 loading class net/dongliu/apk/parser/parser/ApkSignBlockParser
+Event: 16.461 loading class net/dongliu/apk/parser/parser/ApkSignBlockParser done
+Event: 16.462 loading class net/dongliu/apk/parser/struct/signingv2/ApkSigningBlock
+Event: 16.462 loading class net/dongliu/apk/parser/struct/signingv2/ApkSigningBlock done
+Event: 16.477 Executing VM operation: RevokeBias
+Event: 16.477 Executing VM operation: RevokeBias done
+Event: 16.478 Executing VM operation: RevokeBias
+Event: 16.478 Executing VM operation: RevokeBias done
+
+
+Dynamic libraries:
+0x00000001000f0000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/jli/libjli.dylib
+0x00000001a48c9000 	/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+0x00000001895af000 	/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+0x000000018cbee000 	/System/Library/Frameworks/CoreData.framework/Versions/A/CoreData
+0x00000001869aa000 	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+0x0000000194f4c000 	/usr/lib/libSystem.B.dylib
+0x000000018acd2000 	/System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/UIFoundation
+0x000000023d962000 	/System/Library/PrivateFrameworks/CollectionViewCore.framework/Versions/A/CollectionViewCore
+0x00000001921f3000 	/System/Library/PrivateFrameworks/XCTTargetBootstrap.framework/Versions/A/XCTTargetBootstrap
+0x00000002501ba000 	/System/Library/PrivateFrameworks/GenerativeModels.framework/Versions/A/GenerativeModels
+0x00000001978e0000 	/System/Library/PrivateFrameworks/InternationalSupport.framework/Versions/A/InternationalSupport
+0x0000000197c3c000 	/System/Library/PrivateFrameworks/UserActivity.framework/Versions/A/UserActivity
+0x000000018d283000 	/System/Library/PrivateFrameworks/BaseBoard.framework/Versions/A/BaseBoard
+0x00000002473d0000 	/System/Library/PrivateFrameworks/FrontBoard.framework/Versions/A/FrontBoard
+0x000000019f60c000 	/System/Library/PrivateFrameworks/FrontBoardServices.framework/Versions/A/FrontBoardServices
+0x0000000288183000 	/usr/lib/libRosetta.dylib
+0x000000027b4a6000 	/System/Library/PrivateFrameworks/UIIntelligenceSupport.framework/Versions/A/UIIntelligenceSupport
+0x0000000231cf7000 	/System/Library/Frameworks/SwiftUICore.framework/Versions/A/SwiftUICore
+0x000000028203b000 	/System/Library/PrivateFrameworks/WritingTools.framework/Versions/A/WritingTools
+0x0000000280e36000 	/System/Library/PrivateFrameworks/WindowManagement.framework/Versions/A/WindowManagement
+0x0000000186619000 	/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration
+0x0000000196b4b000 	/usr/lib/libspindump.dylib
+0x000000018ae8b000 	/System/Library/Frameworks/UniformTypeIdentifiers.framework/Versions/A/UniformTypeIdentifiers
+0x00000001941a3000 	/usr/lib/libbsm.0.dylib
+0x000000018f985000 	/usr/lib/libapp_launch_measurement.dylib
+0x000000018ec8e000 	/System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics
+0x000000018f989000 	/System/Library/PrivateFrameworks/CoreAutoLayout.framework/Versions/A/CoreAutoLayout
+0x000000019176c000 	/System/Library/Frameworks/Metal.framework/Versions/A/Metal
+0x0000000192b2f000 	/usr/lib/liblangid.dylib
+0x00000001921f9000 	/System/Library/PrivateFrameworks/CoreSVG.framework/Versions/A/CoreSVG
+0x000000018b8e5000 	/System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight
+0x0000000247105000 	/System/Library/PrivateFrameworks/FocusEngine.framework/Versions/A/FocusEngine
+0x000000018be9c000 	/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics
+0x0000000244b11000 	/System/Library/PrivateFrameworks/DesignLibrary.framework/Versions/A/DesignLibrary
+0x000000019d898000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
+0x0000000196941000 	/System/Library/PrivateFrameworks/IconServices.framework/Versions/A/IconServices
+0x0000000191744000 	/System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface
+0x000000018ecbe000 	/usr/lib/libDiagnosticMessagesClient.dylib
+0x0000000194e96000 	/usr/lib/libz.1.dylib
+0x00000001a1ce6000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+0x00000001921de000 	/System/Library/PrivateFrameworks/DFRFoundation.framework/Versions/A/DFRFoundation
+0x0000000188dfe000 	/usr/lib/libicucore.A.dylib
+0x0000000198e67000 	/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox
+0x0000000197bea000 	/System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/DataDetectorsCore
+0x000000027c3ef000 	/System/Library/PrivateFrameworks/UpdateCycle.framework/Versions/A/UpdateCycle
+0x00000001b61ea000 	/System/Library/PrivateFrameworks/TextInput.framework/Versions/A/TextInput
+0x000000018b829000 	/usr/lib/libMobileGestalt.dylib
+0x0000000191ee2000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+0x000000018f1e8000 	/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+0x00000001889df000 	/System/Library/Frameworks/Security.framework/Versions/A/Security
+0x000000019d207000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition
+0x000000018f650000 	/System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/CoreUI
+0x0000000188249000 	/System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+0x000000018edb9000 	/System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration
+0x00000001970e9000 	/System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport
+0x000000018b827000 	/usr/lib/libenergytrace.dylib
+0x00000001a9559000 	/System/Library/PrivateFrameworks/RenderBox.framework/Versions/A/RenderBox
+0x0000000189456000 	/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+0x000000019d619000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+0x000000018f90c000 	/System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis
+0x000000022a5e4000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL
+0x000000018f9d2000 	/usr/lib/libxml2.2.dylib
+0x0000000194084000 	/System/Library/PrivateFrameworks/MobileKeyBag.framework/Versions/A/MobileKeyBag
+0x0000000184c98000 	/usr/lib/libobjc.A.dylib
+0x000000018500d000 	/usr/lib/libc++.1.dylib
+0x000000019d597000 	/System/Library/Frameworks/Accessibility.framework/Versions/A/Accessibility
+0x000000018c5f2000 	/System/Library/Frameworks/ColorSync.framework/Versions/A/ColorSync
+0x000000018513d000 	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+0x0000000192577000 	/System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage
+0x0000000188020000 	/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText
+0x000000022bfe4000 	/System/Library/Frameworks/CoreTransferable.framework/Versions/A/CoreTransferable
+0x000000022c4ff000 	/System/Library/Frameworks/DataDetection.framework/Versions/A/DataDetection
+0x000000022c516000 	/System/Library/Frameworks/DeveloperToolsSupport.framework/Versions/A/DeveloperToolsSupport
+0x0000000192237000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+0x0000000232c54000 	/System/Library/Frameworks/Symbols.framework/Versions/A/Symbols
+0x00000001bb565000 	/System/Library/PrivateFrameworks/AttributeGraph.framework/Versions/A/AttributeGraph
+0x000000019f6e6000 	/System/Library/PrivateFrameworks/BoardServices.framework/Versions/A/BoardServices
+0x00000001e075c000 	/System/Library/PrivateFrameworks/FeatureFlags.framework/Versions/A/FeatureFlags
+0x0000000250665000 	/System/Library/PrivateFrameworks/Gestures.framework/Versions/A/Gestures
+0x0000000194f50000 	/System/Library/PrivateFrameworks/SoftLinking.framework/Versions/A/SoftLinking
+0x00000001ca242000 	/usr/lib/swift/libswiftAccelerate.dylib
+0x00000001c03b9000 	/usr/lib/swift/libswiftCompression.dylib
+0x00000001987bc000 	/usr/lib/swift/libswiftCore.dylib
+0x00000001b240a000 	/usr/lib/swift/libswiftCoreFoundation.dylib
+0x00000001b246a000 	/usr/lib/swift/libswiftCoreImage.dylib
+0x000000019f385000 	/usr/lib/swift/libswiftDispatch.dylib
+0x00000001b246b000 	/usr/lib/swift/libswiftIOKit.dylib
+0x00000001c03ab000 	/usr/lib/swift/libswiftMetal.dylib
+0x00000001cfb70000 	/usr/lib/swift/libswiftOSLog.dylib
+0x00000001a235d000 	/usr/lib/swift/libswiftObjectiveC.dylib
+0x00000002898fc000 	/usr/lib/swift/libswiftObservation.dylib
+0x00000001c579f000 	/usr/lib/swift/libswiftQuartzCore.dylib
+0x00000002899be000 	/usr/lib/swift/libswiftSpatial.dylib
+0x0000000289a38000 	/usr/lib/swift/libswiftSynchronization.dylib
+0x00000001ca232000 	/usr/lib/swift/libswiftUniformTypeIdentifiers.dylib
+0x00000001b241d000 	/usr/lib/swift/libswiftXPC.dylib
+0x0000000289a7e000 	/usr/lib/swift/libswift_Builtin_float.dylib
+0x0000000289a7f000 	/usr/lib/swift/libswift_Concurrency.dylib
+0x00000001a2361000 	/usr/lib/swift/libswiftos.dylib
+0x00000001b5f5c000 	/usr/lib/swift/libswiftsimd.dylib
+0x0000000195174000 	/usr/lib/libcompression.dylib
+0x0000000197849000 	/System/Library/PrivateFrameworks/TextureIO.framework/Versions/A/TextureIO
+0x000000018c79a000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+0x00000001965cb000 	/usr/lib/libate.dylib
+0x0000000194f46000 	/usr/lib/system/libcache.dylib
+0x0000000194f01000 	/usr/lib/system/libcommonCrypto.dylib
+0x0000000194f2c000 	/usr/lib/system/libcompiler_rt.dylib
+0x0000000194f21000 	/usr/lib/system/libcopyfile.dylib
+0x0000000184e41000 	/usr/lib/system/libcorecrypto.dylib
+0x0000000184f41000 	/usr/lib/system/libdispatch.dylib
+0x0000000184ceb000 	/usr/lib/system/libdyld.dylib
+0x0000000194f3c000 	/usr/lib/system/libkeymgr.dylib
+0x0000000194ee4000 	/usr/lib/system/libmacho.dylib
+0x000000019417b000 	/usr/lib/system/libquarantine.dylib
+0x0000000194f39000 	/usr/lib/system/libremovefile.dylib
+0x000000018b8a9000 	/usr/lib/system/libsystem_asl.dylib
+0x0000000184dc7000 	/usr/lib/system/libsystem_blocks.dylib
+0x0000000184f8c000 	/usr/lib/system/libsystem_c.dylib
+0x0000000194f30000 	/usr/lib/system/libsystem_collections.dylib
+0x0000000192b1c000 	/usr/lib/system/libsystem_configuration.dylib
+0x000000019170b000 	/usr/lib/system/libsystem_containermanager.dylib
+0x000000019491a000 	/usr/lib/system/libsystem_coreservices.dylib
+0x00000001890d4000 	/usr/lib/system/libsystem_darwin.dylib
+0x0000000289da0000 	/usr/lib/system/libsystem_darwindirectory.dylib
+0x0000000194f3d000 	/usr/lib/system/libsystem_dnssd.dylib
+0x0000000289da4000 	/usr/lib/system/libsystem_eligibility.dylib
+0x0000000184f89000 	/usr/lib/system/libsystem_featureflags.dylib
+0x000000018510d000 	/usr/lib/system/libsystem_info.dylib
+0x0000000194ea5000 	/usr/lib/system/libsystem_m.dylib
+0x0000000184ef0000 	/usr/lib/system/libsystem_malloc.dylib
+0x000000018b80c000 	/usr/lib/system/libsystem_networkextension.dylib
+0x000000018953f000 	/usr/lib/system/libsystem_notify.dylib
+0x0000000192b21000 	/usr/lib/system/libsystem_sandbox.dylib
+0x0000000289dae000 	/usr/lib/system/libsystem_sanitizers.dylib
+0x0000000194f35000 	/usr/lib/system/libsystem_secinit.dylib
+0x00000001850b9000 	/usr/lib/system/libsystem_kernel.dylib
+0x0000000185104000 	/usr/lib/system/libsystem_platform.dylib
+0x00000001850f7000 	/usr/lib/system/libsystem_pthread.dylib
+0x000000018d467000 	/usr/lib/system/libsystem_symptoms.dylib
+0x0000000184e20000 	/usr/lib/system/libsystem_trace.dylib
+0x0000000289db6000 	/usr/lib/system/libsystem_trial.dylib
+0x0000000194f0f000 	/usr/lib/system/libunwind.dylib
+0x0000000184dcb000 	/usr/lib/system/libxpc.dylib
+0x000000018509e000 	/usr/lib/libc++abi.dylib
+0x0000000289609000 	/usr/lib/libswiftPrespecialized.dylib
+0x0000000194f4e000 	/usr/lib/libfakelink.dylib
+0x000000018b456000 	/System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+0x0000000194fa1000 	/usr/lib/libarchive.2.dylib
+0x000000019b2b3000 	/System/Library/Frameworks/Combine.framework/Versions/A/Combine
+0x000000023d987000 	/System/Library/PrivateFrameworks/CollectionsInternal.framework/Versions/A/CollectionsInternal
+0x0000000269886000 	/System/Library/PrivateFrameworks/ReflectionInternal.framework/Versions/A/ReflectionInternal
+0x000000026a7d9000 	/System/Library/PrivateFrameworks/RuntimeInternal.framework/Versions/A/RuntimeInternal
+0x00000001af2a2000 	/usr/lib/swift/libswiftDarwin.dylib
+0x0000000289a4c000 	/usr/lib/swift/libswiftSystem.dylib
+0x0000000289b0b000 	/usr/lib/swift/libswift_DarwinFoundation1.dylib
+0x0000000289baf000 	/usr/lib/swift/libswift_StringProcessing.dylib
+0x00000001893d6000 	/System/Library/PrivateFrameworks/CoreServicesInternal.framework/Versions/A/CoreServicesInternal
+0x0000000194f19000 	/usr/lib/liboah.dylib
+0x00000001a1791000 	/System/Library/PrivateFrameworks/DiskImages.framework/Versions/A/DiskImages
+0x00000001aed47000 	/System/Library/Frameworks/NetFS.framework/Versions/A/NetFS
+0x000000018f94e000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents
+0x00000001890de000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+0x000000018ed2d000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+0x0000000194921000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+0x0000000195099000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+0x000000018d3e1000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+0x000000018569c000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+0x000000019641f000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+0x000000018f95b000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList
+0x000000019512c000 	/usr/lib/libapple_nghttp2.dylib
+0x000000018cff8000 	/usr/lib/libsqlite3.dylib
+0x000000018d1e1000 	/System/Library/Frameworks/Accounts.framework/Versions/A/Accounts
+0x00000001a19d3000 	/System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport
+0x00000001b11ce000 	/System/Library/Frameworks/AVFoundation.framework/Versions/A/AVFoundation
+0x00000001994ee000 	/System/Library/Frameworks/GSS.framework/Versions/A/GSS
+0x000000018d375000 	/System/Library/PrivateFrameworks/RunningBoardServices.framework/Versions/A/RunningBoardServices
+0x00000001a22e5000 	/System/Library/PrivateFrameworks/StreamingZip.framework/Versions/A/StreamingZip
+0x000000018d470000 	/System/Library/Frameworks/Network.framework/Versions/A/Network
+0x0000000194ee8000 	/usr/lib/system/libkxld.dylib
+0x0000000238f67000 	/System/Library/PrivateFrameworks/AppleKeyStore.framework/Versions/A/AppleKeyStore
+0x0000000287e85000 	/usr/lib/libCoreEntitlements.dylib
+0x000000025df69000 	/System/Library/PrivateFrameworks/MessageSecurity.framework/Versions/A/MessageSecurity
+0x000000018cfdc000 	/System/Library/PrivateFrameworks/ProtocolBuffer.framework/Versions/A/ProtocolBuffer
+0x000000019e794000 	/System/Library/PrivateFrameworks/SymptomDiagnosticReporter.framework/Versions/A/SymptomDiagnosticReporter
+0x0000000196664000 	/System/Library/PrivateFrameworks/CrashReporterSupport.framework/Versions/A/CrashReporterSupport
+0x0000000194901000 	/System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression
+0x000000019418b000 	/usr/lib/libcoretls.dylib
+0x0000000196495000 	/usr/lib/libcoretls_cfhelpers.dylib
+0x000000019516e000 	/usr/lib/libpam.2.dylib
+0x000000019650b000 	/usr/lib/libxar.1.dylib
+0x0000000196497000 	/System/Library/PrivateFrameworks/APFS.framework/Versions/A/APFS
+0x0000000275f06000 	/System/Library/PrivateFrameworks/SwiftASN1Internal.framework/Versions/A/SwiftASN1Internal
+0x000000019651a000 	/usr/lib/libutil.dylib
+0x0000000192b2a000 	/System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo
+0x0000000193e52000 	/System/Library/PrivateFrameworks/IOMobileFramebuffer.framework/Versions/A/IOMobileFramebuffer
+0x00000001a10f1000 	/System/Library/PrivateFrameworks/CoreWiFi.framework/Versions/A/CoreWiFi
+0x00000001b22cc000 	/System/Library/PrivateFrameworks/LoggingSupport.framework/Versions/A/LoggingSupport
+0x0000000199551000 	/System/Library/PrivateFrameworks/MobileAsset.framework/Versions/A/MobileAsset
+0x000000019e7a4000 	/System/Library/PrivateFrameworks/PowerLog.framework/Versions/A/PowerLog
+0x000000019fc66000 	/System/Library/PrivateFrameworks/Rapport.framework/Versions/A/Rapport
+0x0000000231b8a000 	/System/Library/Frameworks/SwiftData.framework/Versions/A/SwiftData
+0x000000018fb7b000 	/System/Library/PrivateFrameworks/UserManagement.framework/Versions/A/UserManagement
+0x000000018b37d000 	/usr/lib/libboringssl.dylib
+0x000000018d455000 	/usr/lib/libdns_services.dylib
+0x00000001b1302000 	/usr/lib/libquic.dylib
+0x000000019874d000 	/usr/lib/libusrtcp.dylib
+0x0000000239e20000 	/System/Library/PrivateFrameworks/AtomicsInternal.framework/Versions/A/AtomicsInternal
+0x00000001d8593000 	/System/Library/PrivateFrameworks/InternalSwiftProtobuf.framework/Versions/A/InternalSwiftProtobuf
+0x00000002898d3000 	/usr/lib/swift/libswiftDistributed.dylib
+0x0000000192b28000 	/System/Library/PrivateFrameworks/AggregateDictionary.framework/Versions/A/AggregateDictionary
+0x000000023a64e000 	/System/Library/PrivateFrameworks/BiomeLibrary.framework/Versions/A/BiomeLibrary
+0x00000001c1416000 	/System/Library/PrivateFrameworks/BiomeStreams.framework/Versions/A/BiomeStreams
+0x00000001bd47c000 	/System/Library/PrivateFrameworks/BiomeFoundation.framework/Versions/A/BiomeFoundation
+0x00000001c7698000 	/System/Library/PrivateFrameworks/BiomePubSub.framework/Versions/A/BiomePubSub
+0x00000001a32c8000 	/System/Library/PrivateFrameworks/ProactiveSupport.framework/Versions/A/ProactiveSupport
+0x0000000233be5000 	/System/Library/Frameworks/_LocationEssentials.framework/Versions/A/_LocationEssentials
+0x0000000196476000 	/usr/lib/liblzma.5.dylib
+0x00000001a1ce7000 	/System/Library/PrivateFrameworks/InternationalTextSearch.framework/Versions/A/InternationalTextSearch
+0x00000001b9958000 	/System/Library/PrivateFrameworks/SoftwareUpdateCoreSupport.framework/Versions/A/SoftwareUpdateCoreSupport
+0x00000001c1eb4000 	/System/Library/PrivateFrameworks/SoftwareUpdateCoreConnect.framework/Versions/A/SoftwareUpdateCoreConnect
+0x00000001a188b000 	/System/Library/PrivateFrameworks/RemoteServiceDiscovery.framework/Versions/A/RemoteServiceDiscovery
+0x00000001b9530000 	/System/Library/PrivateFrameworks/MSUDataAccessor.framework/Versions/A/MSUDataAccessor
+0x00000001b4498000 	/usr/lib/libbootpolicy.dylib
+0x00000001a18a2000 	/System/Library/PrivateFrameworks/RemoteXPC.framework/Versions/A/RemoteXPC
+0x00000001c12ea000 	/usr/lib/libFDR.dylib
+0x00000001c729a000 	/usr/lib/libamsupport.dylib
+0x000000028817b000 	/usr/lib/libReverseProxyDevice.dylib
+0x00000002387d7000 	/System/Library/PrivateFrameworks/AppleDeviceQuerySupport.framework/Versions/A/AppleDeviceQuerySupport
+0x00000001ca45c000 	/usr/lib/libpartition2_dynamic.dylib
+0x0000000195108000 	/System/Library/PrivateFrameworks/AppleSauce.framework/Versions/A/AppleSauce
+0x0000000287d30000 	/usr/lib/libAppleArchive.dylib
+0x000000019490d000 	/usr/lib/libbz2.1.0.dylib
+0x000000018edc3000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+0x000000019d5f4000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+0x0000000196551000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+0x0000000185ba0000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+0x000000018fab9000 	/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+0x0000000199105000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+0x00000001977d6000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+0x00000001994b7000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+0x00000001994b2000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSyncLegacy.framework/Versions/A/ColorSyncLegacy
+0x00000001990d7000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+0x0000000191c12000 	/System/Library/PrivateFrameworks/FontServices.framework/libFontParser.dylib
+0x00000001a15b3000 	/System/Library/PrivateFrameworks/BackBoardServices.framework/Versions/A/BackBoardServices
+0x000000023a553000 	/System/Library/PrivateFrameworks/BackBoardHIDEventFoundation.framework/Versions/A/BackBoardHIDEventFoundation
+0x0000000187b3c000 	/System/Library/Frameworks/CoreDisplay.framework/Versions/A/CoreDisplay
+0x000000019712f000 	/System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox
+0x000000019516c000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/MetalPerformanceShaders
+0x0000000268790000 	/System/Library/PrivateFrameworks/ProDisplayLibrary.framework/Versions/A/ProDisplayLibrary
+0x00000001a53e4000 	/System/Library/PrivateFrameworks/IOSurfaceAccelerator.framework/Versions/A/IOSurfaceAccelerator
+0x0000000191761000 	/System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator
+0x0000000191a70000 	/System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia
+0x000000018b8c1000 	/System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC
+0x00000001970e7000 	/System/Library/PrivateFrameworks/WatchdogClient.framework/Versions/A/WatchdogClient
+0x00000001b23ea000 	/usr/lib/swift/libswiftCoreAudio.dylib
+0x00000001ce3bd000 	/usr/lib/swift/libswiftCoreMedia.dylib
+0x0000000289a66000 	/usr/lib/swift/libswiftVideoToolbox.dylib
+0x00000001c76f9000 	/System/Library/PrivateFrameworks/BiomeStorage.framework/Versions/A/BiomeStorage
+0x0000000256cad000 	/System/Library/PrivateFrameworks/IntelligencePlatformLibrary.framework/Versions/A/IntelligencePlatformLibrary
+0x0000000267554000 	/System/Library/PrivateFrameworks/PoirotSchematizer.framework/Versions/A/PoirotSchematizer
+0x000000023af01000 	/System/Library/PrivateFrameworks/BiomeSync.framework/Versions/A/BiomeSync
+0x000000023a634000 	/System/Library/PrivateFrameworks/BiomeDSL.framework/Versions/A/BiomeDSL
+0x00000002675c2000 	/System/Library/PrivateFrameworks/PoirotUDFs.framework/Versions/A/PoirotUDFs
+0x0000000289b0e000 	/usr/lib/swift/libswift_DarwinFoundation2.dylib
+0x0000000289b0f000 	/usr/lib/swift/libswift_DarwinFoundation3.dylib
+0x000000019fc5b000 	/System/Library/PrivateFrameworks/CoreTime.framework/Versions/A/CoreTime
+0x0000000194f86000 	/usr/lib/libiconv.2.dylib
+0x0000000194ee3000 	/usr/lib/libcharset.1.dylib
+0x0000000267517000 	/System/Library/PrivateFrameworks/PoirotSQLite.framework/Versions/A/PoirotSQLite
+0x0000000289b10000 	/usr/lib/swift/libswift_RegexParser.dylib
+0x000000023c537000 	/System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/CascadeSets
+0x00000001996c8000 	/System/Library/PrivateFrameworks/CorePhoneNumbers.framework/Versions/A/CorePhoneNumbers
+0x0000000196ee1000 	/System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG
+0x00000001968bb000 	/usr/lib/libexpat.1.dylib
+0x00000001976ac000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib
+0x00000001976d7000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib
+0x00000001977bf000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib
+0x0000000196f26000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib
+0x0000000197766000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib
+0x000000019775d000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib
+0x000000024c964000 	/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libllvm-flatbuffers.dylib
+0x00000002473c3000 	/System/Library/PrivateFrameworks/FramePacing.framework/Versions/A/FramePacing
+0x000000022a5d6000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreFSCache.dylib
+0x00000002484f1000 	/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libGPUCompilerUtils.dylib
+0x000000019f7b3000 	/System/Library/PrivateFrameworks/GraphicsServices.framework/Versions/A/GraphicsServices
+0x000000022a635000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+0x000000022a5f8000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib
+0x000000022a7c5000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+0x000000022a601000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib
+0x000000022a5f5000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib
+0x000000022a5de000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib
+0x0000000197758000 	/System/Library/PrivateFrameworks/GPUWrangler.framework/Versions/A/GPUWrangler
+0x0000000197738000 	/System/Library/PrivateFrameworks/IOPresentment.framework/Versions/A/IOPresentment
+0x0000000197760000 	/System/Library/PrivateFrameworks/DSExternalDisplay.framework/Versions/A/DSExternalDisplay
+0x000000027dac9000 	/System/Library/PrivateFrameworks/VideoToolboxParavirtualizationSupport.framework/Versions/A/VideoToolboxParavirtualizationSupport
+0x0000000196872000 	/System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA
+0x000000022c660000 	/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation
+0x00000001977c5000 	/System/Library/PrivateFrameworks/CMCaptureCore.framework/Versions/A/CMCaptureCore
+0x0000000196b3e000 	/System/Library/PrivateFrameworks/AppServerSupport.framework/Versions/A/AppServerSupport
+0x00000001994c0000 	/System/Library/PrivateFrameworks/perfdata.framework/Versions/A/perfdata
+0x0000000187c5d000 	/System/Library/PrivateFrameworks/AudioToolboxCore.framework/Versions/A/AudioToolboxCore
+0x0000000191a46000 	/System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+0x00000001990bd000 	/usr/lib/libAudioStatistics.dylib
+0x00000001b13f7000 	/System/Library/PrivateFrameworks/SystemPolicy.framework/Versions/A/SystemPolicy
+0x0000000199365000 	/usr/lib/libSMC.dylib
+0x00000001b8d44000 	/usr/lib/swift/libswiftCoreMIDI.dylib
+0x00000001a46d6000 	/System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI
+0x0000000197686000 	/usr/lib/libAudioToolboxUtility.dylib
+0x00000001994ce000 	/usr/lib/libperfcheck.dylib
+0x0000000239eef000 	/System/Library/PrivateFrameworks/AudioAnalytics.framework/Versions/A/AudioAnalytics
+0x00000001d8281000 	/System/Library/Frameworks/OSLog.framework/Versions/A/OSLog
+0x0000000262fca000 	/System/Library/PrivateFrameworks/OSEligibility.framework/Versions/A/OSEligibility
+0x000000022da44000 	/System/Library/Frameworks/LightweightCodeRequirements.framework/Versions/A/LightweightCodeRequirements
+0x00000001967bb000 	/System/Library/PrivateFrameworks/PlugInKit.framework/Versions/A/PlugInKit
+0x000000019409c000 	/System/Library/PrivateFrameworks/AssertionServices.framework/Versions/A/AssertionServices
+0x00000001968e0000 	/System/Library/PrivateFrameworks/IconFoundation.framework/Versions/A/IconFoundation
+0x000000025383b000 	/System/Library/PrivateFrameworks/IconRendering.framework/Versions/A/IconRendering
+0x000000026a9a5000 	/System/Library/PrivateFrameworks/SFSymbols.framework/Versions/A/SFSymbols
+0x0000000196aee000 	/System/Library/PrivateFrameworks/GraphVisualizer.framework/Versions/A/GraphVisualizer
+0x00000002472ce000 	/System/Library/PrivateFrameworks/FontServices.framework/Versions/A/FontServices
+0x0000000196afe000 	/System/Library/PrivateFrameworks/OTSVG.framework/Versions/A/OTSVG
+0x000000018f5fe000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib
+0x0000000288c43000 	/usr/lib/libhvf.dylib
+0x0000000263c56000 	/System/Library/PrivateFrameworks/ParsingInternal.framework/Versions/A/ParsingInternal
+0x00000002472d2000 	/System/Library/PrivateFrameworks/FontServices.framework/libXTFontStaticRegistryData.dylib
+0x0000000192a62000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework/Versions/A/MPSCore
+0x000000019486c000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSImage.framework/Versions/A/MPSImage
+0x000000019422b000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNeuralNetwork.framework/Versions/A/MPSNeuralNetwork
+0x000000019466a000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSMatrix.framework/Versions/A/MPSMatrix
+0x0000000194482000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSRayIntersector.framework/Versions/A/MPSRayIntersector
+0x000000019469c000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNDArray.framework/Versions/A/MPSNDArray
+0x000000022e8c9000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSFunctions.framework/Versions/A/MPSFunctions
+0x000000022e8aa000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSBenchmarkLoop.framework/Versions/A/MPSBenchmarkLoop
+0x000000022e8dd000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSHost.framework/Versions/A/MPSHost
+0x00000001859b7000 	/System/Library/PrivateFrameworks/MetalTools.framework/Versions/A/MetalTools
+0x00000001b7681000 	/System/Library/PrivateFrameworks/IOAccelMemoryInfo.framework/Versions/A/IOAccelMemoryInfo
+0x00000001c5b92000 	/System/Library/PrivateFrameworks/kperf.framework/Versions/A/kperf
+0x00000001b23e6000 	/System/Library/PrivateFrameworks/GPURawCounter.framework/Versions/A/GPURawCounter
+0x00000001a3453000 	/System/Library/PrivateFrameworks/ASEProcessing.framework/Versions/A/ASEProcessing
+0x00000001d3c3f000 	/System/Library/PrivateFrameworks/Symbolication.framework/Versions/A/Symbolication
+0x0000000267103000 	/System/Library/PrivateFrameworks/PhotosensitivityProcessing.framework/Versions/A/PhotosensitivityProcessing
+0x000000026aa2b000 	/System/Library/PrivateFrameworks/SILManager.framework/Versions/A/SILManager
+0x000000019fafe000 	/System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication
+0x00000001b235b000 	/System/Library/PrivateFrameworks/MallocStackLogging.framework/Versions/A/MallocStackLogging
+0x000000019fadc000 	/System/Library/PrivateFrameworks/DebugSymbols.framework/Versions/A/DebugSymbols
+0x00000001c4305000 	/System/Library/PrivateFrameworks/OSAnalytics.framework/Versions/A/OSAnalytics
+0x0000000245030000 	/System/Library/PrivateFrameworks/DeviceRecovery.framework/Versions/A/DeviceRecovery
+0x0000000279359000 	/System/Library/PrivateFrameworks/Tightbeam.framework/Versions/A/Tightbeam
+0x00000001ca9c9000 	/System/Library/PrivateFrameworks/AFKUser.framework/Versions/A/AFKUser
+0x0000000194cda000 	/System/Library/Frameworks/UserNotifications.framework/Versions/A/UserNotifications
+0x00000001b7e16000 	/System/Library/PrivateFrameworks/SiriInstrumentation.framework/Versions/A/SiriInstrumentation
+0x000000026ce86000 	/System/Library/PrivateFrameworks/SiriAnalytics.framework/Versions/A/SiriAnalytics
+0x00000001b557e000 	/System/Library/PrivateFrameworks/FeedbackLogger.framework/Versions/A/FeedbackLogger
+0x00000001cfe09000 	/usr/lib/swift/libswiftAVFoundation.dylib
+0x000000027bb81000 	/System/Library/PrivateFrameworks/UnifiedAssetFramework.framework/Versions/A/UnifiedAssetFramework
+0x000000019903c000 	/System/Library/PrivateFrameworks/AudioSession.framework/Versions/A/AudioSession
+0x00000001969ff000 	/System/Library/PrivateFrameworks/MediaExperience.framework/Versions/A/MediaExperience
+0x0000000198e11000 	/System/Library/PrivateFrameworks/AudioSession.framework/libSessionUtility.dylib
+0x000000019e689000 	/System/Library/Frameworks/CoreBluetooth.framework/Versions/A/CoreBluetooth
+0x0000000193f0f000 	/System/Library/PrivateFrameworks/CoreUtils.framework/Versions/A/CoreUtils
+0x00000001aa28c000 	/System/Library/PrivateFrameworks/HID.framework/Versions/A/HID
+0x0000000243f49000 	/System/Library/PrivateFrameworks/CoreUtilsExtras.framework/Versions/A/CoreUtilsExtras
+0x0000000253790000 	/System/Library/PrivateFrameworks/IO80211.framework/Versions/A/IO80211
+0x000000019afff000 	/System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
+0x000000028991b000 	/usr/lib/swift/libswiftRegexBuilder.dylib
+0x000000019665b000 	/usr/lib/libIOReport.dylib
+0x00000001e07e0000 	/System/Library/PrivateFrameworks/WiFiPeerToPeer.framework/Versions/A/WiFiPeerToPeer
+0x00000001940ab000 	/System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation
+0x000000023c5eb000 	/System/Library/PrivateFrameworks/Centauri.framework/Versions/A/Centauri
+0x000000018639b000 	/System/Library/PrivateFrameworks/Lexicon.framework/Versions/A/Lexicon
+0x0000000289093000 	/usr/lib/libmrc.dylib
+0x00000002537fb000 	/System/Library/PrivateFrameworks/IPConfiguration.framework/Versions/A/IPConfiguration
+0x00000001d4416000 	/System/Library/PrivateFrameworks/Netrb.framework/Versions/A/Netrb
+0x0000000194214000 	/usr/lib/libgermantok.dylib
+0x0000000192c51000 	/System/Library/PrivateFrameworks/LinguisticData.framework/Versions/A/LinguisticData
+0x000000019e892000 	/System/Library/PrivateFrameworks/MediaKit.framework/Versions/A/MediaKit
+0x000000019e7e0000 	/System/Library/Frameworks/DiscRecording.framework/Versions/A/DiscRecording
+0x00000001968d6000 	/usr/lib/libheimdal-asn1.dylib
+0x00000001a22bb000 	/System/Library/Frameworks/AudioUnit.framework/Versions/A/AudioUnit
+0x000000018f916000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory
+0x000000018f924000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory
+0x000000019b3a7000 	/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/GeoServices
+0x0000000198dd7000 	/System/Library/PrivateFrameworks/LocationSupport.framework/Versions/A/LocationSupport
+0x00000002504b7000 	/System/Library/PrivateFrameworks/GeoServicesCore.framework/Versions/A/GeoServicesCore
+0x00000001ab190000 	/System/Library/PrivateFrameworks/PhoneNumbers.framework/Versions/A/PhoneNumbers
+0x0000000258c3f000 	/System/Library/PrivateFrameworks/LocationLogEncryption.framework/Versions/A/LocationLogEncryption
+0x000000022ab51000 	/System/Library/Frameworks/AVFAudio.framework/Versions/A/AVFAudio
+0x000000022ac95000 	/System/Library/Frameworks/AVRouting.framework/Versions/A/AVRouting
+0x00000001ab2a8000 	/usr/lib/libAccessibility.dylib
+0x0000000257629000 	/System/Library/PrivateFrameworks/IsolatedCoreAudioClient.framework/Versions/A/IsolatedCoreAudioClient
+0x000000023fd81000 	/System/Library/PrivateFrameworks/CoreAudioOrchestration.framework/Versions/A/CoreAudioOrchestration
+0x0000000197cad000 	/System/Library/Frameworks/MediaToolbox.framework/Versions/A/MediaToolbox
+0x000000019e9b8000 	/System/Library/PrivateFrameworks/CoreAVCHD.framework/Versions/A/CoreAVCHD
+0x000000019d8e7000 	/System/Library/Frameworks/MediaAccessibility.framework/Versions/A/MediaAccessibility
+0x000000019e9b4000 	/System/Library/PrivateFrameworks/Mangrove.framework/Versions/A/Mangrove
+0x000000023bc27000 	/System/Library/PrivateFrameworks/CMPhoto.framework/Versions/A/CMPhoto
+0x000000019f181000 	/System/Library/Frameworks/CoreTelephony.framework/Versions/A/CoreTelephony
+0x000000019e9a7000 	/System/Library/PrivateFrameworks/CoreAUC.framework/Versions/A/CoreAUC
+0x0000000238d98000 	/System/Library/PrivateFrameworks/AppleJPEGXL.framework/Versions/A/AppleJPEGXL
+0x00000001996d8000 	/usr/lib/libTelephonyUtilDynamic.dylib
+0x00000001db372000 	/System/Library/Frameworks/CryptoKit.framework/Versions/A/CryptoKit
+0x00000001a22b6000 	/System/Library/PrivateFrameworks/CryptoKitCBridging.framework/Versions/A/CryptoKitCBridging
+0x000000019f7c5000 	/System/Library/Frameworks/CryptoTokenKit.framework/Versions/A/CryptoTokenKit
+0x0000000244aa1000 	/System/Library/PrivateFrameworks/Dendrite.framework/Versions/A/Dendrite
+0x00000001b1f8e000 	/System/Library/Frameworks/NaturalLanguage.framework/Versions/A/NaturalLanguage
+0x00000001e0768000 	/usr/lib/swift/libswiftNaturalLanguage.dylib
+0x000000023990e000 	/System/Library/PrivateFrameworks/AppleMobileFileIntegrity.framework/Versions/A/AppleMobileFileIntegrity
+0x00000002881f2000 	/usr/lib/libTLE.dylib
+0x00000001b238d000 	/usr/lib/libmis.dylib
+0x00000001e9e6f000 	/System/Library/PrivateFrameworks/ConfigProfileHelper.framework/Versions/A/ConfigProfileHelper
+0x00000001a2445000 	/System/Library/PrivateFrameworks/Espresso.framework/Versions/A/Espresso
+0x00000001900a5000 	/System/Library/Frameworks/CoreML.framework/Versions/A/CoreML
+0x00000001de625000 	/usr/lib/libedit.3.dylib
+0x0000000227960000 	/System/Library/PrivateFrameworks/ANECompiler.framework/Versions/A/ANECompiler
+0x00000001a451a000 	/System/Library/PrivateFrameworks/AppleNeuralEngine.framework/Versions/A/AppleNeuralEngine
+0x0000000258d5d000 	/System/Library/PrivateFrameworks/MIL.framework/Versions/A/MIL
+0x000000022e8e3000 	/System/Library/Frameworks/MetalPerformanceShadersGraph.framework/Versions/A/MetalPerformanceShadersGraph
+0x00000002594cc000 	/System/Library/PrivateFrameworks/MLCompilerServices.framework/Versions/A/MLCompilerServices
+0x00000001a3297000 	/System/Library/PrivateFrameworks/ANEServices.framework/Versions/A/ANEServices
+0x00000001b7644000 	/usr/lib/libncurses.5.4.dylib
+0x0000000189552000 	/usr/lib/libsandbox.1.dylib
+0x00000001967fc000 	/usr/lib/libMatch.1.dylib
+0x0000000262d4c000 	/System/Library/PrivateFrameworks/ODIE.framework/Versions/A/ODIE
+0x000000025c159000 	/System/Library/PrivateFrameworks/MLModelAsset.framework/Versions/A/MLModelAsset
+0x0000000259472000 	/System/Library/PrivateFrameworks/MLCompilerRuntime.framework/Versions/A/MLCompilerRuntime
+0x00000001944d7000 	/System/Library/Frameworks/MLCompute.framework/Versions/A/MLCompute
+0x00000002593f4000 	/System/Library/PrivateFrameworks/MLAssetIO.framework/Versions/A/MLAssetIO
+0x00000002898ed000 	/usr/lib/swift/libswiftMLCompute.dylib
+0x000000019f39c000 	/System/Library/PrivateFrameworks/AVFCore.framework/Versions/A/AVFCore
+0x00000001a8baa000 	/System/Library/PrivateFrameworks/AVFCapture.framework/Versions/A/AVFCapture
+0x000000023ba1e000 	/System/Library/PrivateFrameworks/CMImaging.framework/Versions/A/CMImaging
+0x00000001a8dec000 	/System/Library/PrivateFrameworks/Quagga.framework/Versions/A/Quagga
+0x00000001a8f1d000 	/System/Library/PrivateFrameworks/CMCapture.framework/Versions/A/CMCapture
+0x0000000199262000 	/System/Library/Frameworks/CoreMediaIO.framework/Versions/A/CoreMediaIO
+0x000000023b959000 	/System/Library/PrivateFrameworks/CMCaptureDevice.framework/Versions/A/CMCaptureDevice
+0x0000000196c37000 	/System/Library/PrivateFrameworks/CoreBrightness.framework/Versions/A/CoreBrightness
+0x000000023cae2000 	/System/Library/PrivateFrameworks/CinematicFraming.framework/Versions/A/CinematicFraming
+0x000000025f234000 	/System/Library/PrivateFrameworks/ModelManagerServices.framework/Versions/A/ModelManagerServices
+0x00000001cce73000 	/System/Library/PrivateFrameworks/CPMS.framework/Versions/A/CPMS
+0x0000000276a81000 	/System/Library/PrivateFrameworks/SystemStatus.framework/Versions/A/SystemStatus
+0x00000001b0dcc000 	/System/Library/Frameworks/CoreMotion.framework/Versions/A/CoreMotion
+0x00000001c1395000 	/System/Library/PrivateFrameworks/TimeSync.framework/Versions/A/TimeSync
+0x0000000245467000 	/System/Library/PrivateFrameworks/DistributedSensing.framework/Versions/A/DistributedSensing
+0x00000001bc78c000 	/System/Library/PrivateFrameworks/MobileBluetooth.framework/Versions/A/MobileBluetooth
+0x00000001c3052000 	/System/Library/PrivateFrameworks/IOKitten.framework/Versions/A/IOKitten
+0x0000000238c12000 	/System/Library/PrivateFrameworks/AppleIntelligenceReporting.framework/Versions/A/AppleIntelligenceReporting
+0x0000000193e1e000 	/System/Library/PrivateFrameworks/CoreEmoji.framework/Versions/A/CoreEmoji
+0x00000001866ad000 	/usr/lib/libCRFSuite.dylib
+0x000000018798d000 	/System/Library/PrivateFrameworks/LanguageModeling.framework/Versions/A/LanguageModeling
+0x0000000192b31000 	/System/Library/PrivateFrameworks/CoreNLP.framework/Versions/A/CoreNLP
+0x000000018c903000 	/System/Library/PrivateFrameworks/Montreal.framework/Versions/A/Montreal
+0x0000000194f8e000 	/usr/lib/libcmph.dylib
+0x00000001941b5000 	/usr/lib/libmecab.dylib
+0x00000001950ff000 	/usr/lib/libThaiTokenizer.dylib
+0x000000025029c000 	/System/Library/PrivateFrameworks/GenerativeModelsFoundation.framework/Versions/A/GenerativeModelsFoundation
+0x000000027985e000 	/System/Library/PrivateFrameworks/TokenGeneration.framework/Versions/A/TokenGeneration
+0x0000000250070000 	/System/Library/PrivateFrameworks/GenerativeFunctions.framework/Versions/A/GenerativeFunctions
+0x00000002500be000 	/System/Library/PrivateFrameworks/GenerativeFunctionsFoundation.framework/Versions/A/GenerativeFunctionsFoundation
+0x000000025eefa000 	/System/Library/PrivateFrameworks/ModelCatalog.framework/Versions/A/ModelCatalog
+0x000000026c0a0000 	/System/Library/PrivateFrameworks/SensitiveContentAnalysisML.framework/Versions/A/SensitiveContentAnalysisML
+0x0000000250154000 	/System/Library/PrivateFrameworks/GenerativeFunctionsInstrumentation.framework/Versions/A/GenerativeFunctionsInstrumentation
+0x0000000268f18000 	/System/Library/PrivateFrameworks/PromptKit.framework/Versions/A/PromptKit
+0x000000026892f000 	/System/Library/PrivateFrameworks/ProactiveDaemonSupport.framework/Versions/A/ProactiveDaemonSupport
+0x0000000279a96000 	/System/Library/PrivateFrameworks/TokenGenerationCore.framework/Versions/A/TokenGenerationCore
+0x00000001b2e59000 	/System/Library/PrivateFrameworks/Trial.framework/Versions/A/Trial
+0x00000001b2dda000 	/System/Library/PrivateFrameworks/TrialProto.framework/Versions/A/TrialProto
+0x000000023883e000 	/System/Library/PrivateFrameworks/AppleFlatBuffers.framework/Versions/A/AppleFlatBuffers
+0x000000026c370000 	/System/Library/PrivateFrameworks/SentencePieceInternal.framework/Versions/A/SentencePieceInternal
+0x000000019d941000 	/System/Library/Frameworks/Vision.framework/Versions/A/Vision
+0x0000000243c2b000 	/System/Library/PrivateFrameworks/CoreSceneUnderstanding.framework/Versions/A/CoreSceneUnderstanding
+0x000000027e6d6000 	/System/Library/PrivateFrameworks/VisionCore.framework/Versions/A/VisionCore
+0x00000001bb71a000 	/System/Library/Frameworks/Vision.framework/libfaceCore.dylib
+0x00000001bc234000 	/System/Library/PrivateFrameworks/Futhark.framework/Versions/A/Futhark
+0x00000001c0172000 	/System/Library/PrivateFrameworks/InertiaCam.framework/Versions/A/InertiaCam
+0x00000001bbfc1000 	/System/Library/PrivateFrameworks/TextRecognition.framework/Versions/A/TextRecognition
+0x0000000196699000 	/System/Library/PrivateFrameworks/CVNLP.framework/Versions/A/CVNLP
+0x00000001d876a000 	/System/Library/PrivateFrameworks/HIDDisplay.framework/Versions/A/HIDDisplay
+0x0000000197791000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATSUI.framework/Versions/A/ATSUI
+0x0000000199446000 	/usr/lib/libcups.2.dylib
+0x00000001994dc000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos
+0x000000019914d000 	/usr/lib/libresolv.9.dylib
+0x0000000196b52000 	/System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal
+0x00000001a22ba000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Libraries/libHeimdalProxy.dylib
+0x0000000199540000 	/System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth
+0x00000001ab19c000 	/System/Library/PrivateFrameworks/AXCoreUtilities.framework/Versions/A/AXCoreUtilities
+0x0000000287cf3000 	/usr/lib/libAXSafeCategoryBundle.dylib
+0x0000000232c6e000 	/System/Library/Frameworks/TabularData.framework/Versions/A/TabularData
+0x0000000239abe000 	/System/Library/PrivateFrameworks/ArgumentParserInternal.framework/Versions/A/ArgumentParserInternal
+0x0000000193ce0000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+0x000000019524e000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+0x0000000194217000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib
+0x0000000195145000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib
+0x0000000195249000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libQuadrature.dylib
+0x0000000192c58000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBNNS.dylib
+0x00000001864ab000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparse.dylib
+0x00000001994a5000 	/System/Library/PrivateFrameworks/NetAuth.framework/Versions/A/NetAuth
+0x000000018fb3a000 	/System/Library/PrivateFrameworks/login.framework/Versions/A/Frameworks/loginsupport.framework/Versions/A/loginsupport
+0x000000019417f000 	/usr/lib/libCheckFix.dylib
+0x000000018ecc0000 	/System/Library/PrivateFrameworks/MetadataUtilities.framework/Versions/A/MetadataUtilities
+0x0000000254282000 	/System/Library/PrivateFrameworks/InstalledContentLibrary.framework/Versions/A/InstalledContentLibrary
+0x0000000189416000 	/System/Library/PrivateFrameworks/CoreServicesStore.framework/Versions/A/CoreServicesStore
+0x00000001c5ca9000 	/System/Library/PrivateFrameworks/MobileSystemServices.framework/Versions/A/MobileSystemServices
+0x000000019651e000 	/usr/lib/libxslt.1.dylib
+0x000000019413e000 	/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Versions/A/BackgroundTaskManagement
+0x00000001a194c000 	/usr/lib/libcurl.4.dylib
+0x00000002889f7000 	/usr/lib/libcrypto.46.dylib
+0x0000000289596000 	/usr/lib/libssl.48.dylib
+0x00000001a1626000 	/System/Library/Frameworks/LDAP.framework/Versions/A/LDAP
+0x00000001a1662000 	/System/Library/PrivateFrameworks/TrustEvaluationAgent.framework/Versions/A/TrustEvaluationAgent
+0x000000019916a000 	/usr/lib/libsasl2.2.dylib
+0x00000001af2a1000 	/usr/lib/swift/libswiftCoreGraphics.dylib
+0x000000019dfdb000 	/usr/lib/swift/libswiftFoundation.dylib
+0x00000001e9813000 	/usr/lib/swift/libswiftSwiftOnoneSupport.dylib
+0x0000000289c44000 	/usr/lib/swift/libswiftsys_time.dylib
+0x00000001d4454000 	/System/Library/PrivateFrameworks/CoreMaterial.framework/Versions/A/CoreMaterial
+0x00000002881ef000 	/usr/lib/libSpatial.dylib
+0x0000000287c10000 	/System/Library/SubFrameworks/UIUtilities.framework/Versions/A/UIUtilities
+0x0000000105338000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/server/libjvm.dylib
+0x0000000100158000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libverify.dylib
+0x0000000100214000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libjava.dylib
+0x0000000100170000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libjimage.dylib
+0x000000010019c000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libzip.dylib
+0x000000010056c000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libnio.dylib
+0x00000001005ac000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libnet.dylib
+0x0000000100588000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libmanagement.dylib
+0x00000001005d0000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libmanagement_ext.dylib
+0x0000000116f5c000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libsunec.dylib
+0x00000001261d0000 	/private/var/folders/nb/5152sbd52g33d8yx_bpkhzvw0000gn/T/nativelib-loader_953662431092133877/libunicorn_java.dylib
+0x0000000116f8c000 	/Users/sanbo/Library/Caches/JNA/temp/jna9236986451736364869.tmp
+0x0000000126428000 	/Users/sanbo/Library/Caches/JNA/temp/jna15879974347611979659.tmp
+0x0000000130840000 	/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/lib/libextnet.dylib
+
+
+VM Arguments:
+jvm_args: -XX:TieredStopAtLevel=1 -XX:ErrorFile=/Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/../.omx/crash-diagnostics/hs_err_pid%p.log 
+java_command: /Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire/surefirebooter-20260715074239321_3.jar /Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire 2026-07-15T07-42-39_161-jvmRun1 surefire-20260715074239321_1tmp surefire_0-20260715074239321_2tmp
+java_class_path (initial): /Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/target/surefire/surefirebooter-20260715074239321_3.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+    ccstr ErrorFile                                = /Users/sanbo/Desktop/api/qbdi/unidbg-adjust-runner/../.omx/crash-diagnostics/hs_err_pid%p.log            {product} {command line}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4294967296                                {product} {ergonomic}
+   size_t MaxNewSize                               = 2576351232                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7549744                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 244108496                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home
+PATH=/Users/sanbo/.local/bin:/Users/sanbo/.bun/bin:/Users/sanbo/.local/bin:/Users/sanbo/.antigravity/antigravity/bin:/Users/sanbo/.nvm/versions/node/v24.11.1/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/sanbo/tools/flutter/bin:/opt/homebrew/Cellar/python@3.10/3.10.8/bin:/opt/homebrew/Cellar/python@3.10/3.10.8/libexec/bin:/opt/homebrew/Cellar/maven/3.8.6/bin:/opt/homebrew/Cellar/cmake/3.24.2/bin:/Users/sanbo/.cargo/bin:/Users/sanbo/tools/sdk/ndk/24.0.8215888:/Users/sanbo/tools/sdk/platform-tools:/Users/sanbo/tools/sdk/tools:/Users/sanbo/tools/sdk/tools/bin:/Users/sanbo/tools/sdk/build-tools/30.0.3:/Users/sanbo/tools/sdk/emulator:/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/sanbo/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Applications/VMware Fusion.app/Contents/Public:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/go/bin:/Users/sanbo/.codex/tmp/arg0/codex-arg0qL4dzf:/Users/sanbo/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/sanbo/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Users/sanbo/bin:/Users/sanbo/code/gopath/bin:/Users/sanbo/.orbstack/bin
+SHELL=/bin/bash
+
+Signal Handlers:
+SIGSEGV: [libjvm.dylib+0x680a60], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_ONSTACK|SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.dylib+0x680a60], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.dylib+0x680a60], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.dylib+0x52e400], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.dylib+0x52e400], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.dylib+0x680a60], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR2: [libjvm.dylib+0x52ea00], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.dylib+0x52d0c0], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.dylib+0x52d0c0], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.dylib+0x52d0c0], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.dylib+0x52d0c0], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:uname:Darwin 25.5.0 Darwin Kernel Version 25.5.0: Mon Apr 27 20:38:00 PDT 2026; root:xnu-12377.121.6~2/RELEASE_ARM64_T8103 arm64
+rlimit: STACK 8176k, CORE 0k, NPROC 2666, NOFILE 10240, AS infinity, DATA infinity, FSIZE infinity
+load average:6.48 6.34 5.66
+
+CPU:total 8 (initial active 8) 0x61:0x0:0x1b588bb3:0, simd, crc, lse
+
+Memory: 16k page, physical 16777216k(99888k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.0.16.1+1-LTS-1) for bsd-aarch64 JRE (11.0.16.1+1-LTS-1), built on Aug 16 2022 00:49:27 by "mach5one" with gcc Apple LLVM 12.0.0 (clang-1200.0.32.29)
+
+END.

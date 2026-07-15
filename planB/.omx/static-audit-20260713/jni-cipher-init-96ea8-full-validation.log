@@ -1,0 +1,16 @@
+=== static verifier ===
+cross-ABI Cipher.init(int,Key) constants: PASS
+cross-ABI Cipher.init JNI/status/cleanup flow: PASS
+C++ regression and recovered JNI coverage: PASS
+=== observation-only original SO ===
+96ea8 entries=1 status=0->0 method=init signature=(ILjava/security/Key;)V mode=2/2 cipherForward=true keyForward=true exception=0 deletes=1
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.35 s -- in local.JniCipherInitNativeIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+=== C++ current snapshot ===
+34ef7bb1c5667289338d9995e202e01eb44bb3b5eecadfba31778836247ffb80  /Users/sanbo/Desktop/api/qbdi/native-reimplementation/recovered_primitives.cpp
+7850:struct RecoveredJniIntKeyInitOperations96ea8 {
+7877:        const RecoveredJniIntKeyInitOperations96ea8& operations) {
+8005:bool recoveredJniIntKeyInit96ea8Regression() {
+8009:    const RecoveredJniIntKeyInitOperations96ea8 operations = {
+26118:    if (!recoveredJniIntKeyInit96ea8Regression()) {

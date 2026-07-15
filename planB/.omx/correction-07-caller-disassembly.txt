@@ -1,0 +1,94 @@
+
+adjust-android-signature-3.67.0/jni/arm64-v8a/libsigner.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000008070 <.text>:
+    ebc0: f2f311ca     	movk	x10, #0x988e, lsl #48
+    ebc4: eb0a013f     	cmp	x9, x10
+    ebc8: 54ffdee1     	b.ne	0xe7a4 <.text+0x6734>
+    ebcc: 1400016e     	b	0xf184 <.text+0x7114>
+    ebd0: b819c3bf     	stur	wzr, [x29, #-0x64]
+    ebd4: d28ca0a8     	mov	x8, #0x6505             // =25861
+    ebd8: 2a1703e1     	mov	w1, w23
+    ebdc: f2ad9448     	movk	x8, #0x6ca2, lsl #16
+    ebe0: 2a1903e0     	mov	w0, w25
+    ebe4: f2ca44c8     	movk	x8, #0x5226, lsl #32
+    ebe8: f2f89bc8     	movk	x8, #0xc4de, lsl #48
+    ebec: 17fffeee     	b	0xe7a4 <.text+0x6734>
+    ebf0: f85a83a8     	ldur	x8, [x29, #-0x58]
+    ebf4: d28833a9     	mov	x9, #0x419d             // =16797
+    ebf8: f2b6d669     	movk	x9, #0xb6b3, lsl #16
+    ebfc: f2ccf509     	movk	x9, #0x67a8, lsl #32
+    ec00: f9002be8     	str	x8, [sp, #0x50]
+    ec04: f100011f     	cmp	x8, #0x0
+    ec08: d286cb88     	mov	x8, #0x365c             // =13916
+    ec0c: fa401a64     	ccmp	x19, #0x0, #0x4, ne
+    ec10: f2b65c48     	movk	x8, #0xb2e2, lsl #16
+    ec14: f2ff4e29     	movk	x9, #0xfa71, lsl #48
+    ec18: f2dc81e8     	movk	x8, #0xe40f, lsl #32
+    ec1c: f2f9f088     	movk	x8, #0xcf84, lsl #48
+    ec20: 9a881128     	csel	x8, x9, x8, ne
+    ec24: 14000139     	b	0xf108 <.text+0x7098>
+    ec28: 1e604100     	fmov	d0, d8
+    ec2c: f85a03a0     	ldur	x0, [x29, #-0x60]
+    ec30: 97fff955     	bl	0xd184 <.text+0x5114>
+    ec34: f85b83a8     	ldur	x8, [x29, #-0x48]
+    ec38: 2a1703e1     	mov	w1, w23
+    ec3c: f85c03a9     	ldur	x9, [x29, #-0x40]
+    ec40: 2a1903e0     	mov	w0, w25
+    ec44: f90037e8     	str	x8, [sp, #0x68]
+    ec48: f85c83a8     	ldur	x8, [x29, #-0x38]
+    ec4c: a90727e8     	stp	x8, x9, [sp, #0x70]
+    ec50: d282e448     	mov	x8, #0x1722             // =5922
+    ec54: f2b01828     	movk	x8, #0x80c1, lsl #16
+    ec58: f2df7028     	movk	x8, #0xfb81, lsl #32
+    ec5c: f2ff86a8     	movk	x8, #0xfc35, lsl #48
+    ec60: 17fffed1     	b	0xe7a4 <.text+0x6734>
+    ec64: d29dfb08     	mov	x8, #0xefd8             // =61400
+    ec68: 2a1f03e0     	mov	w0, wzr
+    ec6c: f2a54c28     	movk	x8, #0x2a61, lsl #16
+    ec70: 2a1703e1     	mov	w1, w23
+    ec74: f2ce56c8     	movk	x8, #0x72b6, lsl #32
+    ec78: f2ea47e8     	movk	x8, #0x523f, lsl #48
+    ec7c: 17fffeca     	b	0xe7a4 <.text+0x6734>
+    ec80: f85b03a8     	ldur	x8, [x29, #-0x50]
+    ec84: d298a2c9     	mov	x9, #0xc516             // =50454
+    ec88: f2ab9de9     	movk	x9, #0x5cef, lsl #16
+    ec8c: 2a1703e1     	mov	w1, w23
+    ec90: f2d99849     	movk	x9, #0xccc2, lsl #32
+    ec94: 2a1903e0     	mov	w0, w25
+    ec98: f90027e8     	str	x8, [sp, #0x48]
+    ec9c: f100011f     	cmp	x8, #0x0
+    eca0: d293cee8     	mov	x8, #0x9e77             // =40567
+    eca4: fa401a64     	ccmp	x19, #0x0, #0x4, ne
+    eca8: f2a94828     	movk	x8, #0x4a41, lsl #16
+    ecac: f2fc9609     	movk	x9, #0xe4b0, lsl #48
+    ecb0: f2cc3b08     	movk	x8, #0x61d8, lsl #32
+    ecb4: f81a83bf     	stur	xzr, [x29, #-0x58]
+    ecb8: f2e3f008     	movk	x8, #0x1f80, lsl #48
+    ecbc: 9a881128     	csel	x8, x9, x8, ne
+    ecc0: 17fffeb9     	b	0xe7a4 <.text+0x6734>
+    ecc4: f9400be0     	ldr	x0, [sp, #0x10]
+    ecc8: 528000e1     	mov	w1, #0x7                // =7
+    eccc: 940499f0     	bl	0x13548c <Java_com_adjust_sdk_sig_NativeLibHelper_nSign+0x68e88>
+    ecd0: f85a03aa     	ldur	x10, [x29, #-0x60]
+    ecd4: 2a1703e1     	mov	w1, w23
+    ecd8: 2a1903e0     	mov	w0, w25
+    ecdc: f9407148     	ldr	x8, [x10, #0xe0]
+    ece0: b2400109     	orr	x9, x8, #0x1
+    ece4: 52800028     	mov	w8, #0x1                // =1
+    ece8: b819c3a8     	stur	w8, [x29, #-0x64]
+    ecec: d28ca0a8     	mov	x8, #0x6505             // =25861
+    ecf0: f2ad9448     	movk	x8, #0x6ca2, lsl #16
+    ecf4: f9007149     	str	x9, [x10, #0xe0]
+    ecf8: f2ca44c8     	movk	x8, #0x5226, lsl #32
+    ecfc: f2f89bc8     	movk	x8, #0xc4de, lsl #48
+    ed00: 17fffea9     	b	0xe7a4 <.text+0x6734>
+    ed04: f85a03aa     	ldur	x10, [x29, #-0x60]
+    ed08: d29c202b     	mov	x11, #0xe101            // =57601
+    ed0c: f85c03a9     	ldur	x9, [x29, #-0x40]
+    ed10: f2a1cbcb     	movk	x11, #0xe5e, lsl #16
+    ed14: f2d8dd8b     	movk	x11, #0xc6ec, lsl #32
+    ed18: 2a1703e1     	mov	w1, w23
+    ed1c: f9407148     	ldr	x8, [x10, #0xe0]

@@ -1,0 +1,410 @@
+Compiled from "SourceFile"
+public class com.adjust.sdk.sig.Signer {
+  public boolean a;
+    descriptor: Z
+
+  public com.adjust.sdk.sig.d b;
+    descriptor: Lcom/adjust/sdk/sig/d;
+
+  public com.adjust.sdk.sig.a c;
+    descriptor: Lcom/adjust/sdk/sig/a;
+
+  public com.adjust.sdk.sig.c d;
+    descriptor: Lcom/adjust/sdk/sig/c;
+
+  public com.adjust.sdk.sig.Signer();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: dup
+       2: invokespecial #19                 // Method java/lang/Object."<init>":()V
+       5: iconst_0
+       6: putfield      #21                 // Field a:Z
+       9: return
+
+  public static java.lang.String getVersion();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: ldc           #25                 // String 3.67.0
+       2: areturn
+
+  public synchronized void onResume();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: dup
+       2: invokevirtual #28                 // Method a:()V
+       5: getfield      #30                 // Field b:Lcom/adjust/sdk/sig/d;
+       8: aload_0
+       9: getfield      #32                 // Field c:Lcom/adjust/sdk/sig/a;
+      12: astore_0
+      13: invokevirtual #36                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      16: pop
+      17: getstatic     #39                 // Field com/adjust/sdk/sig/d.a:Z
+      20: ifeq          26
+      23: goto          33
+      26: aload_0
+      27: checkcast     #43                 // class com/adjust/sdk/sig/NativeLibHelper
+      30: invokevirtual #44                 // Method com/adjust/sdk/sig/NativeLibHelper.a:()V
+      33: return
+
+  public synchronized void sign(android.content.Context, java.util.Map<java.lang.String, java.lang.String>, java.lang.String, java.lang.String);
+    descriptor: (Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: dup
+       3: invokevirtual #28                 // Method a:()V
+       6: getfield      #30                 // Field b:Lcom/adjust/sdk/sig/d;
+       9: aload_0
+      10: dup
+      11: getfield      #49                 // Field d:Lcom/adjust/sdk/sig/c;
+      14: astore_0
+      15: getfield      #32                 // Field c:Lcom/adjust/sdk/sig/a;
+      18: astore_1
+      19: invokevirtual #36                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      22: pop
+      23: aload_0
+      24: aload_1
+      25: aload_2
+      26: aload_3
+      27: aload         4
+      29: invokestatic  #52                 // Method com/adjust/sdk/sig/d.a:(Landroid/content/Context;Lcom/adjust/sdk/sig/c;Lcom/adjust/sdk/sig/a;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V
+      32: return
+
+  public synchronized void sign(android.content.Context, java.util.Map<java.lang.String, java.lang.String>, java.util.Map<java.lang.String, java.lang.String>, java.util.Map<java.lang.String, java.lang.String>);
+    descriptor: (Landroid/content/Context;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;)V
+    Code:
+       0: aload_2
+       1: aload_0
+       2: dup
+       3: invokevirtual #28                 // Method a:()V
+       6: getfield      #30                 // Field b:Lcom/adjust/sdk/sig/d;
+       9: aload_0
+      10: dup
+      11: getfield      #49                 // Field d:Lcom/adjust/sdk/sig/c;
+      14: astore_0
+      15: getfield      #32                 // Field c:Lcom/adjust/sdk/sig/a;
+      18: astore        5
+      20: invokevirtual #36                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      23: pop
+      24: ifnull        635
+      27: aload_2
+      28: invokeinterface #60,  1           // InterfaceMethod java/util/Map.isEmpty:()Z
+      33: ifne          635
+      36: aload_3
+      37: ifnull        635
+      40: aload         4
+      42: ifnonnull     48
+      45: goto          635
+      48: aload_2
+      49: new           #66                 // class java/text/SimpleDateFormat
+      52: dup
+      53: astore        6
+      55: getstatic     #72                 // Field java/util/Locale.US:Ljava/util/Locale;
+      58: ldc           #74                 // String yyyy-MM-dd\'T\'HH:mm:ss.SSSZ
+      60: swap
+      61: invokespecial #77                 // Method java/text/SimpleDateFormat."<init>":(Ljava/lang/String;Ljava/util/Locale;)V
+      64: ldc           #79                 // String environment
+      66: invokeinterface #83,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      71: ldc           #85                 // String sandbox
+      73: swap
+      74: invokevirtual #91                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      77: dup
+      78: istore        7
+      80: ifeq          121
+      83: new           #93                 // class java/lang/StringBuilder
+      86: dup
+      87: aload         6
+      89: swap
+      90: ldc           #95                 // String SDKv5 Signing all the parameters begin:
+      92: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      95: new           #100                // class java/util/Date
+      98: dup
+      99: invokestatic  #106                // Method java/lang/System.currentTimeMillis:()J
+     102: invokespecial #109                // Method java/util/Date."<init>":(J)V
+     105: invokevirtual #115                // Method java/text/DateFormat.format:(Ljava/util/Date;)Ljava/lang/String;
+     108: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     111: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     114: ldc           #124                // String SignerInstance
+     116: swap
+     117: invokestatic  #130                // Method android/util/Log.v:(Ljava/lang/String;Ljava/lang/String;)I
+     120: pop
+     121: aload_3
+     122: dup
+     123: dup
+     124: aload_2
+     125: new           #132                // class java/util/HashMap
+     128: dup
+     129: astore        8
+     131: invokespecial #133                // Method java/util/HashMap."<init>":()V
+     134: invokeinterface #137,  1          // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+     139: aload_2
+     140: aload         8
+     142: invokestatic  #140                // Method com/adjust/sdk/sig/d.a:(Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;)V
+     145: ldc           #142                // String activity_kind
+     147: invokeinterface #83,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     152: checkcast     #87                 // class java/lang/String
+     155: astore        9
+     157: ldc           #144                // String client_sdk
+     159: invokeinterface #83,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     164: checkcast     #87                 // class java/lang/String
+     167: astore        10
+     169: ldc           #145                // String a
+     171: invokeinterface #83,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     176: ldc           #146                // String b
+     178: swap
+     179: invokevirtual #91                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     182: ifne          546
+     185: aload         8
+     187: aload_1
+     188: aload_0
+     189: aload         5
+     191: aload         8
+     193: aload         9
+     195: aload         10
+     197: invokestatic  #52                 // Method com/adjust/sdk/sig/d.a:(Landroid/content/Context;Lcom/adjust/sdk/sig/c;Lcom/adjust/sdk/sig/a;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V
+     200: ldc           #148                // String signature
+     202: invokevirtual #151                // Method java/util/HashMap.containsKey:(Ljava/lang/Object;)Z
+     205: ifeq          535
+     208: aload         8
+     210: ldc           #153                // String adj_signing_id
+     212: invokevirtual #151                // Method java/util/HashMap.containsKey:(Ljava/lang/Object;)Z
+     215: ifeq          535
+     218: aload         8
+     220: ldc           #155                // String headers_id
+     222: invokevirtual #151                // Method java/util/HashMap.containsKey:(Ljava/lang/Object;)Z
+     225: ifeq          535
+     228: aload         8
+     230: ldc           #157                // String algorithm
+     232: invokevirtual #151                // Method java/util/HashMap.containsKey:(Ljava/lang/Object;)Z
+     235: ifeq          535
+     238: aload         8
+     240: ldc           #159                // String native_version
+     242: invokevirtual #151                // Method java/util/HashMap.containsKey:(Ljava/lang/Object;)Z
+     245: ifne          251
+     248: goto          535
+     251: aload         4
+     253: aload         8
+     255: dup
+     256: dup
+     257: dup2
+     258: ldc           #153                // String adj_signing_id
+     260: invokevirtual #160                // Method java/util/HashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     263: checkcast     #87                 // class java/lang/String
+     266: astore_0
+     267: ldc           #155                // String headers_id
+     269: invokevirtual #160                // Method java/util/HashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     272: checkcast     #87                 // class java/lang/String
+     275: astore_1
+     276: ldc           #148                // String signature
+     278: invokevirtual #160                // Method java/util/HashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     281: checkcast     #87                 // class java/lang/String
+     284: astore        5
+     286: ldc           #157                // String algorithm
+     288: invokevirtual #160                // Method java/util/HashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     291: checkcast     #87                 // class java/lang/String
+     294: astore        8
+     296: ldc           #159                // String native_version
+     298: invokevirtual #160                // Method java/util/HashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     301: checkcast     #87                 // class java/lang/String
+     304: astore        9
+     306: new           #93                 // class java/lang/StringBuilder
+     309: dup
+     310: dup2
+     311: aload         5
+     313: swap
+     314: ldc           #162                // String signature=\"
+     316: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     319: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     322: pop
+     323: ldc           #164                // String \"
+     325: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     328: pop
+     329: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     332: astore        5
+     334: new           #93                 // class java/lang/StringBuilder
+     337: dup
+     338: dup2
+     339: aload_0
+     340: swap
+     341: ldc           #166                // String adj_signing_id=\"
+     343: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     346: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     349: pop
+     350: ldc           #164                // String \"
+     352: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     355: pop
+     356: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     359: astore_0
+     360: new           #93                 // class java/lang/StringBuilder
+     363: dup
+     364: dup2
+     365: aload_1
+     366: swap
+     367: ldc           #168                // String headers_id=\"
+     369: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     372: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     375: pop
+     376: ldc           #164                // String \"
+     378: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     381: pop
+     382: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     385: astore_1
+     386: new           #93                 // class java/lang/StringBuilder
+     389: dup
+     390: dup2
+     391: aload         8
+     393: swap
+     394: ldc           #170                // String algorithm=\"
+     396: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     399: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     402: pop
+     403: ldc           #164                // String \"
+     405: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     408: pop
+     409: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     412: astore        8
+     414: new           #93                 // class java/lang/StringBuilder
+     417: dup
+     418: dup2
+     419: aload         9
+     421: swap
+     422: ldc           #172                // String native_version=\"
+     424: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     427: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     430: pop
+     431: ldc           #164                // String \"
+     433: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     436: pop
+     437: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     440: astore        9
+     442: new           #93                 // class java/lang/StringBuilder
+     445: dup
+     446: dup
+     447: astore        10
+     449: aload         9
+     451: aload         10
+     453: dup
+     454: aload_1
+     455: aload         10
+     457: dup
+     458: aload         8
+     460: aload         10
+     462: dup
+     463: aload_0
+     464: aload         10
+     466: dup
+     467: aload         5
+     469: aload         10
+     471: ldc           #174                // String Signature
+     473: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     476: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     479: pop
+     480: ldc           #176                // String ,
+     482: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     485: pop
+     486: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     489: pop
+     490: ldc           #176                // String ,
+     492: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     495: pop
+     496: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     499: pop
+     500: ldc           #176                // String ,
+     502: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     505: pop
+     506: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     509: pop
+     510: ldc           #176                // String ,
+     512: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     515: pop
+     516: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     519: pop
+     520: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     523: ldc           #178                // String authorization
+     525: swap
+     526: invokeinterface #182,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     531: pop
+     532: goto          546
+     535: ldc           #124                // String SignerInstance
+     537: ldc           #184                // String sign: Signature generation failed. Exiting...
+     539: invokestatic  #187                // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+     542: pop
+     543: goto          643
+     546: iload         7
+     548: aload_2
+     549: invokeinterface #137,  1          // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+     554: aload_2
+     555: aload         4
+     557: invokestatic  #140                // Method com/adjust/sdk/sig/d.a:(Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;)V
+     560: new           #189                // class java/util/HashSet
+     563: dup
+     564: aload_3
+     565: swap
+     566: iconst_2
+     567: anewarray     #87                 // class java/lang/String
+     570: dup
+     571: dup
+     572: iconst_0
+     573: ldc           #191                // String network_payload
+     575: aastore
+     576: iconst_1
+     577: ldc           #193                // String endpoint
+     579: aastore
+     580: invokestatic  #199                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     583: invokespecial #202                // Method java/util/HashSet."<init>":(Ljava/util/Collection;)V
+     586: aload         4
+     588: invokestatic  #140                // Method com/adjust/sdk/sig/d.a:(Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;)V
+     591: ifeq          643
+     594: new           #93                 // class java/lang/StringBuilder
+     597: dup
+     598: aload         6
+     600: swap
+     601: ldc           #204                // String SDKv5 Signing all the parameters end  :
+     603: invokespecial #98                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     606: new           #100                // class java/util/Date
+     609: dup
+     610: invokestatic  #106                // Method java/lang/System.currentTimeMillis:()J
+     613: invokespecial #109                // Method java/util/Date."<init>":(J)V
+     616: invokevirtual #115                // Method java/text/DateFormat.format:(Ljava/util/Date;)Ljava/lang/String;
+     619: invokevirtual #119                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     622: invokevirtual #122                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     625: ldc           #124                // String SignerInstance
+     627: swap
+     628: invokestatic  #130                // Method android/util/Log.v:(Ljava/lang/String;Ljava/lang/String;)I
+     631: pop
+     632: goto          643
+     635: ldc           #124                // String SignerInstance
+     637: ldc           #206                // String sign: One or more parameters are null
+     639: invokestatic  #187                // Method android/util/Log.e:(Ljava/lang/String;Ljava/lang/String;)I
+     642: pop
+     643: return
+
+  public final synchronized void a();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #21                 // Field a:Z
+       4: ifeq          8
+       7: return
+       8: aload_0
+       9: dup
+      10: dup2
+      11: new           #38                 // class com/adjust/sdk/sig/d
+      14: dup
+      15: invokespecial #207                // Method com/adjust/sdk/sig/d."<init>":()V
+      18: putfield      #30                 // Field b:Lcom/adjust/sdk/sig/d;
+      21: new           #62                 // class com/adjust/sdk/sig/c
+      24: dup
+      25: getstatic     #213                // Field android/os/Build$VERSION.SDK_INT:I
+      28: invokespecial #216                // Method com/adjust/sdk/sig/c."<init>":(I)V
+      31: putfield      #49                 // Field d:Lcom/adjust/sdk/sig/c;
+      34: new           #43                 // class com/adjust/sdk/sig/NativeLibHelper
+      37: dup
+      38: invokespecial #217                // Method com/adjust/sdk/sig/NativeLibHelper."<init>":()V
+      41: putfield      #32                 // Field c:Lcom/adjust/sdk/sig/a;
+      44: iconst_1
+      45: putfield      #21                 // Field a:Z
+      48: return
+}

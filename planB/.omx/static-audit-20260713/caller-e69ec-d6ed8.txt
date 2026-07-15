@@ -1,0 +1,75 @@
+
+adjust-android-signature-3.67.0/jni/arm64-v8a/libsigner.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000e6950 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x1a34c>:
+   e6950:	f85001ce 	ldur	x14, [x14, #-256]
+   e6954:	f85003bc 	ldur	x28, [x29, #-256]
+   e6958:	f8500108 	ldur	x8, [x8, #-256]
+   e695c:	b850c3af 	ldur	w15, [x29, #-244]
+   e6960:	f81983a8 	stur	x8, [x29, #-104]
+   e6964:	d101a3a8 	sub	x8, x29, #0x68
+   e6968:	f8500108 	ldur	x8, [x8, #-256]
+   e696c:	f81903a8 	stur	x8, [x29, #-112]
+   e6970:	d10183a8 	sub	x8, x29, #0x60
+   e6974:	f8500108 	ldur	x8, [x8, #-256]
+   e6978:	f81883a8 	stur	x8, [x29, #-120]
+   e697c:	d102c3a8 	sub	x8, x29, #0xb0
+   e6980:	f8500108 	ldur	x8, [x8, #-256]
+   e6984:	f81803a8 	stur	x8, [x29, #-128]
+   e6988:	d10063a8 	sub	x8, x29, #0x18
+   e698c:	f8500109 	ldur	x9, [x8, #-256]
+   e6990:	f85203a8 	ldur	x8, [x29, #-224]
+   e6994:	a93727a8 	stp	x8, x9, [x29, #-144]
+   e6998:	f85283a8 	ldur	x8, [x29, #-216]
+   e699c:	d10323a9 	sub	x9, x29, #0xc8
+   e69a0:	f81683a8 	stur	x8, [x29, #-152]
+   e69a4:	d10043a8 	sub	x8, x29, #0x10
+   e69a8:	f8500129 	ldur	x9, [x9, #-256]
+   e69ac:	f850011e 	ldur	x30, [x8, #-256]
+   e69b0:	d10013a8 	sub	x8, x29, #0x4
+   e69b4:	b8500111 	ldur	w17, [x8, #-256]
+   e69b8:	d10123a8 	sub	x8, x29, #0x48
+   e69bc:	f8500101 	ldur	x1, [x8, #-256]
+   e69c0:	d10243a8 	sub	x8, x29, #0x90
+   e69c4:	f8500100 	ldur	x0, [x8, #-256]
+   e69c8:	d10213a8 	sub	x8, x29, #0x84
+   e69cc:	b8500108 	ldur	w8, [x8, #-256]
+   e69d0:	17ffda44 	b	dd2e0 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x10cdc>
+   e69d4:	d10823a8 	sub	x8, x29, #0x208
+   e69d8:	f8500100 	ldur	x0, [x8, #-256]
+   e69dc:	d10d83a8 	sub	x8, x29, #0x360
+   e69e0:	f8500101 	ldur	x1, [x8, #-256]
+   e69e4:	d109c3a8 	sub	x8, x29, #0x270
+   e69e8:	f8500102 	ldur	x2, [x8, #-256]
+   e69ec:	97ffc13b 	bl	d6ed8 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0xa8d4>
+   e69f0:	d10263a8 	sub	x8, x29, #0x98
+   e69f4:	d102e3b0 	sub	x16, x29, #0xb8
+   e69f8:	f81d83b3 	stur	x19, [x29, #-40]
+   e69fc:	d2982673 	mov	x19, #0xc133                	// #49459
+   e6a00:	f2bf5393 	movk	x19, #0xfa9c, lsl #16
+   e6a04:	b100041f 	cmn	x0, #0x1
+   e6a08:	f8500108 	ldur	x8, [x8, #-256]
+   e6a0c:	f2c56bb3 	movk	x19, #0x2b5d, lsl #32
+   e6a10:	f850021a 	ldur	x26, [x16, #-256]
+   e6a14:	d280b570 	mov	x16, #0x5ab                 	// #1451
+   e6a18:	f2b85610 	movk	x16, #0xc2b0, lsl #16
+   e6a1c:	f2ecbe73 	movk	x19, #0x65f3, lsl #48
+   e6a20:	a93ca3b8 	stp	x24, x8, [x29, #-56]
+   e6a24:	d10303a8 	sub	x8, x29, #0xc0
+   e6a28:	f2c4d750 	movk	x16, #0x26ba, lsl #32
+   e6a2c:	d10143aa 	sub	x10, x29, #0x50
+   e6a30:	f2f1e630 	movk	x16, #0x8f31, lsl #48
+   e6a34:	d10273ae 	sub	x14, x29, #0x9c
+   e6a38:	f8500109 	ldur	x9, [x8, #-256]
+   e6a3c:	9a900270 	csel	x16, x19, x16, eq	// eq = none
+   e6a40:	f85383a8 	ldur	x8, [x29, #-200]
+   e6a44:	d101c3b3 	sub	x19, x29, #0x70
+   e6a48:	f8500144 	ldur	x4, [x10, #-256]
+   e6a4c:	d10203aa 	sub	x10, x29, #0x80
+   e6a50:	d102a3ad 	sub	x13, x29, #0xa8
+   e6a54:	b85001c6 	ldur	w6, [x14, #-256]
+   e6a58:	a93ba7a8 	stp	x8, x9, [x29, #-72]
+   e6a5c:	b85343a9 	ldur	w9, [x29, #-204]

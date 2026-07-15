@@ -1,0 +1,783 @@
+
+adjust-android-signature-3.67.0/jni/x86_64/libsigner.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000011d585 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61eda>:
+  11d585:	55                   	push   %rbp
+  11d586:	41 57                	push   %r15
+  11d588:	41 56                	push   %r14
+  11d58a:	41 55                	push   %r13
+  11d58c:	41 54                	push   %r12
+  11d58e:	53                   	push   %rbx
+  11d58f:	48 81 ec 88 00 00 00 	sub    $0x88,%rsp
+  11d596:	48 89 f3             	mov    %rsi,%rbx
+  11d599:	49 89 fe             	mov    %rdi,%r14
+  11d59c:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  11d5a3:	00 00 
+  11d5a5:	48 89 84 24 80 00 00 	mov    %rax,0x80(%rsp)
+  11d5ac:	00 
+  11d5ad:	48 8d 44 24 68       	lea    0x68(%rsp),%rax
+  11d5b2:	83 20 00             	andl   $0x0,(%rax)
+  11d5b5:	48 8d 44 24 60       	lea    0x60(%rsp),%rax
+  11d5ba:	48 83 20 00          	andq   $0x0,(%rax)
+  11d5be:	48 8d 44 24 6c       	lea    0x6c(%rsp),%rax
+  11d5c3:	83 20 00             	andl   $0x0,(%rax)
+  11d5c6:	0f 57 c0             	xorps  %xmm0,%xmm0
+  11d5c9:	48 8d 44 24 70       	lea    0x70(%rsp),%rax
+  11d5ce:	0f 29 00             	movaps %xmm0,(%rax)
+  11d5d1:	48 8b 36             	mov    (%rsi),%rsi
+  11d5d4:	e8 d9 fd ff ff       	call   11d3b2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61d07>
+  11d5d9:	48 8d 43 10          	lea    0x10(%rbx),%rax
+  11d5dd:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+  11d5e2:	48 89 5c 24 08       	mov    %rbx,0x8(%rsp)
+  11d5e7:	48 8d 43 08          	lea    0x8(%rbx),%rax
+  11d5eb:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
+  11d5f0:	31 c0                	xor    %eax,%eax
+  11d5f2:	4c 89 34 24          	mov    %r14,(%rsp)
+  11d5f6:	41 39 06             	cmp    %eax,(%r14)
+  11d5f9:	48 b8 a7 cf dc f5 45 	movabs $0x32b90645f5dccfa7,%rax
+  11d600:	06 b9 32 
+  11d603:	48 b9 dc 34 e5 0c 24 	movabs $0xca1919240ce534dc,%rcx
+  11d60a:	19 19 ca 
+  11d60d:	48 0f 44 c8          	cmove  %rax,%rcx
+  11d611:	48 89 4c 24 58       	mov    %rcx,0x58(%rsp)
+  11d616:	48 bf b3 9b a1 c2 c1 	movabs $0xc1c996c1c2a19bb3,%rdi
+  11d61d:	96 c9 c1 
+  11d620:	4c 89 d3             	mov    %r10,%rbx
+  11d623:	4d 89 cd             	mov    %r9,%r13
+  11d626:	4d 89 c7             	mov    %r8,%r15
+  11d629:	48 89 d5             	mov    %rdx,%rbp
+  11d62c:	49 89 cc             	mov    %rcx,%r12
+  11d62f:	49 89 c6             	mov    %rax,%r14
+  11d632:	48 b8 29 8e c9 3a ae 	movabs $0x85fdb8ae3ac98e29,%rax
+  11d639:	b8 fd 85 
+  11d63c:	48 39 c7             	cmp    %rax,%rdi
+  11d63f:	0f 84 4a 09 00 00    	je     11df8f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x628e4>
+  11d645:	48 89 fe             	mov    %rdi,%rsi
+  11d648:	48 b8 1e 15 24 f8 66 	movabs $0x94790566f824151e,%rax
+  11d64f:	05 79 94 
+  11d652:	48 39 c7             	cmp    %rax,%rdi
+  11d655:	0f 84 1a 0b 00 00    	je     11e175 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aca>
+  11d65b:	4c 89 f0             	mov    %r14,%rax
+  11d65e:	4c 89 e1             	mov    %r12,%rcx
+  11d661:	48 89 ea             	mov    %rbp,%rdx
+  11d664:	4d 89 f8             	mov    %r15,%r8
+  11d667:	4d 89 e9             	mov    %r13,%r9
+  11d66a:	49 89 da             	mov    %rbx,%r10
+  11d66d:	48 bf 59 5c 5d a2 fc 	movabs $0x2368e3fca25d5c59,%rdi
+  11d674:	e3 68 23 
+  11d677:	49 bb 0c 0e 28 d1 5a 	movabs $0x96fb5a5ad1280e0c,%r11
+  11d67e:	5a fb 96 
+  11d681:	4c 39 de             	cmp    %r11,%rsi
+  11d684:	74 9a                	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d686:	48 b8 ff f4 15 3b 6d 	movabs $0x9968646d3b15f4ff,%rax
+  11d68d:	64 68 99 
+  11d690:	48 39 c6             	cmp    %rax,%rsi
+  11d693:	0f 84 ab 0a 00 00    	je     11e144 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62a99>
+  11d699:	4c 89 f0             	mov    %r14,%rax
+  11d69c:	4c 89 e1             	mov    %r12,%rcx
+  11d69f:	48 89 ea             	mov    %rbp,%rdx
+  11d6a2:	4d 89 f8             	mov    %r15,%r8
+  11d6a5:	4d 89 e9             	mov    %r13,%r9
+  11d6a8:	49 89 da             	mov    %rbx,%r10
+  11d6ab:	48 bf 2b 4e 6f 43 f6 	movabs $0x5f30d8f6436f4e2b,%rdi
+  11d6b2:	d8 30 5f 
+  11d6b5:	49 bb a5 9a c9 31 93 	movabs $0x9ac0f19331c99aa5,%r11
+  11d6bc:	f1 c0 9a 
+  11d6bf:	4c 39 de             	cmp    %r11,%rsi
+  11d6c2:	0f 84 58 ff ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d6c8:	48 b8 9e 92 04 ed ff 	movabs $0x9e396fffed04929e,%rax
+  11d6cf:	6f 39 9e 
+  11d6d2:	48 39 c6             	cmp    %rax,%rsi
+  11d6d5:	0f 84 95 09 00 00    	je     11e070 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x629c5>
+  11d6db:	48 b8 29 ba 56 c7 11 	movabs $0xa17ee611c756ba29,%rax
+  11d6e2:	e6 7e a1 
+  11d6e5:	48 39 c6             	cmp    %rax,%rsi
+  11d6e8:	0f 84 32 0a 00 00    	je     11e120 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62a75>
+  11d6ee:	4c 89 f0             	mov    %r14,%rax
+  11d6f1:	4c 89 e1             	mov    %r12,%rcx
+  11d6f4:	48 89 ea             	mov    %rbp,%rdx
+  11d6f7:	4d 89 f8             	mov    %r15,%r8
+  11d6fa:	4d 89 e9             	mov    %r13,%r9
+  11d6fd:	49 89 da             	mov    %rbx,%r10
+  11d700:	49 bb d0 2a aa e4 90 	movabs $0xa7031c90e4aa2ad0,%r11
+  11d707:	1c 03 a7 
+  11d70a:	4c 39 de             	cmp    %r11,%rsi
+  11d70d:	0f 84 0d ff ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d713:	48 b8 e7 5a 3b b2 7c 	movabs $0xae36807cb23b5ae7,%rax
+  11d71a:	80 36 ae 
+  11d71d:	48 39 c6             	cmp    %rax,%rsi
+  11d720:	0f 84 ec 06 00 00    	je     11de12 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62767>
+  11d726:	48 b8 cd 48 04 51 da 	movabs $0xb08d59da510448cd,%rax
+  11d72d:	59 8d b0 
+  11d730:	48 39 c6             	cmp    %rax,%rsi
+  11d733:	0f 84 d6 04 00 00    	je     11dc0f <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62564>
+  11d739:	48 b8 2a 0b 63 e6 d8 	movabs $0xb3afc6d8e6630b2a,%rax
+  11d740:	c6 af b3 
+  11d743:	48 39 c6             	cmp    %rax,%rsi
+  11d746:	0f 84 b2 05 00 00    	je     11dcfe <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62653>
+  11d74c:	48 b8 82 0d a7 b8 7e 	movabs $0xb66d937eb8a70d82,%rax
+  11d753:	93 6d b6 
+  11d756:	48 39 c6             	cmp    %rax,%rsi
+  11d759:	0f 84 49 09 00 00    	je     11e0a8 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x629fd>
+  11d75f:	4c 89 f0             	mov    %r14,%rax
+  11d762:	4c 89 e1             	mov    %r12,%rcx
+  11d765:	48 89 ea             	mov    %rbp,%rdx
+  11d768:	4d 89 f8             	mov    %r15,%r8
+  11d76b:	4d 89 e9             	mov    %r13,%r9
+  11d76e:	49 89 da             	mov    %rbx,%r10
+  11d771:	49 bb 88 fb 26 f4 d3 	movabs $0xb9a430d3f426fb88,%r11
+  11d778:	30 a4 b9 
+  11d77b:	4c 39 de             	cmp    %r11,%rsi
+  11d77e:	0f 84 9c fe ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d784:	4c 89 f0             	mov    %r14,%rax
+  11d787:	4c 89 e1             	mov    %r12,%rcx
+  11d78a:	48 89 ea             	mov    %rbp,%rdx
+  11d78d:	4d 89 f8             	mov    %r15,%r8
+  11d790:	4d 89 e9             	mov    %r13,%r9
+  11d793:	49 89 da             	mov    %rbx,%r10
+  11d796:	49 bb 26 3f 89 92 60 	movabs $0xba28cf6092893f26,%r11
+  11d79d:	cf 28 ba 
+  11d7a0:	4c 39 de             	cmp    %r11,%rsi
+  11d7a3:	0f 84 77 fe ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d7a9:	4c 89 f0             	mov    %r14,%rax
+  11d7ac:	4c 89 e1             	mov    %r12,%rcx
+  11d7af:	48 89 ea             	mov    %rbp,%rdx
+  11d7b2:	4d 89 f8             	mov    %r15,%r8
+  11d7b5:	4d 89 e9             	mov    %r13,%r9
+  11d7b8:	49 89 da             	mov    %rbx,%r10
+  11d7bb:	48 8b 7c 24 58       	mov    0x58(%rsp),%rdi
+  11d7c0:	49 bb b3 9b a1 c2 c1 	movabs $0xc1c996c1c2a19bb3,%r11
+  11d7c7:	96 c9 c1 
+  11d7ca:	4c 39 de             	cmp    %r11,%rsi
+  11d7cd:	0f 84 4d fe ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d7d3:	4c 89 f0             	mov    %r14,%rax
+  11d7d6:	4c 89 e1             	mov    %r12,%rcx
+  11d7d9:	48 89 ea             	mov    %rbp,%rdx
+  11d7dc:	4d 89 f8             	mov    %r15,%r8
+  11d7df:	4d 89 e9             	mov    %r13,%r9
+  11d7e2:	49 89 da             	mov    %rbx,%r10
+  11d7e5:	48 bf 2b 4e 6f 43 f6 	movabs $0x5f30d8f6436f4e2b,%rdi
+  11d7ec:	d8 30 5f 
+  11d7ef:	49 bb dc 34 e5 0c 24 	movabs $0xca1919240ce534dc,%r11
+  11d7f6:	19 19 ca 
+  11d7f9:	4c 39 de             	cmp    %r11,%rsi
+  11d7fc:	0f 84 1e fe ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d802:	48 b8 d5 03 5a 7c 82 	movabs $0xcbeb4f827c5a03d5,%rax
+  11d809:	4f eb cb 
+  11d80c:	48 39 c6             	cmp    %rax,%rsi
+  11d80f:	0f 84 a0 07 00 00    	je     11dfb5 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x6290a>
+  11d815:	48 b8 c1 50 f3 08 9f 	movabs $0xcdcae89f08f350c1,%rax
+  11d81c:	e8 ca cd 
+  11d81f:	48 39 c6             	cmp    %rax,%rsi
+  11d822:	0f 84 1e 04 00 00    	je     11dc46 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x6259b>
+  11d828:	4c 89 f0             	mov    %r14,%rax
+  11d82b:	4c 89 e1             	mov    %r12,%rcx
+  11d82e:	48 89 ea             	mov    %rbp,%rdx
+  11d831:	4d 89 f8             	mov    %r15,%r8
+  11d834:	4d 89 e9             	mov    %r13,%r9
+  11d837:	49 89 da             	mov    %rbx,%r10
+  11d83a:	48 bf 1e 15 24 f8 66 	movabs $0x94790566f824151e,%rdi
+  11d841:	05 79 94 
+  11d844:	49 bb d5 d8 9d e5 4f 	movabs $0xd02c834fe59dd8d5,%r11
+  11d84b:	83 2c d0 
+  11d84e:	4c 39 de             	cmp    %r11,%rsi
+  11d851:	0f 84 c9 fd ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d857:	48 b8 68 fc 88 0a 84 	movabs $0xd50033840a88fc68,%rax
+  11d85e:	33 00 d5 
+  11d861:	48 39 c6             	cmp    %rax,%rsi
+  11d864:	0f 84 8e 08 00 00    	je     11e0f8 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62a4d>
+  11d86a:	4c 89 f0             	mov    %r14,%rax
+  11d86d:	4c 89 e1             	mov    %r12,%rcx
+  11d870:	48 89 ea             	mov    %rbp,%rdx
+  11d873:	4d 89 f8             	mov    %r15,%r8
+  11d876:	4d 89 e9             	mov    %r13,%r9
+  11d879:	49 89 da             	mov    %rbx,%r10
+  11d87c:	48 bf 2b 4e 6f 43 f6 	movabs $0x5f30d8f6436f4e2b,%rdi
+  11d883:	d8 30 5f 
+  11d886:	49 bb 26 e2 82 d5 2c 	movabs $0xd6539b2cd582e226,%r11
+  11d88d:	9b 53 d6 
+  11d890:	4c 39 de             	cmp    %r11,%rsi
+  11d893:	0f 84 87 fd ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d899:	4c 89 f0             	mov    %r14,%rax
+  11d89c:	4c 89 e1             	mov    %r12,%rcx
+  11d89f:	48 89 ea             	mov    %rbp,%rdx
+  11d8a2:	4c 8b 44 24 38       	mov    0x38(%rsp),%r8
+  11d8a7:	4c 8b 4c 24 40       	mov    0x40(%rsp),%r9
+  11d8ac:	4c 8b 54 24 48       	mov    0x48(%rsp),%r10
+  11d8b1:	48 bf fc e0 5a 70 74 	movabs $0xdb1eff74705ae0fc,%rdi
+  11d8b8:	ff 1e db 
+  11d8bb:	49 bb b1 32 8a 01 8f 	movabs $0xd864508f018a32b1,%r11
+  11d8c2:	50 64 d8 
+  11d8c5:	4c 39 de             	cmp    %r11,%rsi
+  11d8c8:	0f 84 52 fd ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d8ce:	48 b8 e5 0b 21 28 64 	movabs $0xda52ad6428210be5,%rax
+  11d8d5:	ad 52 da 
+  11d8d8:	48 39 c6             	cmp    %rax,%rsi
+  11d8db:	0f 84 9d 03 00 00    	je     11dc7e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x625d3>
+  11d8e1:	48 b8 fc e0 5a 70 74 	movabs $0xdb1eff74705ae0fc,%rax
+  11d8e8:	ff 1e db 
+  11d8eb:	48 39 c6             	cmp    %rax,%rsi
+  11d8ee:	0f 84 d9 07 00 00    	je     11e0cd <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62a22>
+  11d8f4:	4c 89 f0             	mov    %r14,%rax
+  11d8f7:	4c 89 e1             	mov    %r12,%rcx
+  11d8fa:	48 89 ea             	mov    %rbp,%rdx
+  11d8fd:	4d 89 f8             	mov    %r15,%r8
+  11d900:	4d 89 e9             	mov    %r13,%r9
+  11d903:	49 89 da             	mov    %rbx,%r10
+  11d906:	48 bf 2b 4e 6f 43 f6 	movabs $0x5f30d8f6436f4e2b,%rdi
+  11d90d:	d8 30 5f 
+  11d910:	49 bb fa b1 98 15 30 	movabs $0xe2c041301598b1fa,%r11
+  11d917:	41 c0 e2 
+  11d91a:	4c 39 de             	cmp    %r11,%rsi
+  11d91d:	0f 84 fd fc ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d923:	48 b8 23 7a 3d 50 45 	movabs $0xe6931745503d7a23,%rax
+  11d92a:	17 93 e6 
+  11d92d:	48 39 c6             	cmp    %rax,%rsi
+  11d930:	0f 84 85 03 00 00    	je     11dcbb <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62610>
+  11d936:	4c 89 f0             	mov    %r14,%rax
+  11d939:	4c 89 e1             	mov    %r12,%rcx
+  11d93c:	48 89 ea             	mov    %rbp,%rdx
+  11d93f:	4d 89 f8             	mov    %r15,%r8
+  11d942:	4d 89 e9             	mov    %r13,%r9
+  11d945:	49 89 da             	mov    %rbx,%r10
+  11d948:	48 bf fc e0 5a 70 74 	movabs $0xdb1eff74705ae0fc,%rdi
+  11d94f:	ff 1e db 
+  11d952:	49 bb df 06 01 c1 b4 	movabs $0xeb1127b4c10106df,%r11
+  11d959:	27 11 eb 
+  11d95c:	4c 39 de             	cmp    %r11,%rsi
+  11d95f:	0f 84 bb fc ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d965:	48 b8 c3 fd 50 c2 7e 	movabs $0xee971c7ec250fdc3,%rax
+  11d96c:	1c 97 ee 
+  11d96f:	48 39 c6             	cmp    %rax,%rsi
+  11d972:	0f 84 4a 03 00 00    	je     11dcc2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62617>
+  11d978:	4c 89 f0             	mov    %r14,%rax
+  11d97b:	4c 89 e1             	mov    %r12,%rcx
+  11d97e:	48 89 ea             	mov    %rbp,%rdx
+  11d981:	4d 89 f8             	mov    %r15,%r8
+  11d984:	4d 89 e9             	mov    %r13,%r9
+  11d987:	49 89 da             	mov    %rbx,%r10
+  11d98a:	48 bf 2b 4e 6f 43 f6 	movabs $0x5f30d8f6436f4e2b,%rdi
+  11d991:	d8 30 5f 
+  11d994:	49 bb 92 19 d3 ba ec 	movabs $0xf15128ecbad31992,%r11
+  11d99b:	28 51 f1 
+  11d99e:	4c 39 de             	cmp    %r11,%rsi
+  11d9a1:	0f 84 79 fc ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d9a7:	48 b8 5d 59 88 be 81 	movabs $0xfa351281be88595d,%rax
+  11d9ae:	12 35 fa 
+  11d9b1:	48 39 c6             	cmp    %rax,%rsi
+  11d9b4:	0f 84 1b 04 00 00    	je     11ddd5 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x6272a>
+  11d9ba:	4c 89 f0             	mov    %r14,%rax
+  11d9bd:	4c 89 e1             	mov    %r12,%rcx
+  11d9c0:	48 89 ea             	mov    %rbp,%rdx
+  11d9c3:	4d 89 f8             	mov    %r15,%r8
+  11d9c6:	4d 89 e9             	mov    %r13,%r9
+  11d9c9:	49 89 da             	mov    %rbx,%r10
+  11d9cc:	49 bb 74 c4 d3 7d 2f 	movabs $0x5e05c2f7dd3c474,%r11
+  11d9d3:	5c e0 05 
+  11d9d6:	4c 39 de             	cmp    %r11,%rsi
+  11d9d9:	0f 84 41 fc ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11d9df:	48 b8 a1 50 5c 3b 46 	movabs $0xcfc8c463b5c50a1,%rax
+  11d9e6:	8c fc 0c 
+  11d9e9:	48 39 c6             	cmp    %rax,%rsi
+  11d9ec:	0f 84 52 04 00 00    	je     11de44 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62799>
+  11d9f2:	48 b8 59 5c 5d a2 fc 	movabs $0x2368e3fca25d5c59,%rax
+  11d9f9:	e3 68 23 
+  11d9fc:	48 39 c6             	cmp    %rax,%rsi
+  11d9ff:	0f 84 36 03 00 00    	je     11dd3b <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62690>
+  11da05:	48 b8 a3 84 6c 40 6d 	movabs $0x2773b06d406c84a3,%rax
+  11da0c:	b0 73 27 
+  11da0f:	48 39 c6             	cmp    %rax,%rsi
+  11da12:	0f 84 4b 05 00 00    	je     11df63 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x628b8>
+  11da18:	48 b8 50 30 d8 07 4a 	movabs $0x2dca464a07d83050,%rax
+  11da1f:	46 ca 2d 
+  11da22:	48 39 c6             	cmp    %rax,%rsi
+  11da25:	0f 84 08 06 00 00    	je     11e033 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62988>
+  11da2b:	4c 89 f0             	mov    %r14,%rax
+  11da2e:	4c 89 e1             	mov    %r12,%rcx
+  11da31:	48 89 ea             	mov    %rbp,%rdx
+  11da34:	4d 89 f8             	mov    %r15,%r8
+  11da37:	4d 89 e9             	mov    %r13,%r9
+  11da3a:	49 89 da             	mov    %rbx,%r10
+  11da3d:	49 bb 93 07 86 90 1c 	movabs $0x31b7741c90860793,%r11
+  11da44:	74 b7 31 
+  11da47:	4c 39 de             	cmp    %r11,%rsi
+  11da4a:	0f 84 d0 fb ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11da50:	48 b8 a7 cf dc f5 45 	movabs $0x32b90645f5dccfa7,%rax
+  11da57:	06 b9 32 
+  11da5a:	48 39 c6             	cmp    %rax,%rsi
+  11da5d:	0f 84 3a 03 00 00    	je     11dd9d <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x626f2>
+  11da63:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
+  11da68:	48 8b 4c 24 28       	mov    0x28(%rsp),%rcx
+  11da6d:	48 8b 54 24 30       	mov    0x30(%rsp),%rdx
+  11da72:	4d 89 f8             	mov    %r15,%r8
+  11da75:	4d 89 e9             	mov    %r13,%r9
+  11da78:	49 89 da             	mov    %rbx,%r10
+  11da7b:	48 bf 29 ba 56 c7 11 	movabs $0xa17ee611c756ba29,%rdi
+  11da82:	e6 7e a1 
+  11da85:	49 bb 73 0c 94 3d 2a 	movabs $0x36fac22a3d940c73,%r11
+  11da8c:	c2 fa 36 
+  11da8f:	4c 39 de             	cmp    %r11,%rsi
+  11da92:	0f 84 88 fb ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11da98:	48 b8 50 bc 28 be a9 	movabs $0x3ba140a9be28bc50,%rax
+  11da9f:	40 a1 3b 
+  11daa2:	48 39 c6             	cmp    %rax,%rsi
+  11daa5:	0f 84 5b 05 00 00    	je     11e006 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x6295b>
+  11daab:	48 b8 4a e9 77 1d c7 	movabs $0x3ef56bc71d77e94a,%rax
+  11dab2:	6b f5 3e 
+  11dab5:	48 39 c6             	cmp    %rax,%rsi
+  11dab8:	0f 84 a0 02 00 00    	je     11dd5e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x626b3>
+  11dabe:	4c 89 f0             	mov    %r14,%rax
+  11dac1:	4c 89 e1             	mov    %r12,%rcx
+  11dac4:	48 89 ea             	mov    %rbp,%rdx
+  11dac7:	4d 89 f8             	mov    %r15,%r8
+  11daca:	4d 89 e9             	mov    %r13,%r9
+  11dacd:	49 89 da             	mov    %rbx,%r10
+  11dad0:	48 bf 2b 4e 6f 43 f6 	movabs $0x5f30d8f6436f4e2b,%rdi
+  11dad7:	d8 30 5f 
+  11dada:	49 bb be 0d a5 1f c3 	movabs $0x4100a9c31fa50dbe,%r11
+  11dae1:	a9 00 41 
+  11dae4:	4c 39 de             	cmp    %r11,%rsi
+  11dae7:	0f 84 33 fb ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11daed:	48 b8 fb bd b6 ca c1 	movabs $0x4cb87cc1cab6bdfb,%rax
+  11daf4:	7c b8 4c 
+  11daf7:	48 39 c6             	cmp    %rax,%rsi
+  11dafa:	0f 84 e7 03 00 00    	je     11dee7 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x6283c>
+  11db00:	4c 89 f0             	mov    %r14,%rax
+  11db03:	4c 89 e1             	mov    %r12,%rcx
+  11db06:	48 89 ea             	mov    %rbp,%rdx
+  11db09:	4d 89 f8             	mov    %r15,%r8
+  11db0c:	4d 89 e9             	mov    %r13,%r9
+  11db0f:	49 89 da             	mov    %rbx,%r10
+  11db12:	48 bf 29 ba 56 c7 11 	movabs $0xa17ee611c756ba29,%rdi
+  11db19:	e6 7e a1 
+  11db1c:	49 bb ab 60 d5 9b e7 	movabs $0x5066a5e79bd560ab,%r11
+  11db23:	a5 66 50 
+  11db26:	4c 39 de             	cmp    %r11,%rsi
+  11db29:	0f 84 f1 fa ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11db2f:	48 b8 d5 b0 33 22 71 	movabs $0x5fcf00712233b0d5,%rax
+  11db36:	00 cf 5f 
+  11db39:	48 39 c6             	cmp    %rax,%rsi
+  11db3c:	0f 84 99 04 00 00    	je     11dfdb <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62930>
+  11db42:	48 b8 9d 6d be c9 03 	movabs $0x63530103c9be6d9d,%rax
+  11db49:	01 53 63 
+  11db4c:	48 39 c6             	cmp    %rax,%rsi
+  11db4f:	0f 84 18 03 00 00    	je     11de6d <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x627c2>
+  11db55:	4c 89 f0             	mov    %r14,%rax
+  11db58:	4c 89 e1             	mov    %r12,%rcx
+  11db5b:	48 89 ea             	mov    %rbp,%rdx
+  11db5e:	4d 89 f8             	mov    %r15,%r8
+  11db61:	4d 89 e9             	mov    %r13,%r9
+  11db64:	49 89 da             	mov    %rbx,%r10
+  11db67:	48 bf 2b 4e 6f 43 f6 	movabs $0x5f30d8f6436f4e2b,%rdi
+  11db6e:	d8 30 5f 
+  11db71:	49 bb 8d 7f 7f 35 1e 	movabs $0x65bc251e357f7f8d,%r11
+  11db78:	25 bc 65 
+  11db7b:	4c 39 de             	cmp    %r11,%rsi
+  11db7e:	0f 84 9c fa ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11db84:	4c 89 f0             	mov    %r14,%rax
+  11db87:	4c 89 e1             	mov    %r12,%rcx
+  11db8a:	48 89 ea             	mov    %rbp,%rdx
+  11db8d:	4d 89 f8             	mov    %r15,%r8
+  11db90:	4d 89 e9             	mov    %r13,%r9
+  11db93:	49 89 da             	mov    %rbx,%r10
+  11db96:	49 bb 72 44 7c ec c4 	movabs $0x6f022dc4ec7c4472,%r11
+  11db9d:	2d 02 6f 
+  11dba0:	4c 39 de             	cmp    %r11,%rsi
+  11dba3:	0f 84 77 fa ff ff    	je     11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11dba9:	48 b8 10 03 a5 6c 84 	movabs $0x70ac8f846ca50310,%rax
+  11dbb0:	8f ac 70 
+  11dbb3:	48 39 c6             	cmp    %rax,%rsi
+  11dbb6:	0f 84 70 04 00 00    	je     11e02c <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62981>
+  11dbbc:	48 b8 2c 74 6e 7a 89 	movabs $0x73a9e0897a6e742c,%rax
+  11dbc3:	e0 a9 73 
+  11dbc6:	48 39 c6             	cmp    %rax,%rsi
+  11dbc9:	0f 84 db 02 00 00    	je     11deaa <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x627ff>
+  11dbcf:	48 b8 40 60 87 c6 48 	movabs $0x7d1f3048c6876040,%rax
+  11dbd6:	30 1f 7d 
+  11dbd9:	48 39 c6             	cmp    %rax,%rsi
+  11dbdc:	0f 84 44 03 00 00    	je     11df26 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x6287b>
+  11dbe2:	4c 89 f0             	mov    %r14,%rax
+  11dbe5:	4c 89 e1             	mov    %r12,%rcx
+  11dbe8:	48 89 ea             	mov    %rbp,%rdx
+  11dbeb:	4d 89 f8             	mov    %r15,%r8
+  11dbee:	4d 89 e9             	mov    %r13,%r9
+  11dbf1:	49 89 da             	mov    %rbx,%r10
+  11dbf4:	48 89 f7             	mov    %rsi,%rdi
+  11dbf7:	48 bb 2b 4e 6f 43 f6 	movabs $0x5f30d8f6436f4e2b,%rbx
+  11dbfe:	d8 30 5f 
+  11dc01:	48 39 de             	cmp    %rbx,%rsi
+  11dc04:	0f 85 16 fa ff ff    	jne    11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11dc0a:	e9 9f 05 00 00       	jmp    11e1ae <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62b03>
+  11dc0f:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11dc14:	48 8b 30             	mov    (%rax),%rsi
+  11dc17:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11dc1b:	48 8b 54 24 50       	mov    0x50(%rsp),%rdx
+  11dc20:	e8 8d ad ff ff       	call   1189b2 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d307>
+  11dc25:	48 bf 9d 6d be c9 03 	movabs $0x63530103c9be6d9d,%rdi
+  11dc2c:	01 53 63 
+  11dc2f:	84 c0                	test   %al,%al
+  11dc31:	0f 85 60 05 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dc37:	48 bf be 0d a5 1f c3 	movabs $0x4100a9c31fa50dbe,%rdi
+  11dc3e:	a9 00 41 
+  11dc41:	e9 51 05 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dc46:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11dc4b:	48 8b 30             	mov    (%rax),%rsi
+  11dc4e:	8b 54 24 68          	mov    0x68(%rsp),%edx
+  11dc52:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11dc56:	31 c9                	xor    %ecx,%ecx
+  11dc58:	e8 da ac ff ff       	call   118937 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d28c>
+  11dc5d:	48 bf 2a 0b 63 e6 d8 	movabs $0xb3afc6d8e6630b2a,%rdi
+  11dc64:	c6 af b3 
+  11dc67:	84 c0                	test   %al,%al
+  11dc69:	0f 85 28 05 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dc6f:	48 bf 74 c4 d3 7d 2f 	movabs $0x5e05c2f7dd3c474,%rdi
+  11dc76:	5c e0 05 
+  11dc79:	e9 19 05 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dc7e:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11dc83:	4c 8b 00             	mov    (%rax),%r8
+  11dc86:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11dc8a:	48 8d 74 24 68       	lea    0x68(%rsp),%rsi
+  11dc8f:	6a 04                	push   $0x4
+  11dc91:	5a                   	pop    %rdx
+  11dc92:	6a 01                	push   $0x1
+  11dc94:	59                   	pop    %rcx
+  11dc95:	e8 19 ac ff ff       	call   1188b3 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d208>
+  11dc9a:	48 bf c1 50 f3 08 9f 	movabs $0xcdcae89f08f350c1,%rdi
+  11dca1:	e8 ca cd 
+  11dca4:	84 c0                	test   %al,%al
+  11dca6:	0f 85 eb 04 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dcac:	48 bf 8d 7f 7f 35 1e 	movabs $0x65bc251e357f7f8d,%rdi
+  11dcb3:	25 bc 65 
+  11dcb6:	e9 dc 04 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dcbb:	6a 03                	push   $0x3
+  11dcbd:	e9 38 04 00 00       	jmp    11e0fa <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62a4f>
+  11dcc2:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11dcc7:	48 8b 30             	mov    (%rax),%rsi
+  11dcca:	6a 08                	push   $0x8
+  11dccc:	5a                   	pop    %rdx
+  11dccd:	48 2b 50 10          	sub    0x10(%rax),%rdx
+  11dcd1:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11dcd5:	6a 01                	push   $0x1
+  11dcd7:	59                   	pop    %rcx
+  11dcd8:	e8 5a ac ff ff       	call   118937 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d28c>
+  11dcdd:	48 bf 2c 74 6e 7a 89 	movabs $0x73a9e0897a6e742c,%rdi
+  11dce4:	e0 a9 73 
+  11dce7:	84 c0                	test   %al,%al
+  11dce9:	0f 85 a8 04 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dcef:	48 bf a5 9a c9 31 93 	movabs $0x9ac0f19331c99aa5,%rdi
+  11dcf6:	f1 c0 9a 
+  11dcf9:	e9 99 04 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dcfe:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11dd03:	4c 8b 00             	mov    (%rax),%r8
+  11dd06:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11dd0a:	48 8d 74 24 6c       	lea    0x6c(%rsp),%rsi
+  11dd0f:	6a 04                	push   $0x4
+  11dd11:	5a                   	pop    %rdx
+  11dd12:	6a 01                	push   $0x1
+  11dd14:	59                   	pop    %rcx
+  11dd15:	e8 99 ab ff ff       	call   1188b3 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d208>
+  11dd1a:	48 bf 4a e9 77 1d c7 	movabs $0x3ef56bc71d77e94a,%rdi
+  11dd21:	6b f5 3e 
+  11dd24:	84 c0                	test   %al,%al
+  11dd26:	0f 85 6b 04 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dd2c:	48 bf d0 2a aa e4 90 	movabs $0xa7031c90e4aa2ad0,%rdi
+  11dd33:	1c 03 a7 
+  11dd36:	e9 5c 04 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dd3b:	c6 05 a4 13 02 00 00 	movb   $0x0,0x213a4(%rip)        # 13f0e6 <write@plt+0xc566>
+  11dd42:	4d 85 f6             	test   %r14,%r14
+  11dd45:	48 bf 29 8e c9 3a ae 	movabs $0x85fdb8ae3ac98e29,%rdi
+  11dd4c:	b8 fd 85 
+  11dd4f:	48 b8 ff f4 15 3b 6d 	movabs $0x9968646d3b15f4ff,%rax
+  11dd56:	64 68 99 
+  11dd59:	e9 35 04 00 00       	jmp    11e193 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62ae8>
+  11dd5e:	4c 89 f0             	mov    %r14,%rax
+  11dd61:	4c 89 e1             	mov    %r12,%rcx
+  11dd64:	48 89 ea             	mov    %rbp,%rdx
+  11dd67:	4d 89 f8             	mov    %r15,%r8
+  11dd6a:	4d 89 e9             	mov    %r13,%r9
+  11dd6d:	49 89 da             	mov    %rbx,%r10
+  11dd70:	48 8d 74 24 6c       	lea    0x6c(%rsp),%rsi
+  11dd75:	48 89 74 24 30       	mov    %rsi,0x30(%rsp)
+  11dd7a:	48 8d 35 ab 0c 02 00 	lea    0x20cab(%rip),%rsi        # 13ea2c <write@plt+0xbeac>
+  11dd81:	48 89 74 24 28       	mov    %rsi,0x28(%rsp)
+  11dd86:	6a 04                	push   $0x4
+  11dd88:	5e                   	pop    %rsi
+  11dd89:	48 89 74 24 20       	mov    %rsi,0x20(%rsp)
+  11dd8e:	48 bf 73 0c 94 3d 2a 	movabs $0x36fac22a3d940c73,%rdi
+  11dd95:	c2 fa 36 
+  11dd98:	e9 83 f8 ff ff       	jmp    11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11dd9d:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11dda2:	48 8b 30             	mov    (%rax),%rsi
+  11dda5:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11dda9:	6a 0c                	push   $0xc
+  11ddab:	5a                   	pop    %rdx
+  11ddac:	6a 01                	push   $0x1
+  11ddae:	59                   	pop    %rcx
+  11ddaf:	e8 83 ab ff ff       	call   118937 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d28c>
+  11ddb4:	48 bf e5 0b 21 28 64 	movabs $0xda52ad6428210be5,%rdi
+  11ddbb:	ad 52 da 
+  11ddbe:	84 c0                	test   %al,%al
+  11ddc0:	0f 85 d1 03 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11ddc6:	48 bf 26 3f 89 92 60 	movabs $0xba28cf6092893f26,%rdi
+  11ddcd:	cf 28 ba 
+  11ddd0:	e9 c2 03 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11ddd5:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11ddda:	4c 8b 00             	mov    (%rax),%r8
+  11dddd:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11dde1:	48 8d 74 24 70       	lea    0x70(%rsp),%rsi
+  11dde6:	6a 10                	push   $0x10
+  11dde8:	5a                   	pop    %rdx
+  11dde9:	6a 01                	push   $0x1
+  11ddeb:	59                   	pop    %rcx
+  11ddec:	e8 c2 aa ff ff       	call   1188b3 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d208>
+  11ddf1:	48 bf fb bd b6 ca c1 	movabs $0x4cb87cc1cab6bdfb,%rdi
+  11ddf8:	7c b8 4c 
+  11ddfb:	84 c0                	test   %al,%al
+  11ddfd:	0f 85 94 03 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11de03:	48 bf 92 19 d3 ba ec 	movabs $0xf15128ecbad31992,%rdi
+  11de0a:	28 51 f1 
+  11de0d:	e9 85 03 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11de12:	81 35 10 0c 02 00 b6 	xorl   $0xb6b6b6b6,0x20c10(%rip)        # 13ea2c <write@plt+0xbeac>
+  11de19:	b6 b6 b6 
+  11de1c:	c6 05 c4 12 02 00 01 	movb   $0x1,0x212c4(%rip)        # 13f0e7 <write@plt+0xc567>
+  11de23:	4c 89 f0             	mov    %r14,%rax
+  11de26:	4c 89 e1             	mov    %r12,%rcx
+  11de29:	48 89 ea             	mov    %rbp,%rdx
+  11de2c:	4d 89 f8             	mov    %r15,%r8
+  11de2f:	4d 89 e9             	mov    %r13,%r9
+  11de32:	49 89 da             	mov    %rbx,%r10
+  11de35:	48 bf 59 5c 5d a2 fc 	movabs $0x2368e3fca25d5c59,%rdi
+  11de3c:	e3 68 23 
+  11de3f:	e9 dc f7 ff ff       	jmp    11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11de44:	49 8d 47 ff          	lea    -0x1(%r15),%rax
+  11de48:	48 89 44 24 38       	mov    %rax,0x38(%rsp)
+  11de4d:	49 8d 45 01          	lea    0x1(%r13),%rax
+  11de51:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+  11de56:	48 8d 43 01          	lea    0x1(%rbx),%rax
+  11de5a:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+  11de5f:	4c 89 f0             	mov    %r14,%rax
+  11de62:	4c 89 e1             	mov    %r12,%rcx
+  11de65:	48 89 ea             	mov    %rbp,%rdx
+  11de68:	e9 a1 00 00 00       	jmp    11df0e <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62863>
+  11de6d:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11de72:	4c 8b 00             	mov    (%rax),%r8
+  11de75:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11de79:	48 8b 74 24 18       	mov    0x18(%rsp),%rsi
+  11de7e:	6a 08                	push   $0x8
+  11de80:	5a                   	pop    %rdx
+  11de81:	6a 01                	push   $0x1
+  11de83:	59                   	pop    %rcx
+  11de84:	e8 2a aa ff ff       	call   1188b3 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d208>
+  11de89:	48 bf c3 fd 50 c2 7e 	movabs $0xee971c7ec250fdc3,%rdi
+  11de90:	1c 97 ee 
+  11de93:	84 c0                	test   %al,%al
+  11de95:	0f 85 fc 02 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11de9b:	48 bf 88 fb 26 f4 d3 	movabs $0xb9a430d3f426fb88,%rdi
+  11dea2:	30 a4 b9 
+  11dea5:	e9 ed 02 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11deaa:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11deaf:	4c 8b 00             	mov    (%rax),%r8
+  11deb2:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11deb6:	48 8d 74 24 60       	lea    0x60(%rsp),%rsi
+  11debb:	6a 08                	push   $0x8
+  11debd:	5a                   	pop    %rdx
+  11debe:	6a 01                	push   $0x1
+  11dec0:	59                   	pop    %rcx
+  11dec1:	e8 ed a9 ff ff       	call   1188b3 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d208>
+  11dec6:	48 bf a3 84 6c 40 6d 	movabs $0x2773b06d406c84a3,%rdi
+  11decd:	b0 73 27 
+  11ded0:	84 c0                	test   %al,%al
+  11ded2:	0f 85 bf 02 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11ded8:	48 bf fa b1 98 15 30 	movabs $0xe2c041301598b1fa,%rdi
+  11dedf:	41 c0 e2 
+  11dee2:	e9 b0 02 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dee7:	4c 89 f0             	mov    %r14,%rax
+  11deea:	4c 89 e1             	mov    %r12,%rcx
+  11deed:	48 89 ea             	mov    %rbp,%rdx
+  11def0:	48 8d 74 24 70       	lea    0x70(%rsp),%rsi
+  11def5:	48 89 74 24 48       	mov    %rsi,0x48(%rsp)
+  11defa:	48 8d 35 2f 0b 02 00 	lea    0x20b2f(%rip),%rsi        # 13ea30 <write@plt+0xbeb0>
+  11df01:	48 89 74 24 40       	mov    %rsi,0x40(%rsp)
+  11df06:	6a 10                	push   $0x10
+  11df08:	5e                   	pop    %rsi
+  11df09:	48 89 74 24 38       	mov    %rsi,0x38(%rsp)
+  11df0e:	4d 89 f8             	mov    %r15,%r8
+  11df11:	4d 89 e9             	mov    %r13,%r9
+  11df14:	49 89 da             	mov    %rbx,%r10
+  11df17:	48 bf b1 32 8a 01 8f 	movabs $0xd864508f018a32b1,%rdi
+  11df1e:	50 64 d8 
+  11df21:	e9 fa f6 ff ff       	jmp    11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11df26:	0f 28 05 03 0b 02 00 	movaps 0x20b03(%rip),%xmm0        # 13ea30 <write@plt+0xbeb0>
+  11df2d:	0f 57 05 8c 5d ee ff 	xorps  -0x11a274(%rip),%xmm0        # 3cc0 <Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume@@Base-0xb6fe3>
+  11df34:	0f 29 05 f5 0a 02 00 	movaps %xmm0,0x20af5(%rip)        # 13ea30 <write@plt+0xbeb0>
+  11df3b:	c6 05 a7 11 02 00 01 	movb   $0x1,0x211a7(%rip)        # 13f0e9 <write@plt+0xc569>
+  11df42:	4c 89 f0             	mov    %r14,%rax
+  11df45:	4c 89 e1             	mov    %r12,%rcx
+  11df48:	48 89 ea             	mov    %rbp,%rdx
+  11df4b:	4d 89 f8             	mov    %r15,%r8
+  11df4e:	4d 89 e9             	mov    %r13,%r9
+  11df51:	49 89 da             	mov    %rbx,%r10
+  11df54:	48 bf 1e 15 24 f8 66 	movabs $0x94790566f824151e,%rdi
+  11df5b:	05 79 94 
+  11df5e:	e9 bd f6 ff ff       	jmp    11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11df63:	48 8b 44 24 18       	mov    0x18(%rsp),%rax
+  11df68:	48 8b 00             	mov    (%rax),%rax
+  11df6b:	48 bf 72 44 7c ec c4 	movabs $0x6f022dc4ec7c4472,%rdi
+  11df72:	2d 02 6f 
+  11df75:	48 3b 44 24 60       	cmp    0x60(%rsp),%rax
+  11df7a:	0f 84 17 02 00 00    	je     11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11df80:	48 bf 10 03 a5 6c 84 	movabs $0x70ac8f846ca50310,%rdi
+  11df87:	8f ac 70 
+  11df8a:	e9 08 02 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11df8f:	41 8a 04 24          	mov    (%r12),%al
+  11df93:	48 bf 50 30 d8 07 4a 	movabs $0x2dca464a07d83050,%rdi
+  11df9a:	46 ca 2d 
+  11df9d:	3a 45 00             	cmp    0x0(%rbp),%al
+  11dfa0:	0f 84 f1 01 00 00    	je     11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dfa6:	48 bf 23 7a 3d 50 45 	movabs $0xe6931745503d7a23,%rdi
+  11dfad:	17 93 e6 
+  11dfb0:	e9 e2 01 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dfb5:	80 3d 2d 11 02 00 00 	cmpb   $0x0,0x2112d(%rip)        # 13f0e9 <write@plt+0xc569>
+  11dfbc:	48 bf d5 d8 9d e5 4f 	movabs $0xd02c834fe59dd8d5,%rdi
+  11dfc3:	83 2c d0 
+  11dfc6:	0f 85 cb 01 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dfcc:	48 bf 40 60 87 c6 48 	movabs $0x7d1f3048c6876040,%rdi
+  11dfd3:	30 1f 7d 
+  11dfd6:	e9 bc 01 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11dfdb:	48 8b 04 24          	mov    (%rsp),%rax
+  11dfdf:	8b 4c 24 14          	mov    0x14(%rsp),%ecx
+  11dfe3:	89 08                	mov    %ecx,(%rax)
+  11dfe5:	4c 89 f0             	mov    %r14,%rax
+  11dfe8:	4c 89 e1             	mov    %r12,%rcx
+  11dfeb:	48 89 ea             	mov    %rbp,%rdx
+  11dfee:	4d 89 f8             	mov    %r15,%r8
+  11dff1:	4d 89 e9             	mov    %r13,%r9
+  11dff4:	49 89 da             	mov    %rbx,%r10
+  11dff7:	48 bf 2b 4e 6f 43 f6 	movabs $0x5f30d8f6436f4e2b,%rdi
+  11dffe:	d8 30 5f 
+  11e001:	e9 1a f6 ff ff       	jmp    11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11e006:	80 3d da 10 02 00 00 	cmpb   $0x0,0x210da(%rip)        # 13f0e7 <write@plt+0xc567>
+  11e00d:	48 bf 0c 0e 28 d1 5a 	movabs $0x96fb5a5ad1280e0c,%rdi
+  11e014:	5a fb 96 
+  11e017:	0f 85 7a 01 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e01d:	48 bf e7 5a 3b b2 7c 	movabs $0xae36807cb23b5ae7,%rdi
+  11e024:	80 36 ae 
+  11e027:	e9 6b 01 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e02c:	6a 06                	push   $0x6
+  11e02e:	e9 c7 00 00 00       	jmp    11e0fa <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62a4f>
+  11e033:	49 8d 46 ff          	lea    -0x1(%r14),%rax
+  11e037:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+  11e03c:	49 8d 44 24 01       	lea    0x1(%r12),%rax
+  11e041:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+  11e046:	48 8d 45 01          	lea    0x1(%rbp),%rax
+  11e04a:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+  11e04f:	4c 89 f0             	mov    %r14,%rax
+  11e052:	4c 89 e1             	mov    %r12,%rcx
+  11e055:	48 89 ea             	mov    %rbp,%rdx
+  11e058:	4d 89 f8             	mov    %r15,%r8
+  11e05b:	4d 89 e9             	mov    %r13,%r9
+  11e05e:	49 89 da             	mov    %rbx,%r10
+  11e061:	48 bf 73 0c 94 3d 2a 	movabs $0x36fac22a3d940c73,%rdi
+  11e068:	c2 fa 36 
+  11e06b:	e9 b0 f5 ff ff       	jmp    11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11e070:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11e075:	48 8b 30             	mov    (%rax),%rsi
+  11e078:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11e07c:	6a e8                	push   $0xffffffffffffffe8
+  11e07e:	5a                   	pop    %rdx
+  11e07f:	6a 01                	push   $0x1
+  11e081:	59                   	pop    %rcx
+  11e082:	e8 b0 a8 ff ff       	call   118937 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d28c>
+  11e087:	48 bf cd 48 04 51 da 	movabs $0xb08d59da510448cd,%rdi
+  11e08e:	59 8d b0 
+  11e091:	84 c0                	test   %al,%al
+  11e093:	0f 85 fe 00 00 00    	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e099:	48 bf 93 07 86 90 1c 	movabs $0x31b7741c90860793,%rdi
+  11e0a0:	74 b7 31 
+  11e0a3:	e9 ef 00 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e0a8:	41 8a 45 00          	mov    0x0(%r13),%al
+  11e0ac:	48 bf a1 50 5c 3b 46 	movabs $0xcfc8c463b5c50a1,%rdi
+  11e0b3:	8c fc 0c 
+  11e0b6:	3a 03                	cmp    (%rbx),%al
+  11e0b8:	0f 84 d9 00 00 00    	je     11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e0be:	48 bf 68 fc 88 0a 84 	movabs $0xd50033840a88fc68,%rdi
+  11e0c5:	33 00 d5 
+  11e0c8:	e9 ca 00 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e0cd:	31 c0                	xor    %eax,%eax
+  11e0cf:	b1 01                	mov    $0x1,%cl
+  11e0d1:	f0 0f b0 0d 0f 10 02 	lock cmpxchg %cl,0x2100f(%rip)        # 13f0e8 <write@plt+0xc568>
+  11e0d8:	00 
+  11e0d9:	48 bf d5 03 5a 7c 82 	movabs $0xcbeb4f827c5a03d5,%rdi
+  11e0e0:	4f eb cb 
+  11e0e3:	0f 84 ae 00 00 00    	je     11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e0e9:	48 bf df 06 01 c1 b4 	movabs $0xeb1127b4c10106df,%rdi
+  11e0f0:	27 11 eb 
+  11e0f3:	e9 9f 00 00 00       	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e0f8:	6a 05                	push   $0x5
+  11e0fa:	58                   	pop    %rax
+  11e0fb:	89 44 24 14          	mov    %eax,0x14(%rsp)
+  11e0ff:	4c 89 f0             	mov    %r14,%rax
+  11e102:	4c 89 e1             	mov    %r12,%rcx
+  11e105:	48 89 ea             	mov    %rbp,%rdx
+  11e108:	4d 89 f8             	mov    %r15,%r8
+  11e10b:	4d 89 e9             	mov    %r13,%r9
+  11e10e:	49 89 da             	mov    %rbx,%r10
+  11e111:	48 bf d5 b0 33 22 71 	movabs $0x5fcf00712233b0d5,%rdi
+  11e118:	00 cf 5f 
+  11e11b:	e9 00 f5 ff ff       	jmp    11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11e120:	31 c0                	xor    %eax,%eax
+  11e122:	b1 01                	mov    $0x1,%cl
+  11e124:	f0 0f b0 0d ba 0f 02 	lock cmpxchg %cl,0x20fba(%rip)        # 13f0e6 <write@plt+0xc566>
+  11e12b:	00 
+  11e12c:	48 bf 50 bc 28 be a9 	movabs $0x3ba140a9be28bc50,%rdi
+  11e133:	40 a1 3b 
+  11e136:	74 5f                	je     11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e138:	48 bf ab 60 d5 9b e7 	movabs $0x5066a5e79bd560ab,%rdi
+  11e13f:	a5 66 50 
+  11e142:	eb 53                	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e144:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  11e149:	48 8b 30             	mov    (%rax),%rsi
+  11e14c:	48 8b 3c 24          	mov    (%rsp),%rdi
+  11e150:	6a ec                	push   $0xffffffffffffffec
+  11e152:	5a                   	pop    %rdx
+  11e153:	6a 01                	push   $0x1
+  11e155:	59                   	pop    %rcx
+  11e156:	e8 dc a7 ff ff       	call   118937 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x5d28c>
+  11e15b:	48 bf 5d 59 88 be 81 	movabs $0xfa351281be88595d,%rdi
+  11e162:	12 35 fa 
+  11e165:	84 c0                	test   %al,%al
+  11e167:	75 2e                	jne    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e169:	48 bf 26 e2 82 d5 2c 	movabs $0xd6539b2cd582e226,%rdi
+  11e170:	9b 53 d6 
+  11e173:	eb 22                	jmp    11e197 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62aec>
+  11e175:	c6 05 6c 0f 02 00 00 	movb   $0x0,0x20f6c(%rip)        # 13f0e8 <write@plt+0xc568>
+  11e17c:	4d 85 ff             	test   %r15,%r15
+  11e17f:	48 bf 82 0d a7 b8 7e 	movabs $0xb66d937eb8a70d82,%rdi
+  11e186:	93 6d b6 
+  11e189:	48 b8 9e 92 04 ed ff 	movabs $0x9e396fffed04929e,%rax
+  11e190:	6f 39 9e 
+  11e193:	48 0f 44 f8          	cmove  %rax,%rdi
+  11e197:	4c 89 f0             	mov    %r14,%rax
+  11e19a:	4c 89 e1             	mov    %r12,%rcx
+  11e19d:	48 89 ea             	mov    %rbp,%rdx
+  11e1a0:	4d 89 f8             	mov    %r15,%r8
+  11e1a3:	4d 89 e9             	mov    %r13,%r9
+  11e1a6:	49 89 da             	mov    %rbx,%r10
+  11e1a9:	e9 72 f4 ff ff       	jmp    11d620 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x61f75>
+  11e1ae:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  11e1b5:	00 00 
+  11e1b7:	48 3b 84 24 80 00 00 	cmp    0x80(%rsp),%rax
+  11e1be:	00 
+  11e1bf:	75 12                	jne    11e1d3 <Java_com_adjust_sdk_sig_NativeLibHelper_nSign@@Base+0x62b28>
+  11e1c1:	48 81 c4 88 00 00 00 	add    $0x88,%rsp
+  11e1c8:	5b                   	pop    %rbx
+  11e1c9:	41 5c                	pop    %r12
+  11e1cb:	41 5d                	pop    %r13
+  11e1cd:	41 5e                	pop    %r14
+  11e1cf:	41 5f                	pop    %r15
+  11e1d1:	5d                   	pop    %rbp
+  11e1d2:	c3                   	ret
+  11e1d3:	e8 48 46 01 00       	call   132820 <__stack_chk_fail@plt>

@@ -1,0 +1,64 @@
+loaded libsigner.so base=0x12340000 size=0x148000
+[main]V/SignerInstance: Signing all the parameters begin: 2026-07-13T22:49:44.734+0800
+[main]V/SignerInstance: Calling native begin: 2026-07-13T22:49:44.748+0800
+com.github.unidbg.arm.backend.BackendException: mem_read address=0x1, size=4
+	at com.github.unidbg.arm.backend.UnicornBackend.mem_read(UnicornBackend.java:86)
+	at com.github.unidbg.pointer.UnidbgPointer.getByteArray(UnidbgPointer.java:286)
+	at com.github.unidbg.pointer.UnidbgPointer.getByteBuffer(UnidbgPointer.java:304)
+	at com.github.unidbg.pointer.UnidbgPointer.getInt(UnidbgPointer.java:249)
+	at local.AdjustSignatureRunner$23.hook(AdjustSignatureRunner.java:1019)
+	at com.github.unidbg.arm.backend.UnicornBackend.lambda$hook_add_new$0(UnicornBackend.java:153)
+	at unicorn.Unicorn$NewHook.onCode(Unicorn.java:81)
+	at unicorn.Unicorn.emu_start(Native Method)
+	at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:253)
+	at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:375)
+	at com.github.unidbg.thread.Function64.run(Function64.java:39)
+	at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
+	at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:165)
+	at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:97)
+	at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:332)
+	at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:262)
+	at com.github.unidbg.Module.emulateFunction(Module.java:170)
+	at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
+	at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethodObject(DvmObject.java:93)
+	at local.AdjustSignatureRunner.signNative(AdjustSignatureRunner.java:2003)
+	at com.adjust.sdk.sig.NativeLibHelper.nSign(NativeLibHelper.java:135)
+	at com.adjust.sdk.sig.NativeLibHelper.a(NativeLibHelper.java:143)
+	at com.adjust.sdk.sig.d.a(d.java:73)
+	at com.adjust.sdk.sig.Signer.sign(Signer.java:37)
+	at local.SignerEngine.sign(SignerEngine.java:58)
+	at local.SignerEngine.signOnce(SignerEngine.java:77)
+	at local.SignerOneClick.run(SignerOneClick.java:29)
+	at local.SignerOneClick.run(SignerOneClick.java:21)
+	at local.SignerOneClick.main(SignerOneClick.java:50)
+Caused by: unicorn.UnicornException: Invalid memory read (UC_ERR_READ_UNMAPPED)
+	at unicorn.Unicorn.mem_read(Native Method)
+	at com.github.unidbg.arm.backend.UnicornBackend.mem_read(UnicornBackend.java:84)
+	... 28 more
+debugger break at: 0x7ffff0000 @ Runnable|Function64 address=0x1240c604, arguments=[unidbg@0xfffe1640, 115433442, 1344697180, 284686302, 1940445711, 36]
+>>> x0=0x45fd9a4d x1=0xb66d937eb8a70d82 x2=0xa17ee611c756ba29 x3=0xa7031c90e4aa2ad0 x4=0xb3afc6d8e6630b2a x5=0xba28cf6092893f26 x6=0xbcbeda64f00f9416 x7=0xd864508f018a32b1 x8=0x0 x9=0x0 x10=0x124857d7 x11=0xfa351281be88595d x12=0xfa351281be88595d x13=0xfa351281be88595d x14=0xa56dc3d2165a87c5
+>>> x15=0x95de285d491e8ca0 x16=0x85fdb8ae3ac98e29 x17=0x94790566f824151e x18=0x12002ef8 x19=0x0 x20=0x0 x21=0x0 x22=0x0 x23=0x0 x24=0x0 x25=0x0 x26=0x0 x27=0x0 x28=0x0 fp=0x0
+>>> q0=0xe4fff43000000000e4fff4a0(1.8981901087E-314, 1.8981900533E-314) q1=0xffffff80ffffffe000000000e4fff410(1.8981900375E-314, NaN) q2=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee(-2.289989454992704E226, -2.289989454992704E226) q3=0xa0eff8fef1f9d4b4(-4.8837190523771394E-150) q4=0x9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b(-1.0900715865557387E-175, -1.0900715865557387E-175) q5=0x40000000000000004(2.0E-323, 2.0E-323) q6=0x20000000000000002(1.0E-323, 1.0E-323) q7=0x1d100000000000001d1(2.297E-321, 2.297E-321) q8=0x0(0.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
+>>> q16=0x31d100000000000021d1(4.277E-320, 6.301E-320) q17=0x0(0.0) q18=0x31d100000000000021d1(4.277E-320, 6.301E-320) q19=0x0(0.0) q20=0x0(0.0) q21=0x0(0.0) q22=0x0(0.0) q23=0x0(0.0) q24=0x0(0.0) q25=0x0(0.0) q26=0x0(0.0) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
+LR=unidbg@0x7ffff0000
+SP=0xe4fff700
+PC=unidbg@0x7ffff0000
+nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
+=> *[0x7ffff0000 *0x700010000]*[010000d4]*0x7ffff0000:*"svc #0"
+=> *[0x7ffff0000 *0x700010000]*[010000d4]*0x7ffff0000:*"svc #0"
+    [0x7ffff0004  0x700010004] [010000d4] 0x7ffff0004: "svc #0"
+    [0x7ffff0008  0x700010008] [010000d4] 0x7ffff0008: "svc #0"
+    [0x7ffff000c  0x70001000c] [010000d4] 0x7ffff000c: "svc #0"
+    [0x7ffff0010  0x700010010] [010000d4] 0x7ffff0010: "svc #0"
+    [0x7ffff0014  0x700010014] [010000d4] 0x7ffff0014: "svc #0"
+    [0x7ffff0018  0x700010018] [010000d4] 0x7ffff0018: "svc #0"
+    [0x7ffff001c  0x70001001c] [010000d4] 0x7ffff001c: "svc #0"
+    [0x7ffff0020  0x700010020] [010000d4] 0x7ffff0020: "svc #0"
+    [0x7ffff0024  0x700010024] [010000d4] 0x7ffff0024: "svc #0"
+    [0x7ffff0028  0x700010028] [010000d4] 0x7ffff0028: "svc #0"
+    [0x7ffff002c  0x70001002c] [010000d4] 0x7ffff002c: "svc #0"
+    [0x7ffff0030  0x700010030] [010000d4] 0x7ffff0030: "svc #0"
+    [0x7ffff0034  0x700010034] [010000d4] 0x7ffff0034: "svc #0"
+    [0x7ffff0038  0x700010038] [010000d4] 0x7ffff0038: "svc #0"
+
+[main]V/SignerInstance: Calling native end  : 2026-07-13T22:50:05.612+0800

@@ -3,7 +3,9 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REFERENCE="$ROOT/device-reference/references/pixel8-api36"
+REFERENCE_SHA="b163eb800b2a425158f6b825e8e9439b4b9bd1bca8b0ed0be2a155f2ef9ceca0"
 
+test "$(shasum -a 256 "$REFERENCE/reference-result.json" | awk '{print $1}')" = "$REFERENCE_SHA"
 grep -q '"expectedResultFile"[[:space:]]*:' "$REFERENCE/signer-job.json"
 ACTUAL="$("$ROOT/generate-signer.sh" "$REFERENCE/signer-job.json")"
 

@@ -1,0 +1,96 @@
+
+adjust-android-signature-3.67.0/jni/arm64-v8a/libsigner.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000008070 <.text>:
+   44c38: fc190fe8     	str	d8, [sp, #-0x70]!
+   44c3c: a9017bfd     	stp	x29, x30, [sp, #0x10]
+   44c40: a9026ffc     	stp	x28, x27, [sp, #0x20]
+   44c44: a90367fa     	stp	x26, x25, [sp, #0x30]
+   44c48: a9045ff8     	stp	x24, x23, [sp, #0x40]
+   44c4c: a90557f6     	stp	x22, x21, [sp, #0x50]
+   44c50: a9064ff4     	stp	x20, x19, [sp, #0x60]
+   44c54: 910043fd     	add	x29, sp, #0x10
+   44c58: f100005f     	cmp	x2, #0x0
+   44c5c: d29a2e58     	mov	x24, #0xd172            // =53618
+   44c60: d299fe79     	mov	x25, #0xcff3            // =53235
+   44c64: fa401804     	ccmp	x0, #0x0, #0x4, ne
+   44c68: f2ab9718     	movk	x24, #0x5cb8, lsl #16
+   44c6c: f2b55339     	movk	x25, #0xaa99, lsl #16
+   44c70: f2de8b58     	movk	x24, #0xf45a, lsl #32
+   44c74: f2c0bcb9     	movk	x25, #0x5e5, lsl #32
+   44c78: f2f3da98     	movk	x24, #0x9ed4, lsl #48
+   44c7c: f2f6b0f9     	movk	x25, #0xb587, lsl #48
+   44c80: 9a981328     	csel	x8, x25, x24, ne
+   44c84: d288aa97     	mov	x23, #0x4554            // =17748
+   44c88: d28261ba     	mov	x26, #0x130d            // =4877
+   44c8c: d292d99b     	mov	x27, #0x96cc            // =38604
+   44c90: d29a5e7c     	mov	x28, #0xd2f3            // =54003
+   44c94: f2ad89d7     	movk	x23, #0x6c4e, lsl #16
+   44c98: f90007e8     	str	x8, [sp, #0x8]
+   44c9c: d28261a8     	mov	x8, #0x130d             // =4877
+   44ca0: f2be707a     	movk	x26, #0xf383, lsl #16
+   44ca4: f2aae87b     	movk	x27, #0x5743, lsl #16
+   44ca8: f2a1d77c     	movk	x28, #0xebb, lsl #16
+   44cac: f2be7068     	movk	x8, #0xf383, lsl #16
+   44cb0: f2c92e37     	movk	x23, #0x4971, lsl #32
+   44cb4: f2ce859a     	movk	x26, #0x742c, lsl #32
+   44cb8: f2d3535b     	movk	x27, #0x9a9a, lsl #32
+   44cbc: f2cc65bc     	movk	x28, #0x632d, lsl #32
+   44cc0: f2ce8588     	movk	x8, #0x742c, lsl #32
+   44cc4: aa0303f3     	mov	x19, x3
+   44cc8: aa0203f4     	mov	x20, x2
+   44ccc: aa0103f5     	mov	x21, x1
+   44cd0: aa0003f6     	mov	x22, x0
+   44cd4: f2eb1057     	movk	x23, #0x5882, lsl #48
+   44cd8: f2fffcfa     	movk	x26, #0xffe7, lsl #48
+   44cdc: f2e2ea7b     	movk	x27, #0x1753, lsl #48
+   44ce0: f2f74b3c     	movk	x28, #0xba59, lsl #48
+   44ce4: 1e2e1008     	fmov	s8, #1.00000000
+   44ce8: f2fffce8     	movk	x8, #0xffe7, lsl #48
+   44cec: eb17011f     	cmp	x8, x23
+   44cf0: 54000480     	b.eq	0x44d80 <.text+0x3cd10>
+   44cf4: eb19011f     	cmp	x8, x25
+   44cf8: 540001a0     	b.eq	0x44d2c <.text+0x3ccbc>
+   44cfc: eb1c011f     	cmp	x8, x28
+   44d00: 54000200     	b.eq	0x44d40 <.text+0x3ccd0>
+   44d04: eb1a011f     	cmp	x8, x26
+   44d08: 54000380     	b.eq	0x44d78 <.text+0x3cd08>
+   44d0c: eb1b011f     	cmp	x8, x27
+   44d10: fa581104     	ccmp	x8, x24, #0x4, ne
+   44d14: 54fffec1     	b.ne	0x44cec <.text+0x3cc7c>
+   44d18: d288aa88     	mov	x8, #0x4554             // =17748
+   44d1c: f2ad89c8     	movk	x8, #0x6c4e, lsl #16
+   44d20: f2c92e28     	movk	x8, #0x4971, lsl #32
+   44d24: f2eb1048     	movk	x8, #0x5882, lsl #48
+   44d28: 17fffff1     	b	0x44cec <.text+0x3cc7c>
+   44d2c: aa1603e0     	mov	x0, x22
+   44d30: 97ffc169     	bl	0x352d4 <.text+0x2d264>
+   44d34: 7200001f     	tst	w0, #0x1
+   44d38: 9a9b1388     	csel	x8, x28, x27, ne
+   44d3c: 17ffffec     	b	0x44cec <.text+0x3cc7c>
+   44d40: bd4002a0     	ldr	s0, [x21]
+   44d44: d288aa88     	mov	x8, #0x4554             // =17748
+   44d48: f9400269     	ldr	x9, [x19]
+   44d4c: f2ad89c8     	movk	x8, #0x6c4e, lsl #16
+   44d50: f2c92e28     	movk	x8, #0x4971, lsl #32
+   44d54: 1e203901     	fsub	s1, s8, s0
+   44d58: f2eb1048     	movk	x8, #0x5882, lsl #48
+   44d5c: 9100052a     	add	x10, x9, #0x1
+   44d60: 1e212800     	fadd	s0, s0, s1
+   44d64: f900026a     	str	x10, [x19]
+   44d68: 5280026a     	mov	w10, #0x13              // =19
+   44d6c: 78297a8a     	strh	w10, [x20, x9, lsl #1]
+   44d70: bd0002a0     	str	s0, [x21]
+   44d74: 17ffffde     	b	0x44cec <.text+0x3cc7c>
+   44d78: f94007e8     	ldr	x8, [sp, #0x8]
+   44d7c: 17ffffdc     	b	0x44cec <.text+0x3cc7c>
+   44d80: a9464ff4     	ldp	x20, x19, [sp, #0x60]
+   44d84: a94557f6     	ldp	x22, x21, [sp, #0x50]
+   44d88: a9445ff8     	ldp	x24, x23, [sp, #0x40]
+   44d8c: a94367fa     	ldp	x26, x25, [sp, #0x30]
+   44d90: a9426ffc     	ldp	x28, x27, [sp, #0x20]
+   44d94: a9417bfd     	ldp	x29, x30, [sp, #0x10]
+   44d98: fc4707e8     	ldr	d8, [sp], #0x70
+   44d9c: d65f03c0     	ret

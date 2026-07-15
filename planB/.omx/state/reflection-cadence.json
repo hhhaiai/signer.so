@@ -1,21 +1,627 @@
 {
-  "lastReflection": "2026-07-12T21:00:00+08:00",
-  "objective": "Desktop-only Java/Unidbg signer with configurable observable Android/native state, unchanged Signer API, fixed onResume-to-sign order, frozen device-reference parity, and an independently executable recovered implementation including API-selected crypto behavior where proven.",
-  "currentFocus": "Map remaining protected final-envelope control flow and unnamed correction/probe branches; v3/v3.1 certificates, importable API18-22 RSA state, and field0 growth through 24 halfwords are closed.",
-  "status": "active",
-  "evidence": {
-    "desktopExecution": "Default Unidbg/original-SO and recovered C++ backends run fully on the host without a phone, ADB, Frida, Android emulator, or automatic system plugin installation.",
-    "apiAndLifecycle": "Original public Signer descriptors pass test-api-contract.sh and SignerEngine preserves fixed onResume then sign ordering.",
-    "strictReference": "Default and recovered backends both exactly match the complete frozen Pixel 8 structured reference; frozen SHA-256 remains b163eb800b2a425158f6b825e8e9439b4b9bd1bca8b0ed0be2a155f2ef9ceca0.",
-    "cmdlineCorrections": "Controlled original-SO oracles prove missing or empty /proc/self/cmdline emits 0x34; a non-empty first NUL-terminated process name unequal to runtime packageName emits 0x09; a matching process name emits neither. APK manifest mismatch alone does not emit 0x09.",
-    "legacyApi": "API 18, 21 and 22 now complete original-SO signing on the desktop through SharedPreferences, Base64, AndroidKeyStore RSA PrivateKeyEntry, RSA/ECB/PKCS1Padding, SecretKeySpec and HmacSHA256 JNI support. Equal downstream observations produce identical 176-byte adj8 output.",
-    "cryptoSwitch": "API 23+ obtains key2 through AndroidKeyStore.getKey then HmacSHA256; API 18-22 decrypt SharedPreferences encrypted_key through RSA/ECB/PKCS1Padding before HmacSHA256. A deterministic direct original-SO matrix proves that changing the Java HMAC argument across 0/16/31/32/33/64 bytes or changing its contents does not alter the reached API36 result. API23-to-24 adds correction 0x3c and expands the payload, but retains algorithm=adj8 and the recovered custom-SHA256/AES-256-CBC/HMAC-SHA256 final envelope.",
-    "algorithmMetadata": "Static disassembly corrects 0x9279c to the onResume context-bit setter. The actual protected metadata item builder is 0x9954c; four calls pass fixed encoded buffers that decode to headers_id=9, adj_signing_id=1400000, native_version=3.67.0 and algorithm=adj8. API22, API36, combined corrections and a 27-case parameter matrix preserve the same addresses and values.",
-    "v3Certificates": "Project-owned pure Java ApkSigningBlockCertificates parses v3 and v3.1 APK Signing Blocks without Android SDK runtime tools. A v3-only APK with matching certificate reproduces the original-SO no-0x2a output; a mismatching certificate reproduces the original-SO 0x2a output; both complete 176-byte outputs match recovered backend byte-for-byte.",
-    "legacyRsaImport": "device.legacyKeyStore imports a paired PKCS8 RSA private key and X509 SubjectPublicKeyInfo public key; device.sharedPreferences supplies adjust_keys/encrypted_key. A controlled API18 original-SO test decrypts the imported persisted secret and reproduces the complete 176-byte oracle.",
-    "configSurface": "device.sharedPreferences configures named string preference files; native filesystem config controls /proc/self/cmdline and maps; recovered backend derives 0x34/0x09 and 0x3c for every observed API not equal to 36.",
-    "nativeSourceParity": "Independent C++ matches thirteen original-SO oracle categories, including cmdline 0x09, cmdline 0x34, frozen 176-byte Pixel, nine-correction 192-byte expansion and seventeen-correction 208-byte expansion. Field0 capacity grows 8 to 16 to 24 to 32 halfwords in blocks of eight.",
-    "regression": "After rebuilding the recovered C++ executable, the latest Maven build passes 64 tests with zero failures/errors/skips; v3/v3.1 parser is 3/3, recovered integration is 16/16 and legacy API integration is 2/2. API contract, frozen device-reference, recovered reference and native C++ oracle suite pass. The frozen reference SHA-256 remains b163eb800b2a425158f6b825e8e9439b4b9bd1bca8b0ed0be2a155f2ef9ceca0.",
-    "remainingBoundary": "No reached profile proves a second final envelope algorithm. Remaining work is protected/unreached final-envelope control flow, unnamed correction/probe semantics, and broader full-function/protected-VM source recovery."
-  }
+  "checkpoints": [
+    {
+      "timestamp": "2026-07-14T18:29:13.818524+08:00",
+      "objective": "offline static audit of local adjust signature AAR and libsigner binaries",
+      "source_of_truth": "SO_FUNCTION_COVERAGE.md and arm64-function-inventory.csv updated 2026-07-14 15:29:46; direct readelf/objdump/javap verification",
+      "scope": "static only; no target execution, no network, no external hosts",
+      "adjustment": "replaced stale 222/99 JNI coverage with current 245/76"
+    },
+    {
+      "timestamp": "2026-07-14T18:50:47.531066+08:00",
+      "objective": "assess current progress of native-reimplementation/recovered_primitives.cpp",
+      "source_of_truth": "current 15,252-line source, refreshed codebase index, SO_FUNCTION_COVERAGE.md and current CSV, syntax-only clang verification",
+      "scope": "status review; static checks only; target SO not executed",
+      "adjustment": "README/audit/build logs are older than current source; report current syntax as verified, prior runtime vectors as historical only"
+    },
+    {
+      "timestamp": "2026-07-14T19:24:56.406946+08:00",
+      "objective": "full offline static recovery of arm64 libsigner.so into native-reimplementation",
+      "source_of_truth": "current recovered_primitives.cpp plus regenerated arm64 inventory and cross-ABI objdump evidence",
+      "scope": "static only; target SO not executed; no network or external hosts",
+      "adjustment": "closed 0x34820/0x34954/0x34bf4/d1a38 and corrected current coverage to 261 recovered, 72 JNI-reachable unknown"
+    },
+    {
+      "timestamp": "2026-07-14T19:42:20.745938+08:00",
+      "objective": "full offline static recovery of arm64 libsigner.so into native-reimplementation",
+      "source_of_truth": "current C++ source, regenerated 388-FDE inventory, ARM64/x86_64 disassembly for d1bf4 and d2018",
+      "scope": "static only; no target or recovered executable run; no network",
+      "adjustment": "closed indexed string materializer d1bf4 and two-stage ownership orchestrator d2018; current coverage 263 recovered and 70 JNI unknown"
+    },
+    {
+      "timestamp": "2026-07-14T19:48:45.868747+08:00",
+      "objective": "report current static recovery progress of native-reimplementation/recovered_primitives.cpp",
+      "source_of_truth": "current source hash and line count, regenerated 388-FDE inventory, six cross-ABI evidence scripts, clang++ syntax-only verification",
+      "scope": "status review; static only; no target or recovered executable run; no network",
+      "adjustment": "confirmed 263 recovered and 70 JNI-reachable unknown; next unimplemented breakpoint remains 0x125074 composite parser-owner destructor"
+    },
+    {
+      "timestamp": "2026-07-14T21:08:19+08:00",
+      "objective": "report current static recovery progress of native-reimplementation/recovered_primitives.cpp",
+      "source_of_truth": "current source hash/size, regenerated 388-FDE inventory, four latest cross-ABI evidence scripts, clang++ syntax-only verification, refreshed codebase-memory index",
+      "scope": "status review; static only; no target or recovered executable run; no network or external hosts",
+      "adjustment": "confirmed six newly closed JNI-reachable ranges, 269 recovered and 64 JNI-reachable unknown; next breakpoint is 0x124c90..0x125074"
+    },
+    {
+      "timestamp": "2026-07-14T21:39:36+08:00",
+      "objective": "full offline static recovery of ARM64 libsigner.so into native-reimplementation",
+      "source_of_truth": "ARM64 0x124c90 and x86_64 0x11cb9c disassembly/FDEs, decoded data bytes, current C++ source, regenerated 388-FDE inventory and static evidence scripts",
+      "scope": "static only; no target or recovered executable run; no network or external hosts",
+      "adjustment": "closed public-source parser-owner constructor, current coverage 270 recovered and 63 JNI unknown; downstream 0x127194 depends on unknown 0x1259b8, so recover that dependency first"
+    },
+    {
+      "timestamp": "2026-07-14T21:51:38+08:00",
+      "objective": "report current static recovery progress of native-reimplementation/recovered_primitives.cpp",
+      "source_of_truth": "current source hash/size, 388-FDE inventory recounted from CSV, codebase-memory index, five static evidence scripts, and clang++ syntax-only verification",
+      "scope": "status review; static only; no target SO or recovered executable run; no network or external hosts",
+      "adjustment": "confirmed 270 recovered and 63 JNI-reachable unknown; 0x1259b8 and 0x127194 remain analysis-only with no C++ or dedicated evidence artifact yet"
+    },
+    {
+      "timestamp": "2026-07-14T22:30:55+08:00",
+      "objective": "full offline static recovery of ARM64 libsigner.so into native-reimplementation",
+      "source_of_truth": "cross-ABI disassembly for ARM64 0x1259b8/0x127194 and x86_64 0x11d585/0x11e1d8, current C++ source, regenerated 388-FDE inventory, dedicated static evidence scripts",
+      "scope": "static only; no target SO or recovered executable run; no network or external hosts",
+      "adjustment": "closed APK Signing Block locator and v2/v3/v3.1 entry dispatcher; coverage 272 recovered and 61 JNI unknown; documented size truncation, raw EOF and pre-skip-bound validation risks"
+    },
+    {
+      "timestamp": "2026-07-14T22:41:15+08:00",
+      "objective": "report current static recovery progress of native-reimplementation/recovered_primitives.cpp",
+      "source_of_truth": "current C++ source, regenerated ARM64 inventory, static evidence artifacts, codebase-memory index, and clang++ syntax-only verification",
+      "scope": "status review; static only; no target SO or recovered executable run; no network or external hosts",
+      "adjustment": "prioritize getline-compatible helper 0xd6ed8; defer recursive 0xd22d4 until the clearer helper is closed"
+    },
+    {
+      "timestamp": "2026-07-14T22:46:50+08:00",
+      "objective": "close JNI-reachable ARM64 FDE 0xd6ed8 as a statically proven getline-compatible helper",
+      "source_of_truth": "current ARM64 d6ed8 disassembly, two direct callers, existing proc-maps scanner interface, x86_64 ELF/FDE evidence, and current C++ source",
+      "scope": "static only; no target or recovered executable run; no network or external hosts",
+      "adjustment": "use codebase-memory discovery first, then build a dedicated flattened-state proof and cross-ABI mapping before editing C++"
+    },
+    {
+      "timestamp": "2026-07-14T23:05:38+08:00",
+      "objective": "full offline static recovery of ARM64 libsigner.so into native-reimplementation",
+      "source_of_truth": "cross-ABI ARM64 0xd6ed8/x86_64 0xc36c3 FDEs, 28-state verifier, current C++ source, regenerated 388-FDE inventory and synchronized audit docs",
+      "scope": "static only; no target or recovered executable run; no network or external hosts",
+      "adjustment": "closed getline-compatible helper d6ed8; coverage is 273 recovered and 60 JNI unknown; next priority is recursive metadata/property helper d22d4"
+    },
+    {
+      "timestamp": "2026-07-14T23:08:38+08:00",
+      "objective": "close JNI-reachable recursive ARM64 helper 0xd22d4 into the native C++ recovery",
+      "source_of_truth": "current regenerated inventory, d2018 materializer evidence, d3ff0 metadata initializer caller contract, ARM64/x86_64 ELF disassembly and current C++ structures",
+      "scope": "static only; no target or recovered executable run; no network or external hosts",
+      "adjustment": "treat d22d4 as an unknown recursive binary-format helper until caller/callee evidence proves the exact metadata/property role"
+    },
+    {
+      "timestamp": "2026-07-14T23:20:51+08:00",
+      "objective": "full offline static recovery of ARM64 libsigner.so into native-reimplementation",
+      "source_of_truth": "cross-ABI ARM64 d22d4/d4220 and x86_64 bfe08/c1713 evidence, 21-state verifier, current C++ source, regenerated inventory and synchronized audit docs",
+      "scope": "static only; no target or recovered executable run; no network or external hosts",
+      "adjustment": "closed recursive metadata content and owner destructors; coverage 275 recovered and 59 JNI unknown; next dependency is 0xd28d0 recursive metadata parser"
+    },
+    {
+      "timestamp": "2026-07-14T23:26:19+08:00",
+      "objective": "report current static recovery progress of native-reimplementation/recovered_primitives.cpp",
+      "source_of_truth": "current source hash and line count, 388-FDE inventory, synchronized coverage and audit documents, latest two static evidence verifiers, and clang++ syntax-only verification",
+      "scope": "status review; static only; no target SO or recovered executable run; no network or external hosts",
+      "adjustment": "confirmed 275 recovered and 59 JNI-reachable unknown; corrected regression-entry count from stale 77 to current 81; next unclosed dependency remains 0xd28d0 recursive metadata parser"
+    },
+    {
+      "timestamp": "2026-07-15T00:11:35+08:00",
+      "objective": "full offline static recovery of ARM64 libsigner.so into native-reimplementation",
+      "source_of_truth": "cross-ABI ARM64 d28d0/d313c/d352c and x86_64 c0340/c0912/c0cdd evidence, dedicated 24/14/23-state verifiers, current C++ source, regenerated 388-FDE inventory, synchronized audit docs and refreshed code graph",
+      "scope": "static only; no target SO or recovered executable run; no network or external hosts",
+      "adjustment": "closed recursive metadata parser, dot-separated area resolver and property-info mapped source creator; coverage is 278 recovered and 56 JNI unknown; confirmed unchecked mmap-result dereference; next targets are 0x8f56c and 0x8fb44"
+    },
+    {
+      "timestamp": "2026-07-15T00:16:22+08:00",
+      "objective": "continue full offline static recovery of ARM64 libsigner.so into native-reimplementation",
+      "source_of_truth": "current 388-FDE inventory, 19,201-line C++ source hash 721cd6c4, ready 166717-node code graph, and direct ARM64/x86_64 ELF disassembly",
+      "scope": "static only; no target or recovered executable run; no network or external hosts",
+      "adjustment": "coverage remains 278 recovered and 56 JNI unknown; begin independent no-callee JNI ranges 0x8f56c and 0x8fb44"
+    },
+    {
+      "timestamp": "2026-07-15T00:23:51+08:00",
+      "objective": "report current static recovery progress of native-reimplementation/recovered_primitives.cpp",
+      "source_of_truth": "current source hash and line count, 388-FDE inventory, codebase-memory index, latest three cross-ABI verifiers, synchronized audit docs, and clang++ syntax-only verification",
+      "scope": "status review; static only; no target SO or recovered executable run; no network or external hosts",
+      "adjustment": "confirmed 278 recovered and 56 JNI-reachable unknown; 0x8f56c and 0x8fb44 remain evidence-only without dedicated C++ or verifier"
+    },
+    {
+      "timestamp": "2026-07-15T00:56:39+08:00",
+      "objective": "continue full offline static recovery of ARM64 libsigner.so into native-reimplementation",
+      "source_of_truth": "cross-ABI FDE/caller/action proofs for 0x8f56c/0x8fb44, new C++ implementations and regression entries, regenerated 388-FDE inventory, synchronized audit docs, and syntax-only compiler verification",
+      "scope": "static only; no target or recovered executable run; no network or external hosts",
+      "adjustment": "closed scratch owned-pair appender and sentinel destructor; coverage is 280 recovered and 54 JNI unknown; next target is upstream producer 0x8746c"
+    },
+    {
+      "timestamp": "2026-07-15T01:11:26+08:00",
+      "objective": "report current static recovery progress of native-reimplementation/recovered_primitives.cpp",
+      "source_of_truth": "current source hash and line count, recounted 388-FDE CSV, synchronized coverage/docs, three latest cross-ABI evidence verifiers, codebase-memory index, and clang++ syntax-only verification",
+      "scope": "status review; static only; no target SO or recovered executable run; no network or external hosts",
+      "adjustment": "confirmed 280 recovered and 54 JNI-reachable unknown; 0xb21b4 int-field reader is analyzed but not yet implemented or counted, while 0x8746c correctly remains unknown"
+    },
+    {
+      "timestamp": "2026-07-15T01:32:22+08:00",
+      "objective": "continue full recovery of ARM64 libsigner.so using static analysis as primary evidence and isolated dynamic tracing as auxiliary evidence",
+      "source_of_truth": "completed 0xb21b4 cross-ABI C++/verifier/coverage closure, current Unidbg runner hook surface, and user clarification that controlled dynamic analysis is permitted",
+      "scope": "local authorized target only; no internet or external hosts; Unidbg profile refuses loopback probe; dynamic evidence supplements rather than replaces static proof",
+      "adjustment": "coverage is 281 recovered and 53 JNI unknown; add an opt-in 0xb21b4/0x8746c trace and run one offline structured-profile integration scenario"
+    },
+    {
+      "timestamp": "2026-07-15T01:51:51+08:00",
+      "objective": "continue full ARM64 libsigner.so recovery with static-first cross-ABI proof and targeted Unidbg corroboration",
+      "source_of_truth": "0xb21b4 and 0xa8978 C++ implementations, dedicated static verifiers, regenerated FDE coverage, observation-only Unidbg traces from offline V4/V5 structured-profile runs, and current producer dependency map",
+      "scope": "local authorized target only; Maven offline; loopback probe refused; hooks do not modify registers, returns, branches, JNI values or target bytes",
+      "adjustment": "dynamically confirmed width/height scratch offsets and sensor collection size; coverage advances to 282 recovered with 52 JNI unknown, leaving seven 0x8746c dependencies"
+    },
+    {
+      "timestamp": "2026-07-15T02:05:00+08:00",
+      "objective": "continue full ARM64 libsigner.so recovery, starting with JNI helper 0xa948c",
+      "source_of_truth": "current ARM64/x86_64 disassembly, recovered_primitives.cpp, generated 388-FDE inventory, and opt-in observation-only Unidbg runner",
+      "scope": "local authorized target; static analysis primary; isolated offline dynamic tracing auxiliary; no internet or external hosts",
+      "adjustment": "decode and prove 0xa948c statically before naming it; use dynamic trace only to corroborate index and returned sensor object"
+    },
+    {
+      "timestamp": "2026-07-15T02:12:00+08:00",
+      "objective": "close ARM64 0xa948c JNI indexed object reader and synchronize static/dynamic evidence",
+      "source_of_truth": "cross-ABI decoded get(I)Ljava/lang/Object; constants, JNI vtable and flattened-state proof, direct C++ regression, regenerated 388-FDE inventory, and observation-only offline Unidbg V4/V5 trace",
+      "scope": "local authorized target only; static proof primary; Maven offline; hook does not modify registers, returns, branches, JNI data or target bytes",
+      "adjustment": "coverage advances to 283 recovered with 51 JNI-reachable unknown; keep 0x8746c unknown and reduce its unresolved internal dependencies from seven to six"
+    },
+    {
+      "timestamp": "2026-07-15T02:18:00+08:00",
+      "objective": "close ARM64 0xbce98 JNI DisplayMetrics getter and report current native recovery state",
+      "source_of_truth": "cross-ABI decoded getDisplayMetrics signature, JNI vtable/state proof, direct C++ regression, regenerated 388-FDE inventory, offline observation-only Unidbg V4/V5 trace, full oracle regression, sanitizer and frozen-reference runs",
+      "scope": "local authorized target only; no internet or external hosts; Maven offline; dynamic hook reads only and does not alter target execution",
+      "adjustment": "coverage advances to 284 recovered with 50 JNI-reachable unknown; 0x8746c remains unknown with five unresolved internal dependencies"
+    },
+    {
+      "timestamp": "2026-07-15T02:43:29+08:00",
+      "objective": "complete full ARM64 libsigner.so C++ recovery with static proof as the primary evidence and isolated dynamic debugging as auxiliary calibration",
+      "source_of_truth": "current recovered_primitives.cpp, regenerated 388-FDE inventory, ARM64/x86_64 disassembly and dedicated verifiers; observation-only offline Unidbg traces where needed",
+      "scope": "local authorized artifacts only; no internet or external hosts; static-first; dynamic hooks may observe but must not alter registers, returns, branches, JNI values or target bytes",
+      "adjustment": "user clarified that static-only means static primary and dynamic auxiliary; resume from 289 recovered / 99 unknown and focus next on the 0x8746c 13-stage producer state machine"
+    },
+    {
+      "timestamp": "2026-07-15T03:09:30+08:00",
+      "objective": "verify the exact current state of native-reimplementation and the 0x8746c producer work",
+      "source_of_truth": "current 21,936-line recovered_primitives.cpp hash 619c72ae, unchanged 388-FDE coverage matrix, updated cross-ABI property verifier, current C++ oracle/sanitizer results, and offline observation-only Unidbg V4/V4-repeat/V5 trace",
+      "scope": "local authorized artifacts only; no internet or external hosts; Maven offline; observation hooks do not alter target execution",
+      "adjustment": "detected concurrent workspace writes and re-based the status on the settled snapshot: the 13-property subpipeline is now implemented and verified, but 0x8746c remains formally unknown until sensor/display cleanup and full failure-state ownership are closed"
+    },
+    {
+      "timestamp": "2026-07-15T03:25:16+08:00",
+      "objective": "make detector property, display and sensor fields explicit C++ caller inputs without fabricated defaults",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 ee20226c; RecoveredDetectorInputProfile8746c API; full-chain-validation-20260715-caller-input.log; 97 regressions and 92 direct guards",
+      "scope": "local authorized artifacts only; static-first; no network or external hosts; no target dynamic execution required for this adapter change",
+      "adjustment": "added reject-missing-by-default profile materialization, explicit empty-string policy, display/sensor presence gates, 95-byte/127-pair bounds and separate all-field cleanup without changing 0x8746c unknown coverage"
+    },
+    {
+      "timestamp": "2026-07-15T03:33:30+08:00",
+      "objective": "verify the exact current native-reimplementation state and reconcile static coverage with sensor-loop dynamic evidence",
+      "source_of_truth": "22,259-line recovered_primitives.cpp SHA-256 ee20226c; 388-FDE inventory; current build-and-test, ASan/UBSan regression, Maven offline build and 22 targeted integration tests; two-sensor observation-only cleanup trace",
+      "scope": "local authorized artifacts only; no internet or external hosts; static proof primary; dynamic runner observation-only",
+      "adjustment": "coverage remains 289 recovered and 99 unknown; the caller-input profile adapter is validated but is not a strict recovery of 0x8746c; sensor-loop trace proves last-iteration-only UTF/local-ref cleanup before the display stage, so a dedicated sensor verifier and strict temporary-state C++ model remain required"
+    },
+    {
+      "timestamp": "2026-07-15T03:43:58+08:00",
+      "objective": "ensure detector property, display and sensor values are explicit C++ caller inputs rather than hardcoded or fabricated defaults",
+      "source_of_truth": "current recovered_primitives.cpp SHA-256 4ebd997a; RecoveredDetectorInputProfile8746c implementation and current README/static audit documentation",
+      "scope": "local authorized workspace only; static analysis primary; no network; no target execution needed for caller-input verification",
+      "adjustment": "current implementation already rejects missing values by default; fixed ro.* names remain only as protocol identifiers; concrete device values found in this path are confined to regression fixtures"
+    },
+    {
+      "timestamp": "2026-07-15T04:00:30+08:00",
+      "objective": "close and compose the 0x8746c sensor/display subpipeline while preserving exact native ownership behavior",
+      "source_of_truth": "23,046-line recovered_primitives.cpp SHA-256 4106fecd; cross-ABI sensor verifier; two-sensor and 128-sensor observation-only traces; current full oracle, ASan/UBSan and 22 targeted offline integration tests",
+      "scope": "local authorized artifacts only; no internet or external hosts; static proof primary; Unidbg hooks observation-only",
+      "adjustment": "corrected an unsigned-loop draft to signed jint semantics proven by ARM64 lt and x86_64 cmovl; added last-only cleanup, all sensor/display failure regressions, appender 0x26 boundary and property-before-sensor composition; coverage remains 289/99 until every flattened failure publication and original destructor ownership exit is bound"
+    },
+    {
+      "timestamp": "2026-07-15T04:07:57+08:00",
+      "objective": "audit the exact current state of the full ARM64 libsigner.so C++ recovery and identify the remaining evidence gap",
+      "source_of_truth": "23,046-line recovered_primitives.cpp SHA-256 4106fecd; freshly recounted 388-FDE inventory SHA-256 7131176b; synchronized coverage and primary audit docs; existing 0x8746c static verifiers, observation-only Unidbg traces and regression logs",
+      "scope": "local authorized workspace only; no internet or external hosts; static analysis primary; isolated local execution only for verifier and regression confirmation",
+      "adjustment": "rebased from the superseded 289/99 checkpoint to 312 recovered / 76 unknown and JNI 276 recovered / 45 unknown after 23 context-flag leaves were closed; keep 0x8746c unknown until flattened failure publication and 0x8fb44 partial-ownership exits are proven"
+    },
+    {
+      "timestamp": "2026-07-15T04:09:06+08:00",
+      "objective": "complete ARM64 libsigner.so function-level C++ recovery and reduce the authoritative 388-FDE unknown set",
+      "source_of_truth": "current recovered_primitives.cpp, regenerated SO_FUNCTION_COVERAGE.md, exact ARM64 objdump and dedicated context-flag-leaf verifier",
+      "scope": "local authorized files only; static analysis primary; no network or target dynamic execution in this batch",
+      "adjustment": "kept 0x8746c conservatively unknown despite its new composed C++ model, and separately closed twenty context+0xe0 OR leaves plus three RET-only FDEs, reducing all-file unknown from 99 to 76 without changing JNI-reachable counts"
+    },
+    {
+      "timestamp": "2026-07-15T04:18:03+08:00",
+      "objective": "report the exact live recovery status after concurrent source and coverage updates",
+      "source_of_truth": "23,172-line recovered_primitives.cpp SHA-256 ba5316a6; regenerated 388-FDE inventory SHA-256 c95bd219; 0x8070 runtime verifier; current C++ oracle, ASan/UBSan and recovered-backend integration smoke; new Unicorn SIGBUS crash report plus isolated-method rerun",
+      "scope": "local authorized workspace only; no internet or external hosts; static proof primary; local dynamic runs used only for regression and Unidbg corroboration",
+      "adjustment": "rebased the formal count to 317 recovered / 71 unknown after five non-JNI module-runtime scaffolding FDEs closed; JNI remains 276/45 and 0x8746c remains unknown; primary narrative docs lag the regenerated coverage by five functions; full Unidbg suite remains nondeterministic due recurring libunicorn_java SIGBUS despite isolated test success"
+    },
+    {
+      "timestamp": "2026-07-15T04:22:10+08:00",
+      "objective": "freeze the final live status for the user after all observed concurrent writes settled",
+      "source_of_truth": "23,316-line recovered_primitives.cpp SHA-256 c11e990b; SO_FUNCTION_COVERAGE.md SHA-256 b439a0ed; 388-FDE inventory SHA-256 171aa856; synchronized README/static/audit docs; module-runtime and CPU-constructor verifiers; current C++ oracle and ASan/UBSan results",
+      "scope": "local authorized workspace only; no internet or external hosts; static proof primary; local isolated execution for regression and emulator stability evidence",
+      "adjustment": "final formal coverage is 318 recovered / 70 unknown and JNI 276 recovered / 45 unknown after five runtime scaffolding FDEs and one CPU-feature constructor wrapper closed; 0x8746c remains the largest JNI unknown; all primary docs are synchronized, while full Unidbg aggregation remains flaky from recurring libunicorn_java SIGBUS"
+    },
+    {
+      "timestamp": "2026-07-15T04:24:52+08:00",
+      "objective": "continue full ARM64 libsigner.so FDE-by-FDE C++ recovery after the detector flag-leaf batch",
+      "source_of_truth": "current stable C++ SHA c11e990b, regenerated 388-FDE coverage, exact objdump, module-runtime and CPU-constructor verifiers",
+      "scope": "authorized local static analysis; no external hosts; no target dynamic execution; offline Maven only",
+      "adjustment": "closed five ELF/C++ runtime scaffold FDEs and the 0x139d04 CPU-feature constructor wrapper while keeping its 0x1398cc decoder separately unknown; coverage is now 318 recovered and 70 unknown"
+    },
+    {
+      "timestamp": "2026-07-15T04:28:00+08:00",
+      "objective": "continue full ARM64 libsigner.so recovery by closing the largest JNI unknown 0x8746c",
+      "source_of_truth": "stable 23,316-line C++ SHA c11e990b; 318/70 regenerated FDE inventory; current codebase-memory graph; cross-ABI 0x8746c disassembly, property/sensor verifiers and 0x8fb44 ownership evidence",
+      "scope": "authorized local workspace only; static-first; no internet or external hosts; isolated observation-only dynamic evidence may supplement static proof",
+      "adjustment": "do not broaden to the next unknown yet; first bind every 0x8746c helper failure status, flattened cleanup transition, post-appender increment and partial-scratch destructor envelope, then update coverage only if the complete FDE proof holds"
+    },
+    {
+      "timestamp": "2026-07-15T04:38:10+08:00",
+      "objective": "make all recovered detector and ARM64 CPU-feature environment fields explicit C++ caller inputs",
+      "source_of_truth": "current recovered_primitives.cpp SHA-256 c11e990b; existing RecoveredDetectorInputProfile8746c; exact ARM64 0x1398cc objdump; current 318/70 FDE inventory",
+      "scope": "authorized local workspace only; static-first; no internet or external hosts; no target execution required unless used later as observation-only corroboration",
+      "adjustment": "detector property/display/sensor presence gates already exist; next surgical gap is 0x1398cc, which must require caller-provided aux descriptor and system-register snapshot only on paths that consume them, never silently substitute zero-valued device data"
+    },
+    {
+      "timestamp": "2026-07-15T04:44:44+08:00",
+      "objective": "audit the exact live native-reimplementation state and continue the 0x8746c failure-publication proof",
+      "source_of_truth": "current 23,322-line recovered_primitives.cpp SHA-256 40f4c511; unchanged 318/70 coverage; current cross-ABI 0x8746c disassembly and existing isolated Unidbg traces",
+      "scope": "authorized local workspace only; no internet or external hosts; static proof primary; isolated Maven offline execution may corroborate without altering target execution",
+      "adjustment": "detected a concurrent incomplete 0x1398cc TDD edit that leaves the current C++ snapshot uncompilable; avoid changing that contested source region, formalize 0x8746c status normalization in a separate verifier, and do not advance coverage until C++ parity and ownership exits are green"
+    },
+    {
+      "timestamp": "2026-07-15T04:54:13+08:00",
+      "objective": "finish explicit caller-input recovery for detector fields and ARM64 CPU-feature decoder fields",
+      "source_of_truth": "current recovered_primitives.cpp with RecoveredDetectorInputProfile8746c and new RecoveredCpuFeatureDecoderInput1398cc; exact 0x1398cc objdump; regenerated 388-FDE inventory at 319 recovered / 69 unknown",
+      "scope": "authorized local workspace only; static-first; no internet or external hosts; only local C++ regression and verifier execution performed",
+      "adjustment": "0x1398cc is now closed with lazy per-field presence validation, ordered publication capture and 0/1/2/0xf field regressions; no target dynamic execution is needed for this pure caller-input adapter, while 0x8746c remains separately unknown"
+    },
+    {
+      "timestamp": "2026-07-15T05:02:36+08:00",
+      "objective": "close ARM64 detector scratch producer 0x8746c and report the exact live native-reimplementation state",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 0c3443a4; 231-state x86_64 failure parser plus ARM64 corroboration; all property/sensor/appender/destructor verifiers; regenerated 388-FDE inventory SHA-256 9807798b; C++ oracle, ASan/UBSan and isolated offline Maven/Unidbg results",
+      "scope": "authorized local workspace only; no internet or external hosts; static proof primary; dynamic runs isolated and Maven offline",
+      "adjustment": "0x8746c is now recovered with exact 0x24/0x1d normalization, preserved remaining helper statuses, post-appender increment and all failure-class native destructor envelope; formal coverage is 320 recovered / 68 unknown and JNI 277 recovered / 44 unknown; continue next with the remaining JNI unknown set rather than reopening this FDE"
+    },
+    {
+      "timestamp": "2026-07-15T05:11:31+08:00",
+      "objective": "continue full ARM64 libsigner.so FDE recovery after caller-input and 0x8746c closure",
+      "source_of_truth": "reindexed codebase graph; current recovered_primitives.cpp SHA 0c3443a4; regenerated coverage SHA 39ac44bc showing 320 recovered / 68 unknown and JNI 277 recovered / 44 unknown; exact ARM64/x86_64 disassembly for 0xb1e40",
+      "scope": "authorized local workspace only; static-first; no internet or external hosts; local C++ verification only",
+      "adjustment": "rebased from superseded 319/69 snapshot because 0x8746c is now formally recovered; selected smallest remaining FDE 0xb1e40 as a cross-ABI java/lang/Exception FindClass/ThrowNew/DeleteLocalRef helper"
+    },
+    {
+      "timestamp": "2026-07-15T05:18:15+08:00",
+      "objective": "audit the exact live native-reimplementation state while concurrent recovery work is active",
+      "source_of_truth": "current recovered_primitives.cpp SHA c6fa5681 with syntax-only and ordinary regression green for 0xb1e40; unchanged formal coverage SHA 39ac44bc at 320 recovered / 68 unknown and JNI 277 recovered / 44 unknown; decoded cross-ABI 0x2c618 property constants and existing 0x8746c sanitizer/Unidbg evidence",
+      "scope": "authorized local workspace only; no internet or external hosts; status audit read-only except this cadence checkpoint; no target execution",
+      "adjustment": "separate the formal green baseline from in-flight work: 0xb1e40 has implementation and regression evidence but remains unknown until verifier, sanitizer and inventory/docs synchronize; 0x2c618 static semantics are implementation-ready but must not be edited concurrently in the shared monolithic source"
+    },
+    {
+      "timestamp": "2026-07-15T05:26:28+08:00",
+      "objective": "continue complete ARM64 libsigner.so function-by-function C++ recovery",
+      "source_of_truth": "current C++ SHA c6fa5681; coverage SHA 7ed757a7; 388-FDE inventory at 321 recovered / 67 unknown and JNI 277 recovered / 44 unknown; four-ABI constant proof and ARM64/x86_64 control-flow proof for 0xb1e40",
+      "scope": "authorized local static analysis; no network or external hosts; local regression/sanitizer/offline Maven verification only",
+      "adjustment": "closed non-JNI 0xb1e40 as the java/lang/Exception ThrowNew helper with exact status and local-ref ownership; next batch should pursue 0x91428/0x917a8 or a smallest JNI-reachable unknown without changing the final all-FDE objective"
+    },
+    {
+      "timestamp": "2026-07-15T05:33:51+08:00",
+      "objective": "ensure recovered runtime and device fields are supplied explicitly by the C++ caller instead of hardcoded or synthesized",
+      "source_of_truth": "current recovered_primitives.cpp with RecoveredDetectorInputProfile8746c and RecoveredCpuFeatureDecoderInput1398cc; README caller-input contract; regenerated inventory at 322 recovered / 66 unknown",
+      "scope": "authorized local workspace only; static audit primary; local C++ regression allowed; no network or external hosts",
+      "adjustment": "treat fixed names, offsets, tags and bit masks as protocol constants only; require per-value presence for property/display/sensor/HWCAP/HWCAP2/ID_AA64 data, preserve legitimate zero values, and reject missing data rather than inventing a device profile"
+    },
+    {
+      "timestamp": "2026-07-15T05:47:24+08:00",
+      "objective": "continue full ARM64 libsigner.so recovery by closing the 0xa0640 and 0x91428 Android keystore key-pair cluster",
+      "source_of_truth": "reindexed codebase graph; live 322 recovered / 66 unknown inventory; ARM64 0xa0640 and 0x91428 objdump; x86_64 FDEs 0x9fc58..0xa0319 and 0x958b5..0x95bf1; decoded cross-ABI generateKeyPair/signature/AndroidKeyStore constants",
+      "scope": "authorized local workspace only; static-first; no network/external hosts; local C++ regression and sanitizer verification allowed",
+      "adjustment": "0x91428 cannot be honestly closed while direct callee 0xa0640 remains unknown, so recover both as one cluster with exact JNI status/output ownership, XOR-once lock behavior and no synthesized runtime fields"
+    },
+    {
+      "timestamp": "2026-07-15T05:48:00+08:00",
+      "objective": "continue full ARM64 libsigner.so recovery by closing JNI-reachable environment probe 0x2c618",
+      "source_of_truth": "recovered_primitives.cpp SHA cea74a01; dedicated analyze_environment_probe_2c618.py; regenerated coverage at 322 recovered / 66 unknown and JNI 278 recovered / 43 unknown; build/oracle, ASan+UBSan, offline Maven and observation-only Unidbg return/correction hooks",
+      "scope": "authorized local workspace only; no internet or external hosts; static proof primary; dynamic evidence isolated to local Unidbg and recovered executable",
+      "adjustment": "0x2c618 is recovered as the two-record Raspberry manufacturer property probe with exact correction 0x28; another session owns 0xa0640/0x91428, so keep subsequent work read-only or on non-overlapping evidence until its source edit settles"
+    },
+    {
+      "timestamp": "2026-07-15T05:55:30+08:00",
+      "objective": "audit the exact live native-reimplementation state and validate the settled concurrent changes",
+      "source_of_truth": "stable recovered_primitives.cpp SHA 68cdb770; regenerated 388-FDE inventory at 324 recovered / 64 unknown and JNI 278 recovered / 43 unknown; dedicated 0xa0640/0x91428 verifier; current local build, sanitizer and isolated dynamic tests pending",
+      "scope": "authorized local workspace only; no internet or external hosts; static proof primary; dynamic work limited to local recovered executable and observation-only offline Unidbg",
+      "adjustment": "rebase status from 322/66 to 324/64 because the non-JNI AndroidKeyStore key-pair cluster has settled; keep 0x2cc9c formally unknown until C++, verifier, coverage and isolated dynamic evidence synchronize"
+    },
+    {
+      "timestamp": "2026-07-15T06:10:29+08:00",
+      "objective": "ensure recovered runtime/device fields are explicit C++ caller inputs instead of hardcoded or fabricated values",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 f98f345f; RecoveredDetectorInputProfile8746c and RecoveredCpuFeatureDecoderInput1398cc; current syntax and build-and-test PASS",
+      "scope": "authorized local workspace only; static-first; no internet or external hosts; only recovered C++ regression executed",
+      "adjustment": "the requested presence-gated caller-input surfaces are already implemented; retain device-looking constants only in regression fixtures and original algorithm marker tables, with no redundant source rewrite"
+    },
+    {
+      "timestamp": "2026-07-15T06:25:30+08:00",
+      "objective": "continue full ARM64 libsigner.so recovery by closing JNI-reachable environment probe 0x2cc9c",
+      "source_of_truth": "recovered_primitives.cpp SHA c5c2faf7; dedicated analyze_environment_probe_2cc9c.py; regenerated inventory at 327 recovered / 61 unknown and JNI 279 recovered / 42 unknown; C++ oracle, ASan+UBSan and observation-only offline Unidbg false/true profiles",
+      "scope": "authorized local workspace only; no internet or external hosts; static proof primary; dynamic hooks read entry/result/correction without modifying target execution",
+      "adjustment": "closed 0x2cc9c as the five-record minical/vcloud/Scorpio property probe with correction 0x2c; rebased final counts to include concurrent non-JNI BigInteger closures 0x93fd0 and 0x917a8"
+    },
+    {
+      "timestamp": "2026-07-15T06:39:30+08:00",
+      "objective": "audit the exact live progress of native-reimplementation and identify the next unresolved JNI-reachable function",
+      "source_of_truth": "stable recovered_primitives.cpp SHA f78f6dfb; regenerated 388-FDE inventory at 328 recovered / 60 unknown and JNI 279 recovered / 42 unknown; current 0x9816c verifier/full-validation log; direct search for 0xb081c implementation and evidence",
+      "scope": "authorized local workspace only; no internet or external hosts; static evidence primary; local recovered executable and observation-only offline Unidbg may be used as auxiliary validation",
+      "adjustment": "the extra recovered range is non-JNI 0x9816c, so JNI progress did not advance; 0xb081c remains unknown with only cross-ABI disassembly and must be the next closure target"
+    },
+    {
+      "timestamp": "2026-07-15T06:46:31+08:00",
+      "objective": "report the exact current native-reimplementation state after concurrent 0xb081c source work appeared",
+      "source_of_truth": "stable recovered_primitives.cpp SHA cadcbe60 with 113 regression guards; current build/oracle and ASan+UBSan PASS; formal inventory still 328 recovered / 60 unknown and JNI 279 recovered / 42 unknown; new 0xb081c verifier exit 1",
+      "scope": "authorized local workspace only; no internet or external hosts; recovered executable run locally; original SO not dynamically modified",
+      "adjustment": "classify 0xb081c as implementation-present but not formally recovered because the verifier slices caller ranges that exclude ARM 0x1ee24 and x86 0x23aa7, and inventory/docs remain unsynchronized"
+    },
+    {
+      "timestamp": "2026-07-15T06:48:41+08:00",
+      "objective": "verify that recovered detector and ARM64 CPU-feature runtime fields are supplied explicitly by the C++ caller",
+      "source_of_truth": "current recovered_primitives.cpp SHA-256 cadcbe60; detector property/sensor-display verifiers; CPU feature verifier; current syntax and build-and-test results",
+      "scope": "authorized local workspace only; static proof primary; local recovered C++ regression only; no network or target SO execution",
+      "adjustment": "confirmed property/display/sensor/HWCAP/HWCAP2/ID_AA64 values are presence-gated caller inputs; legitimate zero values remain distinct from missing data; device-looking values are limited to regression/oracle tables and original detector markers"
+    },
+    {
+      "timestamp": "2026-07-15T07:16:11+08:00",
+      "objective": "continue complete ARM64 libsigner.so FDE-by-FDE C++ recovery after caller-input hardening",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 460ff287; regenerated 388-FDE inventory at 330 recovered / 58 unknown and JNI 281/40; full b081c and 96ea8 validation logs; refreshed codebase-memory index",
+      "scope": "authorized local workspace only; static proof primary; local recovered C++ regression, sanitizer, frozen backend and Maven offline compile used as auxiliary validation; no internet",
+      "adjustment": "closed JNI update([B)V helper 0xb081c and Cipher.init(int,Key) helper 0x96ea8 with cross-ABI constants, caller forwarding, exact statuses and cleanup; continue with the new smallest JNI-reachable unknown without reopening caller-input fields"
+    },
+    {
+      "timestamp": "2026-07-15T07:29:22+08:00",
+      "objective": "audit the exact live native-reimplementation state and synchronize static and observation-only dynamic evidence",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 460ff287; regenerated 388-FDE inventory at 330/58 and JNI 281/40; 137 static analyzers; current C++ oracle/sanitizer/offline Maven and API18 0x96ea8 hooks",
+      "scope": "authorized local workspace only; no internet or external hosts; original SO hooks observation-only",
+      "adjustment": "confirmed the recovery remains incomplete; synchronized stale primary docs to 330/58 and 114 regressions, fixed one stale verifier token, allowed the heavy 0x11ba78 verifier to finish, and added original-SO dynamic corroboration for 0x96ea8"
+    },
+    {
+      "timestamp": "2026-07-15T07:39:01+08:00",
+      "objective": "ensure runtime fields remain caller-supplied and continue complete ARM64 libsigner.so recovery",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 34ef7bb1; dedicated cross-ABI b9424 verifier; regenerated 388-FDE inventory at 331 recovered / 57 unknown and JNI 282/39; full local validation log",
+      "scope": "authorized local workspace only; static proof primary; local C++ regression, ASan+UBSan, frozen recovered backend and Maven offline compile as auxiliary validation; no internet",
+      "adjustment": "kept signingInfo and its Java descriptor as fixed SO protocol constants while requiring caller-supplied JNIEnv, PackageInfo object, status/output storage and actual returned SigningInfo; closed 0xb9424 without synthesizing runtime data"
+    },
+    {
+      "timestamp": "2026-07-15T07:45:42+08:00",
+      "objective": "report the exact live native-reimplementation state after concurrent 0xb9424 recovery and synchronized static/dynamic validation",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 34ef7bb1; regenerated 388-FDE inventory at 331/57 and JNI 282/39; 138/138 analyzers; current C++ oracle/sanitizer/frozen backend; offline Maven retry and original-SO observation hooks",
+      "scope": "authorized local workspace only; no internet or external hosts; original SO hooks observation-only",
+      "adjustment": "rebased from superseded 330/58 after concurrent 0xb9424 PackageInfo.signingInfo recovery; classified the first Maven exit 134 as libunicorn_java SIGBUS because no assertion failed and isolated retry passed 21/21; next smallest JNI unknown is 0x1dde0..0x1e578"
+    },
+    {
+      "timestamp": "2026-07-15T07:56:50+08:00",
+      "objective": "ensure all recovered runtime/device/JNI fields are supplied explicitly by the C++ caller rather than inherited from hardcoded fixtures or fabricated defaults",
+      "source_of_truth": "current recovered_primitives.cpp SHA-256 419aff2a; caller-input profile and CPU presence gates; c375c/b9424 JNI interfaces; standalone CLI currently clones an embedded Pixel regression NativeInputs fixture before parsing partial arguments",
+      "scope": "authorized local workspace only; static-first; no internet or external hosts; local recovered C++ regressions permitted",
+      "adjustment": "core property/display/sensor/HWCAP/JNI helper APIs already use caller inputs, but the standalone CLI still silently fills omitted signer fields from the regression fixture; separate explicit regression-fixture mode from strict user-input mode and test both missing-versus-zero behavior"
+    },
+    {
+      "timestamp": "2026-07-15T08:09:19+08:00",
+      "objective": "finalize and verify the caller-supplied runtime input boundary without changing recovered algorithm constants",
+      "source_of_truth": "recovered_primitives.cpp SHA 903dc5ab; RecoveredNativeBackend.java SHA ded83992; strict CLI regressions; ASan+UBSan; frozen backend exact match; offline 21-test integration suite",
+      "scope": "authorized local workspace only; no internet or external hosts; local recovered executable and offline Java integration only",
+      "adjustment": "the Java recovered adapter was also relying on omitted urandom and host-time fallback; it now rejects missing runtime.timeSeconds/runtime.urandomHex and the frozen example supplies urandom explicitly. Full ARM64 recovery remains active and is not marked complete."
+    },
+    {
+      "timestamp": "2026-07-15T08:12:48+08:00",
+      "objective": "continue complete ARM64 libsigner.so recovery from the current smallest unresolved JNI-reachable helper",
+      "source_of_truth": "live arm64-function-inventory.csv, recovered_primitives.cpp hash, generator, cross-ABI c4064 disassembly and observation-only JNI log; codebase-memory index ready",
+      "scope": "authorized local workspace only; static analysis primary; local recovered regression and offline observation-only validation permitted; no internet",
+      "adjustment": "re-audit live state before editing because inventory/generator changed concurrently; recover c4064 only if it remains absent from source and unknown in generated inventory"
+    },
+    {
+      "timestamp": "2026-07-15T08:13:10+08:00",
+      "objective": "audit and synchronize the exact live progress of native-reimplementation with static and isolated offline dynamic evidence",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 903dc5ab; regenerated 388-FDE inventory at 333 recovered / 55 unknown and JNI 284 / 37; 140/140 static analyzers; current build, ASan+UBSan, frozen backend, Maven offline recovered/original integration tests",
+      "scope": "authorized local workspace only; no internet or external hosts; original SO dynamic execution isolated and observation-only; no target mutation",
+      "adjustment": "formalized already-implemented 0xb3230 Context.getPackageName helper, synchronized primary progress docs, kept 0xc4064 and parent 0x1dde0 unknown, and separated function-level static closure from broader runtime integration proof"
+    },
+    {
+      "timestamp": "2026-07-15T08:31:58+08:00",
+      "objective": "finalize the exact live status after concurrent c4064 source work and synchronize static and isolated dynamic evidence",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 5db6115430cbd6e843a43208ec7b6af662ea2a0207e6d88b83cf71682102f6af; regenerated 388-FDE inventory at 334 recovered / 54 unknown and JNI 285 / 36; 141/141 analyzers; current build, ASan+UBSan, frozen backend and Maven offline recovered/original tests",
+      "scope": "authorized local workspace only; no internet or external hosts; target SO executed only in isolated local Unidbg integration without mutation; no exploit or bypass work",
+      "adjustment": "rebased from the transient 333/55 snapshot after a concurrent c4064 hasMultipleSigners implementation appeared, proved it cross-ABI, formalized coverage, synchronized primary docs, and kept parent 0x1dde0 unknown because five direct helpers remain unknown"
+    },
+    {
+      "timestamp": "2026-07-15T08:39:33+08:00",
+      "objective": "continue complete ARM64 libsigner.so recovery by closing the smallest remaining direct helper of parent 0x1dde0",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 5db6115430cbd6e843a43208ec7b6af662ea2a0207e6d88b83cf71682102f6af; 388-FDE inventory at 334 recovered / 54 unknown and JNI 285 / 36; fresh fast codebase index; ARM64 b3bf4 and x86_64 ab508 disassembly",
+      "scope": "authorized local workspace; static analysis primary; no internet or external hosts; no target mutation",
+      "adjustment": "identified 0xb3bf4..0xb479c as Context.getPackageManager()Landroid/content/pm/PackageManager; with status 3 for null input and status 18 for class/method/call/null-result failures; recover it before the parent orchestration"
+    },
+    {
+      "timestamp": "2026-07-15T08:57:20+08:00",
+      "objective": "verify the exact live native-reimplementation state and continue the smallest unresolved direct helper of parent 0x1dde0",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 190dbdbb; live 388-FDE inventory at 335 recovered / 53 unknown and JNI 286 / 35; codebase-memory index; ARM64 c2b78 and x86_64 b3ff9 disassembly plus parent call sites",
+      "scope": "authorized local workspace only; no internet or external hosts; static proof primary; local observation-only original-SO and recovered regression permitted",
+      "adjustment": "confirmed 0xc2b78 is still absent from C++ and coverage; lock its getApkContentsSigners JNI/status/ownership semantics cross-ABI before a surgical implementation, then rerun all verification on the new source SHA"
+    },
+    {
+      "timestamp": "2026-07-15T09:15:09+08:00",
+      "objective": "close and verify ARM64 0xc2b78 SigningInfo.getApkContentsSigners while preserving the full 388-FDE recovery objective",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 ecd44477; regenerated inventory at 336 recovered / 52 unknown and JNI 287 / 34; 143/143 analyzers; current build/oracle/sanitizer/frozen/Maven offline logs; fast codebase index 170205 nodes",
+      "scope": "authorized local workspace only; no internet or external hosts; static cross-ABI proof primary; local recovered and Unidbg original-SO execution observation-only",
+      "adjustment": "formalized 0xc2b78 with exact JNI/status/ownership C++ and regression, corrected parent 0x1dde0 to two remaining direct unknown helpers, and kept the parent itself unknown until API branching and cleanup are fully recovered"
+    },
+    {
+      "timestamp": "2026-07-15T09:29:32+08:00",
+      "objective": "continue full ARM64 recovery with parent 0x1dde0 direct helper 0xb8830",
+      "source_of_truth": "live source SHA-256 ecd44477 and 336/52 inventory; ARM64 0xb8830 FDE, x86_64 0xadf2e FDE, decoded signatures field constants, JNI vtable and parent call forwarding",
+      "scope": "authorized local workspace only; static cross-ABI proof primary; no internet or external hosts; local observation-only dynamic validation permitted",
+      "adjustment": "confirmed 0xb8830 is the legacy PackageInfo.signatures object-field reader rather than a generic unknown; prove status 3/18/28 and local-ref ownership with a dedicated verifier before editing C++"
+    },
+    {
+      "timestamp": "2026-07-15T09:46:06+08:00",
+      "objective": "audit the exact live native-reimplementation state and synchronize static and isolated offline dynamic verification",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 0621bd960650c6e1c50b240e26a13445b8a7a3bdcbc9582ec3ac14cc7046894a; live 388-FDE inventory at 337 recovered / 51 unknown and JNI 288 / 33; completed 144/144 static analyzer run; offline Maven verification in progress",
+      "scope": "authorized local workspace only; no internet or external hosts; source and evidence audit plus local recovered/original integration tests; no target mutation",
+      "adjustment": "confirmed 0xb8830 is formally recovered and the source has not drifted; next closure target remains 0xba914 PackageManager.getPackageInfo helper, while parent 0x1dde0 must remain unknown until its full API-branching state machine is implemented"
+    },
+    {
+      "timestamp": "2026-07-15T10:08:38+08:00",
+      "objective": "close and fully validate JNI PackageManager.getPackageInfo helper 0xba914 while preserving the complete 388-FDE recovery objective",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 2729ef2e43bd21f44e915bb15bcf2da3b6949897e007ae3b9a37a9de11b844f9; regenerated 388-FDE inventory at 338 recovered / 50 unknown and JNI 289 / 32; 145/145 analyzers; build/oracle, ASan+UBSan, frozen backend and offline Maven recovered/original tests",
+      "scope": "authorized local workspace only; no internet or external hosts; cross-ABI static proof primary; original-SO dynamic evidence observation-only; no target mutation",
+      "adjustment": "closed 0xba914 with exact getPackageInfo constants, flags 0x40 and 0x08000000, status 3/18/35, JNI call ordering and class-ref ownership; every direct FDE callee of parent 0x1dde0 is now recovered, so the next honest target is the parent state machine itself rather than another helper"
+    },
+    {
+      "timestamp": "2026-07-15T10:12:23+08:00",
+      "objective": "continue full ARM64 libsigner.so recovery by implementing certificate-selection parent 0x1dde0",
+      "source_of_truth": "live recovered_primitives.cpp SHA-256 2729ef2e43bd21f44e915bb15bcf2da3b6949897e007ae3b9a37a9de11b844f9; 388-FDE inventory at 338 recovered / 50 unknown and JNI 289 / 32; indexed code graph and cross-ABI parent disassembly",
+      "scope": "authorized local workspace only; static cross-ABI proof primary; isolated observation-only dynamic evidence permitted; no internet or external hosts",
+      "adjustment": "all direct helper FDEs are recovered, so recover the parent as an independent API-dependent ownership state machine; do not infer parent completion from callee completion"
+    },
+    {
+      "timestamp": "2026-07-15T10:33:32+08:00",
+      "objective": "audit the exact live native-reimplementation state, close 0x1dde0 verification and synchronize static plus isolated dynamic evidence",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 c6555c8598a26b74a22eb5261658c52a7b3d726d870384fd3442bd3067fd6807; regenerated 388-FDE inventory at 339 recovered / 49 unknown and JNI 290 / 31; active 146-analyzer run and current build, sanitizer and frozen-backend logs",
+      "scope": "authorized local workspace only; no internet or external hosts; original SO execution limited to local observation-only Unidbg; no target mutation",
+      "adjustment": "source and coverage are current but the four primary progress documents still report 338/50 and the 0x1dde0 evidence markdown is missing; finish analyzer and offline Maven verification before documentation synchronization, then move to 0x1e578"
+    },
+    {
+      "timestamp": "2026-07-15T10:57:45+08:00",
+      "objective": "continue complete ARM64 recovery by decomposing certificate digest parent 0x1e578 and closing its smallest unresolved direct helper",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 f9bb23156bd6eb6cb1f0584361b02695132bb139503d71e4c8fd22ba5accb707; regenerated 388-FDE inventory at 340 recovered / 48 unknown and JNI 291 / 30; 147/147 analyzers; current oracle, ASan+UBSan, frozen backend and offline Maven 21/21 plus 1/1 logs",
+      "scope": "authorized local workspace only; no internet or external hosts; static cross-ABI proof primary; original SO dynamic evidence observation-only; no target mutation",
+      "adjustment": "proved 0x1e578 is a Signature[0] to SHA1 digest stage but kept it unknown because MessageDigest.getInstance and digest helpers remain unresolved; closed only 0xc2248 Signature.toByteArray with shared exact JNI semantics and full validation"
+    },
+    {
+      "timestamp": "2026-07-15T11:05:07+08:00",
+      "objective": "continue complete ARM64 libsigner recovery with MessageDigest.digest helper 0xb0f38",
+      "source_of_truth": "live source SHA-256 f9bb23156bd6eb6cb1f0584361b02695132bb139503d71e4c8fd22ba5accb707; 340/48 inventory; fresh codebase-memory index; ARM64 0xb0f38 and x86_64 0xa9783 disassembly plus original-SO JNI logs",
+      "scope": "authorized local workspace only; no internet or external hosts; static cross-ABI proof primary; original-SO dynamic evidence observation-only",
+      "adjustment": "identified 0xb0f38 as a dual-overload MessageDigest.digest helper: null byte-array input selects digest()()[B, non-null input selects digest([B)[B; recover the exact status and ownership contract before the parent 0x1e578"
+    },
+    {
+      "timestamp": "2026-07-15T11:24:44+08:00",
+      "objective": "audit the exact live native-reimplementation state and continue complete ARM64 recovery with MessageDigest.digest helper 0xb0f38",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 fb0ba6c27b136bfdfad96c39cf6f164514d6d88941faebe33aa4a2fab6aa720e; regenerated 388-FDE inventory at 341 recovered / 47 unknown and JNI 292 / 29; 148/148 analyzers; current oracle, ASan+UBSan, frozen backend and offline Maven 21/21 plus 1/1 logs",
+      "scope": "authorized local workspace only; static cross-ABI proof primary; original SO dynamic evidence observation-only; no internet or external hosts; no target mutation",
+      "adjustment": "closed dual-overload MessageDigest.digest helper 0xb0f38 with exact status and ownership C++, retained parent 0x1e578 as unknown, and set the next dependency to MessageDigest.getInstance SHA1 helper 0xaf438"
+    },
+    {
+      "timestamp": "2026-07-15T11:43:08+08:00",
+      "objective": "continue complete ARM64 recovery by closing MessageDigest.getInstance helper 0xaf438 before parent 0x1e578",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 ff31682aa600ffd7cb461c64451511a60915b233bd81d3f1d9838f0bbad88086; regenerated inventory at 342 recovered / 46 unknown and JNI 293 / 28; dedicated cross-ABI verifier and fresh original-SO observation-only integration test",
+      "scope": "authorized local workspace only; no internet or external hosts; static proof primary; original SO hooks observation-only and do not mutate execution",
+      "adjustment": "NewStringUTF failure is status 27, and fresh dynamic evidence corrected cleanup order to MessageDigest class then algorithm String; proceed to parent 0x1e578 with this ownership order fixed"
+    },
+    {
+      "timestamp": "2026-07-15T12:16:44+08:00",
+      "objective": "continue complete ARM64 libsigner.so recovery after formally closing certificate SHA1 parent 0x1e578",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 c438c64c31521c100d0244d7127a4327e04a15418ecb724469ac6567169c21a8; regenerated 388-FDE inventory at 343 recovered / 45 unknown and JNI 294 / 27; 150/150 analyzers; current build, O2, ASan+UBSan, frozen backend, offline Maven 21/21 plus 1/1 and two observation-only helper tests",
+      "scope": "authorized local workspace only; no internet or external hosts; static cross-ABI proof primary; original SO dynamic evidence local, offline and observation-only; no target mutation",
+      "adjustment": "closed 0x1e578 with exact Signature[0] to SHA1 flow, status 28/20 publication gates and original release/cleanup order; synchronized primary docs and evidence; full 388/388 objective remains active with 27 JNI-reachable unknown"
+    },
+    {
+      "timestamp": "2026-07-15T12:42:59+08:00",
+      "objective": "continue complete ARM64 libsigner.so recovery after certificate SHA1 closure by recovering the first environment probe 0x1f058",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 16bceecdfe303f83a23a6c754c80c529909a596cd785ae0ec3d8c32fe78ceab2; regenerated 388-FDE inventory at 344 recovered / 44 unknown and JNI 295 / 26; 151/151 analyzers; current build, O2, ASan+UBSan, frozen backend, original-SO path observation, Maven recovered retry 21/21 and original 1/1",
+      "scope": "authorized local workspace only; no internet or external hosts; static cross-ABI proof primary; original SO dynamic evidence local, offline and observation-only; no target mutation or rootfs manipulation",
+      "adjustment": "closed 0x1f058 as the four-path QEMU/Genymotion probe with two ordered two-item counter calls and correction-0x01 gate; classified the first recovered Maven run as a libunicorn SIGBUS infrastructure crash after hs_err review and accepted only the isolated 21/21 retry; full 388/388 objective remains active"
+    },
+    {
+      "timestamp": "2026-07-15T16:00:11+08:00",
+      "objective": "continue complete ARM64 libsigner.so recovery by formally closing the VirtualBox DMI file-content probe 0x24860 and synchronizing its static/dynamic evidence",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 97462365db869efc7d2369fa08efea015628f737327d23478ad48b8098e65745; regenerated 388-FDE inventory at 345 recovered / 43 unknown and JNI 296 / 25; 152/152 analyzers; direct original-SO two-record observation; build, O2, ASan+UBSan, frozen backend, original 1/1 and recovered isolated retry 21/21",
+      "scope": "authorized local workspace only; no internet or external hosts; static cross-ABI proof primary; original SO direct call is observation-only; no register, branch, return, target-byte, file-content or rootfs mutation",
+      "adjustment": "closed 0x24860 as two kind-3 VirtualBox/innotek DMI readable-file records with shared incoming uint16 and exact 0x23274 forwarding; retained the boundary that the flattened caller block is excluded by the existing 0xf328 sole-entry natural path proof; classified the first recovered Maven run from hs_err_pid59754 as SIGBUS in libunicorn_java tb_alloc_aarch64+0xd4 with zero tests and accepted only the isolated 21/21 retry; full 388/388 objective remains active"
+    },
+    {
+      "timestamp": "2026-07-15T16:28:26+08:00",
+      "objective": "continue full ARM64 libsigner.so C++ recovery from the live 346/42 inventory, beginning with 0x1709c proc-self-cmdline owned-string reader",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 7a5e394cb21dae986b7c2157973f0a663f6f28f794945a9e5a8fa55a27a88bac; generator SHA-256 ecce4e9fc07f9c3b4b5d80d48178bea2377a67fa88ba20b661f7e496625a7837; live agent cross-ABI analysis and disassembly artifacts",
+      "scope": "authorized local workspace only; static analysis primary; recovered C++ regressions and isolated observation-only original-SO or real-device validation permitted; no internet or external hosts",
+      "adjustment": "keep all runtime facts caller-supplied, including cmdline bytes and operation outcomes; only the proven /proc/self/cmdline path is fixed. Preserve the original negative-read hazard in compatibility modeling while exposing it as a security finding rather than silently inventing host data."
+    },
+    {
+      "timestamp": "2026-07-15T16:34:33+08:00",
+      "objective": "continue complete ARM64 libsigner.so recovery by closing the smallest JNI-reachable unknown 0xb2978 caller-selected String-field reader",
+      "source_of_truth": "recovered_primitives.cpp SHA-256 7a5e394cb21dae986b7c2157973f0a663f6f28f794945a9e5a8fa55a27a88bac; regenerated inventory SHA-256 ff210fa95a631daab10c4f6e93a953d88f98dd2ce7e4204d447a891c24391ef3 at 346 recovered / 42 unknown and JNI 297 / 24; 153/153 analyzers; natural original-SO publicSourceDir observation; build, O2, ASan+UBSan, frozen backend, recovered 21/21 and original 1/1",
+      "scope": "authorized local workspace only; no internet or external hosts; static cross-ABI proof primary; original SO hook is local, offline and observation-only; no register, branch, return, JNI-object, status, path or target-code mutation",
+      "adjustment": "closed 0xb2978 as GetObjectClass -> GetFieldID(callerName, Ljava/lang/String;) -> GetObjectField with statuses 3/18/28, null-result failure, class cleanup, returned String transfer and incoming-status output clearing; natural caller confirmed publicSourceDir and same String handle forwarding to the UTF helper; full 388/388 objective remains active, with 0x1709c next by current JNI-unknown size ordering"
+    },
+    {
+      "timestamp": "2026-07-15T17:16:17+08:00",
+      "objective": "implement a complete non-sensitive libsigner.so C++ compatibility layer with vendor delegation and a deliberately non-production fake backend",
+      "source_of_truth": "user's new explicit safety boundary; current recovered_primitives.cpp SHA-256 abafec344a954689d9ec30953fa6d24c8ddc5c21480d92720371b976e4f336fa; original classes.jar javap descriptors and arm64 exported JNI symbols",
+      "scope": "authorized local workspace only; no internet; static inspection and local compilation/tests; do not recover, compose or expose algorithms that generate Adjust production-valid signatures; do not extract secrets or credentials",
+      "adjustment": "stop the prior 388-FDE production-signature recovery objective. Preserve only interface, JNI/ABI, parameter validation, errors and lifecycle in the new layer; delegate all sensitive signing to the caller-supplied official vendor library, and make fake output structurally explicit and production-ineligible."
+    },
+    {
+      "timestamp": "2026-07-15T17:53:42+08:00",
+      "objective": "finish and verify the non-sensitive libsigner C++ compatibility layer, report recovered_primitives.cpp status, and enforce caller-supplied runtime fields",
+      "source_of_truth": "live native-reimplementation sources and hashes at 2026-07-15 17:52, current planning files, independent code/build reviews",
+      "scope": "authorized local workspace; static analysis primary; isolated real-device or stub dynamic observation allowed only as auxiliary; no internet; no official or recovered production signer execution in this phase",
+      "adjustment": "treat every runtime/device/request field as caller-provided opaque input; do not hardcode, auto-collect host data, synthesize missing values, or fall back to recovered production-signature logic"
+    },
+    {
+      "timestamp": "2026-07-15T17:57:19+08:00",
+      "objective": "deliver the complete C++ libsigner_compat shared-library implementation across host and four Android ABIs",
+      "source_of_truth": "user clarification that the SO should be fully implemented in C++; live C++ sources, CMake tests, javap/readelf evidence, and NDK 24 cross-build outputs",
+      "scope": "complete non-sensitive JNI/ABI compatibility SO; production signing remains exclusively vendor-delegated; no internet and no official or recovered signer execution",
+      "adjustment": "interpret complete SO implementation as complete C++ interface, lifecycle, error, loader, test-backend and four-ABI delivery, not as reimplementation of Adjust production-valid signing algorithms"
+    },
+    {
+      "timestamp": "2026-07-15T18:21:29+08:00",
+      "objective": "finalize verified C++ compatibility SO delivery and report the remaining repository-level recovered path honestly",
+      "source_of_truth": "final safe build exit 0, host CTest 3/3, four Android ABI builds with seven exports and zero forbidden markers, independent 0/0/0 code review, and live Java recovered-backend routing",
+      "scope": "native-reimplementation compatibility layer complete; no execution of official or recovered signer; repository files outside the requested native directory audited read-only",
+      "adjustment": "separate native-layer completion from whole-repository isolation: report NativeLibHelper recovered routing, RecoveredNativeBackend auto-build, and test-recovered-backend.sh as Critical residual gaps rather than claiming the entire repository is safe"
+    },
+    {
+      "timestamp": "2026-07-15T22:20:25+08:00",
+      "objective": "make signer-implementations/02-vendor-jni-bridge physically self-contained and independently compilable",
+      "source_of_truth": "live target directory plus canonical native-reimplementation bridge sources and tests at task start",
+      "scope": "modify only the vendor JNI bridge package (plus required reflection checkpoint); build/test locally; do not execute official or recovered signer",
+      "adjustment": "copy exact bridge/backend/fake/test sources into include/src/tests, make CMake and audits local-only, then verify host tests and Android arm64 build"
+    },
+    {
+      "timestamp": "2026-07-15T22:20:50+08:00",
+      "objective": "make all three signer-implementations directories contain physical source copies and compile independently",
+      "source_of_truth": "user clarification requiring physical source copies, retained build scripts, and attempted successful compilation; live canonical source trees at 2026-07-15",
+      "scope": "local authorized workspace only; no network; no official or recovered signer execution; external toolchains and runtime target artifacts remain caller-supplied inputs",
+      "adjustment": "supersede the earlier thin-wrapper design: each numbered directory must own its C++ or Maven source snapshot and build only from local files; verify with path-dependency scans"
+    },
+    {
+      "timestamp": "2026-07-15T22:21:19+08:00",
+      "objective": "make signer-implementations/03-unidbg-runner a physically self-contained, compilable Maven source package",
+      "source_of_truth": "live unidbg-adjust-runner/pom.xml plus its complete src/main and src/test trees; parent task requires all build scripts to use only the copied local pom/src/target",
+      "scope": "modify the 03-unidbg-runner package only, apart from this required reflection checkpoint; offline build and non-native tests only; do not load or execute the target SO",
+      "adjustment": "copy the full 31-file main and 21-file test source snapshot, localize Maven paths and classpath output, keep the workspace project root only as an explicit runtime artifact input"
+    },
+    {
+      "timestamp": "2026-07-15T22:45:15+08:00",
+      "objective": "remove compilation artifacts from the three self-contained signer implementation packages while preserving all sources and build scripts",
+      "source_of_truth": "user cleanup request and live signer-implementations directory contents immediately before deletion",
+      "scope": "delete only signer-implementations/01 build, 02 build, 03 target and matching compiler/JVM artifacts inside signer-implementations; preserve other project historical artifacts",
+      "adjustment": "constrain destructive cleanup to the newly created three-package tree; verify required physical source layout remains intact and no compiled artifact extensions remain"
+    },
+    {
+      "timestamp": "2026-07-15T22:52:25+08:00",
+      "objective": "verify self-contained Unidbg runner stability with an offline synthetic V4 request",
+      "source_of_truth": "fresh offline Maven build, 46/46 selected tests, three separate-JVM run-one-click executions, parsed result structure and JVM crash-log scan",
+      "scope": "authorized local workspace only; no internet or external hosts; execute only the local ARM64 target with synthetic caller-supplied profile; do not disclose full signature bytes",
+      "adjustment": "current synthetic ARM64 V4 path is deterministic and stable across three isolated JVMs, but this does not prove all V5, device-profile, socket, JNI override or real-device branches are complete"
+    },
+    {
+      "timestamp": "2026-07-15T23:06:50+08:00",
+      "objective": "create and execute a downloader for a self-contained Unidbg Maven offline dependency cache",
+      "source_of_truth": "user explicit download request, local 03-unidbg-runner pom.xml, and fresh Maven online/offline resolution output",
+      "scope": "download only Maven dependencies/plugins into signer-implementations/03-unidbg-runner/dependencies; do not fetch proprietary SO/AAR/cert/device data",
+      "adjustment": "go-offline alone omitted dynamic Surefire/JUnit runtime providers; explicitly fetch surefire-junit-platform 3.2.5 and junit-platform-launcher 1.10.2, then require offline build plus 46 tests before declaring the cache ready"
+    }
+  ]
 }

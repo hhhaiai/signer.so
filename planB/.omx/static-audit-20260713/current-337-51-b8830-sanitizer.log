@@ -1,0 +1,11 @@
+sha=0621bd960650c6e1c50b240e26a13445b8a7a3bdcbc9582ec3ac14cc7046894a
+recovered native primitives: PASS
+AES-256 Pixel first block: 51da6894512660bd1e9809e7c17c3898
+Bionic rand-derived Pixel IV: 3b273362218b186a73e7349775b93f11
+custom-state SHA-256 Pixel field 4: PASS
+source-built Pixel payload: 113 plaintext bytes -> 128 ciphertext bytes
+HMAC-SHA256 Pixel ciphertext tag: 32 bytes
+Pixel native result layout: 16 IV + 128 ciphertext + 32 tag = 176 bytes
+complete source-built Pixel 176-byte signature: PASS
+corrections: 2b=d49d 36=b5d3 25=cacc 05=6ee6
+ASan+UBSan: PASS (LeakSanitizer disabled on macOS)

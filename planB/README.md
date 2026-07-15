@@ -58,13 +58,19 @@ Device/native inputs
 可直接修改已恢复输入：
 
 ```bash
+# 冻结 oracle/回归样本；测试值只有显式启用后才会作为基线
 ./native-reimplementation/build/recovered-primitives \
+  --use-regression-fixture \
   --time-seconds=1760000001
 
 ./native-reimplementation/build/recovered-primitives \
+  --use-regression-fixture \
   --signer-code-trampoline-detected=false
 
+# 普通用户模式：所有运行时字段必须显式提供，不从 Pixel fixture 补值
 ./native-reimplementation/build/recovered-primitives \
+  --time-seconds=0 \
+  --urandom-hex=00000000 \
   --correction-codes=2b,36,25,05 \
   --certificate-sha1=164a86faf30e412b59223a36ccbe0f6e46e40958 \
   --native-plaintext-hex=<hex> \
@@ -74,7 +80,7 @@ Device/native inputs
 完整 CLI、field 0/field 4 公式和未完成边界见
 [`native-reimplementation/README.md`](native-reimplementation/README.md)。当前准确状态是：
 
-- 完整算法核心和十三类原 SO oracle 已闭合，包括 field 0 按 8 个 halfwords 分块扩容的
+- 完整算法核心和十六类原 SO oracle 已闭合，包括 field 0 按 8 个 halfwords 分块扩容的
   192-byte（16 halfwords）与 208-byte（24 halfwords）完整结果；
 - Java/Unidbg normal path、原 API descriptor、`onResume -> sign` 和冻结真机 strict test
   已闭合；
@@ -106,9 +112,13 @@ AES-256-CBC/PKCS#7 与 HMAC-SHA256。
 `algorithm` metadata 的受保护 builder 已定位到 SO `+0x9954c`。API、环境、
 activity kind、client SDK、请求版本、参数数量和多 correction 差分实验均从固定
 静态编码表得到 `algorithm=adj8`；目前没有原 SO oracle 证明第二套最终 envelope。
-新增确定性 native 直调矩阵还证明：API 36 下把 Java HMAC 参数改成
-0/16/31/32/33/64 bytes 或改变内容，原 SO完整结果均不变；API 23→24 的差异是
-新增环境 correction `0x3c`，导致 payload 跨 AES block 扩容，而不是切换最终算法。
+新增成对 native 直调证明：第三个 `byte[]` 不匹配正确 Java HMAC 时统一产生
+correction `0x07`；此前 0/16/31/32/33/64 bytes 与不同内容全部属于同一 failure
+分支，所以结果一致。传入正确 HMAC 会只移除 `0x07`；原始 HMAC bytes 不直接进入
+最终 adj8 payload。此前观察到的 API 23→24
+差异实际来自 `ro.build.version.sdk` 与传入 native 的 Android API 不一致：当前 Unidbg
+resolver 在属性未配置时回退为 `23`，所以 API 23 不产生 `0x3c`、API 24 会产生；这会
+导致 payload 跨 AES block 扩容，但不是切换最终算法。
 完整调用点、27-case 矩阵和证据边界见 `SO_REVERSE_STATUS.md` 的
 “`algorithm=adj8` selection evidence”。
 
@@ -325,14 +335,16 @@ cd /Users/sanbo/Desktop/api/qbdi
   `c++` 在项目目录内自动构建。
 - correction events：`runtime.correctionCodes` 可显式传十六进制字符串数组，例如
   `["2b","36","25","05"]`。未提供时 recovered backend 根据
-  Android API、APK manifest/package、`applicationInfo.publicSourceDir`、APK signer、
+  Android API、`ro.build.version.sdk`、APK manifest/package、
+  `applicationInfo.publicSourceDir`、APK signer、
   `filesystem`、`signerCodeTrampolineDetected` 和 `correction05Enabled` 构造当前已由
   原 SO oracle 证实的 correction 序列。顺序为 `2b,34/09,37/29,38,2a,3c,35,36,25,05`：
   `0x2b` 是成功 `nOnResume` 初始化的固定首事件；`/proc/self/cmdline` 缺失或为空时产生
   `0x34`，非空但首个 NUL 结尾进程名与 runtime packageName 不同时产生 `0x09`；
   maps 找不到当前 package 的 `/base.apk` 行时产生 `0x37`，
   找到但首条路径与 `publicSourceDir` 不同时产生 `0x29`；`publicSourceDir` 不可访问时
-  产生 `0x38`；`androidApi != 36` 时产生 `0x3c`，包括已验证的 API 18/21/22。
+  产生 `0x38`；`ro.build.version.sdk` 按 native `atoi` 解析后的值与 `androidApi`
+  不同时产生 `0x3c`。属性未配置时沿用当前 Unidbg resolver 的 `23` 回退值。
   `0x2a`、`0x35`、
   `0x36`、`0x25`、`0x05` 的含义见下文和 `SO_REVERSE_STATUS.md`。
 - APK certificate correction：当提供 `device.baseApk` 时，recovered backend 会用
@@ -499,7 +511,7 @@ ADJUST_NATIVE_CORRECTION_05_ENABLED=true \
 ## 验证
 
 ```bash
-mvn -f unidbg-adjust-runner/pom.xml clean test package
+./test-full.sh
 ./test-run-all.sh
 ./test-external-structured-api.sh
 ./test-one-click-signer.sh
@@ -509,7 +521,10 @@ mvn -f unidbg-adjust-runner/pom.xml clean test package
 
 Maven runtime classpath 不包含原 AAR 的 `classes.jar`。
 
-测试和脚本默认增加 `-XX:TieredStopAtLevel=1`。这是为了避开旧 JDK 11 C2 与 Unidbg/Unicorn 在 macOS arm64 上已复现的退出阶段 `SIGBUS`；不改变签名算法或 API。
+测试和脚本默认增加 `-XX:TieredStopAtLevel=1`。Unidbg/Unicorn 在 macOS arm64 上仍可能
+在 native 结果返回后的 JVM 退出阶段偶发 `Abort trap: 6`，JDK 11/17 均观察到；这不改变
+签名算法或 API。`test-full.sh` 将每个测试类放入独立 Maven/Surefire fork，只对明确的
+native-crash 日志最多重试两次，并在全部类通过后打包；普通断言失败不会被重试。
 `generate-signer.sh` 在 macOS 已安装 JDK 17 时会优先用它执行 signer；否则回退到
 `java`。可用 `SIGNER_JAVA_BIN=/absolute/path/to/java` 显式选择运行时，不会自动安装 JDK。
 
@@ -533,6 +548,7 @@ signature，不是硬编码最终结果。8 halfwords 对应 113-byte payload/17
 frozen Pixel、time+1、trampoline=false、correction05=false、
 空 `/proc/self/maps`、缺失 `/proc/self/maps`、修改 plaintext、缺失 Java 字段、
 APK/PackageManager 证书不一致、cmdline mismatch `0x09`、cmdline 缺失/空 `0x34`，以及
-九/十七 correction 动态扩容共十三类完整原 SO oracle。
+API 23+ 与 API 18 legacy HMAC mismatch `0x07`、九/十七 correction 动态扩容共
+十六类完整原 SO oracle。
 默认 signer 仍由 Unidbg 执行原 ARM64 `libsigner.so`；可选
 `runtime.backend=recovered` 则完全走该 C++ 源码实现。

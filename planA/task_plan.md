@@ -27,6 +27,7 @@
 | 8. 清理与最终报告 | complete | 根/运行 README、验证记录、规划文件回填、全量验证、明确剩余未知 |
 | 9. 独立工程运行手册 | complete | 面向使用者的首次部署、调用、集成、输出解释和故障排查文档 |
 | 10. Word 操作文档 | complete | 正式 DOCX 操作手册、OOXML/结构审计与 QuickLook 首屏检查；本机缺少 LibreOffice，未完成标准全页渲染 |
+| 11. Adjust Signature SDK 全版本归档 | in_progress | 枚举 GitHub 全部 releases，将每个版本的 Android/iOS/tvOS SDK 资产下载到 `adjust_signature_sdk/`，并核对版本与附件完整性 |
 
 ## 验收标准
 
@@ -90,6 +91,11 @@
 
 ### Phase 10 — Word 操作文档
 **Status:** complete
+
+### Phase 11 — Adjust Signature SDK 全版本归档
+**Status:** in_progress
+
+目标：从 `adjust/adjust_signature_sdk` 的 GitHub Releases 枚举全部版本，下载所有 SDK 发布附件到 `adjust_signature_sdk/`。优先保留 GitHub 原始文件名；通过 release tag、资产名、大小和本地文件计数核对完整性，并记录历史版本中并非固定四个附件的例外。
 
 ## 错误记录
 

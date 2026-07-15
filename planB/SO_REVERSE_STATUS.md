@@ -579,11 +579,26 @@ the original-SO `0x2a` result. Both complete outputs match the recovered C++
 backend byte-for-byte. Unreadable/unsigned APKs remain an explicit
 `runtime.correctionCodes` calibration case rather than being guessed.
 
-### Corrections `0x09`, `0x34`, `0x29`, `0x38`, and `0x3c`
+### Corrections `0x07`, `0x09`, `0x34`, `0x29`, `0x38`, `0x2f`, and `0x3c`
 
 Controlled single-variable original-SO experiments close four additional
 environment events:
 
+- `0x07`: the wrapper call at `0xecc4` appends this event when the byte array
+  passed as the third `nSign(Context,Object,byte[],int)` argument does not equal
+  the Java-layer `HMAC-SHA256(key, params.toString().getBytes(UTF-8))`. For API
+  23+ the key is the AndroidKeyStore `key2` HMAC key. For API 18-22 it is the
+  secret recovered by RSA/PKCS1-decrypting `adjust_keys/encrypted_key`. A paired Pixel
+  profile experiment holds the parameter map, API, package, certificate,
+  filesystem and native runtime fixed: a 32-byte `0x11` array emits `0x07`,
+  while the correctly computed 32-byte HMAC suppresses only `0x07`. Earlier
+  length/content matrices therefore proved that this argument does not feed the
+  final `adj8` envelope, but it does feed an integrity correction. A second API18
+  oracle imports a paired PKCS#8/X.509 RSA key and wrapped secret: invalid input
+  yields `2b,07,3c,36,25,05`, while the correctly computed HMAC removes only
+  `0x07`. The Java recovered backend verifies API23+ directly and API18-22 when
+  the persistent RSA state is supplied in the profile. The C++ suite checks both
+  complete 176-byte oracles.
 - `0x09`: `/proc/self/cmdline` is non-empty, but its first NUL-terminated process
   name differs from the runtime package name. A matching cmdline suppresses it;
   whitespace or another non-empty process name emits it. Earlier package-only
@@ -605,18 +620,30 @@ environment events:
   `sourceDir` or `filesystem.files` removes only `0x38`. The Unidbg IO resolver
   now treats an unprovided publicSourceDir distinct from sourceDir as ENOENT, so
   stale rootfs files from previous runs cannot alter the observation.
-- `0x3c`: the event is present exactly when
-  `androidApi != 36`. It is independent of `targetSdk`. Original-SO probes emit
-  it for API 18/21/22, API 23 through 35, and again for 37/40, but not for 36.
-  The API 18-22 path is now executable on the desktop through SharedPreferences,
-  Android Base64, AndroidKeyStore RSA private-key entry, Cipher and SecretKeySpec
-  JNI emulation; APIs 18, 21 and 22 all produce the same exact original-SO
-  176-byte result for equal downstream observations.
+- `0x2f`: the protected wrapper at `0x14f40` calls helper `0xf18f4` with the
+  static two-path table at `0x145938`. The helper performs `stat()` in order on
+  `/system/lib64/libart.so` and `/system/lib64/ld-android.so`. If either path
+  exists, the helper returns success and no correction is emitted. If both
+  calls fail, it returns failure and the wrapper calls `0x13548c(..., 0x2f)` at
+  `0x1501c`. Controlled original-SO runs for neither path, libart only,
+  ld-android only, and both paths prove this OR-existence rule. The Java
+  recovered backend derives it from `filesystem.files`/`filesystem.missing`,
+  and the standalone C++ suite now checks the complete 176-byte `0x2f` oracle.
+- `0x3c`: the event is present when the native-decimal value of system property
+  `ro.build.version.sdk` differs from the Android API integer passed to `nSign`.
+  It is independent of `targetSdk`. Controlled original-SO pairs prove
+  API36/property36 and API35/property35 omit it, while API36/property35 and
+  API35/property36 emit it. `036`, `+36`, and `36x` all compare as 36, matching
+  the protected routine's `atoi`-style parser. When the property is not supplied,
+  the current Unidbg resolver contributes its SDK-23 fallback: API23 therefore
+  omits `0x3c`, while API24/API36 emit it. Empty or non-numeric configured values
+  parse as zero and emit it for the tested APIs. Evidence is in
+  `.omx/3c-sdk-property-*-matrix.{json,log}`.
 
 The observed combined ordering is:
 
 ```text
-2b, 34-or-09, 37-or-29, 38, 2a, 3c, 35, 36, 25, 05
+2b, 07, 34-or-09, 37-or-29, 38, 2a, 2f, 3c, 35, 36, 25, 05
 ```
 
 `0x34`/`0x09` and `0x37`/`0x29` are mutually exclusive pairs in the recovered model. Other entries
@@ -737,9 +764,10 @@ and changing its byte value from `0x11` to `0x22`, produces the exact same
 ```
 
 Thus the reached native `adj8` path does not select a final cipher from the
-length or content of the Java-produced HMAC byte array. API is observable,
-but the newly isolated API 23/24 boundary changes the environment correction
-vector rather than the final envelope:
+length or content of the Java-produced HMAC byte array. API and the observed
+`ro.build.version.sdk` property are compared. The earlier sparse API 23/24
+matrix left that property unspecified, so Unidbg's SDK-23 fallback changes the
+environment correction vector rather than the final envelope:
 
 ```text
 API 23 corrections: 2b,07,34,37,38,2f,36,05
@@ -749,7 +777,7 @@ API 23 -> 176 bytes, algorithm=adj8
 API 24 -> 192 bytes, algorithm=adj8
 ```
 
-The added `0x3c` makes field 0 cross the 8-halfword capacity boundary, so the
+The API24/property23 mismatch adds `0x3c` and makes field 0 cross the 8-halfword capacity boundary, so the
 plaintext/ciphertext grows by one AES block. This is dynamic input selection
 inside the same recovered `custom SHA-256 -> AES-256-CBC -> HMAC-SHA256`
 envelope, not evidence of AES-GCM, RSA or another final signer algorithm.

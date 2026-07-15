@@ -1,5 +1,5 @@
 [qbdi-reference] hooks installed
-[qbdi-reference] libsigner.so loaded base=0x7599a28000 size=1339392
+[qbdi-reference] libsigner.so loaded base=0x7597a28000 size=1339392
 [qbdi-reference] import syscall module=/apex/com.android.runtime/lib64/bionic/libc.so address=0x78ced21840 slot=undefined
 [qbdi-reference] import clock_gettime module=/apex/com.android.runtime/lib64/bionic/libc.so address=0x78ced17410 slot=undefined
 [qbdi-reference] import read module=/apex/com.android.runtime/lib64/bionic/libc.so address=0x78ced5f980 slot=undefined
@@ -9,16 +9,16 @@
 [qbdi-reference] import gettimeofday module=/apex/com.android.runtime/lib64/bionic/libc.so address=0x78ced174d0 slot=undefined
 [qbdi-reference] import getpid module=/apex/com.android.runtime/lib64/bionic/libc.so address=0x78cecffd60 slot=undefined
 [qbdi-reference] import getauxval module=/apex/com.android.runtime/lib64/bionic/libc.so address=0x78ced21f60 slot=undefined
-[qbdi-reference] Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume enter thread=11438
+[qbdi-reference] Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume enter thread=31864
 [qbdi-reference] syscall getpid fixed=4242
 [qbdi-reference] access path=/proc/4242/status result=0xffffffffffffffff
-[qbdi-reference] getpid actual=11438 fixed=4242
-[qbdi-reference] timer_create args=0x1,0x7ff868d1f0,0x7599b6eb28,0x95de285d491e8ca0 result=0
-[qbdi-reference] timer_settime args=0xb40000769c19d6d0,0x0,0x7ff868d190,0x0 result=0
+[qbdi-reference] getpid actual=31864 fixed=4242
+[qbdi-reference] timer_create args=0x1,0x7ff868d1f0,0x7597b6eb28,0x95de285d491e8ca0 result=0
+[qbdi-reference] timer_settime args=0xb40000769c154690,0x0,0x7ff868d190,0x0 result=0
 [qbdi-reference] Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume leave result=0x0
-[qbdi-reference] NativeLibHelper.nSign enter thread=11438
+[qbdi-reference] NativeLibHelper.nSign enter thread=31864
 [qbdi-reference] nSign-input-native bytes=62876b08dac9ca39bd9d4761388f59ac65fb36a1b539d7f5fff140ef19fcbf5f
-[qbdi-reference] Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume enter thread=11438
+[qbdi-reference] Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume enter thread=31864
 [qbdi-reference] Java_com_adjust_sdk_sig_NativeLibHelper_nOnResume leave result=0x9968646d3b15f4ff
 [qbdi-reference] clock_gettime clock=0 fixed=1760000000.123000000
 [qbdi-reference] read fd=114 requested=24 result=24 bytes=747a64617461323032356200000000180000795c00063cb5
@@ -30,16 +30,14 @@
 [qbdi-reference] syscall openat /dev/urandom fd=114
 [qbdi-reference] read fd=114 /dev/urandom fixed=0001020304050607
 [qbdi-reference] clock_gettime clock=7 fixed=1760000000.123000000
-[qbdi-reference] clock_gettime clock=-91506 fixed=1760000000.123000000
-[qbdi-reference] clock_gettime clock=-91506 fixed=1760000000.123000000
-[qbdi-reference] clock_gettime clock=-91506 fixed=1760000000.123000000
-[qbdi-reference] clock_gettime clock=-91506 fixed=1760000000.123000000
-[qbdi-reference] syscall number=178 result=0x2cae
+[qbdi-reference] clock_gettime clock=-254914 fixed=1760000000.123000000
+[qbdi-reference] clock_gettime clock=-254914 fixed=1760000000.123000000
+[qbdi-reference] clock_gettime clock=-254914 fixed=1760000000.123000000
+[qbdi-reference] clock_gettime clock=-254914 fixed=1760000000.123000000
 [qbdi-reference] syscall number=113 result=0x0
 [qbdi-reference] access path=/proc/net/tcp result=0xffffffffffffffff
 [qbdi-reference] access path=/dev/__properties__/property_info result=0x0
 [qbdi-reference] syscall number=56 result=0x72
-[qbdi-reference] syscall number=178 result=0x2cae
 [qbdi-reference] access path=/dev/__properties__/u:object_r:bootloader_boot_reason_prop:s0 result=0xffffffffffffffff
 [qbdi-reference] access path=/dev/__properties__/u:object_r:build_odm_prop:s0 result=0x0
 [qbdi-reference] __system_property_get ro.product.manufacturer=Google
@@ -238,12 +236,11 @@
 [qbdi-reference] clock_gettime clock=1 fixed=1760000000.123000000
 [qbdi-reference] clock_gettime clock=7 fixed=1760000000.123000000
 [qbdi-reference] clock_gettime clock=7 fixed=1760000000.123000000
-[qbdi-reference] syscall number=98 result=0xffffffffffffffff
-[qbdi-reference] clock_gettime clock=-91506 fixed=1760000000.123000000
-[qbdi-reference] clock_gettime clock=-91506 fixed=1760000000.123000000
+[qbdi-reference] clock_gettime clock=-254914 fixed=1760000000.123000000
+[qbdi-reference] clock_gettime clock=-254914 fixed=1760000000.123000000
 [qbdi-reference] clock_gettime clock=7 fixed=1760000000.123000000
-[qbdi-reference] clock_gettime clock=-91506 fixed=1760000000.123000000
-[qbdi-reference] clock_gettime clock=-91506 fixed=1760000000.123000000
+[qbdi-reference] clock_gettime clock=-254914 fixed=1760000000.123000000
+[qbdi-reference] clock_gettime clock=-254914 fixed=1760000000.123000000
 [qbdi-reference] clock_gettime clock=7 fixed=1760000000.123000000
 [qbdi-reference] access path=/proc/self/cmdline result=0x0
 [qbdi-reference] syscall number=56 result=0x72
@@ -342,6 +339,25 @@
 [qbdi-reference] connect fd=117 address=unix:/dev/socket/fwmarkd result=0
 [qbdi-reference] recvfrom fd=117 requested=4 result=4 bytes=00000000
 [qbdi-reference] connect fd=115 address=inet:127.0.0.1:27042 forced=ECONNREFUSED
-[qbdi-reference] time actual=0x6a51a12a fixed=1760000000
+[qbdi-reference] time actual=0x6a55dc99 fixed=1760000000
 [qbdi-reference] srand actual=1760000000 fixed=1760000000
-[qbdi-reference] syscall number=178 result=0x2cae
+[qbdi-reference] plaintext-allocation pointer=0xb40000763c12e390 length=155
+[qbdi-reference] rand=708751583
+[qbdi-reference] rand=286884797
+[qbdi-reference] rand=1500726753
+[qbdi-reference] rand=2029542795
+[qbdi-reference] rand=1992164192
+[qbdi-reference] rand=89733111
+[qbdi-reference] rand=1363640712
+[qbdi-reference] rand=620674713
+[qbdi-reference] syscall getpid fixed=4242
+[qbdi-reference] access path=/proc/4242/status result=0xffffffffffffffff
+[qbdi-reference] set-byte-array-region caller=libsigner.so+0xbd38 length=176 pointer=0xb4000077ec0e2f90 bytes=3b273362218b186a73e7349775b93f1151da6894512660bd1e9809e7c17c3898a2d0c5508f89e6c3022e6c8f7b442797abef7d1d32d8a04d887d2d1bf24b19b1f9ab2e878f79e9e4403f2fbb71ee5609443039c0ce6fc355892096d63e697e9ca2794cf0628c4403e0d6e9e452c356cbf881e5aebd431e2b583b6d923875d3eb9b3b2de520ab291ca72a1f1cd661d6af510d952d14921db3ae61537b5fccc21e45554bf72a6d107816fbbf28ebd8f6f7
+[qbdi-reference] clock_gettime clock=0 fixed=1760000000.123000000
+[qbdi-reference] clock_gettime clock=0 fixed=1760000000.123000000
+[qbdi-reference] getuid=10513
+[qbdi-reference] environment-flags hex=40b3b697750000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[qbdi-reference] plaintext-at-sign-return hex=b243020a000000c010adde48554302000000000600000090554302000000000000000006000000d05543020000000000000000060000001056430200000000000000000600000048564302000000000000000006000000a0564302000000000000000006000000d0564302000000000000000006000000285743020000000000000000060000005857430200000000000000000000000000000000
+[qbdi-reference] NativeLibHelper.nSign leave jobject=0x79050cc36d
+[qbdi-reference] syscall getpid fixed=4242
+[qbdi-reference] access path=/proc/4242/status result=0xffffffffffffffff
